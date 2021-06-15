@@ -549,7 +549,7 @@ namespace Puerts
 #if THREAD_SAFE
             lock(this) {
 #endif
-            var lastTime = timeout + Time.realtimeSinceStartup;
+            var lastTime = Time.realtimeSinceStartup;
             while (!PuertsDLL.InspectorTick(isolate)) {
                 if (timeout > 0 && Time.realtimeSinceStartup >= lastTime) {
 #if UNITY_EDITOR

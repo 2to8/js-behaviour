@@ -2,11 +2,11 @@
 var puerts = require("puerts");
 puerts.registerBuildinModule("path", {
     dirname(path) {
-        console.log("[dirname]",path)
+        //console.log("[dirname]",path)
         return csharp.System.IO.Path.GetDirectoryName(path);
     },
     resolve(dir, url) {
-        console.log("[resolve]",dir,url)
+        //console.log("[resolve]",dir,url)
         url = url.replace(/\\/g, "/");
         while (url.startsWith("../")) {
             dir = csharp.System.IO.Path.GetDirectoryName(dir);
@@ -20,11 +20,11 @@ puerts.registerBuildinModule("path", {
 });
 puerts.registerBuildinModule("fs", {
     existsSync(path) {
-        console.log("[existsSync]",path,csharp.System.IO.File.Exists(path))
+        //console.log("[existsSync]",path,csharp.System.IO.File.Exists(path))
         return csharp.System.IO.File.Exists(path);
     },
     readFileSync(path) {
-        console.log("[readFileSync]", path)
+        //console.log("[readFileSync]", path)
         return csharp.System.IO.File.ReadAllText(path);
     },
 });
