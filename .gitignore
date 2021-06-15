@@ -4,8 +4,9 @@
 /obj
 /Temp
 /Builds
-TsProj/node_modules
+/TsProj/node_modules
 /*.csproj
+/*.csproj.*
 /*.sln
 /*.user
 /.idea
