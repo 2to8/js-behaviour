@@ -1116,6 +1116,12 @@ namespace Puerts.Editor
                     string fileContext = typingRender(ToTypingGenInfo(tsTypes));
                     textWriter.Write(fileContext);
                     textWriter.Flush();
+                    using (StreamWriter textWriterTyping = new StreamWriter(Path.GetDirectoryName(Application.dataPath) + "/Packages/typings/csharp/index.d.ts", false, Encoding.UTF8))
+                    {
+                        //string fileContext = typingRender(ToTypingGenInfo(tsTypes));
+                        textWriterTyping.Write(fileContext);
+                        textWriterTyping.Flush();
+                    }
                 }
             }
         }

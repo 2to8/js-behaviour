@@ -8,7 +8,7 @@ namespace App.Runtime
         private void Awake()
         {
             JsEnvRuntime.Inst.Init();
-            JsEnvRuntime.Inst.JsEnv.Eval("app = require('index');");
+            JsEnvRuntime.Inst.JsEnv.Eval("var app = require('index').default || require('index');");
         }
 
         private void OnDestroy()

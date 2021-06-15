@@ -1,0 +1,27 @@
+diff --git a/node_modules/tslib/CopyrightNotice.txt b/node_modules/tslib/CopyrightNotice.txt
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/LICENSE.txt b/node_modules/tslib/LICENSE.txt
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/README.md b/node_modules/tslib/README.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/modules/index.js b/node_modules/tslib/modules/index.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/tslib.d.ts b/node_modules/tslib/tslib.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/tslib.es6.html b/node_modules/tslib/tslib.es6.html
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/tslib.es6.js b/node_modules/tslib/tslib.es6.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/tslib.html b/node_modules/tslib/tslib.html
+old mode 100644
+new mode 100755
+diff --git a/node_modules/tslib/tslib.js b/node_modules/tslib/tslib.js
+old mode 100644
+new mode 100755

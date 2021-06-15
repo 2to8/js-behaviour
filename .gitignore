@@ -3,10 +3,12 @@
 /Logs
 /obj
 /Temp
-/TsProj/node_modules
+/Builds
+TsProj/node_modules
 /*.csproj
 /*.sln
 /*.user
+/.idea
 !/Assets/Script/App/Runtime/Gen
-/Assets/Script/App/Runtime/Gen/*
+# /Assets/Script/App/Runtime/Gen/*
 !/Assets/Script/App/Runtime/Gen/AutoStaticUsing.cs

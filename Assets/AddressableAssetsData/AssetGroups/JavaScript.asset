@@ -16,7 +16,11 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 62aaebc734db5d644bec0ca92b607309
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 8a3ea2cc8bf9ebb4c98c9af5fe3cb2b1
+    m_Address: Assets/Res/JavaScript/sourcemap.js.txt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e475f1f6e1893ed45ae68f2d91299e30, type: 2}
   m_SchemaSet:

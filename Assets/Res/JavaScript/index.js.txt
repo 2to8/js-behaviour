@@ -18,22 +18,6 @@
     OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
-    /* global Reflect, Promise */
-
-    var extendStatics = function(d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-
-    function __extends(d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    }
 
     function __decorate(decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -45,25 +29,23 @@
     /**
      * 组件接口，回调时机同unity的mono behaviour
      */
-    var Component = /** @class */ (function () {
-        function Component() {
-        }
-        Component.prototype.BindProperty = function (instanceId) {
-            console.log("instanceId = " + instanceId);
+    class Component {
+        BindProperty(instanceId) {
+            console.log(`instanceId = ${instanceId}`);
             this.behaviour = csharp.Base.Runtime.JsBehaviourMgr.Instance.Get(instanceId);
             this.compInfo = this["componentInfo"];
-            for (var propName in this.compInfo.properties) {
-                var propInfo = this.compInfo.properties[propName];
+            for (let propName in this.compInfo.properties) {
+                const propInfo = this.compInfo.properties[propName];
                 this[propInfo.name] = this.GetPropertyValue(propInfo);
             }
-        };
-        Component.prototype.UnbindProperty = function () {
-            for (var propName in this.compInfo.properties) {
-                var propInfo = this.compInfo.properties[propName];
+        }
+        UnbindProperty() {
+            for (let propName in this.compInfo.properties) {
+                const propInfo = this.compInfo.properties[propName];
                 this[propInfo.name] = undefined;
             }
-        };
-        Component.prototype.GetPropertyValue = function (propInfo) {
+        }
+        GetPropertyValue(propInfo) {
             switch (propInfo.type) {
                 case "System.Single":
                     return propInfo.isArray ?
@@ -101,63 +83,60 @@
                     }
                     return undefined;
             }
-        };
-        Component.prototype.ConvertTypedListToArray = function (list) {
-            var array = [];
-            if ((list === null || list === void 0 ? void 0 : list.Data) == null) {
+        }
+        ConvertTypedListToArray(list) {
+            let array = [];
+            if (list?.Data == null) {
                 return array;
             }
-            for (var i = 0; i < (list === null || list === void 0 ? void 0 : list.Data.Count); ++i) {
+            for (let i = 0; i < list?.Data.Count; ++i) {
                 array.push(list.Data.get_Item(i));
             }
             return array;
-        };
-        return Component;
-    }());
+        }
+        compInfo;
+        behaviour;
+    }
 
     /**
      * 组件信息管理
      */
-    var ComponentInfoMgr = /** @class */ (function () {
-        function ComponentInfoMgr() {
-            this.componentClass = {};
-            this.componentInfos = {};
-        }
+    class ComponentInfoMgr {
         /**
          * 获取指定名字的组件信息JSON字符串，名字为空时返回所有组件信息
          * @param componentName 组件名字
          * @returns json格式的组件信息字符串
          */
-        ComponentInfoMgr.prototype.getJsonString = function (componentName) {
+        getJsonString(componentName) {
             if (!componentName) {
                 return JSON.stringify(this.componentInfos);
             }
-            var componentInfo = this.componentInfos[componentName];
+            const componentInfo = this.componentInfos[componentName];
             if (!componentInfo) {
                 return null;
             }
             return JSON.stringify(componentInfo);
-        };
+        }
         /**
          * 获取指定名字的组件信息，名字不能为空
          * @param componentName 组件名
          * @returns 组件信息
          */
-        ComponentInfoMgr.prototype.getComponentInfo = function (componentName) {
+        getComponentInfo(componentName) {
             return this.componentInfos[componentName];
-        };
+        }
         /**
          * 注册组件
          * @param name 组件名字
          * @param cls 组件类
          * @param path 组件在编辑器的inspector面板显示的索引路径
          */
-        ComponentInfoMgr.prototype.registerComponent = function (name, cls, path) {
-            var compInfo = this.componentInfos[name];
+        registerComponent(name, cls, path) {
+            let compInfo = this.componentInfos[name];
             if (!compInfo) {
                 compInfo = {
-                    name: name,
-                    path: path,
+                    name,
+                    path,
                     properties: {}
                 };
                 this.componentInfos[name] = compInfo;
@@ -166,28 +145,29 @@
                 this.componentClass[name] = cls;
             }
             compInfo.path = compInfo.path || path;
-        };
+        }
         /**
          * 向组件中添加组件的属性信息
          * @param component 组件名字
          * @param propInfo 组件信息
          */
-        ComponentInfoMgr.prototype.addPropertyToComponent = function (component, propInfo) {
+        addPropertyToComponent(component, propInfo) {
             this.registerComponent(component);
-            var comp = this.componentInfos[component];
+            const comp = this.componentInfos[component];
             comp.properties[propInfo.name] = propInfo;
-        };
+        }
         /**
          * 查找组件构造函数
          * @param component 组件名
          * @returns 组件构造函数
          */
-        ComponentInfoMgr.prototype.findComponentConstructor = function (component) {
+        findComponentConstructor(component) {
             return this.componentClass[component];
-        };
-        return ComponentInfoMgr;
-    }());
-    var compInfoMgr = new ComponentInfoMgr();
+        }
+        componentClass = {};
+        componentInfos = {};
+    }
+    const compInfoMgr = new ComponentInfoMgr();
 
     /**
      * 组件类修饰器工厂，应用在非静态类上
@@ -202,7 +182,7 @@
     }
     function property(arg) {
         return function (target, propertyKey) {
-            var propInfo = null;
+            let propInfo = null;
             if (typeof arg === 'function') {
                 propInfo = {
                     name: propertyKey,
@@ -218,7 +198,7 @@
                 };
             }
             else {
-                var isArray = Array.isArray(arg.type);
+                const isArray = Array.isArray(arg.type);
                 propInfo = {
                     name: propertyKey,
                     type: isArray ? puerts.$typeof(arg.type[0]).FullName : puerts.$typeof(arg.type).FullName,
@@ -230,168 +210,172 @@
         };
     }
 
-    var ComponentInstMgr = /** @class */ (function () {
-        function ComponentInstMgr() {
-            this.componentIdSeed = 0;
-            this.components = {};
-        }
+    class ComponentInstMgr {
         /**
          * 给定一个组件类名，创建对应的实例
          * @param className 组件类名
          * @returns 返回实例ID
          */
-        ComponentInstMgr.prototype.newComponent = function (className) {
-            var componentCls = compInfoMgr.findComponentConstructor(className);
+        newComponent(className) {
+            const componentCls = compInfoMgr.findComponentConstructor(className);
             if (!componentCls) {
-                console.error("cannot find component constructor " + className + ".");
+                console.error(`cannot find component constructor ${className}.`);
                 return InvalidComponentID;
             }
-            var componentId = ++this.componentIdSeed;
+            const componentId = ++this.componentIdSeed;
             this.components[componentId] = new componentCls();
             return componentId;
-        };
+        }
         /**
          * 删除一个组件实例
          * @param componentId 组件实例ID
          */
-        ComponentInstMgr.prototype.delComponent = function (componentId) {
+        delComponent(componentId) {
             delete this.components[componentId];
-        };
+        }
         /**
          * 获取组件实例上的一个方法名
          * @param componentId 组件实例ID
          * @param methodName 方法名
          * @returns 绑定组件实例后的方法
          */
-        ComponentInstMgr.prototype.getComponentMethod = function (componentId, methodName) {
-            var componentInst = this.components[componentId];
+        getComponentMethod(componentId, methodName) {
+            const componentInst = this.components[componentId];
             if (!componentInst) {
-                console.error("cannot find component with id " + componentId + ".");
+                console.error(`cannot find component with id ${componentId}.`);
                 return undefined;
             }
-            var method = componentInst[methodName];
+            const method = componentInst[methodName];
             if (!method) {
                 return undefined;
             }
             return method.bind(componentInst);
-        };
-        return ComponentInstMgr;
-    }());
-    var InvalidComponentID = -1;
-    var compInstMgr = new ComponentInstMgr;
+        }
+        componentIdSeed = 0;
+        components = {};
+    }
+    const InvalidComponentID = -1;
+    const compInstMgr = new ComponentInstMgr;
 
     /**
      * 使用component修饰器定义TestBehaviour为Js组件
      */
-    /** @class */ ((function (_super) {
-        __extends(TestBehaviour, _super);
-        function TestBehaviour() {
-            return _super !== null && _super.apply(this, arguments) || this;
+    let TestBehaviour = class TestBehaviour extends Component {
+        /**
+         * 使用property修饰器定义需要在Inspector上显示的属性及其类型
+         */
+        prop1;
+        /**
+         * editable未实现，仅演示功能扩展模式
+         */
+        prop2;
+        /**
+         * 数组的几种定义形式
+         */
+        prop3;
+        prop4;
+        prop5;
+        prop6;
+        prop7;
+        Awake() {
+            // logging_trace_with_error.js
+            let test = {
+                add(x, y) {
+                    console.log(new Error().stack);
+                    return x + y;
+                },
+                calc() {
+                    return this.add(8, 11) + this.add(9, 14);
+                },
+                main() {
+                    this.add(2, 3);
+                    this.calc();
+                },
+            };
+            test.main();
+            console.log('Awake');
+            //console.log(xxx.xxx);
+            console.log(`prop1 = ${this.prop1}`);
+            console.log(`prop2 = ${this.prop2}`);
+            console.log(`prop3 = ${this.prop3}`);
+            console.log(`prop4 = ${this.prop4.length}`);
+            console.log(`prop5 = ${this.prop5}`);
+            console.log(`prop6 = ${this.prop6}`);
+            console.log(`prop7 = {${this.prop7.x}, ${this.prop7.y}, ${this.prop7.z}}`);
         }
-        TestBehaviour.prototype.Awake = function () {
-            console.log("Awake");
-            console.log("prop1 = " + this.prop1);
-            console.log("prop2 = " + this.prop2);
-            console.log("prop3 = " + this.prop3);
-            console.log("prop4 = " + this.prop4.length);
-            console.log("prop5 = " + this.prop5);
-            console.log("prop6 = " + this.prop6);
-            console.log("prop7 = {" + this.prop7.x + ", " + this.prop7.y + ", " + this.prop7.z + "}");
-        };
-        TestBehaviour.prototype.Start = function () {
-            console.log("Start");
-        };
-        TestBehaviour.prototype.OnEnable = function () {
-            console.log("OnEnable");
-        };
-        TestBehaviour.prototype.OnDisable = function () {
-            console.log("OnDisable");
-        };
-        TestBehaviour.prototype.OnDestroy = function () {
-            console.log("OnDestroy");
-        };
-        __decorate([
-            property(csharp.UnityEngine.GameObject)
-        ], TestBehaviour.prototype, "prop1", void 0);
-        __decorate([
-            property({
-                type: csharp.System.Single,
-                editable: true
-            })
-        ], TestBehaviour.prototype, "prop2", void 0);
-        __decorate([
-            property({
-                type: csharp.UnityEngine.GameObject,
-                isArray: true
-            })
-        ], TestBehaviour.prototype, "prop3", void 0);
-        __decorate([
-            property([csharp.UnityEngine.Vector3])
-        ], TestBehaviour.prototype, "prop4", void 0);
-        __decorate([
-            property({
-                type: [csharp.System.UInt32]
-            })
-        ], TestBehaviour.prototype, "prop5", void 0);
-        __decorate([
-            property(csharp.UnityEngine.Camera)
-        ], TestBehaviour.prototype, "prop6", void 0);
-        __decorate([
-            property(csharp.UnityEngine.Vector3)
-        ], TestBehaviour.prototype, "prop7", void 0);
-        TestBehaviour = __decorate([
-            component()
-        ], TestBehaviour);
-        return TestBehaviour;
-    })(Component));
-    /** @class */ ((function () {
-        function UserBehaviour1() {
+        Start() {
+            console.log('Start');
         }
-        UserBehaviour1 = __decorate([
-            component("User")
-        ], UserBehaviour1);
-        return UserBehaviour1;
-    })());
-    /** @class */ ((function () {
-        function UserBehaviour2() {
+        OnEnable() {
+            console.log('OnEnable');
         }
-        UserBehaviour2 = __decorate([
-            component("User")
-        ], UserBehaviour2);
-        return UserBehaviour2;
-    })());
-    /** @class */ ((function () {
-        function UserBehaviour3() {
+        OnDisable() {
+            console.log('OnDisable');
         }
-        UserBehaviour3 = __decorate([
-            component("User")
-        ], UserBehaviour3);
-        return UserBehaviour3;
-    })());
-    /** @class */ ((function () {
-        function SystemBehaviour1() {
+        OnDestroy() {
+            console.log('OnDestroy');
         }
-        SystemBehaviour1 = __decorate([
-            component("System")
-        ], SystemBehaviour1);
-        return SystemBehaviour1;
-    })());
-    /** @class */ ((function () {
-        function SystemBehaviour2() {
-        }
-        SystemBehaviour2 = __decorate([
-            component("System")
-        ], SystemBehaviour2);
-        return SystemBehaviour2;
-    })());
-    /** @class */ ((function () {
-        function SystemBehaviour3() {
-        }
-        SystemBehaviour3 = __decorate([
-            component("System")
-        ], SystemBehaviour3);
-        return SystemBehaviour3;
-    })());
+    };
+    __decorate([
+        property(csharp.UnityEngine.GameObject)
+    ], TestBehaviour.prototype, "prop1", void 0);
+    __decorate([
+        property({
+            type: csharp.System.Single, editable: true,
+        })
+    ], TestBehaviour.prototype, "prop2", void 0);
+    __decorate([
+        property({
+            type: csharp.UnityEngine.GameObject, isArray: true,
+        })
+    ], TestBehaviour.prototype, "prop3", void 0);
+    __decorate([
+        property([csharp.UnityEngine.Vector3])
+    ], TestBehaviour.prototype, "prop4", void 0);
+    __decorate([
+        property({
+            type: [csharp.System.UInt32],
+        })
+    ], TestBehaviour.prototype, "prop5", void 0);
+    __decorate([
+        property(csharp.UnityEngine.Camera)
+    ], TestBehaviour.prototype, "prop6", void 0);
+    __decorate([
+        property(csharp.UnityEngine.Vector3)
+    ], TestBehaviour.prototype, "prop7", void 0);
+    TestBehaviour = __decorate([
+        component()
+    ], TestBehaviour);
+    let UserBehaviour1 = class UserBehaviour1 {
+    };
+    UserBehaviour1 = __decorate([
+        component('User')
+    ], UserBehaviour1);
+    let UserBehaviour2 = class UserBehaviour2 {
+    };
+    UserBehaviour2 = __decorate([
+        component('User')
+    ], UserBehaviour2);
+    let UserBehaviour3 = class UserBehaviour3 {
+    };
+    UserBehaviour3 = __decorate([
+        component('User')
+    ], UserBehaviour3);
+    let SystemBehaviour1 = class SystemBehaviour1 {
+    };
+    SystemBehaviour1 = __decorate([
+        component('System')
+    ], SystemBehaviour1);
+    let SystemBehaviour2 = class SystemBehaviour2 {
+    };
+    SystemBehaviour2 = __decorate([
+        component('System')
+    ], SystemBehaviour2);
+    let SystemBehaviour3 = class SystemBehaviour3 {
+    };
+    SystemBehaviour3 = __decorate([
+        component('System')
+    ], SystemBehaviour3);
 
     exports.InvalidComponentID = InvalidComponentID;
     exports.compInfoMgr = compInfoMgr;
