@@ -1,5 +1,7 @@
-﻿using Puerts;
+﻿using Extensions;
+using Puerts;
 using PuertsStaticWrap;
+using UnityEngine;
 
 namespace Base.Runtime
 {
@@ -14,8 +16,8 @@ namespace Base.Runtime
             JsEnv = new JsEnv(new JsLoaderRuntime(), debugPort);
             JsEnv.AutoUsing();
             JsEnv.Eval(@"require('sourcemap')");
-            if (useDebug && debugPort != -1) {
-                JsEnv.WaitDebugger(5);
+            if (useDebug && debugPort != -1 && Application.isEditor) {
+                JsEnv.WaitDebuggerTimeout(5);
             }
         }
 
@@ -27,7 +29,7 @@ namespace Base.Runtime
 
         public void Update()
         {
-            JsEnv.Tick();
+            JsEnv?.Tick();
         }
     }
 }

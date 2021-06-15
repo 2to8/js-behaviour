@@ -17,20 +17,20 @@ namespace Base.Runtime
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
                 debugPath = debugPath.Replace('/', '\\');
 #endif
-                Debug.Log(debugPath);
+                //Debug.Log(debugPath);
                 var asset = Resources.Load<TextAsset>(filePath);
                 if (!asset) {
-                    Debug.LogError($"JsEnvRuntime, file not found:{filePath}");
+                    Debug.LogError($"JsEnvRuntime, file not found: {filePath}\n{debugPath}");
                 }
 
                 return asset.text;
             }
 
-            Debug.Log(debugPath);
+            //Debug.Log(debugPath);
             var operation = Addressables.LoadAssetAsync<TextAsset>($"{appJsPath}/{filePath}.txt");
             operation.WaitForCompletion();
             if (!operation.Result) {
-                Debug.LogError($"JsEnvRuntime, file not found:{filePath}");
+                Debug.LogError($"JsEnvRuntime, file not found: {filePath}\n{debugPath}");
             }
 
             return operation.Result.text;

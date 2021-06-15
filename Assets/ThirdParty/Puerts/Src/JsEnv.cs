@@ -544,23 +544,13 @@ namespace Puerts
 #endif
         }
 
-        public void WaitDebugger(int timeout = 0)
+        public void WaitDebugger()
         {
 #if THREAD_SAFE
             lock(this) {
 #endif
-            var lastTime = Time.realtimeSinceStartup;
             while (!PuertsDLL.InspectorTick(isolate)) {
-                if (timeout > 0 && Time.realtimeSinceStartup >= lastTime) {
-#if UNITY_EDITOR
-                    var check = EditorUtility.DisplayDialog("Debug", $"等待 {timeout} 秒", $"等待{timeout}秒", "取消调试");
-                    if (check) {
-                        lastTime = timeout + Time.realtimeSinceStartup;
-                        continue;
-                    }
-#endif
-                    break;
-                }
+                
             }
 #if THREAD_SAFE
             }
