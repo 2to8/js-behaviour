@@ -1,11 +1,9 @@
 ﻿namespace Base.Runtime
 {
-    public class Singleton<T> where T : class, new()
+    [System.Serializable]
+    public class Singleton<T> where T : Singleton<T>, new()
     {
-        protected Singleton()
-        {
-        }
-
+        protected Singleton() { }
         public static T Inst { get; } = new T();
     }
 }

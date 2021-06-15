@@ -7,6 +7,8 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
 #if CSHARP_7_3_OR_NEWER
 using System.Threading.Tasks;
 #endif
@@ -542,12 +544,24 @@ namespace Puerts
 #endif
         }
 
-        public void WaitDebugger()
+        public void WaitDebugger(int timeout = 0)
         {
 #if THREAD_SAFE
             lock(this) {
 #endif
-            while (!PuertsDLL.InspectorTick(isolate)) { }
+            var lastTime = timeout + Time.realtimeSinceStartup;
+            while (!PuertsDLL.InspectorTick(isolate)) {
+                if (timeout > 0 && Time.realtimeSinceStartup >= lastTime) {
+#if UNITY_EDITOR
+                    var check = EditorUtility.DisplayDialog("Debug", $"等待 {timeout} 秒", $"等待{timeout}秒", "取消调试");
+                    if (check) {
+                        lastTime = timeout + Time.realtimeSinceStartup;
+                        continue;
+                    }
+#endif
+                    break;
+                }
+            }
 #if THREAD_SAFE
             }
 #endif
