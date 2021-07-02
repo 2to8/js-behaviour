@@ -292,6 +292,11 @@
                     this.calc();
                 },
             };
+            global.testScript = (mb) => {
+                mb.script = this;
+                console.log("test hello");
+                mb.script.SayHello();
+            };
             test.main();
             console.log('Awake');
             //console.log(xxx.xxx);
@@ -305,6 +310,9 @@
         }
         Start() {
             console.log('Start');
+        }
+        SayHello() {
+            console.log("Hello, not bad!");
         }
         OnEnable() {
             console.log('OnEnable');

@@ -7,6 +7,7 @@
         "watch": "npx rollup --watch -c"
     },
     "dependencies": {
+        "@types/node": "^15.14.0",
         "async": "^3.2.0",
         "source-map-support": "^0.5.19"
     },

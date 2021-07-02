@@ -80,7 +80,7 @@ namespace App.Editor
                         if (type.Namespace == null || type.Name == null) continue;
                         if (registered.ContainsKey(type.Namespace) && registered[type.Namespace].Contains(type.Name))
                             continue; // 忽略重复的类
-                        bool accept = namespaces.Contains(type.Namespace);
+                        bool accept = namespaces.Contains(type.Namespace) || assembly.GetName().Name == "Assembly-CSharp";
                         if (accept && ignored.ContainsKey(type.Namespace) &&
                             ignored[type.Namespace].Contains(type.Name)) continue;
                         if (accept)
@@ -261,6 +261,6 @@ namespace App.Editor
         }
 
         [CodeOutputDirectoryAttribute]
-        static string CodeOutputPath => UnityEngine.Application.dataPath + "/Script/App/Runtime/Gen/";
+        static string CodeOutputPath => UnityEngine.Application.dataPath + "/Scripts/App/Runtime/Gen/";
     }
 }

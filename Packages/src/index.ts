@@ -1,6 +1,7 @@
-import { System, UnityEngine } from 'csharp';
+import { Sandbox, System, UnityEngine } from 'csharp';
 import { Component } from './component/component-base';
 import { component, property } from './component/component-decoration';
+import TestScript = Sandbox.TestScript;
 
 export * from './component/component-info-mgr';
 export * from './component/component-inst-mgr';
@@ -54,9 +55,16 @@ class TestBehaviour extends Component {
                 let y = this.calc();
             },
         }
+    
+        global.testScript = (mb: TestScript) => {
+            mb.script = this as any;
+            console.log("test hello");
+            (mb.script as unknown as TestBehaviour).SayHello();
+        }
         
         test.main();
         console.log('Awake');
+        
         //console.log(xxx.xxx);
         console.log(`prop1 = ${ this.prop1 }`);
         console.log(`prop2 = ${ this.prop2 }`);
@@ -69,6 +77,11 @@ class TestBehaviour extends Component {
     
     public Start() {
         console.log('Start');
+  
+    }
+    
+    public SayHello(){
+        console.log("Hello, not bad!")
     }
     
     public OnEnable() {

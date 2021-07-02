@@ -16,6 +16,7 @@
             "ESNext"
         ],
         "typeRoots": [
+            "node_modules/@types",
             "typings"
         ],
         "allowJs": false,
@@ -34,6 +35,7 @@
         "esModuleInterop": true
     },
     "include": [
+        "node_modules/@types/**/*",
         "src/**/*",
         "typings/**/*"
     ],
