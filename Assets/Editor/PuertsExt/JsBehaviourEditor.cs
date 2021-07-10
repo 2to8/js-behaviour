@@ -5,7 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Base.Editor
+namespace PuertsExt
 {
     [CustomEditor(typeof(JsBehaviour))]
     public partial class JsBehaviourEditor : UnityEditor.Editor
@@ -17,7 +17,7 @@ namespace Base.Editor
             {
                 return;
             }
-            jsEnvEditor = new JsEnvEditor();
+            jsEnvEditor = new JsEnvEditor.JsEnvEditor();
             componentInfo = jsEnvEditor.GetJsComponentInfo(jsBehaviour.JsComponentName);
             EditorApplication.update += Update;
         }
@@ -87,7 +87,7 @@ namespace Base.Editor
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
 
-        private JsEnvEditor jsEnvEditor;
+        private JsEnvEditor.JsEnvEditor jsEnvEditor;
         private JsBehaviour jsBehaviour;
         private ComponentInfo componentInfo;
         private readonly Dictionary<string, bool> showArrayStatus = new Dictionary<string, bool>();

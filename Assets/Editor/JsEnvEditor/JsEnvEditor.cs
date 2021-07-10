@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Puerts;
 using UnityEngine;
 
-namespace Base.Editor
+namespace JsEnvEditor
 {
     public class JsEnvEditor : IDisposable
     {

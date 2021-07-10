@@ -30,8 +30,9 @@
     var Debug$1 = csharp.UnityEngine.Debug;
     class TestBind extends TestCs2Ts$1 {
         test2() {
-            Debug$1.Log(this.num + " = test3");
-            this.num = 111;
+            Debug$1.Log(this.num + " = test6");
+            this.num = 100;
+            //
         }
     }
 
@@ -284,8 +285,8 @@
     }
     //TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
     global.testBind = (obj) => {
-        Debug.Log('test bind 4');
-        //Debug.Log(obj.num);
+        Debug.Log('test bind 5');
+        Debug.Log(obj.num);
         obj.num = 5;
         obj.test2();
     };

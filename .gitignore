@@ -13,3 +13,4 @@
 !/Assets/Script/App/Runtime/Gen
 # /Assets/Script/App/Runtime/Gen/*
 !/Assets/Script/App/Runtime/Gen/AutoStaticUsing.cs
+.cache/

@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Base.Editor
+namespace PuertsExt
 {
     public partial class JsBehaviourEditor : UnityEditor.Editor
     {

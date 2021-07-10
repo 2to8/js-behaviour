@@ -4,7 +4,8 @@ import Debug = UnityEngine.Debug;
 
 export default class TestBind extends TestCs2Ts {
     public test2() {
-        Debug.Log(this.num + " = test3")
-        this.num = 111;
+        Debug.Log(this.num + " = test6")
+        this.num = 100;
+        //
     }
 }

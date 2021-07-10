@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using App.Runtime;
 using Puerts;
 using Sirenix.Utilities;
 using Unity.Assertions;
@@ -36,6 +37,9 @@ namespace Sandbox
                 Debug.Log("jsglobal not loaded");
                 EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
             }
+
+            Main.js.ClearModuleCache();
+            Main.js.Eval("require('index')");
 //            }
         }
     }

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Base.Editor
+namespace JsEnvEditor
 {
     public class JsLoaderEditor : ILoader
     {

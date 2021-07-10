@@ -4,7 +4,7 @@ using Base.Runtime;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-namespace Base.Editor
+namespace PuertsExt
 {
     public class SelectJsComponentDropdown: AdvancedDropdown
     {

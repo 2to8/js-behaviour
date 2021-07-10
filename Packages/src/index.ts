@@ -30,8 +30,8 @@ for (var i in p) {
 //TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
 
 global.testBind = (obj: TestBind) => {
-    Debug.Log('test bind 4');
-    //Debug.Log(obj.num);
+    Debug.Log('test bind 5');
+    Debug.Log(obj.num);
     obj.num = 5;
     obj.test2();
 }
