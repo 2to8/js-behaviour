@@ -30,7 +30,7 @@
     var Debug$1 = csharp.UnityEngine.Debug;
     class TestBind extends TestCs2Ts$1 {
         test2() {
-            Debug$1.Log(this.num + " = test6");
+            Debug$1.Log(this.num + " = test7..");
             this.num = 100;
             //
         }
