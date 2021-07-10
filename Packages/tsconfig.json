@@ -22,8 +22,8 @@
         "allowJs": false,
         "baseUrl": "src",
         "paths": {
-            "@/*": [
-                "/*"
+            "*": [
+                "*"
             ],
             "csharp": [
                 "../typings/csharp"

@@ -5,6 +5,13 @@
         value: T
     }
     
+export namespace Sandbox {
+    interface TestCs2Ts {
+        test2(): void;
+    }
+}
+    
+    
     export namespace System {
         interface Array$1<T> extends System.Array {
             get_Item(index: number):T;
@@ -1163,8 +1170,6 @@
             GetRuntimeField($name: string):System.Reflection.FieldInfo;
             
             GetTypeInfo():System.Reflection.TypeInfo;
-            
-            GetFriendlyName():string;
             
         }
         
@@ -11631,6 +11636,141 @@
             public set flags(value: UnityEngine.AI.NavMeshBuildDebugFlags);
             
         }
+        
+        class NavMeshSurface extends UnityEngine.MonoBehaviour {
+            
+            public get agentTypeID(): number;
+            public set agentTypeID(value: number);
+            
+            public get collectObjects(): UnityEngine.AI.CollectObjects;
+            public set collectObjects(value: UnityEngine.AI.CollectObjects);
+            
+            public get size(): UnityEngine.Vector3;
+            public set size(value: UnityEngine.Vector3);
+            
+            public get center(): UnityEngine.Vector3;
+            public set center(value: UnityEngine.Vector3);
+            
+            public get layerMask(): UnityEngine.LayerMask;
+            public set layerMask(value: UnityEngine.LayerMask);
+            
+            public get useGeometry(): UnityEngine.AI.NavMeshCollectGeometry;
+            public set useGeometry(value: UnityEngine.AI.NavMeshCollectGeometry);
+            
+            public get defaultArea(): number;
+            public set defaultArea(value: number);
+            
+            public get ignoreNavMeshAgent(): boolean;
+            public set ignoreNavMeshAgent(value: boolean);
+            
+            public get ignoreNavMeshObstacle(): boolean;
+            public set ignoreNavMeshObstacle(value: boolean);
+            
+            public get overrideTileSize(): boolean;
+            public set overrideTileSize(value: boolean);
+            
+            public get tileSize(): number;
+            public set tileSize(value: number);
+            
+            public get overrideVoxelSize(): boolean;
+            public set overrideVoxelSize(value: boolean);
+            
+            public get voxelSize(): number;
+            public set voxelSize(value: number);
+            
+            public get buildHeightMesh(): boolean;
+            public set buildHeightMesh(value: boolean);
+            
+            public get navMeshData(): UnityEngine.AI.NavMeshData;
+            public set navMeshData(value: UnityEngine.AI.NavMeshData);
+            
+            public static get activeSurfaces(): System.Collections.Generic.List$1<UnityEngine.AI.NavMeshSurface>;
+            
+            public constructor();
+            
+            public AddData():void;
+            
+            public RemoveData():void;
+            
+            public GetBuildSettings():UnityEngine.AI.NavMeshBuildSettings;
+            
+            public BuildNavMesh():void;
+            
+            public UpdateNavMesh($data: UnityEngine.AI.NavMeshData):UnityEngine.AsyncOperation;
+            
+        }
+        
+        class NavMeshLink extends UnityEngine.MonoBehaviour {
+            
+            public get agentTypeID(): number;
+            public set agentTypeID(value: number);
+            
+            public get startPoint(): UnityEngine.Vector3;
+            public set startPoint(value: UnityEngine.Vector3);
+            
+            public get endPoint(): UnityEngine.Vector3;
+            public set endPoint(value: UnityEngine.Vector3);
+            
+            public get width(): number;
+            public set width(value: number);
+            
+            public get costModifier(): number;
+            public set costModifier(value: number);
+            
+            public get bidirectional(): boolean;
+            public set bidirectional(value: boolean);
+            
+            public get autoUpdate(): boolean;
+            public set autoUpdate(value: boolean);
+            
+            public get area(): number;
+            public set area(value: number);
+            
+            public constructor();
+            
+            public UpdateLink():void;
+            
+        }
+        
+        class NavMeshModifier extends UnityEngine.MonoBehaviour {
+            
+            public get overrideArea(): boolean;
+            public set overrideArea(value: boolean);
+            
+            public get area(): number;
+            public set area(value: number);
+            
+            public get ignoreFromBuild(): boolean;
+            public set ignoreFromBuild(value: boolean);
+            
+            public static get activeModifiers(): System.Collections.Generic.List$1<UnityEngine.AI.NavMeshModifier>;
+            
+            public constructor();
+            
+            public AffectsAgentType($agentTypeID: number):boolean;
+            
+        }
+        
+        class NavMeshModifierVolume extends UnityEngine.MonoBehaviour {
+            
+            public get size(): UnityEngine.Vector3;
+            public set size(value: UnityEngine.Vector3);
+            
+            public get center(): UnityEngine.Vector3;
+            public set center(value: UnityEngine.Vector3);
+            
+            public get area(): number;
+            public set area(value: number);
+            
+            public static get activeModifiers(): System.Collections.Generic.List$1<UnityEngine.AI.NavMeshModifierVolume>;
+            
+            public constructor();
+            
+            public AffectsAgentType($agentTypeID: number):boolean;
+            
+        }
+        
+        enum CollectObjects { All = 0, Volume = 1, Children = 2 }
         
     }
     export namespace UnityEngine {
@@ -36681,6 +36821,18 @@
         class PlayableGraph extends System.ValueType {
             
         }
+        /** Instantiates a PlayableAsset and controls playback of Playable objects. */
+        class PlayableDirector extends UnityEngine.Behaviour {
+            
+        }
+        /** Playables are customizable runtime objects that can be connected together and are contained in a PlayableGraph to create complex behaviours. */
+        class Playable extends System.ValueType {
+            
+        }
+        
+        interface INotification {
+            
+        }
         
     }
     export namespace UnityEngine.Animations {
@@ -36791,6 +36943,8 @@
         type UnityAction$2<T0,T1> = (arg0: T0, arg1: T1) => void;
         
         type UnityAction$1<T0> = (arg0: T0) => void;
+        
+        type UnityAction$3<T0,T1,T2> = (arg0: T0, arg1: T1, arg2: T2) => void;
         
         class UnityEvent$1<T0> extends UnityEngine.Events.UnityEventBase {
             
@@ -56121,1297 +56275,1277 @@
         }
         
     }
-    export namespace Puerts {
+    export namespace Sirenix.OdinInspector.Demos {
         
-        class ArgumentHelper extends System.ValueType {
+        class AttributeProcessorForListItemsExample extends UnityEngine.MonoBehaviour {
             
-            public constructor($jsEnvIdx: number, $isolate: System.IntPtr, $info: System.IntPtr, $index: number);
+            public NonListed: Sirenix.OdinInspector.Demos.ListedMinion;
             
-            public IsMatch($expectJsType: Puerts.JsValueType, $expectCsType: System.Type, $isByRef: boolean, $isOut: boolean):boolean;
-            
-            public GetChar($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetSByte($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetByte($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetInt16($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetUInt16($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetInt32($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetUInt32($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetInt64($isByRef: boolean):bigint;
-            
-            public SetByRefValue($val: bigint):void;
-            
-            public GetUInt64($isByRef: boolean):bigint;
-            
-            public SetByRefValue($val: bigint):void;
-            
-            public GetDouble($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetFloat($isByRef: boolean):number;
-            
-            public SetByRefValue($val: number):void;
-            
-            public GetBoolean($isByRef: boolean):boolean;
-            
-            public SetByRefValue($val: boolean):void;
-            
-            public GetString($isByRef: boolean):string;
-            
-            public SetByRefValue($val: string):void;
-            
-            public GetDateTime($isByRef: boolean):Date;
-            
-            public SetByRefValue($val: Date):void;
+            public ListedMinions: System.Collections.Generic.List$1<Sirenix.OdinInspector.Demos.ListedMinion>;
             
             public constructor();
             
         }
         
-        enum JsValueType { NullOrUndefined = 1, BigInt = 2, Number = 4, String = 8, Boolean = 16, NativeObject = 32, JsObject = 64, Array = 128, Function = 256, Date = 512, ArrayBuffer = 1024, Unknow = 2048, Any = 1983 }
-        
-        class ResultHelper extends System.ValueType {
-            
-        }
-        
-        type GeneralGetter = (isolate: System.IntPtr, getValueApi: Puerts.IGetValueFromJs, value: System.IntPtr, isByRef: boolean) => any;
-        var GeneralGetter: {new (func: (isolate: System.IntPtr, getValueApi: Puerts.IGetValueFromJs, value: System.IntPtr, isByRef: boolean) => any): GeneralGetter;}
-        
-        interface IGetValueFromJs {
-            
-            GetJsValueType($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):Puerts.JsValueType;
-            
-            GetNumber($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            GetDate($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            GetString($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):string;
-            
-            GetBoolean($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):boolean;
-            
-            GetBigInt($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):bigint;
-            
-            GetNativeObject($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            GetTypeId($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            GetJSObject($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            GetFunction($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            GetArrayBuffer($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):ArrayBuffer;
-            
-        }
-        
-        class GeneralGetterManager extends System.Object {
-            
-            public GetTranslateFunc($type: System.Type):Puerts.GeneralGetter;
-            
-            public RegisterGetter($type: System.Type, $generalGetter: Puerts.GeneralGetter):void;
-            
-            public GetSelf($Self: System.IntPtr):any;
-            
-            public static GetJsTypeMask($type: System.Type):Puerts.JsValueType;
-            
-        }
-        
-        type GeneralSetter = (isolate: System.IntPtr, setValueApi: Puerts.ISetValueToJs, holder: System.IntPtr, obj: any) => void;
-        var GeneralSetter: {new (func: (isolate: System.IntPtr, setValueApi: Puerts.ISetValueToJs, holder: System.IntPtr, obj: any) => void): GeneralSetter;}
-        
-        interface ISetValueToJs {
-            
-            SetNativeObject($isolate: System.IntPtr, $holder: System.IntPtr, $classID: number, $self: System.IntPtr):void;
-            
-            SetJSObject($isolate: System.IntPtr, $holder: System.IntPtr, $JSObject: System.IntPtr):void;
-            
-            SetFunction($isolate: System.IntPtr, $holder: System.IntPtr, $JSFunction: System.IntPtr):void;
-            
-            SetNumber($isolate: System.IntPtr, $holder: System.IntPtr, $number: number):void;
-            
-            SetString($isolate: System.IntPtr, $holder: System.IntPtr, $str: string):void;
-            
-            SetBigInt($isolate: System.IntPtr, $holder: System.IntPtr, $number: bigint):void;
-            
-            SetBoolean($isolate: System.IntPtr, $holder: System.IntPtr, $b: boolean):void;
-            
-            SetDate($isolate: System.IntPtr, $holder: System.IntPtr, $date: number):void;
-            
-            SetNull($isolate: System.IntPtr, $holder: System.IntPtr):void;
-            
-            SetArrayBuffer($isolate: System.IntPtr, $holder: System.IntPtr, $arrayBuffer: ArrayBuffer):void;
-            
-        }
-        
-        class GeneralSetterManager extends System.Object {
-            
-            public constructor($jsEnv: Puerts.JsEnv);
-            
-            public GetTranslateFunc($type: System.Type):Puerts.GeneralSetter;
-            
-            public RegisterSetter($type: System.Type, $generalSetter: Puerts.GeneralSetter):void;
-            
-            public constructor();
-            
-        }
-        
-        class JsEnv extends System.Object {
-            
-            public static jsEnvs: System.Collections.Generic.List$1<Puerts.JsEnv>;
-            
-            public get Index(): number;
-            
-            public constructor();
-            
-            public constructor($loader: Puerts.ILoader, $debugPort?: number);
-            
-            public constructor($loader: Puerts.ILoader, $externalRuntime: System.IntPtr, $externalContext: System.IntPtr);
-            
-            public constructor($loader: Puerts.ILoader, $debugPort: number, $externalRuntime: System.IntPtr, $externalContext: System.IntPtr);
-            
-            public Eval($chunk: string, $chunkName?: string):void;
-            
-            public ClearModuleCache():void;
-            
-            public static ClearAllModuleCaches():void;
-            
-            public AddLazyStaticWrapLoader($type: System.Type, $lazyStaticWrapLoader: System.Func$1<Puerts.TypeRegisterInfo>):void;
-            
-            public RegisterGeneralGetSet($type: System.Type, $getter: Puerts.GeneralGetter, $setter: Puerts.GeneralSetter):void;
-            
-            public GetTypeId($type: System.Type):number;
-            
-            public LowMemoryNotification():void;
-            
-            public Tick():void;
-            
-            public WaitDebugger():void;
-            
-            public WaitDebuggerAsync():System.Threading.Tasks.Task;
-            
-            public Dispose():void;
-            
-        }
-        
-        interface JsEnv {
-            
-            WaitDebuggerTimeout($timeout?: number):void;
-            
-            AutoUsing():void;
-            
-            UsingAction(...args: string[]):void;
-            
-            UsingFunc(...args: string[]):void;
-            
-            UsingGeneric($usingAction: boolean, ...types: System.Type[]):void;
-            
-        }
-        
-        
-        class JSObject extends System.Object {
-            
-            public getJsObjPtr():System.IntPtr;
-            
-        }
-        
-        class GenericDelegate extends System.Object {
-            
-            public TryGetDelegate($key: System.Type, $value: $Ref<Function>):boolean;
-            
-            public AddDelegate($key: System.Type, $value: Function):void;
-            
-            public Action():void;
-            
-        }
-        
-        type FunctionCallback = (isolate: System.IntPtr, info: System.IntPtr, self: System.IntPtr, argumentsLen: number) => void;
-        var FunctionCallback: {new (func: (isolate: System.IntPtr, info: System.IntPtr, self: System.IntPtr, argumentsLen: number) => void): FunctionCallback;}
-        
-        type ConstructorCallback = (isolate: System.IntPtr, info: System.IntPtr, argumentsLen: number) => any;
-        var ConstructorCallback: {new (func: (isolate: System.IntPtr, info: System.IntPtr, argumentsLen: number) => any): ConstructorCallback;}
-        
-        class TypeRegisterInfo extends System.Object {
-            
-            public BlittableCopy: boolean;
-            
-            public Constructor: Puerts.V8ConstructorCallback;
-            
-            public Methods: System.Collections.Generic.Dictionary$2<Puerts.MethodKey, Puerts.V8FunctionCallback>;
-            
-            public Properties: System.Collections.Generic.Dictionary$2<string, Puerts.PropertyRegisterInfo>;
-            
-            public constructor();
-            
-        }
-        
-        interface ILoader {
-            
-            FileExists($filepath: string):boolean;
-            
-            ReadFile($filepath: string, $debugpath: $Ref<string>):string;
-            
-        }
-        
-        class DefaultLoader extends System.Object {
-            
-            public constructor();
-            
-            public constructor($root: string);
-            
-            public FileExists($filepath: string):boolean;
-            
-            public ReadFile($filepath: string, $debugpath: $Ref<string>):string;
-            
-        }
-        
-        class CallInfo extends System.ValueType {
-            
-            public Isolate: System.IntPtr;
-            
-            public Info: System.IntPtr;
-            
-            public Self: System.IntPtr;
-            
-            public Length: number;
-            
-            public JsTypes: System.Array$1<Puerts.JsValueType>;
-            
-            public Values: System.Array$1<any>;
-            
-            public NativePtrs: System.Array$1<System.IntPtr>;
-            
-            public constructor($isolate: System.IntPtr, $info: System.IntPtr, $self: System.IntPtr, $len: number);
-            
-            public constructor();
-            
-        }
-        
-        class Parameters extends System.Object {
-            
-            public constructor($parameterInfos: System.Array$1<System.Reflection.ParameterInfo>, $generalGetterManager: Puerts.GeneralGetterManager, $generalSetterManager: Puerts.GeneralSetterManager);
-            
-            public IsMatch($callInfo: Puerts.CallInfo):boolean;
-            
-            public GetArguments($callInfo: Puerts.CallInfo):System.Array$1<any>;
-            
-            public FillByRefParameters($callInfo: Puerts.CallInfo):void;
-            
-            public ClearArguments():void;
-            
-            public constructor();
-            
-        }
-        
-        class OverloadReflectionWrap extends System.Object {
-            
-            public constructor($methodBase: System.Reflection.MethodBase, $generalGetterManager: Puerts.GeneralGetterManager, $generalSetterManager: Puerts.GeneralSetterManager);
-            
-            public constructor($type: System.Type, $generalGetterManager: Puerts.GeneralGetterManager);
-            
-            public IsMatch($callInfo: Puerts.CallInfo):boolean;
-            
-            public Invoke($callInfo: Puerts.CallInfo):void;
-            
-            public Construct($callInfo: Puerts.CallInfo):any;
-            
-            public constructor();
-            
-        }
-        
-        class DelegateConstructWrap extends System.Object {
-            
-            public constructor($delegateType: System.Type, $generalGetterManager: Puerts.GeneralGetterManager);
-            
-            public Construct($isolate: System.IntPtr, $info: System.IntPtr, $argumentsLen: number):any;
-            
-            public constructor();
-            
-        }
-        
-        class MethodReflectionWrap extends System.Object {
-            
-            public constructor($name: string, $overloads: System.Collections.Generic.List$1<Puerts.OverloadReflectionWrap>);
-            
-            public Invoke($isolate: System.IntPtr, $info: System.IntPtr, $self: System.IntPtr, $argumentsLen: number):void;
-            
-            public Construct($isolate: System.IntPtr, $info: System.IntPtr, $argumentsLen: number):any;
-            
-            public constructor();
-            
-        }
-        
-        class ArrayBuffer extends System.Object {
-            
-            public Bytes: System.Array$1<number>;
-            
-            public constructor($bytes: System.Array$1<number>);
-            
-            public constructor($ptr: System.IntPtr, $length: number);
-            
-            public constructor();
-            
-        }
-        
-        class NativeValueApi extends System.Object {
-            
-            public static GetValueFromArgument: Puerts.IGetValueFromJs;
-            
-            public static GetValueFromResult: Puerts.IGetValueFromJs;
-            
-            public static SetValueToResult: Puerts.ISetValueToJs;
-            
-            public static SetValueToByRefArgument: Puerts.ISetValueToJs;
-            
-            public static SetValueToArgument: Puerts.ISetValueToJs;
-            
-        }
-        
-        class GetValueFromResultImpl extends System.Object {
-            
-            public constructor();
-            
-            public GetBigInt($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):bigint;
-            
-            public GetBoolean($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):boolean;
-            
-            public GetDate($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public GetFunction($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public GetJSObject($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public GetJsValueType($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):Puerts.JsValueType;
-            
-            public GetNumber($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public GetNativeObject($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public GetTypeId($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public GetString($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):string;
-            
-            public GetArrayBuffer($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):ArrayBuffer;
-            
-        }
-        
-        class GetValueFromArgumentImpl extends System.Object {
-            
-            public constructor();
-            
-            public GetBigInt($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):bigint;
-            
-            public GetBoolean($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):boolean;
-            
-            public GetDate($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public GetFunction($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public GetJSObject($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public GetJsValueType($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):Puerts.JsValueType;
-            
-            public GetNumber($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public GetNativeObject($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public GetTypeId($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public GetString($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):string;
-            
-            public GetArrayBuffer($isolate: System.IntPtr, $holder: System.IntPtr, $isByRef: boolean):ArrayBuffer;
-            
-        }
-        
-        class SetValueToResultImpl extends System.Object {
-            
-            public constructor();
-            
-            public SetArrayBuffer($isolate: System.IntPtr, $holder: System.IntPtr, $arrayBuffer: ArrayBuffer):void;
-            
-            public SetBigInt($isolate: System.IntPtr, $holder: System.IntPtr, $number: bigint):void;
-            
-            public SetBoolean($isolate: System.IntPtr, $holder: System.IntPtr, $b: boolean):void;
-            
-            public SetDate($isolate: System.IntPtr, $holder: System.IntPtr, $date: number):void;
-            
-            public SetNull($isolate: System.IntPtr, $holder: System.IntPtr):void;
-            
-            public SetNumber($isolate: System.IntPtr, $holder: System.IntPtr, $number: number):void;
-            
-            public SetNativeObject($isolate: System.IntPtr, $holder: System.IntPtr, $classID: number, $self: System.IntPtr):void;
-            
-            public SetFunction($isolate: System.IntPtr, $holder: System.IntPtr, $JSFunction: System.IntPtr):void;
-            
-            public SetJSObject($isolate: System.IntPtr, $holder: System.IntPtr, $JSObject: System.IntPtr):void;
-            
-            public SetString($isolate: System.IntPtr, $holder: System.IntPtr, $str: string):void;
-            
-        }
-        
-        class SetValueToByRefArgumentImpl extends System.Object {
-            
-            public constructor();
-            
-            public SetArrayBuffer($isolate: System.IntPtr, $holder: System.IntPtr, $arrayBuffer: ArrayBuffer):void;
-            
-            public SetBigInt($isolate: System.IntPtr, $holder: System.IntPtr, $number: bigint):void;
-            
-            public SetBoolean($isolate: System.IntPtr, $holder: System.IntPtr, $b: boolean):void;
-            
-            public SetDate($isolate: System.IntPtr, $holder: System.IntPtr, $date: number):void;
-            
-            public SetNull($isolate: System.IntPtr, $holder: System.IntPtr):void;
-            
-            public SetNumber($isolate: System.IntPtr, $holder: System.IntPtr, $number: number):void;
-            
-            public SetNativeObject($isolate: System.IntPtr, $holder: System.IntPtr, $classID: number, $self: System.IntPtr):void;
-            
-            public SetFunction($isolate: System.IntPtr, $holder: System.IntPtr, $JSFunction: System.IntPtr):void;
-            
-            public SetJSObject($isolate: System.IntPtr, $holder: System.IntPtr, $JSObject: System.IntPtr):void;
-            
-            public SetString($isolate: System.IntPtr, $holder: System.IntPtr, $str: string):void;
-            
-        }
-        
-        class SetValueToArgumentImpl extends System.Object {
-            
-            public constructor();
-            
-            public SetArrayBuffer($isolate: System.IntPtr, $holder: System.IntPtr, $arrayBuffer: ArrayBuffer):void;
-            
-            public SetBigInt($isolate: System.IntPtr, $holder: System.IntPtr, $number: bigint):void;
-            
-            public SetBoolean($isolate: System.IntPtr, $holder: System.IntPtr, $b: boolean):void;
-            
-            public SetDate($isolate: System.IntPtr, $holder: System.IntPtr, $date: number):void;
-            
-            public SetNull($isolate: System.IntPtr, $holder: System.IntPtr):void;
-            
-            public SetNumber($isolate: System.IntPtr, $holder: System.IntPtr, $number: number):void;
-            
-            public SetNativeObject($isolate: System.IntPtr, $holder: System.IntPtr, $classID: number, $self: System.IntPtr):void;
-            
-            public SetFunction($isolate: System.IntPtr, $holder: System.IntPtr, $JSFunction: System.IntPtr):void;
-            
-            public SetJSObject($isolate: System.IntPtr, $holder: System.IntPtr, $JSObject: System.IntPtr):void;
-            
-            public SetString($isolate: System.IntPtr, $holder: System.IntPtr, $str: string):void;
-            
-        }
-        
-        class ObjectPool extends System.Object {
-            
-            public constructor();
-            
-            public Clear():void;
-            
-            public FindOrAddObject($obj: any):number;
-            
-            public AddBoxedValueType($obj: any):number;
-            
-            public TryGetValue($index: number, $obj: $Ref<any>):boolean;
-            
-            public Get($index: number):any;
-            
-            public Remove($index: number):any;
-            
-            public ReplaceValueType($index: number, $o: any):any;
-            
-            public Check($checkPos: number, $maxCheck: number, $checker: System.Func$2<any, boolean>, $reverseMap: System.Collections.Generic.Dictionary$2<any, number>):number;
-            
-        }
-        
-        class MonoPInvokeCallbackAttribute extends System.Attribute {
-            
-            public constructor($t: System.Type);
-            
-            public constructor();
-            
-        }
-        
-        type V8FunctionCallback = (isolate: System.IntPtr, info: System.IntPtr, self: System.IntPtr, paramLen: number, data: bigint) => void;
-        var V8FunctionCallback: {new (func: (isolate: System.IntPtr, info: System.IntPtr, self: System.IntPtr, paramLen: number, data: bigint) => void): V8FunctionCallback;}
-        
-        type V8ConstructorCallback = (isolate: System.IntPtr, info: System.IntPtr, paramLen: number, data: bigint) => System.IntPtr;
-        var V8ConstructorCallback: {new (func: (isolate: System.IntPtr, info: System.IntPtr, paramLen: number, data: bigint) => System.IntPtr): V8ConstructorCallback;}
-        
-        type V8DestructorCallback = (self: System.IntPtr, data: bigint) => void;
-        var V8DestructorCallback: {new (func: (self: System.IntPtr, data: bigint) => void): V8DestructorCallback;}
-        
-        type LogCallback = (content: string) => void;
-        var LogCallback: {new (func: (content: string) => void): LogCallback;}
-        
-        class PuertsDLL extends System.Object {
-            
-            public constructor();
-            
-            public static GetLibVersion():number;
-            
-            public static CreateJSEngine():System.IntPtr;
-            
-            public static CreateJSEngineWithExternalEnv($externalRuntime: System.IntPtr, $externalContext: System.IntPtr):System.IntPtr;
-            
-            public static DestroyJSEngine($isolate: System.IntPtr):void;
-            
-            public static SetGlobalFunction($isolate: System.IntPtr, $name: string, $v8FunctionCallback: System.IntPtr, $data: bigint):void;
-            
-            public static SetGlobalFunction($isolate: System.IntPtr, $name: string, $v8FunctionCallback: Puerts.V8FunctionCallback, $data: bigint):void;
-            
-            public static GetLastExceptionInfo($isolate: System.IntPtr, $strlen: $Ref<number>):System.IntPtr;
-            
-            public static GetLastExceptionInfo($isolate: System.IntPtr):string;
-            
-            public static LowMemoryNotification($isolate: System.IntPtr):void;
-            
-            public static SetGeneralDestructor($isolate: System.IntPtr, $generalDestructor: System.IntPtr):void;
-            
-            public static SetGeneralDestructor($isolate: System.IntPtr, $generalDestructor: Puerts.V8DestructorCallback):void;
-            
-            public static Eval($isolate: System.IntPtr, $code: string, $path: string):System.IntPtr;
-            
-            public static EvalChecked($isolate: System.IntPtr, $code: string, $path: string):System.IntPtr;
-            
-            public static RegisterClass($isolate: System.IntPtr, $BaseTypeId: number, $fullName: string, $constructor: System.IntPtr, $destructor: System.IntPtr, $data: bigint):number;
-            
-            public static RegisterClass($isolate: System.IntPtr, $BaseTypeId: number, $fullName: string, $constructor: Puerts.V8ConstructorCallback, $destructor: Puerts.V8DestructorCallback, $data: bigint):number;
-            
-            public static RegisterStruct($isolate: System.IntPtr, $BaseTypeId: number, $fullName: string, $constructor: System.IntPtr, $destructor: System.IntPtr, $data: bigint, $size: number):number;
-            
-            public static RegisterStruct($isolate: System.IntPtr, $BaseTypeId: number, $fullName: string, $constructor: Puerts.V8ConstructorCallback, $destructor: Puerts.V8DestructorCallback, $data: bigint, $size: number):number;
-            
-            public static RegisterFunction($isolate: System.IntPtr, $classID: number, $name: string, $isStatic: boolean, $callback: System.IntPtr, $data: bigint):boolean;
-            
-            public static RegisterFunction($isolate: System.IntPtr, $classID: number, $name: string, $isStatic: boolean, $callback: Puerts.V8FunctionCallback, $data: bigint):boolean;
-            
-            public static RegisterProperty($isolate: System.IntPtr, $classID: number, $name: string, $isStatic: boolean, $getter: System.IntPtr, $getterData: bigint, $setter: System.IntPtr, $setterData: bigint, $dontDelete: boolean):boolean;
-            
-            public static RegisterProperty($isolate: System.IntPtr, $classID: number, $name: string, $isStatic: boolean, $getter: Puerts.V8FunctionCallback, $getterData: bigint, $setter: Puerts.V8FunctionCallback, $setterData: bigint, $dontDelete: boolean):boolean;
-            
-            public static ReturnClass($isolate: System.IntPtr, $info: System.IntPtr, $classID: number):void;
-            
-            public static ReturnObject($isolate: System.IntPtr, $info: System.IntPtr, $classID: number, $self: System.IntPtr):void;
-            
-            public static ReturnNumber($isolate: System.IntPtr, $info: System.IntPtr, $number: number):void;
-            
-            public static __ReturnString($isolate: System.IntPtr, $info: System.IntPtr, $str: string):void;
-            
-            public static ReturnString($isolate: System.IntPtr, $info: System.IntPtr, $str: string):void;
-            
-            public static ReturnBigInt($isolate: System.IntPtr, $info: System.IntPtr, $number: bigint):void;
-            
-            public static ReturnBoolean($isolate: System.IntPtr, $info: System.IntPtr, $b: boolean):void;
-            
-            public static ReturnDate($isolate: System.IntPtr, $info: System.IntPtr, $date: number):void;
-            
-            public static ReturnNull($isolate: System.IntPtr, $info: System.IntPtr):void;
-            
-            public static ReturnFunction($isolate: System.IntPtr, $info: System.IntPtr, $JSFunction: System.IntPtr):void;
-            
-            public static ReturnJSObject($isolate: System.IntPtr, $info: System.IntPtr, $JSObject: System.IntPtr):void;
-            
-            public static GetArgumentValue($info: System.IntPtr, $index: number):System.IntPtr;
-            
-            public static GetJsValueType($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):Puerts.JsValueType;
-            
-            public static GetArgumentType($isolate: System.IntPtr, $info: System.IntPtr, $index: number, $isByRef: boolean):Puerts.JsValueType;
-            
-            public static GetNumberFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):number;
-            
-            public static GetDateFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):number;
-            
-            public static GetStringFromValue($isolate: System.IntPtr, $value: System.IntPtr, $len: $Ref<number>, $isByRef: boolean):System.IntPtr;
-            
-            public static GetStringFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):string;
-            
-            public static GetBooleanFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):boolean;
-            
-            public static ValueIsBigInt($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):boolean;
-            
-            public static GetBigIntFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):bigint;
-            
-            public static GetBigIntFromValueChecked($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):bigint;
-            
-            public static GetObjectFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public static GetTypeIdFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):number;
-            
-            public static GetFunctionFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public static GetJSObjectFromValue($isolate: System.IntPtr, $value: System.IntPtr, $isByRef: boolean):System.IntPtr;
-            
-            public static SetNumberToOutValue($isolate: System.IntPtr, $value: System.IntPtr, $number: number):void;
-            
-            public static SetDateToOutValue($isolate: System.IntPtr, $value: System.IntPtr, $date: number):void;
-            
-            public static SetStringToOutValue($isolate: System.IntPtr, $value: System.IntPtr, $str: string):void;
-            
-            public static SetBooleanToOutValue($isolate: System.IntPtr, $value: System.IntPtr, $b: boolean):void;
-            
-            public static SetBigIntToOutValue($isolate: System.IntPtr, $value: System.IntPtr, $bigInt: bigint):void;
-            
-            public static SetObjectToOutValue($isolate: System.IntPtr, $value: System.IntPtr, $classId: number, $ptr: System.IntPtr):void;
-            
-            public static SetNullToOutValue($isolate: System.IntPtr, $value: System.IntPtr):void;
-            
-            public static ThrowException($isolate: System.IntPtr, $message: System.Array$1<number>):void;
-            
-            public static ThrowException($isolate: System.IntPtr, $message: string):void;
-            
-            public static PushNullForJSFunction($function: System.IntPtr):void;
-            
-            public static PushDateForJSFunction($function: System.IntPtr, $dateValue: number):void;
-            
-            public static PushBooleanForJSFunction($function: System.IntPtr, $b: boolean):void;
-            
-            public static PushBigIntForJSFunction($function: System.IntPtr, $l: bigint):void;
-            
-            public static __PushStringForJSFunction($function: System.IntPtr, $str: string):void;
-            
-            public static PushStringForJSFunction($function: System.IntPtr, $str: string):void;
-            
-            public static PushNumberForJSFunction($function: System.IntPtr, $d: number):void;
-            
-            public static PushObjectForJSFunction($function: System.IntPtr, $classId: number, $objectId: System.IntPtr):void;
-            
-            public static PushJSFunctionForJSFunction($function: System.IntPtr, $JSFunction: System.IntPtr):void;
-            
-            public static PushJSObjectForJSFunction($function: System.IntPtr, $JSObject: System.IntPtr):void;
-            
-            public static InvokeJSFunction($function: System.IntPtr, $hasResult: boolean):System.IntPtr;
-            
-            public static GetFunctionLastExceptionInfo($function: System.IntPtr, $len: $Ref<number>):System.IntPtr;
-            
-            public static ReleaseJSFunction($isolate: System.IntPtr, $function: System.IntPtr):void;
-            
-            public static ReleaseJSObject($isolate: System.IntPtr, $obj: System.IntPtr):void;
-            
-            public static GetFunctionLastExceptionInfo($function: System.IntPtr):string;
-            
-            public static GetResultType($resultInfo: System.IntPtr):Puerts.JsValueType;
-            
-            public static GetNumberFromResult($resultInfo: System.IntPtr):number;
-            
-            public static GetDateFromResult($resultInfo: System.IntPtr):number;
-            
-            public static GetStringFromResult($resultInfo: System.IntPtr, $len: $Ref<number>):System.IntPtr;
-            
-            public static GetStringFromResult($resultInfo: System.IntPtr):string;
-            
-            public static GetBooleanFromResult($resultInfo: System.IntPtr):boolean;
-            
-            public static ResultIsBigInt($resultInfo: System.IntPtr):boolean;
-            
-            public static GetBigIntFromResult($resultInfo: System.IntPtr):bigint;
-            
-            public static GetBigIntFromResultCheck($resultInfo: System.IntPtr):bigint;
-            
-            public static GetObjectFromResult($resultInfo: System.IntPtr):System.IntPtr;
-            
-            public static GetTypeIdFromResult($resultInfo: System.IntPtr):number;
-            
-            public static GetFunctionFromResult($resultInfo: System.IntPtr):System.IntPtr;
-            
-            public static GetJSObjectFromResult($resultInfo: System.IntPtr):System.IntPtr;
-            
-            public static ResetResult($resultInfo: System.IntPtr):void;
-            
-            public static CreateInspector($isolate: System.IntPtr, $port: number):void;
-            
-            public static DestroyInspector($isolate: System.IntPtr):void;
-            
-            public static InspectorTick($isolate: System.IntPtr):boolean;
-            
-            public static SetLogCallback($log: System.IntPtr, $logWarning: System.IntPtr, $logError: System.IntPtr):void;
-            
-            public static SetLogCallback($log: Puerts.LogCallback, $logWarning: Puerts.LogCallback, $logError: Puerts.LogCallback):void;
-            
-            public static ReturnArrayBuffer($isolate: System.IntPtr, $info: System.IntPtr, $bytes: System.Array$1<number>, $Length: number):void;
-            
-            public static SetArrayBufferToOutValue($isolate: System.IntPtr, $value: System.IntPtr, $bytes: System.Array$1<number>, $length: number):void;
-            
-            public static PushArrayBufferForJSFunction($function: System.IntPtr, $bytes: System.Array$1<number>, $length: number):void;
-            
-            public static GetArrayBufferFromValue($isolate: System.IntPtr, $value: System.IntPtr, $length: $Ref<number>, $isOut: boolean):System.IntPtr;
-            
-            public static GetArrayBufferFromResult($function: System.IntPtr, $length: $Ref<number>):System.IntPtr;
-            
-        }
-        
-        class PrimitiveTypeTranslate extends System.Object {
-            
-            public static PushChar($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetChar($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushSByte($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetSByte($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushByte($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetByte($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushInt16($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetInt16($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushUInt16($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetUInt16($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushInt32($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetInt32($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushUInt32($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetUInt32($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushInt64($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: bigint):void;
-            
-            public static GetInt64($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):bigint;
-            
-            public static PushUInt64($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: bigint):void;
-            
-            public static GetUInt64($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):bigint;
-            
-            public static PushDouble($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetDouble($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushFloat($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: number):void;
-            
-            public static GetFloat($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):number;
-            
-            public static PushBoolean($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: boolean):void;
-            
-            public static GetBoolean($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):boolean;
-            
-            public static PushString($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $i: string):void;
-            
-            public static GetString($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):string;
-            
-            public static PushDateTime($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $date: Date):void;
-            
-            public static GetDateTime($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):Date;
-            
-            public static PushArrayBuffer($jsEnvIdx: number, $isolate: System.IntPtr, $setValueApi: Puerts.ISetValueToJs, $holder: System.IntPtr, $arrayBuffer: ArrayBuffer):void;
-            
-            public static GetArrayBuffer($jsEnvIdx: number, $isolate: System.IntPtr, $getValueApi: Puerts.IGetValueFromJs, $holder: System.IntPtr, $isByRef: boolean):ArrayBuffer;
-            
-        }
-        
-        class PropertyRegisterInfo extends System.ValueType {
-            
-            public IsStatic: boolean;
-            
-            public Getter: Puerts.V8FunctionCallback;
-            
-            public Setter: Puerts.V8FunctionCallback;
-            
-        }
-        
-        class MethodKey extends System.ValueType {
+        class ListedMinion extends System.Object {
             
             public Name: string;
             
-            public IsStatic: boolean;
+            public Id: string;
+            
+            public Icon: UnityEngine.Texture2D;
+            
+            public Health: number;
+            
+            public Damage: number;
+            
+            public Speed: number;
+            
+            public constructor();
             
         }
         
-        class TypeExtensions extends System.Object {
+        class ListedMinionListAttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Demos.ListedMinion> {
             
-            public static GetFriendlyName($type: System.Type):string;
+            public constructor();
             
-        }
-        
-        interface TypedValue {
+            public CanProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo):boolean;
             
-            Target: any;
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
             
         }
         
-        class ByteValue extends Puerts.Any$1<number> {
+        class AttributeProcessorPriorityExample extends UnityEngine.MonoBehaviour {
             
-            public constructor($i: number);
+            public Processed: Sirenix.OdinInspector.Demos.PrioritizedProcessed;
             
-        }
-        
-        class Any$1<T> extends System.Object {
+            public constructor();
             
         }
         
-        class SByteValue extends Puerts.Any$1<number> {
+        class PrioritizedProcessed extends System.Object {
             
-            public constructor($i: number);
+            public A: number;
             
-        }
-        
-        class CharValue extends Puerts.Any$1<number> {
-            
-            public constructor($i: number);
+            public constructor();
             
         }
         
-        class Int16Value extends Puerts.Any$1<number> {
+        class FirstAttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Demos.PrioritizedProcessed> {
             
-            public constructor($i: number);
+            public constructor();
             
-        }
-        
-        class UInt16Value extends Puerts.Any$1<number> {
-            
-            public constructor($i: number);
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
             
         }
         
-        class Int32Value extends Puerts.Any$1<number> {
+        class SecondAttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Demos.PrioritizedProcessed> {
             
-            public constructor($i: number);
+            public constructor();
             
-        }
-        
-        class UInt32Value extends Puerts.Any$1<number> {
-            
-            public constructor($i: number);
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
             
         }
         
-        class Int64Value extends Puerts.Any$1<bigint> {
+        class ThirdAttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Demos.PrioritizedProcessed> {
             
-            public constructor($i: bigint);
+            public constructor();
             
-        }
-        
-        class UInt64Value extends Puerts.Any$1<bigint> {
-            
-            public constructor($i: bigint);
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
             
         }
         
-        class FloatValue extends Puerts.Any$1<number> {
+        class Bar extends Sirenix.OdinInspector.Demos.Foo {
             
-            public constructor($i: number);
+            public D: UnityEngine.GameObject;
             
-        }
-        
-        class Utils extends System.Object {
+            public E: UnityEngine.GameObject;
             
-            public static TwoIntToLong($a: number, $b: number):bigint;
+            public F: UnityEngine.GameObject;
             
-            public static LongToTwoInt($c: bigint, $a: $Ref<number>, $b: $Ref<number>):void;
-            
-            public static GetObjectPtr($jsEnvIdx: number, $type: System.Type, $obj: any):System.IntPtr;
-            
-            public static GetSelf($jsEnvIdx: number, $self: System.IntPtr):any;
-            
-            public static SetSelf($jsEnvIdx: number, $self: System.IntPtr, $obj: any):void;
-            
-            public static IsSupportedMethod($method: System.Reflection.MethodInfo):boolean;
+            public constructor();
             
         }
         
-    }
-    export namespace Sandbox {
-        
-        class TestScript extends UnityEngine.MonoBehaviour {
+        class Foo extends UnityEngine.MonoBehaviour {
             
-            public script: Puerts.JSObject;
+            public G: number;
+            
+            public H: number;
+            
+            public I: number;
+            
+            public constructor();
+            
+        }
+        
+        class BasicAttributeProcessorExample extends UnityEngine.MonoBehaviour {
+            
+            public Processed: Sirenix.OdinInspector.Demos.MyCustomClass;
+            
+            public constructor();
+            
+        }
+        
+        class MyCustomClass extends System.Object {
+            
+            public Mode: UnityEngine.ScaleMode;
+            
+            public Size: number;
+            
+            public constructor();
+            
+        }
+        
+        class MyResolvedClassAttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Demos.MyCustomClass> {
+            
+            public constructor();
+            
+            public ProcessSelfAttributes($property: Sirenix.OdinInspector.Editor.InspectorProperty, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+        }
+        
+        class CustomAttributeProcessorLocatorExample extends UnityEngine.MonoBehaviour {
+            
+            public constructor();
+            
+        }
+        
+        class SomeCustomEditorWindow extends UnityEditor.EditorWindow {
+            
+            public constructor();
+            
+        }
+        
+        class SomeClass extends System.Object {
+            
+            public Name: string;
+            
+            public Id: string;
+            
+            public Icon: UnityEngine.Texture2D;
+            
+            public Health: number;
+            
+            public Damage: number;
+            
+            public Speed: number;
+            
+            public constructor();
+            
+        }
+        
+        class CustomMinionAttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Demos.SomeClass> {
+            
+            public constructor();
+            
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+        }
+        
+        class CustomMinionAttributeProcessorLocator extends Sirenix.OdinInspector.Editor.OdinAttributeProcessorLocator {
+            
+            public constructor();
+            
+            public GetChildProcessors($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo):System.Collections.Generic.List$1<Sirenix.OdinInspector.Editor.OdinAttributeProcessor>;
+            
+            public GetSelfProcessors($property: Sirenix.OdinInspector.Editor.InspectorProperty):System.Collections.Generic.List$1<Sirenix.OdinInspector.Editor.OdinAttributeProcessor>;
+            
+        }
+        
+        class CustomizeDictionaryKeyValueExample extends Sirenix.OdinInspector.SerializedMonoBehaviour {
+            
+            public MyDictionary: System.Collections.Generic.Dictionary$2<Sirenix.OdinInspector.Demos.MyKey, number>;
+            
+            public constructor();
+            
+        }
+        
+        enum MyKey { A = 0, B = 1, C = 2 }
+        
+        class AddKeyValueResolver extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Editor.TempKeyValuePair$2<Sirenix.OdinInspector.Demos.MyKey, number>> {
+            
+            public constructor();
+            
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+        }
+        
+        class EditKeyValueResolver extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Editor.EditableKeyValuePair$2<Sirenix.OdinInspector.Demos.MyKey, number>> {
+            
+            public constructor();
+            
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+        }
+        
+        class PutAttributesOnAnyType extends UnityEngine.MonoBehaviour {
+            
+            public Matrix: UnityEngine.Matrix4x4;
+            
+            public constructor();
+            
+        }
+        
+        class Matrix4x4AttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<UnityEngine.Matrix4x4> {
+            
+            public constructor();
+            
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+        }
+        
+        class SelfAndChildrenExample extends UnityEngine.MonoBehaviour {
+            
+            public A: Sirenix.OdinInspector.Demos.SelfAndChildrenProcessed;
+            
+            public B: Sirenix.OdinInspector.Demos.SelfAndChildrenProcessed;
+            
+            public C: Sirenix.OdinInspector.Demos.SelfAndChildrenProcessed;
+            
+            public constructor();
+            
+        }
+        
+        class SelfAndChildrenProcessed extends System.Object {
+            
+            public Id: number;
+            
+            public Name: string;
+            
+            public constructor();
+            
+        }
+        
+        class SelfAndChildrenAttributeProcessor extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor$1<Sirenix.OdinInspector.Demos.SelfAndChildrenProcessed> {
+            
+            public constructor();
+            
+            public ProcessSelfAttributes($property: Sirenix.OdinInspector.Editor.InspectorProperty, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+            public ProcessChildMemberAttributes($parentProperty: Sirenix.OdinInspector.Editor.InspectorProperty, $member: System.Reflection.MemberInfo, $attributes: System.Collections.Generic.List$1<System.Attribute>):void;
+            
+        }
+        
+        class TabGroupByDeclaringType extends Sirenix.OdinInspector.Demos.Bar {
+            
+            public A: string;
+            
+            public B: string;
+            
+            public C: string;
+            
+            public constructor();
+            
+        }
+        
+        class CustomDrawerExample extends UnityEngine.MonoBehaviour {
+            
+            public MyStruct: Sirenix.OdinInspector.Demos.MyStruct;
+            
+            public constructor();
+            
+        }
+        
+        class MyStruct extends System.ValueType {
+            
+            public X: number;
+            
+            public Y: number;
+            
+        }
+        
+        class CustomStructDrawer extends Sirenix.OdinInspector.Editor.OdinValueDrawer$1<Sirenix.OdinInspector.Demos.MyStruct> {
+            
+            public constructor();
+            
+        }
+        
+        class CustomGroupExample extends Sirenix.OdinInspector.SerializedMonoBehaviour {
+            
+            public MyInt: number;
+            
+            public AVector3: UnityEngine.Vector3;
+            
+            public AnotherInt: number;
+            
+            public AllTheWayAroundAndBack: UnityEngine.Quaternion;
+            
+            public ThingyField: Sirenix.OdinInspector.Demos.CustomGroupExample.Thingy;
+            
+            public get MyFloat(): number;
+            public set MyFloat(value: number);
+            
+            public constructor();
+            
+            public StateTruth():void;
+            
+        }
+        
+        class PartyGroupAttribute extends Sirenix.OdinInspector.PropertyGroupAttribute {
+            
+            public get Speed(): number;
+            
+            public get Range(): number;
+            
+            public constructor($speed?: number, $range?: number, $order?: number);
+            
+            public constructor($groupId: string, $speed?: number, $range?: number, $order?: number);
+            
+            public constructor();
+            
+        }
+        
+        class PartyGroupAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinGroupDrawer$1<Sirenix.OdinInspector.Demos.PartyGroupAttribute> {
+            
+            public constructor();
+            
+        }
+        
+        class GenericDrawerExample extends Sirenix.OdinInspector.SerializedMonoBehaviour {
+            
+            public A: Sirenix.OdinInspector.Demos.MyGenericClass$2<number, number>;
+            
+            public B: Sirenix.OdinInspector.Demos.MyGenericClass$2<UnityEngine.Vector3, UnityEngine.Quaternion>;
+            
+            public C: Sirenix.OdinInspector.Demos.MyGenericClass$2<number, UnityEngine.GameObject>;
+            
+            public D: Sirenix.OdinInspector.Demos.MyGenericClass$2<string, System.Collections.Generic.List$1<string>>;
+            
+            public E: Sirenix.OdinInspector.Demos.MyGenericClass$2<string, string>;
+            
+            public F: System.Collections.Generic.List$1<Sirenix.OdinInspector.Demos.MyClass>;
+            
+            public constructor();
+            
+        }
+        
+        class MyGenericClass$2<T1,T2> extends System.Object {
+            
+        }
+        
+        class MyClass extends System.Object {
+            
+            public Name: string;
+            
+            public Value: number;
+            
+            public constructor();
+            
+        }
+        
+        class GenericMenuExample extends UnityEngine.MonoBehaviour {
+            
+            public Color: UnityEngine.Color;
+            
+            public constructor();
+            
+        }
+        
+        class ColorPickerAttribute extends System.Attribute {
+            
+            public constructor();
+            
+        }
+        
+        class ColorPickerAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$2<Sirenix.OdinInspector.Demos.ColorPickerAttribute, UnityEngine.Color> {
+            
+            public constructor();
+            
+            public PopulateGenericMenu($property: Sirenix.OdinInspector.Editor.InspectorProperty, $genericMenu: UnityEditor.GenericMenu):void;
+            
+        }
+        
+        class HealthBarExample extends UnityEngine.MonoBehaviour {
+            
+            public Health: number;
+            
+            public constructor();
+            
+        }
+        
+        class HealthBarAttribute extends System.Attribute {
+            
+            public get MaxHealth(): number;
+            
+            public constructor($maxHealth: number);
+            
+            public constructor();
+            
+        }
+        
+        class HealthBarAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$2<Sirenix.OdinInspector.Demos.HealthBarAttribute, number> {
+            
+            public constructor();
+            
+        }
+        
+        class InstancedDrawerExample extends UnityEngine.MonoBehaviour {
+            
+            public Field: number;
+            
+            public constructor();
+            
+        }
+        
+        class InstancedDrawerExampleAttribute extends System.Attribute {
+            
+            public constructor();
+            
+        }
+        
+        class InstancedDrawerExampleAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$1<Sirenix.OdinInspector.Demos.InstancedDrawerExampleAttribute> {
+            
+            public constructor();
+            
+        }
+        
+        class MinesweeperExample extends UnityEngine.MonoBehaviour {
+            
+            public NumberOfBombs: number;
+            
+            public constructor();
+            
+        }
+        
+        class MinesweeperAttribute extends System.Attribute {
+            
+            public constructor();
+            
+        }
+        
+        class MinesweeperAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$2<Sirenix.OdinInspector.Demos.MinesweeperAttribute, number> {
+            
+            public constructor();
+            
+        }
+        
+        class PriorityExamples extends UnityEngine.MonoBehaviour {
+            
+            public MyClass: Sirenix.OdinInspector.Demos.MyClass;
+            
+            public constructor();
+            
+        }
+        
+        class CUSTOM_SuperPriorityDrawer extends Sirenix.OdinInspector.Editor.OdinValueDrawer$1<Sirenix.OdinInspector.Demos.MyClass> {
+            
+            public constructor();
+            
+        }
+        
+        class CUSTOM_WrapperPriorityDrawer extends Sirenix.OdinInspector.Editor.OdinValueDrawer$1<Sirenix.OdinInspector.Demos.MyClass> {
+            
+            public constructor();
+            
+        }
+        
+        class CUSTOM_ValuePriorityDrawer extends Sirenix.OdinInspector.Editor.OdinValueDrawer$1<Sirenix.OdinInspector.Demos.MyClass> {
+            
+            public constructor();
+            
+        }
+        
+        class ReflectionExample extends UnityEngine.MonoBehaviour {
+            
+            public InstanceMethod: number;
+            
+            public StaticMethod: number;
+            
+            public InvalidMethod: number;
+            
+            public constructor();
+            
+        }
+        
+        class OnClickMethodAttribute extends System.Attribute {
+            
+            public get MethodName(): string;
+            
+            public constructor($methodName: string);
+            
+            public constructor();
+            
+        }
+        
+        class OnClickMethodAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$1<Sirenix.OdinInspector.Demos.OnClickMethodAttribute> {
+            
+            public constructor();
+            
+        }
+        
+        class ValidationExample extends UnityEngine.MonoBehaviour {
+            
+            public NotOne: number;
+            
+            public constructor();
+            
+        }
+        
+        class NotOneAttribute extends System.Attribute {
+            
+            public constructor();
+            
+        }
+        
+        class NotOneAttributeValidator extends Sirenix.OdinInspector.Editor.Validation.AttributeValidator$2<Sirenix.OdinInspector.Demos.NotOneAttribute, number> {
+            
+            public constructor();
+            
+        }
+        
+        class ValueAndActionResolversExample extends UnityEngine.MonoBehaviour {
+            
+            public MethodAction: number;
+            
+            public ExpressionAction: number;
+            
+            public InvalidActionString: number;
+            
+            public MemberReferenceValue: number;
+            
+            public ExpressionValue: number;
+            
+            public InvalidValueString: number;
+            
+            public constructor();
+            
+        }
+        
+        class OnClickActionAttribute extends System.Attribute {
+            
+            public get ActionString(): string;
+            
+            public constructor($actionString: string);
+            
+            public constructor();
+            
+        }
+        
+        class DisplayValueAsStringAttribute extends System.Attribute {
+            
+            public get ValueString(): string;
+            
+            public constructor($valueString: string);
+            
+            public constructor();
+            
+        }
+        
+        class OnClickActionAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$1<Sirenix.OdinInspector.Demos.OnClickActionAttribute> {
+            
+            public constructor();
+            
+        }
+        
+        class DisplayValueAsStringAttributeDrawer extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$1<Sirenix.OdinInspector.Demos.DisplayValueAsStringAttribute> {
             
             public constructor();
             
         }
         
     }
-    export namespace Extensions {
+    export namespace Sirenix.OdinInspector.Editor {
         
-        class PuertsExtension extends System.Object {
+        class OdinAttributeProcessor$1<T> extends Sirenix.OdinInspector.Editor.OdinAttributeProcessor {
             
-            public static WaitDebuggerTimeout($jsEnv: Puerts.JsEnv, $timeout?: number):void;
+        }
+        /** Attribute processor that can add, change and remove attributes from a property. */
+        class OdinAttributeProcessor extends System.Object {
+            
+        }
+        /** Represents a property in the inspector, and provides the hub for all functionality related to that property. */
+        class InspectorProperty extends System.Object {
+            
+        }
+        /**
+         * Base class definition for OdinAttributeProcessorLocator. Responsible for finding and creating
+         * instances to process attributes for properties.
+         * Default OdinAttributeProcessorLocator have been implemented as
+         * .
+         */
+        class OdinAttributeProcessorLocator extends System.Object {
+            
+        }
+        
+        class TempKeyValuePair$2<TKey,TValue> extends System.Object {
+            
+        }
+        
+        class EditableKeyValuePair$2<TKey,TValue> extends System.ValueType {
+            
+        }
+        
+        class OdinValueDrawer$1<T> extends Sirenix.OdinInspector.Editor.OdinDrawer {
+            
+        }
+        /**
+         * 
+                    Base class for all Odin drawers. In order to create your own custom drawers you need to derive from one of the following drawers:
+                    
+         * .
+         * .
+         * Odin supports the use of GUILayout and takes care of undo for you. It also takes care of multi-selection in many simple cases. Checkout the manual for more information.
+         */
+        class OdinDrawer extends System.Object {
+            
+        }
+        
+        class OdinGroupDrawer$1<TGroupAttribute> extends Sirenix.OdinInspector.Editor.OdinDrawer {
+            
+        }
+        
+        class OdinAttributeDrawer$2<TAttribute,TValue> extends Sirenix.OdinInspector.Editor.OdinAttributeDrawer$1<TAttribute> {
+            
+        }
+        
+        class OdinAttributeDrawer$1<TAttribute> extends Sirenix.OdinInspector.Editor.OdinDrawer {
             
         }
         
     }
-    export namespace Base.Runtime {
+    export namespace Sirenix.OdinInspector {
         
-        class SDictionaryStringInt extends Base.Runtime.SerializableDictionary$2<string, number> {
-            
-            public constructor();
+        class SerializedMonoBehaviour extends UnityEngine.MonoBehaviour {
             
         }
-        
-        class SerializableDictionary$2<TKey,TValue> extends System.Collections.Generic.Dictionary$2<TKey, TValue> {
-            
-        }
-        
-        class SDictionaryStringLong extends Base.Runtime.SerializableDictionary$2<string, bigint> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringFloat extends Base.Runtime.SerializableDictionary$2<string, number> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringDouble extends Base.Runtime.SerializableDictionary$2<string, number> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringString extends Base.Runtime.SerializableDictionary$2<string, string> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringUEObject extends Base.Runtime.SerializableDictionary$2<string, UnityEngine.Object> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringVector2 extends Base.Runtime.SerializableDictionary$2<string, UnityEngine.Vector2> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringVector3 extends Base.Runtime.SerializableDictionary$2<string, UnityEngine.Vector3> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringIntList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.IntList> {
-            
-            public constructor();
-            
-        }
-        
-        class IntList extends Base.Runtime.TypedList$1<number> {
-            
-            public constructor();
-            
-        }
-        
-        class TypedList$1<T> extends System.Object {
-            
-        }
-        
-        class SDictionaryStringLongList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.LongList> {
-            
-            public constructor();
-            
-        }
-        
-        class LongList extends Base.Runtime.TypedList$1<bigint> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringFloatList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.FloatList> {
-            
-            public constructor();
-            
-        }
-        
-        class FloatList extends Base.Runtime.TypedList$1<number> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringDoubleList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.DoubleList> {
-            
-            public constructor();
-            
-        }
-        
-        class DoubleList extends Base.Runtime.TypedList$1<number> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringStringList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.StringList> {
-            
-            public constructor();
-            
-        }
-        
-        class StringList extends Base.Runtime.TypedList$1<string> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringUEObjectList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.UEObjectList> {
-            
-            public constructor();
-            
-        }
-        
-        class UEObjectList extends Base.Runtime.TypedList$1<UnityEngine.Object> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringVector2List extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.Vector2List> {
-            
-            public constructor();
-            
-        }
-        
-        class Vector2List extends Base.Runtime.TypedList$1<UnityEngine.Vector2> {
-            
-            public constructor();
-            
-        }
-        
-        class SDictionaryStringVector3List extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.Vector3List> {
-            
-            public constructor();
-            
-        }
-        
-        class Vector3List extends Base.Runtime.TypedList$1<UnityEngine.Vector3> {
-            
-            public constructor();
-            
-        }
-        
-        class JsEnvRuntime extends Base.Runtime.Singleton$1<Base.Runtime.JsEnvRuntime> {
-            
-            public debugPort: number;
-            
-            public useDebug: boolean;
-            
-            public get JsEnv(): Puerts.JsEnv;
-            
-            public constructor();
-            
-            public Init():Puerts.JsEnv;
-            
-            public Shut():void;
-            
-            public Update():void;
-            
-        }
-        
-        class Singleton$1<T> extends System.Object {
-            
-        }
-        
-        class JsLoaderRuntime extends System.Object {
-            
-            public constructor();
-            
-            public ReadFile($filePath: string, $debugPath: $Ref<string>):string;
-            
-            public FileExists($filePath: string):boolean;
-            
-        }
-        
-        class JsBehaviour extends UnityEngine.MonoBehaviour {
-            
-            public JsComponentName: string;
-            
-            public JsComponentProp: Base.Runtime.JsComponentProp;
-            
-            public constructor();
-            
-        }
-        
-        class JsComponentProp extends System.Object {
-            
-            public constructor();
-            
-            public Set($name: string, $value: Base.Runtime.IntList):void;
-            
-            public GetIntList($name: string):Base.Runtime.IntList;
-            
-            public Set($name: string, $value: Base.Runtime.LongList):void;
-            
-            public GetLongList($name: string):Base.Runtime.LongList;
-            
-            public Set($name: string, $value: Base.Runtime.FloatList):void;
-            
-            public GetFloatList($name: string):Base.Runtime.FloatList;
-            
-            public Set($name: string, $value: Base.Runtime.DoubleList):void;
-            
-            public GetDoubleList($name: string):Base.Runtime.DoubleList;
-            
-            public Set($name: string, $value: Base.Runtime.StringList):void;
-            
-            public GetStringList($name: string):Base.Runtime.StringList;
-            
-            public Set($name: string, $value: Base.Runtime.UEObjectList):void;
-            
-            public GetUEObjectList($name: string):Base.Runtime.UEObjectList;
-            
-            public Set($name: string, $value: Base.Runtime.Vector2List):void;
-            
-            public GetVector2List($name: string):Base.Runtime.Vector2List;
-            
-            public Set($name: string, $value: Base.Runtime.Vector3List):void;
-            
-            public GetVector3List($name: string):Base.Runtime.Vector3List;
-            
-            public Set($name: string, $value: number):void;
-            
-            public GetInt($name: string):number;
-            
-            public Set($name: string, $value: bigint):void;
-            
-            public GetLong($name: string):bigint;
-            
-            public Set($name: string, $value: number):void;
-            
-            public GetFloat($name: string):number;
-            
-            public Set($name: string, $value: number):void;
-            
-            public GetDouble($name: string):number;
-            
-            public Set($name: string, $value: string):void;
-            
-            public GetString($name: string):string;
-            
-            public Set($name: string, $value: UnityEngine.Object):void;
-            
-            public GetUEObject($name: string):UnityEngine.Object;
-            
-            public Set($name: string, $value: UnityEngine.Vector2):void;
-            
-            public GetVector2($name: string):UnityEngine.Vector2;
-            
-            public Set($name: string, $value: UnityEngine.Vector3):void;
-            
-            public GetVector3($name: string):UnityEngine.Vector3;
-            
-            public Clear():void;
-            
-            public GetType($typeName: string):System.Type;
-            
-            public IsUEObject($typeName: string):boolean;
-            
-            public GetType():System.Type;
-            
-        }
-        
-        class JsBehaviourMgr extends Base.Runtime.Singleton$1<Base.Runtime.JsBehaviourMgr> {
-            
-            public static get Instance(): Base.Runtime.JsBehaviourMgr;
-            
-            public constructor();
-            
-            public Add($jsb: Base.Runtime.JsBehaviour):void;
-            
-            public Get($instanceId: number):Base.Runtime.JsBehaviour;
-            
-            public Remove($instanceId: number):void;
-            
-        }
-        
-        class ComponentInfo extends System.Object {
-            
-            public name: string;
-            
-            public path: string;
-            
-            public properties: System.Collections.Generic.Dictionary$2<string, Base.Runtime.PropertyInfo>;
-            
-            public constructor();
-            
-        }
-        
-        class PropertyInfo extends System.Object {
-            
-            public name: string;
-            
-            public type: string;
-            
-            public isArray: boolean;
-            
-            public editable: boolean;
-            
-            public constructor();
-            
-        }
-        
-        class UnityEngineObjectExt extends System.Object {
-            
-            public static IsNull($obj: UnityEngine.Object):boolean;
+        /**
+         * Attribute to derive from if you wish to create a new property group type, such as box groups or tab groups.
+         * Note that this attribute has special behaviour for "combining" several attributes into one, as one group,
+         * may be declared across attributes in several members, completely out of order. See
+         * .
+         */
+        class PropertyGroupAttribute extends System.Attribute {
             
         }
         
     }
-    export namespace App.Runtime {
+    export namespace Sirenix.OdinInspector.Demos.CustomGroupExample {
         
-        class Main extends Base.Runtime.Singleton$1<App.Runtime.Main> {
+        class Thingy extends System.Object {
             
-            public static Inited: boolean;
+        }
+        
+    }
+    export namespace Sirenix.OdinInspector.Editor.Validation {
+        
+        class AttributeValidator$2<TAttribute,TValue> extends Sirenix.OdinInspector.Editor.Validation.AttributeValidator$1<TAttribute> {
             
-            public static get JsEnv(): Puerts.JsEnv;
+        }
+        
+        class AttributeValidator$1<TAttribute> extends Sirenix.OdinInspector.Editor.Validation.Validator {
+            
+        }
+        
+        class Validator extends System.Object {
+            
+        }
+        
+    }
+    export namespace UnityRoyale {
+        
+        class AAUsageExample extends UnityEngine.MonoBehaviour {
+            
+            public refObject: UnityEngine.AddressableAssets.AssetReferenceGameObject;
+            
+            public scene: UnityEngine.AddressableAssets.AssetReference;
             
             public constructor();
             
         }
         
-    }
-    export namespace PuertsStaticWrap {
+        class CPUOpponent extends UnityEngine.MonoBehaviour {
+            
+            public aiDeck: UnityRoyale.DeckData;
+            
+            public OnCardUsed: UnityEngine.Events.UnityAction$3<UnityRoyale.CardData, UnityEngine.Vector3, UnityRoyale.Placeable.Faction>;
+            
+            public opponentLoopTime: number;
+            
+            public constructor();
+            
+            public LoadDeck():void;
+            
+            public StartActing():void;
+            
+            public StopActing():void;
+            
+        }
         
-        class AutoStaticUsing extends System.Object {
+        class DeckData extends UnityEngine.ScriptableObject {
             
-            public static AutoUsing($jsEnv: Puerts.JsEnv):void;
+            public labelsToInclude: System.Array$1<UnityEngine.AddressableAssets.AssetLabelReference>;
             
-            public static UsingAction($jsEnv: Puerts.JsEnv, ...args: string[]):void;
+            public constructor();
             
-            public static UsingFunc($jsEnv: Puerts.JsEnv, ...args: string[]):void;
+            public CardsRetrieved($cardDataDownloaded: System.Collections.Generic.List$1<UnityRoyale.CardData>):void;
             
-            public static UsingGeneric($jsEnv: Puerts.JsEnv, $usingAction: boolean, ...types: System.Type[]):void;
+            public ShuffleCards():void;
+            
+            public GetNextCardFromDeck():UnityRoyale.CardData;
+            
+        }
+        
+        class CardData extends UnityEngine.ScriptableObject {
+            
+            public cardImage: UnityEngine.Sprite;
+            
+            public placeablesData: System.Array$1<UnityRoyale.PlaceableData>;
+            
+            public relativeOffsets: System.Array$1<UnityEngine.Vector3>;
+            
+            public constructor();
+            
+        }
+        
+        class DeckLoader extends UnityEngine.MonoBehaviour {
+            
+            public OnDeckLoaded: UnityEngine.Events.UnityAction;
+            
+            public constructor();
+            
+            public LoadDeck($deckToLoad: UnityRoyale.DeckData):void;
+            
+        }
+        
+        class CardManager extends UnityEngine.MonoBehaviour {
+            
+            public mainCamera: UnityEngine.Camera;
+            
+            public playingFieldMask: UnityEngine.LayerMask;
+            
+            public cardPrefab: UnityEngine.GameObject;
+            
+            public playersDeck: UnityRoyale.DeckData;
+            
+            public forbiddenAreaRenderer: UnityEngine.MeshRenderer;
+            
+            public OnCardUsed: UnityEngine.Events.UnityAction$3<UnityRoyale.CardData, UnityEngine.Vector3, UnityRoyale.Placeable.Faction>;
+            
+            public backupCardTransform: UnityEngine.RectTransform;
+            
+            public cardsDashboard: UnityEngine.RectTransform;
+            
+            public cardsPanel: UnityEngine.RectTransform;
+            
+            public constructor();
+            
+            public LoadDeck():void;
+            
+        }
+        
+        class CinematicsManager extends UnityEngine.MonoBehaviour {
+            
+            public redCastleCollapse: UnityEngine.Playables.PlayableDirector;
+            
+            public blueCastleCollapse: UnityEngine.Playables.PlayableDirector;
+            
+            public constructor();
+            
+            public PlayCollapseCutscene($f: UnityRoyale.Placeable.Faction):void;
+            
+        }
+        
+        class GameManager extends UnityEngine.MonoBehaviour {
+            
+            public autoStart: boolean;
+            
+            public navMesh: UnityEngine.AI.NavMeshSurface;
+            
+            public playersCastle: UnityEngine.GameObject;
+            
+            public opponentCastle: UnityEngine.GameObject;
+            
+            public introTimeline: UnityEngine.GameObject;
+            
+            public castlePData: UnityRoyale.PlaceableData;
+            
+            public appearEffectPool: UnityRoyale.ParticlePool;
+            
+            public constructor();
+            
+            public StartMatch():void;
+            
+            public UseCard($cardData: UnityRoyale.CardData, $position: UnityEngine.Vector3, $pFaction: UnityRoyale.Placeable.Faction):void;
+            
+            public OnEndGameCutsceneOver():void;
+            
+        }
+        
+        class PlaceableData extends UnityEngine.ScriptableObject {
+            
+            public pType: UnityRoyale.Placeable.PlaceableType;
+            
+            public associatedPrefab: UnityEngine.GameObject;
+            
+            public alternatePrefab: UnityEngine.GameObject;
+            
+            public attackType: UnityRoyale.ThinkingPlaceable.AttackType;
+            
+            public targetType: UnityRoyale.Placeable.PlaceableTarget;
+            
+            public attackRatio: number;
+            
+            public damagePerAttack: number;
+            
+            public attackRange: number;
+            
+            public hitPoints: number;
+            
+            public attackClip: UnityEngine.AudioClip;
+            
+            public dieClip: UnityEngine.AudioClip;
+            
+            public speed: number;
+            
+            public lifeTime: number;
+            
+            public damagePerSecond: number;
+            
+            public constructor();
+            
+        }
+        
+        class ParticlePool extends UnityEngine.MonoBehaviour {
+            
+            public effectPrefab: UnityEngine.GameObject;
+            
+            public amount: number;
+            
+            public constructor();
+            
+            public UseParticles($pos: UnityEngine.Vector3):void;
+            
+        }
+        
+        class InputManager extends UnityEngine.MonoBehaviour {
+            
+            public constructor();
+            
+        }
+        
+        class Building extends UnityRoyale.ThinkingPlaceable {
+            
+            public constructionTimeline: UnityEngine.Playables.PlayableDirector;
+            
+            public destructionTimeline: UnityEngine.Playables.PlayableDirector;
+            
+            public constructor();
+            
+            public Activate($pFaction: UnityRoyale.Placeable.Faction, $pData: UnityRoyale.PlaceableData):void;
+            
+        }
+        
+        class ThinkingPlaceable extends UnityRoyale.Placeable {
+            
+            public state: UnityRoyale.ThinkingPlaceable.States;
+            
+            public attackType: UnityRoyale.ThinkingPlaceable.AttackType;
+            
+            public target: UnityRoyale.ThinkingPlaceable;
+            
+            public healthBar: UnityRoyale.HealthBar;
+            
+            public hitPoints: number;
+            
+            public attackRange: number;
+            
+            public attackRatio: number;
+            
+            public lastBlowTime: number;
+            
+            public damage: number;
+            
+            public attackAudioClip: UnityEngine.AudioClip;
+            
+            public timeToActNext: number;
+            
+            public projectilePrefab: UnityEngine.GameObject;
+            
+            public projectileSpawnPoint: UnityEngine.Transform;
+            
+            public OnDealDamage: UnityEngine.Events.UnityAction$1<UnityRoyale.ThinkingPlaceable>;
+            
+            public OnProjectileFired: UnityEngine.Events.UnityAction$1<UnityRoyale.ThinkingPlaceable>;
+            
+            public constructor();
+            
+            public SetTarget($t: UnityRoyale.ThinkingPlaceable):void;
+            
+            public StartAttack():void;
+            
+            public DealBlow():void;
+            
+            public DealDamage():void;
+            
+            public FireProjectile():void;
+            
+            public Seek():void;
+            
+            public IsTargetInRange():boolean;
+            
+            public SufferDamage($amount: number):number;
+            
+            public Stop():void;
+            
+        }
+        
+        class Placeable extends UnityEngine.MonoBehaviour {
+            
+            public pType: UnityRoyale.Placeable.PlaceableType;
+            
+            public faction: UnityRoyale.Placeable.Faction;
+            
+            public targetType: UnityRoyale.Placeable.PlaceableTarget;
+            
+            public dieAudioClip: UnityEngine.AudioClip;
+            
+            public OnDie: UnityEngine.Events.UnityAction$1<UnityRoyale.Placeable>;
+            
+            public constructor();
+            
+        }
+        
+        class Obstacle extends UnityRoyale.Placeable {
+            
+            public timeToRemoval: number;
+            
+            public constructor();
+            
+            public Activate($pData: UnityRoyale.PlaceableData):void;
+            
+        }
+        
+        class HealthBar extends UnityEngine.MonoBehaviour {
+            
+            public bar: UnityEngine.RectTransform;
+            
+            public wholeWidget: UnityEngine.GameObject;
+            
+            public constructor();
+            
+            public Initialise($p: UnityRoyale.ThinkingPlaceable):void;
+            
+            public SetHealth($newHP: number):void;
+            
+            public Move():void;
+            
+        }
+        
+        class Unit extends UnityRoyale.ThinkingPlaceable {
+            
+            public constructor();
+            
+            public Activate($pFaction: UnityRoyale.Placeable.Faction, $pData: UnityRoyale.PlaceableData):void;
+            
+        }
+        
+        class Projectile extends UnityEngine.MonoBehaviour {
+            
+            public target: UnityRoyale.ThinkingPlaceable;
+            
+            public damage: number;
+            
+            public constructor();
+            
+            public Move():number;
+            
+        }
+        
+        class CardMarker extends UnityEngine.Timeline.Marker {
+            
+            public card: UnityRoyale.CardData;
+            
+            public position: UnityEngine.Vector3;
+            
+            public faction: UnityRoyale.Placeable.Faction;
+            
+            public get id(): UnityEngine.PropertyName;
+            
+            public constructor();
+            
+        }
+        
+        class CardPlayerBridge extends UnityEngine.MonoBehaviour {
+            
+            public gameManager: UnityRoyale.GameManager;
+            
+            public constructor();
+            
+            public OnNotify($origin: UnityEngine.Playables.Playable, $notification: UnityEngine.Playables.INotification, $context: any):void;
+            
+        }
+        
+        class Card extends UnityEngine.MonoBehaviour {
+            
+            public OnDragAction: UnityEngine.Events.UnityAction$2<number, UnityEngine.Vector2>;
+            
+            public OnTapDownAction: UnityEngine.Events.UnityAction$1<number>;
+            
+            public OnTapReleaseAction: UnityEngine.Events.UnityAction$1<number>;
+            
+            public cardId: number;
+            
+            public cardData: UnityRoyale.CardData;
+            
+            public portraitImage: UnityEngine.UI.Image;
+            
+            public constructor();
+            
+            public InitialiseWithData($cData: UnityRoyale.CardData):void;
+            
+            public OnPointerDown($pointerEvent: UnityEngine.EventSystems.PointerEventData):void;
+            
+            public OnDrag($pointerEvent: UnityEngine.EventSystems.PointerEventData):void;
+            
+            public OnPointerUp($pointerEvent: UnityEngine.EventSystems.PointerEventData):void;
+            
+            public ChangeActiveState($isActive: boolean):void;
+            
+        }
+        
+        class UIManager extends UnityEngine.MonoBehaviour {
+            
+            public healthBarPrefab: UnityEngine.GameObject;
+            
+            public gameOverUI: UnityEngine.GameObject;
+            
+            public constructor();
+            
+            public AddHealthUI($p: UnityRoyale.ThinkingPlaceable):void;
+            
+            public RemoveHealthUI($p: UnityRoyale.ThinkingPlaceable):void;
+            
+            public ShowGameOverUI():void;
+            
+            public OnRetryButton():void;
             
         }
         
     }
-    export namespace UnityEngine.InputManagerEntry {
+    export namespace UnityEngine.AddressableAssets {
         
-        enum Kind { KeyOrButton = 0, Mouse = 1, Axis = 2 }
+        class AssetReferenceGameObject extends UnityEngine.AddressableAssets.AssetReferenceT$1<UnityEngine.GameObject> {
+            
+        }
         
-        enum Axis { X = 0, Y = 1, Third = 2, Fourth = 3, Fifth = 4, Sixth = 5, Seventh = 6, Eigth = 7 }
+        class AssetReferenceT$1<TObject> extends UnityEngine.AddressableAssets.AssetReference {
+            
+        }
         
-        enum Joy { All = 0, First = 1, Second = 2 }
+        class AssetReference extends System.Object {
+            
+        }
+        
+        class AssetLabelReference extends System.Object {
+            
+        }
+        
+    }
+    export namespace UnityRoyale.Placeable {
+        
+        enum Faction { Player = 0, Opponent = 1, None = 2 }
+        
+        enum PlaceableType { Unit = 0, Obstacle = 1, Building = 2, Spell = 3, Castle = 4 }
+        
+        enum PlaceableTarget { OnlyBuildings = 0, Both = 1, None = 2 }
+        
+    }
+    export namespace UnityRoyale.ThinkingPlaceable {
+        
+        enum States { Dragged = 0, Idle = 1, Seeking = 2, Attacking = 3, Dead = 4 }
+        
+        enum AttackType { Melee = 0, Ranged = 1 }
+        
+    }
+    export namespace UnityEngine.Timeline {
+        
+        class Marker extends UnityEngine.ScriptableObject {
+            
+        }
         
     }
     export namespace UnityEngine.UI {
+        
+        class Image extends UnityEngine.UI.MaskableGraphic {
+            
+            public get sprite(): UnityEngine.Sprite;
+            public set sprite(value: UnityEngine.Sprite);
+            
+            public get overrideSprite(): UnityEngine.Sprite;
+            public set overrideSprite(value: UnityEngine.Sprite);
+            
+            public get type(): UnityEngine.UI.Image.Type;
+            public set type(value: UnityEngine.UI.Image.Type);
+            
+            public get preserveAspect(): boolean;
+            public set preserveAspect(value: boolean);
+            
+            public get fillCenter(): boolean;
+            public set fillCenter(value: boolean);
+            
+            public get fillMethod(): UnityEngine.UI.Image.FillMethod;
+            public set fillMethod(value: UnityEngine.UI.Image.FillMethod);
+            
+            public get fillAmount(): number;
+            public set fillAmount(value: number);
+            
+            public get fillClockwise(): boolean;
+            public set fillClockwise(value: boolean);
+            
+            public get fillOrigin(): number;
+            public set fillOrigin(value: number);
+            
+            public get alphaHitTestMinimumThreshold(): number;
+            public set alphaHitTestMinimumThreshold(value: number);
+            
+            public get useSpriteMesh(): boolean;
+            public set useSpriteMesh(value: boolean);
+            
+            public static get defaultETC1GraphicMaterial(): UnityEngine.Material;
+            
+            public get mainTexture(): UnityEngine.Texture;
+            
+            public get hasBorder(): boolean;
+            
+            public get pixelsPerUnitMultiplier(): number;
+            public set pixelsPerUnitMultiplier(value: number);
+            
+            public get pixelsPerUnit(): number;
+            
+            public get material(): UnityEngine.Material;
+            public set material(value: UnityEngine.Material);
+            
+            public get minWidth(): number;
+            
+            public get preferredWidth(): number;
+            
+            public get flexibleWidth(): number;
+            
+            public get minHeight(): number;
+            
+            public get preferredHeight(): number;
+            
+            public get flexibleHeight(): number;
+            
+            public get layoutPriority(): number;
+            
+            public DisableSpriteOptimizations():void;
+            
+            public OnBeforeSerialize():void;
+            
+            public OnAfterDeserialize():void;
+            
+            public CalculateLayoutInputHorizontal():void;
+            
+            public CalculateLayoutInputVertical():void;
+            
+            public IsRaycastLocationValid($screenPoint: UnityEngine.Vector2, $eventCamera: UnityEngine.Camera):boolean;
+            
+        }
+        
+        class MaskableGraphic extends UnityEngine.UI.Graphic {
+            
+            public get onCullStateChanged(): UnityEngine.UI.MaskableGraphic.CullStateChangedEvent;
+            public set onCullStateChanged(value: UnityEngine.UI.MaskableGraphic.CullStateChangedEvent);
+            
+            public get maskable(): boolean;
+            public set maskable(value: boolean);
+            
+            public get isMaskingGraphic(): boolean;
+            public set isMaskingGraphic(value: boolean);
+            
+            public GetModifiedMaterial($baseMaterial: UnityEngine.Material):UnityEngine.Material;
+            
+            public Cull($clipRect: UnityEngine.Rect, $validRect: boolean):void;
+            
+            public SetClipRect($clipRect: UnityEngine.Rect, $validRect: boolean):void;
+            
+            public SetClipSoftness($clipSoftness: UnityEngine.Vector2):void;
+            
+            public RecalculateClipping():void;
+            
+            public RecalculateMasking():void;
+            
+        }
+        
+        class Graphic extends UnityEngine.EventSystems.UIBehaviour {
+            
+            public static get defaultGraphicMaterial(): UnityEngine.Material;
+            
+            public get color(): UnityEngine.Color;
+            public set color(value: UnityEngine.Color);
+            
+            public get raycastTarget(): boolean;
+            public set raycastTarget(value: boolean);
+            
+            public get raycastPadding(): UnityEngine.Vector4;
+            public set raycastPadding(value: UnityEngine.Vector4);
+            
+            public get depth(): number;
+            
+            public get rectTransform(): UnityEngine.RectTransform;
+            
+            public get canvas(): UnityEngine.Canvas;
+            
+            public get canvasRenderer(): UnityEngine.CanvasRenderer;
+            
+            public get defaultMaterial(): UnityEngine.Material;
+            
+            public get material(): UnityEngine.Material;
+            public set material(value: UnityEngine.Material);
+            
+            public get materialForRendering(): UnityEngine.Material;
+            
+            public get mainTexture(): UnityEngine.Texture;
+            
+            public SetAllDirty():void;
+            
+            public SetLayoutDirty():void;
+            
+            public SetVerticesDirty():void;
+            
+            public SetMaterialDirty():void;
+            
+            public OnCullingChanged():void;
+            
+            public Rebuild($update: UnityEngine.UI.CanvasUpdate):void;
+            
+            public LayoutComplete():void;
+            
+            public GraphicUpdateComplete():void;
+            
+            public OnRebuildRequested():void;
+            
+            public SetNativeSize():void;
+            
+            public Raycast($sp: UnityEngine.Vector2, $eventCamera: UnityEngine.Camera):boolean;
+            
+            public PixelAdjustPoint($point: UnityEngine.Vector2):UnityEngine.Vector2;
+            
+            public GetPixelAdjustedRect():UnityEngine.Rect;
+            
+            public CrossFadeColor($targetColor: UnityEngine.Color, $duration: number, $ignoreTimeScale: boolean, $useAlpha: boolean):void;
+            
+            public CrossFadeColor($targetColor: UnityEngine.Color, $duration: number, $ignoreTimeScale: boolean, $useAlpha: boolean, $useRGB: boolean):void;
+            
+            public CrossFadeAlpha($alpha: number, $duration: number, $ignoreTimeScale: boolean):void;
+            
+            public RegisterDirtyLayoutCallback($action: UnityEngine.Events.UnityAction):void;
+            
+            public UnregisterDirtyLayoutCallback($action: UnityEngine.Events.UnityAction):void;
+            
+            public RegisterDirtyVerticesCallback($action: UnityEngine.Events.UnityAction):void;
+            
+            public UnregisterDirtyVerticesCallback($action: UnityEngine.Events.UnityAction):void;
+            
+            public RegisterDirtyMaterialCallback($action: UnityEngine.Events.UnityAction):void;
+            
+            public UnregisterDirtyMaterialCallback($action: UnityEngine.Events.UnityAction):void;
+            
+        }
         
         class AnimationTriggers extends System.Object {
             
@@ -57802,184 +57936,6 @@
             public CalculateLayoutInputHorizontal():void;
             
             public CalculateLayoutInputVertical():void;
-            
-        }
-        
-        class MaskableGraphic extends UnityEngine.UI.Graphic {
-            
-            public get onCullStateChanged(): UnityEngine.UI.MaskableGraphic.CullStateChangedEvent;
-            public set onCullStateChanged(value: UnityEngine.UI.MaskableGraphic.CullStateChangedEvent);
-            
-            public get maskable(): boolean;
-            public set maskable(value: boolean);
-            
-            public get isMaskingGraphic(): boolean;
-            public set isMaskingGraphic(value: boolean);
-            
-            public GetModifiedMaterial($baseMaterial: UnityEngine.Material):UnityEngine.Material;
-            
-            public Cull($clipRect: UnityEngine.Rect, $validRect: boolean):void;
-            
-            public SetClipRect($clipRect: UnityEngine.Rect, $validRect: boolean):void;
-            
-            public SetClipSoftness($clipSoftness: UnityEngine.Vector2):void;
-            
-            public RecalculateClipping():void;
-            
-            public RecalculateMasking():void;
-            
-        }
-        
-        class Graphic extends UnityEngine.EventSystems.UIBehaviour {
-            
-            public static get defaultGraphicMaterial(): UnityEngine.Material;
-            
-            public get color(): UnityEngine.Color;
-            public set color(value: UnityEngine.Color);
-            
-            public get raycastTarget(): boolean;
-            public set raycastTarget(value: boolean);
-            
-            public get raycastPadding(): UnityEngine.Vector4;
-            public set raycastPadding(value: UnityEngine.Vector4);
-            
-            public get depth(): number;
-            
-            public get rectTransform(): UnityEngine.RectTransform;
-            
-            public get canvas(): UnityEngine.Canvas;
-            
-            public get canvasRenderer(): UnityEngine.CanvasRenderer;
-            
-            public get defaultMaterial(): UnityEngine.Material;
-            
-            public get material(): UnityEngine.Material;
-            public set material(value: UnityEngine.Material);
-            
-            public get materialForRendering(): UnityEngine.Material;
-            
-            public get mainTexture(): UnityEngine.Texture;
-            
-            public SetAllDirty():void;
-            
-            public SetLayoutDirty():void;
-            
-            public SetVerticesDirty():void;
-            
-            public SetMaterialDirty():void;
-            
-            public OnCullingChanged():void;
-            
-            public Rebuild($update: UnityEngine.UI.CanvasUpdate):void;
-            
-            public LayoutComplete():void;
-            
-            public GraphicUpdateComplete():void;
-            
-            public OnRebuildRequested():void;
-            
-            public SetNativeSize():void;
-            
-            public Raycast($sp: UnityEngine.Vector2, $eventCamera: UnityEngine.Camera):boolean;
-            
-            public PixelAdjustPoint($point: UnityEngine.Vector2):UnityEngine.Vector2;
-            
-            public GetPixelAdjustedRect():UnityEngine.Rect;
-            
-            public CrossFadeColor($targetColor: UnityEngine.Color, $duration: number, $ignoreTimeScale: boolean, $useAlpha: boolean):void;
-            
-            public CrossFadeColor($targetColor: UnityEngine.Color, $duration: number, $ignoreTimeScale: boolean, $useAlpha: boolean, $useRGB: boolean):void;
-            
-            public CrossFadeAlpha($alpha: number, $duration: number, $ignoreTimeScale: boolean):void;
-            
-            public RegisterDirtyLayoutCallback($action: UnityEngine.Events.UnityAction):void;
-            
-            public UnregisterDirtyLayoutCallback($action: UnityEngine.Events.UnityAction):void;
-            
-            public RegisterDirtyVerticesCallback($action: UnityEngine.Events.UnityAction):void;
-            
-            public UnregisterDirtyVerticesCallback($action: UnityEngine.Events.UnityAction):void;
-            
-            public RegisterDirtyMaterialCallback($action: UnityEngine.Events.UnityAction):void;
-            
-            public UnregisterDirtyMaterialCallback($action: UnityEngine.Events.UnityAction):void;
-            
-        }
-        
-        class Image extends UnityEngine.UI.MaskableGraphic {
-            
-            public get sprite(): UnityEngine.Sprite;
-            public set sprite(value: UnityEngine.Sprite);
-            
-            public get overrideSprite(): UnityEngine.Sprite;
-            public set overrideSprite(value: UnityEngine.Sprite);
-            
-            public get type(): UnityEngine.UI.Image.Type;
-            public set type(value: UnityEngine.UI.Image.Type);
-            
-            public get preserveAspect(): boolean;
-            public set preserveAspect(value: boolean);
-            
-            public get fillCenter(): boolean;
-            public set fillCenter(value: boolean);
-            
-            public get fillMethod(): UnityEngine.UI.Image.FillMethod;
-            public set fillMethod(value: UnityEngine.UI.Image.FillMethod);
-            
-            public get fillAmount(): number;
-            public set fillAmount(value: number);
-            
-            public get fillClockwise(): boolean;
-            public set fillClockwise(value: boolean);
-            
-            public get fillOrigin(): number;
-            public set fillOrigin(value: number);
-            
-            public get alphaHitTestMinimumThreshold(): number;
-            public set alphaHitTestMinimumThreshold(value: number);
-            
-            public get useSpriteMesh(): boolean;
-            public set useSpriteMesh(value: boolean);
-            
-            public static get defaultETC1GraphicMaterial(): UnityEngine.Material;
-            
-            public get mainTexture(): UnityEngine.Texture;
-            
-            public get hasBorder(): boolean;
-            
-            public get pixelsPerUnitMultiplier(): number;
-            public set pixelsPerUnitMultiplier(value: number);
-            
-            public get pixelsPerUnit(): number;
-            
-            public get material(): UnityEngine.Material;
-            public set material(value: UnityEngine.Material);
-            
-            public get minWidth(): number;
-            
-            public get preferredWidth(): number;
-            
-            public get flexibleWidth(): number;
-            
-            public get minHeight(): number;
-            
-            public get preferredHeight(): number;
-            
-            public get flexibleHeight(): number;
-            
-            public get layoutPriority(): number;
-            
-            public DisableSpriteOptimizations():void;
-            
-            public OnBeforeSerialize():void;
-            
-            public OnAfterDeserialize():void;
-            
-            public CalculateLayoutInputHorizontal():void;
-            
-            public CalculateLayoutInputVertical():void;
-            
-            public IsRaycastLocationValid($screenPoint: UnityEngine.Vector2, $eventCamera: UnityEngine.Camera):boolean;
             
         }
         
@@ -59103,6 +59059,765 @@
         }
         
     }
+    export namespace App.Runtime {
+        
+        class Main extends Base.Runtime.Singleton$1<App.Runtime.Main> {
+            
+            public static Inited: boolean;
+            
+            public static get js(): Puerts.JsEnv;
+            
+            public constructor();
+            
+            public ReloadEnv():void;
+            
+        }
+        
+    }
+    export namespace Base.Runtime {
+        
+        class Singleton$1<T> extends Sirenix.OdinInspector.SerializedMonoBehaviour {
+            
+        }
+        
+        class ComponentInfo extends System.Object {
+            
+            public name: string;
+            
+            public path: string;
+            
+            public properties: System.Collections.Generic.Dictionary$2<string, Base.Runtime.PropertyInfo>;
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringInt extends Base.Runtime.SerializableDictionary$2<string, number> {
+            
+            public constructor();
+            
+        }
+        
+        class SerializableDictionary$2<TKey,TValue> extends System.Collections.Generic.Dictionary$2<TKey, TValue> {
+            
+        }
+        
+        class SDictionaryStringLong extends Base.Runtime.SerializableDictionary$2<string, bigint> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringFloat extends Base.Runtime.SerializableDictionary$2<string, number> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringDouble extends Base.Runtime.SerializableDictionary$2<string, number> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringString extends Base.Runtime.SerializableDictionary$2<string, string> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringUEObject extends Base.Runtime.SerializableDictionary$2<string, UnityEngine.Object> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringVector2 extends Base.Runtime.SerializableDictionary$2<string, UnityEngine.Vector2> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringVector3 extends Base.Runtime.SerializableDictionary$2<string, UnityEngine.Vector3> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringIntList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.IntList> {
+            
+            public constructor();
+            
+        }
+        
+        class IntList extends Base.Runtime.TypedList$1<number> {
+            
+            public constructor();
+            
+        }
+        
+        class TypedList$1<T> extends System.Object {
+            
+        }
+        
+        class SDictionaryStringLongList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.LongList> {
+            
+            public constructor();
+            
+        }
+        
+        class LongList extends Base.Runtime.TypedList$1<bigint> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringFloatList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.FloatList> {
+            
+            public constructor();
+            
+        }
+        
+        class FloatList extends Base.Runtime.TypedList$1<number> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringDoubleList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.DoubleList> {
+            
+            public constructor();
+            
+        }
+        
+        class DoubleList extends Base.Runtime.TypedList$1<number> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringStringList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.StringList> {
+            
+            public constructor();
+            
+        }
+        
+        class StringList extends Base.Runtime.TypedList$1<string> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringUEObjectList extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.UEObjectList> {
+            
+            public constructor();
+            
+        }
+        
+        class UEObjectList extends Base.Runtime.TypedList$1<UnityEngine.Object> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringVector2List extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.Vector2List> {
+            
+            public constructor();
+            
+        }
+        
+        class Vector2List extends Base.Runtime.TypedList$1<UnityEngine.Vector2> {
+            
+            public constructor();
+            
+        }
+        
+        class SDictionaryStringVector3List extends Base.Runtime.SerializableDictionary$2<string, Base.Runtime.Vector3List> {
+            
+            public constructor();
+            
+        }
+        
+        class Vector3List extends Base.Runtime.TypedList$1<UnityEngine.Vector3> {
+            
+            public constructor();
+            
+        }
+        
+        class JsEnvRuntime extends Base.Runtime.Singleton$1<Base.Runtime.JsEnvRuntime> {
+            
+            public debugPort: number;
+            
+            public useDebug: boolean;
+            
+            public get env(): Puerts.JsEnv;
+            
+            public constructor();
+            
+            public Init($force?: boolean):Puerts.JsEnv;
+            
+            public Shut():void;
+            
+            public Update():void;
+            
+        }
+        
+        class JsLoaderRuntime extends System.Object {
+            
+            public constructor();
+            
+            public ReadFile($filePath: string, $debugPath: $Ref<string>):string;
+            
+            public FileExists($filePath: string):boolean;
+            
+        }
+        
+        class JsBehaviour extends Base.Runtime.Singleton$1<Base.Runtime.JsBehaviour> {
+            
+            public JsComponentName: string;
+            
+            public JsComponentProp: Base.Runtime.JsComponentProp;
+            
+            public constructor();
+            
+            public Restart():void;
+            
+        }
+        
+        class JsComponentProp extends System.Object {
+            
+            public constructor();
+            
+            public Set($name: string, $value: Base.Runtime.IntList):void;
+            
+            public GetIntList($name: string):Base.Runtime.IntList;
+            
+            public Set($name: string, $value: Base.Runtime.LongList):void;
+            
+            public GetLongList($name: string):Base.Runtime.LongList;
+            
+            public Set($name: string, $value: Base.Runtime.FloatList):void;
+            
+            public GetFloatList($name: string):Base.Runtime.FloatList;
+            
+            public Set($name: string, $value: Base.Runtime.DoubleList):void;
+            
+            public GetDoubleList($name: string):Base.Runtime.DoubleList;
+            
+            public Set($name: string, $value: Base.Runtime.StringList):void;
+            
+            public GetStringList($name: string):Base.Runtime.StringList;
+            
+            public Set($name: string, $value: Base.Runtime.UEObjectList):void;
+            
+            public GetUEObjectList($name: string):Base.Runtime.UEObjectList;
+            
+            public Set($name: string, $value: Base.Runtime.Vector2List):void;
+            
+            public GetVector2List($name: string):Base.Runtime.Vector2List;
+            
+            public Set($name: string, $value: Base.Runtime.Vector3List):void;
+            
+            public GetVector3List($name: string):Base.Runtime.Vector3List;
+            
+            public Set($name: string, $value: number):void;
+            
+            public GetInt($name: string):number;
+            
+            public Set($name: string, $value: bigint):void;
+            
+            public GetLong($name: string):bigint;
+            
+            public Set($name: string, $value: number):void;
+            
+            public GetFloat($name: string):number;
+            
+            public Set($name: string, $value: number):void;
+            
+            public GetDouble($name: string):number;
+            
+            public Set($name: string, $value: string):void;
+            
+            public GetString($name: string):string;
+            
+            public Set($name: string, $value: UnityEngine.Object):void;
+            
+            public GetUEObject($name: string):UnityEngine.Object;
+            
+            public Set($name: string, $value: UnityEngine.Vector2):void;
+            
+            public GetVector2($name: string):UnityEngine.Vector2;
+            
+            public Set($name: string, $value: UnityEngine.Vector3):void;
+            
+            public GetVector3($name: string):UnityEngine.Vector3;
+            
+            public Clear():void;
+            
+            public GetType($typeName: string):System.Type;
+            
+            public IsUEObject($typeName: string):boolean;
+            
+            public GetType():System.Type;
+            
+        }
+        
+        class JsBehaviourMgr extends Base.Runtime.Singleton$1<Base.Runtime.JsBehaviourMgr> {
+            
+            public static get Instance(): Base.Runtime.JsBehaviourMgr;
+            
+            public constructor();
+            
+            public Add($jsb: Base.Runtime.JsBehaviour):void;
+            
+            public Get($instanceId: number):Base.Runtime.JsBehaviour;
+            
+            public Remove($instanceId: number):void;
+            
+        }
+        
+        class PropertyInfo extends System.Object {
+            
+            public name: string;
+            
+            public type: string;
+            
+            public isArray: boolean;
+            
+            public editable: boolean;
+            
+            public constructor();
+            
+        }
+        
+        class UnityEngineObjectExt extends System.Object {
+            
+            public static IsNull($obj: UnityEngine.Object):boolean;
+            
+        }
+        
+    }
+    export namespace Puerts {
+        
+        class JsEnv extends System.Object {
+            
+        }
+        
+        class TypeRegisterInfo extends System.Object {
+            
+        }
+        
+        class JSObject extends System.Object {
+            
+        }
+        
+    }
+    export namespace PuertsStaticWrap {
+        
+        class AutoStaticCodeRegister extends System.Object {
+            
+            public static Register($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_AndroidJNIHelper_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_AndroidJNI_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_AnimationClip_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_AnimationCurve_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Animator_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_AudioClip_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_AudioListener_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_AudioSource_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Behaviour_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Bounds_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_Camera_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Collider_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Collision_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Color_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_Component_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Events_UnityEvent_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_GameObject_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Input_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Mathf_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Matrix4x4_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_MonoBehaviour_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Networking_UnityWebRequest_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Object_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_ParticleSystem_MainModule_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_ParticleSystem_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Physics_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Quaternion_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_Ray_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_RaycastHit_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_Rect_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_Rigidbody_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_SceneManagement_Scene_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Screen_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_SystemInfo_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_TextAsset_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Texture_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Time_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Transform_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+        }
+        
+        class UnityEngine_Vector2_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_Vector3_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+        class UnityEngine_Vector4_Wrap extends System.Object {
+            
+            public static GetRegisterInfo():Puerts.TypeRegisterInfo;
+            
+            public static InitBlittableCopy($jsEnv: Puerts.JsEnv):void;
+            
+        }
+        
+    }
+    export namespace Sandbox {
+        
+        class ExcuteInEditorLoad extends System.Object {
+            
+            public constructor();
+            
+        }
+        
+        class TestJs extends UnityEngine.MonoBehaviour {
+            
+            public constructor();
+            
+        }
+        
+        class TestCs2Ts extends UnityEngine.MonoBehaviour {
+            
+            public num: number;
+            
+            public constructor();
+            
+            public testSetValue():void;
+            
+        }
+        
+        class TestScript extends UnityEngine.MonoBehaviour {
+            
+            public script: Puerts.JSObject;
+            
+            public constructor();
+            
+        }
+        
+    }
+    export namespace UnityTemplateProjects {
+        
+        class SimpleCameraController extends UnityEngine.MonoBehaviour {
+            
+            public boost: number;
+            
+            public positionLerpTime: number;
+            
+            public mouseSensitivityCurve: UnityEngine.AnimationCurve;
+            
+            public rotationLerpTime: number;
+            
+            public invertY: boolean;
+            
+            public constructor();
+            
+        }
+        
+    }
+    export namespace App.Editor {
+        
+        class PuertsCfg extends System.Object {
+            
+            public constructor();
+            
+        }
+        
+    }
+    export namespace Base.Editor {
+        
+        class CmdExecutor extends System.Object {
+            
+            public static RunExe($file: string, $args?: string, $workingDir?: string):string;
+            
+            public static RunShell($cmd: string, $args?: string):void;
+            
+            public static GetWorkingDirByFilePath($filePath: string):string;
+            
+        }
+        
+        class JsEnvEditor extends System.Object {
+            
+            public jsEnv: Puerts.JsEnv;
+            
+            public get ComponentInfos(): System.Collections.Generic.Dictionary$2<string, Base.Runtime.ComponentInfo>;
+            
+            public constructor();
+            
+            public Tick():void;
+            
+            public Dispose():void;
+            
+            public GetJsComponentInfo($componentName: string):Base.Runtime.ComponentInfo;
+            
+        }
+        
+        class JsLoaderEditor extends System.Object {
+            
+            public constructor();
+            
+            public FileExists($filePath: string):boolean;
+            
+            public ReadFile($filePath: string, $debugPath: $Ref<string>):string;
+            
+        }
+        
+        class OpenTsProject extends System.Object {
+            
+            public static OpenTsProj():void;
+            
+        }
+        
+        class JsBehaviourEditor extends UnityEditor.Editor {
+            
+            public constructor();
+            
+        }
+        
+        class SelectJsComponentDropdown extends UnityEditor.IMGUI.Controls.AdvancedDropdown {
+            
+            public constructor($jsComponentInfos: System.Collections.Generic.Dictionary$2<string, Base.Runtime.ComponentInfo>);
+            
+            public add_OnItemSelected($value: System.Action$1<string>):void;
+            
+            public remove_OnItemSelected($value: System.Action$1<string>):void;
+            
+            public constructor();
+            
+        }
+        
+    }
+    export namespace UnityEditor.IMGUI.Controls {
+        /** Inherit from this class to implement your own drop-down control. */
+        class AdvancedDropdown extends System.Object {
+            
+        }
+        
+    }
     export namespace UnityEngine.UI.Button {
         
         class ButtonClickedEvent extends UnityEngine.Events.UnityEvent {
@@ -59249,6 +59964,15 @@
         class ToggleEvent extends UnityEngine.Events.UnityEvent$1<boolean> {
             
         }
+        
+    }
+    export namespace UnityEngine.InputManagerEntry {
+        
+        enum Kind { KeyOrButton = 0, Mouse = 1, Axis = 2 }
+        
+        enum Axis { X = 0, Y = 1, Third = 2, Fourth = 3, Fifth = 4, Sixth = 5, Seventh = 6, Eigth = 7 }
+        
+        enum Joy { All = 0, First = 1, Second = 2 }
         
     }
     export namespace UnityEngine.EventSystems.StandaloneInputModule {

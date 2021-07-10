@@ -1,10 +1,40 @@
+import TestBind from 'sandbox/TestBind';
 import { Sandbox, System, UnityEngine } from 'csharp';
-import { Component } from './component/component-base';
-import { component, property } from './component/component-decoration';
+import { Component } from 'component/component-base';
+import { component, property } from 'component/component-decoration';
 import TestScript = Sandbox.TestScript;
+import Debug = UnityEngine.Debug;
+import TestCs2Ts = Sandbox.TestCs2Ts;
 
 export * from './component/component-info-mgr';
 export * from './component/component-inst-mgr';
+
+global.hello = (s: string) => {
+    Debug.Log(`hello, ${ s }`)
+}
+
+// TestCs2Ts.prototype.test = function() {
+//     Debug.Log(this.num + ' = test')
+//     this.num = 123;
+// }
+
+
+const p = Object.getOwnPropertyNames(TestBind.prototype);
+console.log(p); // [ 'constructor', 'echo', 'info' ]
+for (var i in p) {
+    var name = p[i];
+    Debug.Log(name);
+    TestCs2Ts.prototype[name] = TestBind.prototype[name];
+}
+
+//TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
+
+global.testBind = (obj: TestBind) => {
+    Debug.Log('test bind 4');
+    //Debug.Log(obj.num);
+    obj.num = 5;
+    obj.test2();
+}
 
 /**
  * 使用component修饰器定义TestBehaviour为Js组件
@@ -39,6 +69,9 @@ class TestBehaviour extends Component {
     @property(UnityEngine.Vector3) prop7: UnityEngine.Vector3;
     
     public Awake() {
+        
+        //  let _功夫="如来神掌";
+        // gf
         // logging_trace_with_error.js
         let test = {
             add(x, y) {
@@ -55,10 +88,10 @@ class TestBehaviour extends Component {
                 let y = this.calc();
             },
         }
-    
+        
         global.testScript = (mb: TestScript) => {
             mb.script = this as any;
-            console.log("test hello");
+            console.log('test hello');
             (mb.script as unknown as TestBehaviour).SayHello();
         }
         
@@ -77,11 +110,11 @@ class TestBehaviour extends Component {
     
     public Start() {
         console.log('Start');
-  
+        
     }
     
-    public SayHello(){
-        console.log("Hello, not bad!")
+    public SayHello() {
+        console.log('Hello, not bad!')
     }
     
     public OnEnable() {

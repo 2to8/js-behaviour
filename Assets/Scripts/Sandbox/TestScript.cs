@@ -12,7 +12,7 @@ namespace Sandbox
 
         void Start()
         {
-            var js = Main.JsEnv.Eval<Action<TestScript>>("global.testScript");
+            var js = Main.js.Eval<Action<TestScript>>("global.testScript");
             Debug.Log(js != null);
             js?.Invoke(this);
         }

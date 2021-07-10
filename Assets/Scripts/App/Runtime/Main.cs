@@ -1,22 +1,32 @@
 ﻿using Base.Runtime;
 using Puerts;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
 namespace App.Runtime
 {
+    [RequireComponent(typeof(JsEnvRuntime))]
     public class Main : Singleton<Main>
     {
         public static bool Inited;
 
-        public static JsEnv JsEnv {
+        public static JsEnv js {
             get {
                 if (!Inited) {
                     Inst.Awake();
                 }
 
-                return JsEnvRuntime.Inst.JsEnv;
+                return JsEnvRuntime.Inst.env;
             }
+        }
+
+        [Button]
+        public void ReloadEnv()
+        {
+             js.Dispose();
+             Inited = false;
+             JsEnvRuntime.Inst.Init(true);
         }
 
         protected override void Awake()
@@ -25,7 +35,7 @@ namespace App.Runtime
             if (!Inited) {
                 Inited = true;
                 JsEnvRuntime.Inst.Init();
-                JsEnvRuntime.Inst.JsEnv.Eval("var app = require('index').default || require('index');");
+                JsEnvRuntime.Inst.env.Eval("var app = require('index').default || require('index');");
             }
         }
 

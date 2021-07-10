@@ -1,0 +1,7 @@
+﻿{
+    "name": "Puerts.Runtime",
+    "references": [
+        "Unity.Addressables",
+        "Unity.ResourceManager"
+    ]
+}

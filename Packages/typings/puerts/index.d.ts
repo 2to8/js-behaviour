@@ -23,3 +23,4 @@ declare module "puerts" {
 }
 
 declare function require(name: string): any;
+

@@ -26,6 +26,15 @@
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     }
 
+    var TestCs2Ts$1 = csharp.Sandbox.TestCs2Ts;
+    var Debug$1 = csharp.UnityEngine.Debug;
+    class TestBind extends TestCs2Ts$1 {
+        test2() {
+            Debug$1.Log(this.num + " = test3");
+            this.num = 111;
+        }
+    }
+
     /**
      * 组件接口，回调时机同unity的mono behaviour
      */
@@ -257,6 +266,29 @@
     const InvalidComponentID = -1;
     const compInstMgr = new ComponentInstMgr;
 
+    var Debug = csharp.UnityEngine.Debug;
+    var TestCs2Ts = csharp.Sandbox.TestCs2Ts;
+    global.hello = (s) => {
+        Debug.Log(`hello, ${s}`);
+    };
+    // TestCs2Ts.prototype.test = function() {
+    //     Debug.Log(this.num + ' = test')
+    //     this.num = 123;
+    // }
+    const p = Object.getOwnPropertyNames(TestBind.prototype);
+    console.log(p); // [ 'constructor', 'echo', 'info' ]
+    for (var i in p) {
+        var name = p[i];
+        Debug.Log(name);
+        TestCs2Ts.prototype[name] = TestBind.prototype[name];
+    }
+    //TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
+    global.testBind = (obj) => {
+        Debug.Log('test bind 4');
+        //Debug.Log(obj.num);
+        obj.num = 5;
+        obj.test2();
+    };
     /**
      * 使用component修饰器定义TestBehaviour为Js组件
      */
@@ -278,6 +310,8 @@
         prop6;
         prop7;
         Awake() {
+            //  let _功夫="如来神掌";
+            // gf
             // logging_trace_with_error.js
             let test = {
                 add(x, y) {
@@ -294,7 +328,7 @@
             };
             global.testScript = (mb) => {
                 mb.script = this;
-                console.log("test hello");
+                console.log('test hello');
                 mb.script.SayHello();
             };
             test.main();
@@ -312,7 +346,7 @@
             console.log('Start');
         }
         SayHello() {
-            console.log("Hello, not bad!");
+            console.log('Hello, not bad!');
         }
         OnEnable() {
             console.log('OnEnable');
