@@ -1,0 +1,10 @@
+{
+	"name" : "mobi.joycraft.framework",
+	"version": "1.0.1",
+	"displayName": "Common.Framework",
+	"description": "",
+	"author": {
+		"name": "Joycraft Studio",
+		"url": "https://joycraft.mobi"
+	}
+}

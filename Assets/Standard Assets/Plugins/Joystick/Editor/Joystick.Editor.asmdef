@@ -1,0 +1,9 @@
+{
+    "name": "Joystick.Editor",
+    "references": [
+        "Joystick"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}

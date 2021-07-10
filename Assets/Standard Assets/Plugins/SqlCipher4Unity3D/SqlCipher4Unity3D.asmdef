@@ -1,0 +1,8 @@
+{
+    "name": "SqlCipher4Unity3D",
+    "references": [
+        "Puerts.Runtime",
+        "Basics"
+    ],
+    "includePlatforms": []
+}

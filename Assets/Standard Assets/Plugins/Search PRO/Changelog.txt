@@ -1,0 +1,97 @@
+support: bruno3dcontato@gmail.com
+
+
+------------------ EN-US ------------------ 
+-------------- version 1.1.0 --------------
+
+Automated frame search time:
+The search will be performed in the interval of 25ms to each frame 
+avoiding overhead of the main thread
+
+Search Filters:
+Compatibility with Unity's default search filters "t:", "name:", "l:"
+see further details in the documentation
+https://docs.unity3d.com/Manual/Searching.html
+
+Improved recent list:
+Restricted items will be displayed first
+The amount of objects in the list was limited to 10 items
+
+Search sync:
+Item Search is performed in SceneView and Hierarchy
+
+Improved drag:
+When there is no scroll you can start dragging an object in any direction
+
+Change in item description:
+before: "GameObject> Component"
+now: "Component: 'Camera' in 'Main Camera' GameObject"
+
+before: "Scene > GameObject"
+now: "GameObject: 'Player' on 'Level 1' Scene"
+
+
+------------------ PT-BR ------------------ 
+-------------- version 1.1.0 --------------
+
+
+Tempo de busca automatizado por frames:
+A busca será realizada no intervalo de 25ms a cada frame evitando overhead da main thread
+
+Filtros de busca:
+Compatibilidade com os filtros de busca  padrão da Unity "t:", "name:", "l:"
+veja mais detalhes na documentação
+https://docs.unity3d.com/Manual/Searching.html
+
+Lista de recentes melhorada:
+Itens rencentemente modificados serão exibidos primeiro
+A quantidade de objetos na lista foi limitada a 10 itens
+
+Sincronia na busca:
+A busca por itens é realizada na SceneView e Hierarchy
+
+Arrasto de objetos melhorado:
+Quando não houver scroll você poderá iniciar o arrasto de um objeto em qualquer direção
+
+Alteração na descrição de itens:
+antes: "GameObject > Component"
+agora: "Component: 'Camera' in 'Main Camera' GameObject"
+
+antes: "Scene > GameObject"
+agora: "GameObject: 'Player' on 'Level 1' Scene"
+
+
+------------------ EN-US ------------------ 
+-------------- version 1.1.1 --------------
+
+
+Correction of shortcut keys "CTRL + SPACE":
+A command was added to initialize the focus interface in the search box
+when you press CTRL + SPACE
+
+
+------------------ PT-BR ------------------ 
+-------------- version 1.1.1 --------------
+
+
+Correção das teclas de atalho "CTRL + SPACE":
+Um comando foi adicionado para inicializar a interface com foco
+na caixa de busca ao pressinoar CTRL + SPACE
+
+
+------------------ EN-US ------------------ 
+-------------- version 1.1.3 --------------
+
+
+Fix .NET 3x
+
+Add Search results information
+
+
+------------------ PT-BR ------------------ 
+-------------- version 1.1.3 --------------
+
+Correção de erros de compatibilidade NET 3x
+
+Adicionado informação sobre os resultados de busca
+

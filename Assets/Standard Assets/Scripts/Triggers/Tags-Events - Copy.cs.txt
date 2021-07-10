@@ -1,0 +1,343 @@
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace Triggers {
+
+// public class TT {
+
+public class DO_TriggerStay2D : MonoBehaviour {
+    public UnityEvent<Collider2D> E_OnTriggerStay2D;
+
+    void OnTriggerStay2D(Collider2D other) => E_OnTriggerStay2D.Invoke(other);
+}
+
+public class DO_FixedUpdate : MonoBehaviour {
+    public UnityEvent E_FixedUpdate;
+
+    void FixedUpdate() => E_FixedUpdate.Invoke();
+}
+
+public class DO_LateUpdate : MonoBehaviour {
+    public UnityEvent E_LateUpdate;
+
+    void LateUpdate() => E_LateUpdate.Invoke();
+}
+
+public class DO_OnAnimatorIK : MonoBehaviour {
+    public UnityEvent<int> E_OnAnimatorIK;
+
+    void OnAnimatorIK(int layerIndex) => E_OnAnimatorIK.Invoke(layerIndex);
+}
+
+public class DO_OnAudioFilterRead : MonoBehaviour {
+    public UnityEvent<float[], int> E_OnAudioFilterRead;
+
+    void OnAudioFilterRead(float[] data, int channels) => E_OnAudioFilterRead.Invoke(data, channels);
+}
+
+public class DO_OnApplicationQuit : MonoBehaviour {
+
+    public UnityEvent E_OnApplicationQuit;
+
+    void OnApplicationQuit() => E_OnApplicationQuit.Invoke();
+}
+
+public class DO_OnApplicationPause : MonoBehaviour {
+    public UnityEvent<bool> E_OnApplicationPause;
+
+    void OnApplicationPause(bool pauseStatus) => E_OnApplicationPause.Invoke(pauseStatus);
+}
+
+public class DO_OnApplicationFocus : MonoBehaviour {
+
+    public UnityEvent<bool> E_OnApplicationFocus;
+
+    void OnApplicationFocus(bool hasFocus) => E_OnApplicationFocus.Invoke(hasFocus);
+}
+
+public class DO_OnAnimatorMove : MonoBehaviour {
+    public UnityEvent E_OnAnimatorMove;
+
+    void OnAnimatorMove() => E_OnAnimatorMove.Invoke();
+
+}
+
+public class DO_OnConnectedToServer : MonoBehaviour {
+    public UnityEvent E_OnConnectedToServer;
+
+    void OnConnectedToServer() => E_OnConnectedToServer.Invoke();
+}
+
+public class DO_OnCollisionStay2D : MonoBehaviour {
+    public UnityEvent<Collision2D> E_OnCollisionStay2D;
+
+    void OnCollisionStay2D(Collision2D other) => E_OnCollisionStay2D.Invoke(other);
+}
+
+public class DO_OnCollisionStay : MonoBehaviour {
+    public UnityEvent<Collision> E_OnCollisionStay;
+
+    void OnCollisionStay(Collision other) => E_OnCollisionStay.Invoke(other);
+}
+
+public class DO_OnCollisionExit2D : MonoBehaviour {
+    public UnityEvent<Collision2D> E_OnCollisionExit2D;
+
+    void OnCollisionExit2D(Collision2D other) => E_OnCollisionExit2D.Invoke(other);
+
+}
+
+public class DO_OnCollisionExit : MonoBehaviour {
+    public UnityEvent<Collision> E_OnCollisionExit;
+
+    void OnCollisionExit(Collision other) => E_OnCollisionExit.Invoke(other);
+
+}
+
+public class DO_OnCollisionEnter2D : MonoBehaviour {
+    public UnityEvent<Collision2D> E_OnCollisionEnter2D;
+
+    void OnCollisionEnter2D(Collision2D other) => E_OnCollisionEnter2D.Invoke(other);
+}
+
+public class DO_OnCollisionEnter : MonoBehaviour {
+    public UnityEvent<Collision> E_OnCollisionEnter;
+
+    void OnCollisionEnter(Collision other) => E_OnCollisionEnter.Invoke(other);
+
+}
+
+public class DO_OnCanvasHierarchyChanged : MonoBehaviour {
+    public UnityEvent E_OnCanvasHierarchyChanged;
+
+    void OnCanvasHierarchyChanged() => E_OnCanvasHierarchyChanged.Invoke();
+}
+
+public class DO_OnCanvasGroupChanged : MonoBehaviour {
+    public UnityEvent E_OnCanvasGroupChanged;
+
+    void OnCanvasGroupChanged() => E_OnCanvasGroupChanged.Invoke();
+}
+
+public class DO_OnBeforeTransformParentChanged : MonoBehaviour {
+    public UnityEvent E_OnBeforeTransformParentChanged;
+
+    void OnBeforeTransformParentChanged() => E_OnBeforeTransformParentChanged.Invoke();
+}
+
+public class DO_OnBecameVisible : MonoBehaviour {
+    public UnityEvent E_OnBecameVisible;
+
+    void OnBecameVisible() => E_OnBecameVisible.Invoke();
+}
+
+public class DO_OnBecameInvisible : MonoBehaviour {
+    public UnityEvent E_OnBecameInvisible;
+
+    void OnBecameInvisible() => E_OnBecameInvisible.Invoke();
+}
+
+public class DO_OnMouseUp : MonoBehaviour {
+    public UnityEvent E_OnMouseUp;
+
+    void OnMouseUp() => E_OnMouseUp.Invoke();
+}
+
+public class DO_OnMouseOver : MonoBehaviour {
+    public UnityEvent E_OnMouseOver;
+
+    void OnMouseOver() => E_OnMouseOver.Invoke();
+}
+
+public class DO_OnMouseExit : MonoBehaviour {
+    public UnityEvent E_OnMouseExit;
+
+    void OnMouseExit() => E_OnMouseExit.Invoke();
+}
+
+public class DO_OnMouseEnter : MonoBehaviour {
+    public UnityEvent E_OnMouseEnter;
+
+    void OnMouseEnter() => E_OnMouseEnter.Invoke();
+}
+
+public class DO_OnMouseDrag : MonoBehaviour {
+    public UnityEvent E_OnMouseDrag;
+
+    void OnMouseDrag() => E_OnMouseDrag.Invoke();
+}
+
+public class DO_OnMouseDown : MonoBehaviour {
+    public UnityEvent E_OnMouseDown;
+
+    void OnMouseDown() => E_OnMouseDown.Invoke();
+}
+
+public class DO_OnJointBreak2D : MonoBehaviour {
+    public UnityEvent<Joint2D> E_OnJointBreak2D;
+
+    void OnJointBreak2D(Joint2D brokenJoint) => E_OnJointBreak2D.Invoke(brokenJoint);
+}
+
+public class DO_OnJointBreak : MonoBehaviour {
+    public UnityEvent<float> E_OnJointBreak;
+
+    void OnJointBreak(float breakForce) => E_OnJointBreak.Invoke(breakForce);
+}
+
+public class DO_OnDrawGizmosSelected : MonoBehaviour {
+    public UnityEvent E_OnDrawGizmosSelected;
+
+    void OnDrawGizmosSelected() => E_OnDrawGizmosSelected.Invoke();
+}
+
+public class DO_OnDrawGizmos : MonoBehaviour {
+    public UnityEvent E_OnDrawGizmos;
+
+    void OnDrawGizmos() => E_OnDrawGizmos.Invoke();
+}
+
+public class DO_OnDidApplyAnimationProperties : MonoBehaviour {
+    public UnityEvent E_OnDidApplyAnimationProperties;
+
+    void OnDidApplyAnimationProperties() => E_OnDidApplyAnimationProperties.Invoke();
+}
+
+public class DO_OnControllerColliderHit : MonoBehaviour {
+    public UnityEvent<ControllerColliderHit> E_OnControllerColliderHit;
+
+    void OnControllerColliderHit(ControllerColliderHit hit) => E_OnControllerColliderHit.Invoke(hit);
+}
+
+public class DO_OnRenderObject : MonoBehaviour {
+    public UnityEvent E_OnRenderObject;
+
+    void OnRenderObject() => E_OnRenderObject.Invoke();
+}
+
+public class DO_OnRenderImage : MonoBehaviour {
+    public UnityEvent<RenderTexture, RenderTexture> E_OnRenderImage;
+
+    void OnRenderImage(RenderTexture src, RenderTexture dest) => E_OnRenderImage.Invoke(src, dest);
+}
+
+public class DO_OnRectTransformDimensionsChange : MonoBehaviour {
+    public UnityEvent E_OnRectTransformDimensionsChange;
+
+    void OnRectTransformDimensionsChange() => E_OnRectTransformDimensionsChange.Invoke();
+}
+
+public class DO_OnPreRender : MonoBehaviour {
+    public UnityEvent E_OnPreRender;
+
+    void OnPreRender() => E_OnPreRender.Invoke();
+}
+
+public class DO_OnPreCull : MonoBehaviour {
+
+    public UnityEvent E_OnPreCull;
+
+    void OnPreCull() => E_OnPreCull.Invoke();
+}
+
+public class DO_OnPostRender : MonoBehaviour {
+    public UnityEvent E_OnPostRender;
+
+    void OnPostRender() => E_OnPostRender.Invoke();
+}
+
+public class DO_OnParticleUpdateJobScheduled : MonoBehaviour {
+    public UnityEvent E_OnParticleUpdateJobScheduled;
+
+    void OnParticleUpdateJobScheduled() => E_OnParticleUpdateJobScheduled.Invoke();
+}
+
+public class DO_OnParticleTrigger : MonoBehaviour {
+    public UnityEvent E_OnParticleTrigger;
+
+    void OnParticleTrigger() => E_OnParticleTrigger.Invoke();
+}
+
+public class DO_OnParticleSystemStopped : MonoBehaviour {
+
+    public UnityEvent E_OnParticleSystemStopped;
+
+    void OnParticleSystemStopped() => E_OnParticleSystemStopped.Invoke();
+}
+
+public class DO_OnParticleCollision : MonoBehaviour {
+
+    public UnityEvent<GameObject> E_OnParticleCollision;
+
+    void OnParticleCollision(GameObject other) => E_OnParticleCollision.Invoke(other);
+}
+
+public class DO_OnMouseUpAsButton : MonoBehaviour {
+    public UnityEvent E_OnMouseUpAsButton;
+
+    void OnMouseUpAsButton() => E_OnMouseUpAsButton.Invoke();
+}
+
+public class DO_OnWillRenderObject : MonoBehaviour {
+    public UnityEvent E_OnWillRenderObject;
+
+    void OnWillRenderObject() => E_OnWillRenderObject.Invoke();
+}
+
+public class DO_OnValidate : MonoBehaviour {
+    public UnityEvent E_OnValidate;
+
+    void OnValidate() => E_OnValidate.Invoke();
+}
+
+public class DO_OnTriggerStay : MonoBehaviour {
+    public UnityEvent<Collider> E_OnTriggerStay;
+
+    void OnTriggerStay(Collider other) => E_OnTriggerStay.Invoke(other);
+}
+
+public class DO_OnTriggerExit2D : MonoBehaviour {
+    public UnityEvent<Collider2D> E_OnTriggerExit2D;
+
+    void OnTriggerExit2D(Collider2D other) => E_OnTriggerExit2D.Invoke(other);
+}
+
+public class DO_OnTriggerExit : MonoBehaviour {
+    public UnityEvent<Collider> E_OnTriggerExit;
+
+    void OnTriggerExit(Collider other) => E_OnTriggerExit.Invoke(other);
+}
+
+public class DO_OnTriggerEnter2D : MonoBehaviour {
+    public UnityEvent<Collider2D> E_OnTriggerEnter2D;
+
+    void OnTriggerEnter2D(Collider2D other) => E_OnTriggerEnter2D.Invoke(other);
+}
+
+public class DO_OnTriggerEnter : MonoBehaviour {
+    public UnityEvent<Collider> E_OnTriggerEnter;
+
+    void OnTriggerEnter(Collider other) => E_OnTriggerEnter.Invoke(other);
+}
+
+public class DO_OnTransformParentChanged : MonoBehaviour {
+    public UnityEvent E_OnTransformParentChanged;
+
+    void OnTransformParentChanged() => E_OnTransformParentChanged.Invoke();
+}
+
+public class DO_OnTransformChildrenChanged : MonoBehaviour {
+    public UnityEvent E_OnTransformChildrenChanged;
+
+    void OnTransformChildrenChanged() => E_OnTransformChildrenChanged.Invoke();
+}
+
+public class DO_OnServerInitialized : MonoBehaviour {
+    public UnityEvent E_OnServerInitialized;
+
+    void OnServerInitialized() => E_OnServerInitialized.Invoke();
+}
+
+// }
+
+}

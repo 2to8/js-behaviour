@@ -2,8 +2,6 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Extensions
-{
     public static class PuertsExtension
     {
         public static void WaitDebuggerTimeout(this JsEnv jsEnv, int timeout = 0)
@@ -32,4 +30,3 @@ namespace Extensions
 #endif
         }
     }
-}

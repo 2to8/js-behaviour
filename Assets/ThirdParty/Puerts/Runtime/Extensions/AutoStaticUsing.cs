@@ -1,9 +1,10 @@
-﻿namespace PuertsStaticWrap
+﻿using Puerts;
+
+namespace PuertsStaticWrap
 {
     using System;
     using System.Linq;
     using System.Collections.Generic;
-    using JsEnv = Puerts.JsEnv;
     using BindingFlags = System.Reflection.BindingFlags;
 
     public static class AutoStaticUsing

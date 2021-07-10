@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SQLiteNetCipherExtensions</id>
+    <version>2.1.0</version>
+    <title>SQLite.Net Cipher Extensions-PCL</title>
+    <authors>TwinCoders</authors>
+    <owners>TwinCoders</owners>
+    <licenseUrl>https://bitbucket.org/twincoders/sqlite-net-extensions</licenseUrl>
+    <projectUrl>https://bitbucket.org/twincoders/sqlite-net-extensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SQLite-Net Extensions is a very simple ORM that provides cascade operations, one-to-one, one-to-many, many-to-one, many-to-many, inverse and text-blobbed relationships on top of the sqlite-net library.</description>
+    <releaseNotes>Added support for .Net Standard</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>sqlite sqlite-net sqlcipher net extensions orm cascade recursive</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
+      <dependency id="sqlite-net-sqlcipher" version="1.5.231" />
+    </dependencies>
+  </metadata>
+
+  <files>
+    <file src="SQLiteNetExtensions/bin/Release/netstandard1.1/SQLiteNetCipherExtensions.dll" target="lib/netstandard1.1" />
+    <file src="SQLiteNetExtensions/bin/Release/netstandard1.1/SQLiteNetCipherExtensions.pdb" target="lib/netstandard1.1" />
+    <file src="SQLiteNetExtensions/**/*.cs" target="src" />
+  </files>
+</package>

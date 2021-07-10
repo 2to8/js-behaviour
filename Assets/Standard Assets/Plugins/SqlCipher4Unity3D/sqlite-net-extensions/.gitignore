@@ -1,0 +1,9 @@
+**/bin
+**/obj
+*.suo
+*.DotSettings.user
+*.userprefs
+*.nupkg
+packages/*
+!packages/repositories.config
+.vs/

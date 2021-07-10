@@ -1101,6 +1101,7 @@ GameObject:
   - component: {fileID: 2021949708}
   - component: {fileID: 2021949707}
   - component: {fileID: 2021949706}
+  - component: {fileID: 2021949709}
   m_Layer: 0
   m_Name: JSObjectTest
   m_TagString: Untagged
@@ -1148,3 +1149,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2021949709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021949705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58faf207b1434607b1616940b8899d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  num: 100

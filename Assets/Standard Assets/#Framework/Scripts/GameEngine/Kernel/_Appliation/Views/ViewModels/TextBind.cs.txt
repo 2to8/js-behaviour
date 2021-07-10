@@ -1,0 +1,29 @@
+﻿
+
+namespace Views.ViewModels
+{
+    public class TextBind<T, TV> : View<TextBind<T, TV>> where TV : TextBind<T, TV>
+    {
+        public Text ui;
+        private T value;
+
+        public T Value {
+            get => value;
+            set {
+                this.value = value;
+                if(ui == null) {
+                    ui = GetComponent<Text>();
+                }
+
+                if(ui != null) {
+                    ui.text = $"{value}";
+                }
+            }
+        }
+
+        protected override void Awake() {
+            base.Awake();
+            Value = value;
+        }
+    }
+}
