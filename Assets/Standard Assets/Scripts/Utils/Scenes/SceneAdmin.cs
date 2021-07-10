@@ -19,13 +19,13 @@ namespace Utils.Scenes
     [DisallowMultipleComponent, ExecuteAlways]
     public class SceneAdmin : SerializedMonoBehaviour
     {
-        //
-        // public static IEnumerable<Scene> GetAllLoadedScenes()
-        // {
-        //     for (int i = 0; i < SceneManager.sceneCount; i++) {
-        //         yield return SceneManager.GetSceneAt(i);
-        //     }
-        // }
+//        //
+//        // public static IEnumerable<Scene> GetAllLoadedScenes()
+//        // {
+//        //     for (int i = 0; i < SceneManager.sceneCount; i++) {
+//        //         yield return SceneManager.GetSceneAt(i);
+//        //     }
+//        // }
         public static Dictionary<Scene, SceneAdmin> instances = new Dictionary<Scene, SceneAdmin>();
 
         [SerializeField]
@@ -39,39 +39,39 @@ namespace Utils.Scenes
 
         [SerializeField, HideInInspector]
         public string ScenePath;
-
+//
 #if UNITY_EDITOR
         [ShowInInspector]
         public string m_ScenePath => ScenePath = AssetDatabase.GUIDToAssetPath(CurrentSceneAsset?.AssetGUID);
-
-        [InitializeOnLoadMethod, DidReloadScripts]
-        static void CheckAndLoadThis()
-        {
-            //Debug.Log("OnEnable called");
-            //SceneManager.sceneLoaded -= OnSceneLoaded;
-            //SceneManager.sceneLoaded += OnSceneLoaded;
-            EditorApplication.delayCall -= OnDelayCall;
-            EditorApplication.delayCall += OnDelayCall;
-        }
-
-        static void OnDelayCall()
-        {
-            Debug.Log(SceneManager.GetSceneByName("GlobalScene").isLoaded);
-            if (!SceneManager.GetSceneByName("GlobalScene").isLoaded) {
-                //Debug.LogError("load global scene");
-                EditorSceneManager.OpenScene("Assets/Scenes/GlobalScene.unity", OpenSceneMode.Additive);
-            }
-        }
-
-        // called second
-        static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            OnDelayCall();
-//            Debug.Log("OnSceneLoaded: " + scene.name);
-//            Debug.Log(mode);
-        }
+//
+//        [InitializeOnLoadMethod, DidReloadScripts]
+//        static void CheckAndLoadThis()
+//        {
+//            //Debug.Log("OnEnable called");
+//            //SceneManager.sceneLoaded -= OnSceneLoaded;
+//            //SceneManager.sceneLoaded += OnSceneLoaded;
+//            EditorApplication.delayCall -= OnDelayCall;
+//            EditorApplication.delayCall += OnDelayCall;
+//        }
+//
+//        static void OnDelayCall()
+//        {
+//            Debug.Log(SceneManager.GetSceneByName("JsGlobal").isLoaded);
+//            if (!SceneManager.GetSceneByName("JsGlobal").isLoaded) {
+//                //Debug.LogError("load global scene");
+//                EditorSceneManager.OpenScene("Assets/Res/Scenes/JsGlobal.unity", OpenSceneMode.Additive);
+//            }
+//        }
+//
+//        // called second
+//        static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+//        {
+//            OnDelayCall();
+////            Debug.Log("OnSceneLoaded: " + scene.name);
+////            Debug.Log(mode);
+//        }
 #endif
-
+//
         protected void Awake()
         {
             instances[gameObject.scene] = this;

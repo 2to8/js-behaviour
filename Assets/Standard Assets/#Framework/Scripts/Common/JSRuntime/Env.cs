@@ -74,7 +74,7 @@ namespace Common.JSRuntime
         [Title("主模块", horizontalLine: false)]
         public TextAsset mainModule;
 
-        [ShowInInspector]
+        //[ShowInInspector]
         int size => mainModule?.text.Length ?? 0;
 
         [SerializeField]

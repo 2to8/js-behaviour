@@ -1,4 +1,5 @@
 ﻿using System;
+using Puerts;
 using UnityEngine;
 
 namespace Base.Runtime
@@ -8,45 +9,57 @@ namespace Base.Runtime
         protected void Awake()
         {
             JsBehaviourMgr.Instance.Add(this);
-            if (string.IsNullOrEmpty(JsComponentName))
-            {
+            if (string.IsNullOrEmpty(JsComponentName)) {
                 return;
             }
+
+            if (JsEnvRuntime.Inst.env?.IsDisposed() != false) return;
             jsComponentId = JsEnvRuntime.Inst.env.Eval<int>($"app.compInstMgr.newComponent('{JsComponentName}')");
-            if (jsComponentId < 0)
-            {
+            if (jsComponentId < 0) {
                 return;
             }
-            jsAwake = JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'Awake')");
-            jsStart = JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'Start')");
-            jsOnEnable = JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnEnable')");
-            jsOnDisable = JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDisable')");
-            jsOnDestroy = JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDestroy')");
 
-            jsBindProperty = JsEnvRuntime.Inst.env.Eval<Action<int>>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'BindProperty')");
-            jsUnbindProperty = JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'UnbindProperty')");
-
+            jsAwake = JsEnvRuntime.Inst.env.Eval<Action>(
+                $"app.compInstMgr.getComponentMethod({jsComponentId}, 'Awake')");
+            jsStart = JsEnvRuntime.Inst.env.Eval<Action>(
+                $"app.compInstMgr.getComponentMethod({jsComponentId}, 'Start')");
+            jsOnEnable =
+                JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnEnable')");
+            jsOnDisable =
+                JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDisable')");
+            jsOnDestroy =
+                JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDestroy')");
+            jsBindProperty =
+                JsEnvRuntime.Inst.env.Eval<Action<int>>(
+                    $"app.compInstMgr.getComponentMethod({jsComponentId}, 'BindProperty')");
+            jsUnbindProperty =
+                JsEnvRuntime.Inst.env.Eval<Action>(
+                    $"app.compInstMgr.getComponentMethod({jsComponentId}, 'UnbindProperty')");
             jsBindProperty?.Invoke(GetInstanceID());
             jsAwake?.Invoke();
         }
 
         protected void Start()
         {
-            jsStart?.Invoke();
+            if (JsEnvRuntime.Inst.env?.IsDisposed() == false)
+                jsStart?.Invoke();
         }
 
         protected void OnEnable()
         {
-            jsOnEnable?.Invoke();
+            if (JsEnvRuntime.Inst.env?.IsDisposed() == false)
+                jsOnEnable?.Invoke();
         }
 
         protected void OnDisable()
         {
-            jsOnDisable?.Invoke();
+            if (JsEnvRuntime.Inst.env?.IsDisposed() == false)
+                jsOnDisable?.Invoke();
         }
 
         protected void OnDestroy()
         {
+            if (JsEnvRuntime.Inst.env?.IsDisposed() != false) return;
             jsOnDestroy?.Invoke();
             jsUnbindProperty?.Invoke();
             jsAwake = null;
@@ -58,8 +71,11 @@ namespace Base.Runtime
             JsBehaviourMgr.Instance.Remove(GetInstanceID());
         }
 
-        [SerializeField] public string JsComponentName;
-        [SerializeField] public JsComponentProp JsComponentProp;
+        [SerializeField]
+        public string JsComponentName;
+
+        [SerializeField]
+        public JsComponentProp JsComponentProp;
 
         /// <summary>
         /// js组件实例ID
@@ -71,7 +87,6 @@ namespace Base.Runtime
         private Action jsOnEnable;
         private Action jsOnDisable;
         private Action jsOnDestroy;
-
         private Action<int> jsBindProperty;
         private Action jsUnbindProperty;
     }
