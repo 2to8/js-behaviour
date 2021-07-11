@@ -11,20 +11,20 @@ namespace JsEnvEditor
     {
         public JsEnvEditor()
         {
-            try
-            {
+            try {
                 jsEnv.Eval("editor = require('index');");
                 ParseJsBehaviourInfos();
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 Debug.LogError(e);
             }
         }
 
         public void Tick()
         {
-            jsEnv.Tick();
+            if (jsEnv?.IsDisposed() == false) {
+                jsEnv.Tick();
+            }
         }
 
         public void Dispose()
@@ -39,10 +39,10 @@ namespace JsEnvEditor
         /// <returns>组件信息</returns>
         public ComponentInfo GetJsComponentInfo(string componentName)
         {
-            if (string.IsNullOrEmpty(componentName))
-            {
+            if (string.IsNullOrEmpty(componentName)) {
                 return null;
             }
+
             return componentInfos.TryGetValue(componentName, out var componentInfo) ? componentInfo : null;
         }
 

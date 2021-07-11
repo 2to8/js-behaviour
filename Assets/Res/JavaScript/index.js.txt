@@ -4,6 +4,37 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}, global.csharp, global.puerts));
 }(this, (function (exports, csharp, puerts) { 'use strict';
 
+    var DebugLogText = csharp.NodeCanvas.Tasks.Actions.DebugLogText;
+    var Debug$2 = csharp.UnityEngine.Debug;
+    class DebugText extends DebugLogText {
+        OnExecute() {
+            Debug$2.Log(`[Js] ${this.log.value}`);
+        }
+    }
+
+    var TestCs2Ts$1 = csharp.Sandbox.TestCs2Ts;
+    var Debug$1 = csharp.UnityEngine.Debug;
+    class TestBind extends TestCs2Ts$1 {
+        test2() {
+            Debug$1.Log(this.num + " = test7..");
+            this.num = 100;
+            //
+        }
+    }
+
+    function uses(...c) {
+        c.forEach(type => {
+            let pr = Object.getPrototypeOf(type.prototype);
+            if (puerts.$typeof(pr.constructor) != null) {
+                Object.getOwnPropertyNames(type.prototype).forEach(name => {
+                    console.log(`[check] ${type.name}[${puerts.$typeof(pr.constructor).FullName}] => ${name}`);
+                    pr[name] = type.prototype[name];
+                });
+                global.$providers.set(puerts.$typeof(pr.constructor).FullName, type);
+            }
+        });
+    }
+
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
 
@@ -24,16 +55,6 @@
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
-    }
-
-    var TestCs2Ts$1 = csharp.Sandbox.TestCs2Ts;
-    var Debug$1 = csharp.UnityEngine.Debug;
-    class TestBind extends TestCs2Ts$1 {
-        test2() {
-            Debug$1.Log(this.num + " = test7..");
-            this.num = 100;
-            //
-        }
     }
 
     /**
@@ -220,76 +241,36 @@
         };
     }
 
-    class ComponentInstMgr {
-        /**
-         * 给定一个组件类名，创建对应的实例
-         * @param className 组件类名
-         * @returns 返回实例ID
-         */
-        newComponent(className) {
-            const componentCls = compInfoMgr.findComponentConstructor(className);
-            if (!componentCls) {
-                console.error(`cannot find component constructor ${className}.`);
-                return InvalidComponentID;
-            }
-            const componentId = ++this.componentIdSeed;
-            this.components[componentId] = new componentCls();
-            return componentId;
-        }
-        /**
-         * 删除一个组件实例
-         * @param componentId 组件实例ID
-         */
-        delComponent(componentId) {
-            delete this.components[componentId];
-        }
-        /**
-         * 获取组件实例上的一个方法名
-         * @param componentId 组件实例ID
-         * @param methodName 方法名
-         * @returns 绑定组件实例后的方法
-         */
-        getComponentMethod(componentId, methodName) {
-            const componentInst = this.components[componentId];
-            if (!componentInst) {
-                console.error(`cannot find component with id ${componentId}.`);
-                return undefined;
-            }
-            const method = componentInst[methodName];
-            if (!method) {
-                return undefined;
-            }
-            return method.bind(componentInst);
-        }
-        componentIdSeed = 0;
-        components = {};
-    }
-    const InvalidComponentID = -1;
-    const compInstMgr = new ComponentInstMgr;
-
-    var Debug = csharp.UnityEngine.Debug;
-    var TestCs2Ts = csharp.Sandbox.TestCs2Ts;
-    global.hello = (s) => {
-        Debug.Log(`hello, ${s}`);
+    let UserBehaviour1 = class UserBehaviour1 {
     };
-    // TestCs2Ts.prototype.test = function() {
-    //     Debug.Log(this.num + ' = test')
-    //     this.num = 123;
-    // }
-    const p = Object.getOwnPropertyNames(TestBind.prototype);
-    console.log(p); // [ 'constructor', 'echo', 'info' ]
-    for (var i in p) {
-        var name = p[i];
-        Debug.Log(name);
-        TestCs2Ts.prototype[name] = TestBind.prototype[name];
-    }
-    //TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
-    global.testBind = (obj) => {
-        Debug.Log('test bind 5');
-        Debug.Log(obj.num);
-        obj.num = 5;
-        obj.test2();
+    UserBehaviour1 = __decorate([
+        component('User')
+    ], UserBehaviour1);
+    let UserBehaviour2 = class UserBehaviour2 {
     };
+    UserBehaviour2 = __decorate([
+        component('User')
+    ], UserBehaviour2);
+    let UserBehaviour3 = class UserBehaviour3 {
+    };
+    UserBehaviour3 = __decorate([
+        component('User')
+    ], UserBehaviour3);
+    let SystemBehaviour1 = class SystemBehaviour1 {
+    };
+    SystemBehaviour1 = __decorate([
+        component('System')
+    ], SystemBehaviour1);
+    let SystemBehaviour2 = class SystemBehaviour2 {
+    };
+    SystemBehaviour2 = __decorate([
+        component('System')
+    ], SystemBehaviour2);
+    let SystemBehaviour3 = class SystemBehaviour3 {
+    };
+    SystemBehaviour3 = __decorate([
+        component('System')
+    ], SystemBehaviour3);
     /**
      * 使用component修饰器定义TestBehaviour为Js组件
      */
@@ -389,36 +370,96 @@
     TestBehaviour = __decorate([
         component()
     ], TestBehaviour);
-    let UserBehaviour1 = class UserBehaviour1 {
+
+    class ComponentInstMgr {
+        /**
+         * 给定一个组件类名，创建对应的实例
+         * @param className 组件类名
+         * @returns 返回实例ID
+         */
+        newComponent(className) {
+            const componentCls = compInfoMgr.findComponentConstructor(className);
+            if (!componentCls) {
+                console.error(`cannot find component constructor ${className}.`);
+                return InvalidComponentID;
+            }
+            const componentId = ++this.componentIdSeed;
+            this.components[componentId] = new componentCls();
+            return componentId;
+        }
+        /**
+         * 删除一个组件实例
+         * @param componentId 组件实例ID
+         */
+        delComponent(componentId) {
+            delete this.components[componentId];
+        }
+        /**
+         * 获取组件实例上的一个方法名
+         * @param componentId 组件实例ID
+         * @param methodName 方法名
+         * @returns 绑定组件实例后的方法
+         */
+        getComponentMethod(componentId, methodName) {
+            const componentInst = this.components[componentId];
+            if (!componentInst) {
+                console.error(`cannot find component with id ${componentId}.`);
+                return undefined;
+            }
+            const method = componentInst[methodName];
+            if (!method) {
+                return undefined;
+            }
+            return method.bind(componentInst);
+        }
+        componentIdSeed = 0;
+        components = {};
+    }
+    const InvalidComponentID = -1;
+    const compInstMgr = new ComponentInstMgr;
+
+    var Debug = csharp.UnityEngine.Debug;
+    var TestCs2Ts = csharp.Sandbox.TestCs2Ts;
+    global.$hello = (s) => {
+        Debug.Log(`hello, ${s}`);
     };
-    UserBehaviour1 = __decorate([
-        component('User')
-    ], UserBehaviour1);
-    let UserBehaviour2 = class UserBehaviour2 {
+    // TestCs2Ts.prototype.test = function() {
+    //     Debug.Log(this.num + ' = test')
+    //     this.num = 123;
+    // }
+    global.$testPrototype = function () {
+        const p = Object.getOwnPropertyNames(TestBind.prototype);
+        console.log(p); // [ 'constructor', 'echo', 'info' ]
+        p.forEach(name => {
+            Debug.Log(name);
+            TestCs2Ts.prototype[name] = TestBind.prototype[name];
+        });
     };
-    UserBehaviour2 = __decorate([
-        component('User')
-    ], UserBehaviour2);
-    let UserBehaviour3 = class UserBehaviour3 {
+    // for (let i in p) {
+    //     let name = p[i];
+    //   
+    // }
+    global.$providers = new Map();
+    global.$require = (obj, fn, ...args) => {
+        if (!global.$providers.has(obj.GetType().FullName)) {
+            Debug.LogError(`${obj.GetType().FullName} 没有添加到 module 列表`);
+            return;
+        }
+        obj[fn].call(obj, ...args);
     };
-    UserBehaviour3 = __decorate([
-        component('User')
-    ], UserBehaviour3);
-    let SystemBehaviour1 = class SystemBehaviour1 {
+    //TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
+    global.$testBind = (obj) => {
+        Debug.Log('test bind 5');
+        Debug.Log(obj.num);
+        obj.num = 5;
+        obj.test2();
     };
-    SystemBehaviour1 = __decorate([
-        component('System')
-    ], SystemBehaviour1);
-    let SystemBehaviour2 = class SystemBehaviour2 {
-    };
-    SystemBehaviour2 = __decorate([
-        component('System')
-    ], SystemBehaviour2);
-    let SystemBehaviour3 = class SystemBehaviour3 {
-    };
-    SystemBehaviour3 = __decorate([
-        component('System')
-    ], SystemBehaviour3);
+    uses(//
+    TestBind, //
+    DebugText, //
+    TestBehaviour, //
+    UserBehaviour1, UserBehaviour2, UserBehaviour3, //
+    SystemBehaviour1, SystemBehaviour2, SystemBehaviour3);
 
     exports.InvalidComponentID = InvalidComponentID;
     exports.compInfoMgr = compInfoMgr;

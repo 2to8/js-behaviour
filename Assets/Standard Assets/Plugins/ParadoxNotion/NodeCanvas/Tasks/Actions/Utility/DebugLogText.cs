@@ -1,4 +1,5 @@
-﻿using NodeCanvas.Framework;
+﻿using App.Support;
+using NodeCanvas.Framework;
 using ParadoxNotion;
 using ParadoxNotion.Design;
 using ParadoxNotion.Services;
@@ -32,7 +33,7 @@ namespace NodeCanvas.Tasks.Actions
         public BBParameter<string> log = "Hello World";
         public float labelYOffset = 0;
         public float secondsToRun = 1f;
-        public Color color;
+        public Color color = Color.white;
         public VerboseMode verboseMode;
         public LogMode logMode;
         public CompactStatus finishStatus = CompactStatus.Success;
@@ -42,6 +43,7 @@ namespace NodeCanvas.Tasks.Actions
         }
 
         protected override void OnExecute() {
+           this.JsCall(nameof(OnExecute)); 
             if ( verboseMode == VerboseMode.LogAndDisplayLabel || verboseMode == VerboseMode.LogOnly ) {
                 var label = string.Format("(<b>{0}</b>) {1}", agent.gameObject.name, log.value);
                 if ( logMode == LogMode.Log ) {

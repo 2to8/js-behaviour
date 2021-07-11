@@ -782,11 +782,13 @@ namespace Puerts.Editor
             if (IsDelegate(type) && type != typeof(Delegate) && type != typeof(MulticastDelegate))
             {
                 MethodInfo delegateMethod = type.GetMethod("Invoke");
-                AddRefType(workTypes, refTypes, delegateMethod.ReturnType);
-                foreach (var pinfo in delegateMethod.GetParameters())
-                {
-                    AddRefType(workTypes, refTypes, pinfo.ParameterType);
+                if (delegateMethod != null) {
+                    AddRefType(workTypes, refTypes, delegateMethod.ReturnType);
+                    foreach (var pinfo in delegateMethod.GetParameters()) {
+                        AddRefType(workTypes, refTypes, pinfo.ParameterType);
+                    }
                 }
+
             }
 
             var baseType = type.BaseType;
@@ -934,7 +936,7 @@ namespace Puerts.Editor
                 var name = (string.IsNullOrEmpty(info.Namespace) ? "" : (info.Namespace + ".")) + info.Name;
                 if (info.IsGenericTypeDefinition)
                     name += "<" + string.Join(",", info.GenericParameters) + ">";
-                tsTypeGenInfos.Add(name, info);
+                tsTypeGenInfos[name]=info;
             }
             foreach (var info in tsTypeGenInfos)
             {

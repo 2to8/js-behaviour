@@ -1,5 +1,7 @@
 ﻿using System;
 using App.Runtime;
+using App.Support;
+using Puerts;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,11 +14,8 @@ namespace Sandbox
         [Button]
         void _测试cs绑定到cs()
         {
-      
-            Main.js.Eval<Action<string>>("global.hello").Invoke(GetType().FullName);
-            Main.js.Eval<Action<TestCs2Ts>>("global.testBind").Invoke(this);
+            this.Js().Eval<Action<string>>("$hello").Invoke(GetType().FullName);
+            this.JsCall("test2");
         }
-
-        public void testSetValue() { }
     }
 }

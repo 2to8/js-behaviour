@@ -10,6 +10,9 @@ namespace Puerts
 {
     public static partial class JsEnvExt
     {
+        public static void Call<T>(this JsEnv jsEnv, T obj, string fn) =>
+            jsEnv.Eval<Action<T, string>>("$require").Invoke(obj, fn);
+
         public static bool DebuggerJoined(this JsEnv jsEnv) => PuertsDLL.InspectorTick(jsEnv.isolate);
 
         public static bool IsDisposed(this JsEnv jsEnv)
