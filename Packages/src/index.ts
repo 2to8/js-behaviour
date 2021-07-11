@@ -1,3 +1,4 @@
+import { TestAction } from 'app/actions/TestAction';
 import { DebugText } from 'app/graph/DebugText';
 import { dict_install } from 'libs/Dictionary';
 import TestBind from 'sandbox/TestBind';
@@ -61,6 +62,7 @@ global.$testBind = (obj: TestBind) => {
 
 uses(   //
     TestBind,//
+    TestAction,//
     DebugText,//
     TestBehaviour, //
     UserBehaviour1, UserBehaviour2, UserBehaviour3,  //
