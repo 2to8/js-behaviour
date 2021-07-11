@@ -1,0 +1,126 @@
+diff --git a/node_modules/rollup-plugin-typescript2/LICENSE b/node_modules/rollup-plugin-typescript2/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/README.md b/node_modules/rollup-plugin-typescript2/README.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/check-tsconfig.d.ts b/node_modules/rollup-plugin-typescript2/dist/check-tsconfig.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/check-tsconfig.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/check-tsconfig.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/context.d.ts b/node_modules/rollup-plugin-typescript2/dist/context.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/context.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/context.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/diagnostics-format-host.d.ts b/node_modules/rollup-plugin-typescript2/dist/diagnostics-format-host.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/diagnostics-format-host.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/diagnostics-format-host.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/get-options-overrides.d.ts b/node_modules/rollup-plugin-typescript2/dist/get-options-overrides.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/get-options-overrides.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/get-options-overrides.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/host.d.ts b/node_modules/rollup-plugin-typescript2/dist/host.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/host.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/host.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/icache.d.ts b/node_modules/rollup-plugin-typescript2/dist/icache.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/icache.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/icache.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/index.d.ts b/node_modules/rollup-plugin-typescript2/dist/index.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/index.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/index.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/ioptions.d.ts b/node_modules/rollup-plugin-typescript2/dist/ioptions.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/ioptions.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/ioptions.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/nocache.d.ts b/node_modules/rollup-plugin-typescript2/dist/nocache.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/nocache.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/nocache.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/normalize.d.ts b/node_modules/rollup-plugin-typescript2/dist/normalize.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/normalize.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/normalize.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/parse-tsconfig.d.ts b/node_modules/rollup-plugin-typescript2/dist/parse-tsconfig.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/parse-tsconfig.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/parse-tsconfig.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/partial.d.ts b/node_modules/rollup-plugin-typescript2/dist/partial.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/partial.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/partial.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/print-diagnostics.d.ts b/node_modules/rollup-plugin-typescript2/dist/print-diagnostics.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/print-diagnostics.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/print-diagnostics.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollingcache.d.ts b/node_modules/rollup-plugin-typescript2/dist/rollingcache.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollingcache.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/rollingcache.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.cjs.js b/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.cjs.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.cjs.js.map b/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.cjs.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.es.js b/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.es.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.es.js.map b/node_modules/rollup-plugin-typescript2/dist/rollup-plugin-typescript2.es.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollupcontext.d.ts b/node_modules/rollup-plugin-typescript2/dist/rollupcontext.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/rollupcontext.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/rollupcontext.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/tscache.d.ts b/node_modules/rollup-plugin-typescript2/dist/tscache.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/tscache.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/tscache.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/tslib.d.ts b/node_modules/rollup-plugin-typescript2/dist/tslib.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/tslib.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/tslib.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/tsproxy.d.ts b/node_modules/rollup-plugin-typescript2/dist/tsproxy.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/rollup-plugin-typescript2/dist/tsproxy.d.ts.map b/node_modules/rollup-plugin-typescript2/dist/tsproxy.d.ts.map
+old mode 100644
+new mode 100755

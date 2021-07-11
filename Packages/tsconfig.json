@@ -12,7 +12,7 @@
         "moduleResolution": "node",
         "lib": [
             //"es2015",
-            "dom",
+            //"dom",
             "ESNext"
         ],
         "typeRoots": [
@@ -20,13 +20,19 @@
             "typings"
         ],
         "allowJs": false,
+        "jsx": "react",
         "baseUrl": "src",
         "paths": {
             "*": [
-                "*"
+                "*",
+                "../typings/*",
+                "ecs/*"
             ],
             "csharp": [
                 "../typings/csharp"
+            ],
+            "@/*": [
+                "ecs/*"
             ],
             "puerts": [
                 "../typings/puerts"
@@ -38,8 +44,8 @@
         "node_modules/@types/**/*",
         "src/**/*",
         "typings/**/*"
-    ],
-    "exclude": [
-        "node_modules"
     ]
+    //    "exclude": [
+    //        "node_modules"
+    //    ]
 }

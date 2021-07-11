@@ -1,4 +1,5 @@
 import { DebugText } from 'app/graph/DebugText';
+import { dict_install } from 'libs/Dictionary';
 import TestBind from 'sandbox/TestBind';
 import { Sandbox, System, UnityEngine } from 'csharp';
 import { Component } from 'component/component-base';
@@ -11,6 +12,8 @@ import TestCs2Ts = Sandbox.TestCs2Ts;
 
 export * from './component/component-info-mgr';
 export * from './component/component-inst-mgr';
+
+import EcsInit from 'EcsInit';
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -34,6 +37,8 @@ global.$testPrototype = function() {
 //     let name = p[i];
 //   
 // }
+
+dict_install();
 
 global.$providers = new Map<string, any>();
 global.$require = (obj: System.Object, fn: string, ...args: any[]) => {

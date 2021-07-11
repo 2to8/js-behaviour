@@ -100,6 +100,7 @@ public partial class PuertsConfig {
                 }
             }
             types.Add(typeof(Convert));
+            types.Add(typeof(System.Array));
             types.Add(typeof(System.Text.Encoding));
             types.Add(typeof(Dictionary<string, string>));
             types.Add(typeof(KeyValuePair<string, string>));

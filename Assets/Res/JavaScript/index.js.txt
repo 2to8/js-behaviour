@@ -4,6 +4,28 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}, global.csharp, global.puerts));
 }(this, (function (exports, csharp, puerts) { 'use strict';
 
+    function _interopNamespace(e) {
+        if (e && e.__esModule) return e;
+        var n = Object.create(null);
+        if (e) {
+            Object.keys(e).forEach(function (k) {
+                if (k !== 'default') {
+                    var d = Object.getOwnPropertyDescriptor(e, k);
+                    Object.defineProperty(n, k, d.get ? d : {
+                        enumerable: true,
+                        get: function () {
+                            return e[k];
+                        }
+                    });
+                }
+            });
+        }
+        n['default'] = e;
+        return Object.freeze(n);
+    }
+
+    var puerts__namespace = /*#__PURE__*/_interopNamespace(puerts);
+
     var DebugLogText = csharp.NodeCanvas.Tasks.Actions.DebugLogText;
     var Debug$2 = csharp.UnityEngine.Debug;
     class DebugText extends DebugLogText {
@@ -11,6 +33,274 @@
             Debug$2.Log(`[Js] ${this.log.value}`);
         }
     }
+
+    csharp.Common.JSAdapter.sqlite3.Helpers;
+    function isDefined(value) {
+        return value !== undefined && value !== null && (!(value instanceof csharp.UnityEngine.Object) || !value?.Equals(null));
+    }
+
+    // https://stackoverflow.com/questions/42088007/is-there-source-map-support-for-typescript-in-node-nodemon
+    var List$1 = csharp.System.Collections.Generic.List$1;
+    global.process = global.process || {};
+    process.env = process.env || {};
+    if (!process.on) {
+        Object.assign(process, {
+            on: puerts.on, off: puerts.off, emit: puerts.emit,
+        });
+    }
+    process.on('unhandledRejection', console.log);
+    csharp.UnityEngine.Object.prototype.valueOf = function () {
+        return this.Equals(null) ? null : this;
+    };
+    csharp.UnityEngine.GameObject.prototype['GetInChild'] =
+        function ($type, $includeInactive) {
+            if (!($type instanceof csharp.System.Type)) {
+                $type = puerts.$typeof($type);
+            }
+            return this.GetComponentsInChildren($type);
+        };
+    csharp.System.Array.prototype[Symbol.iterator] = function* () {
+        let _this = this;
+        for (let i = 0; i < _this.Length; i++) {
+            yield _this.GetValue(i);
+        }
+    };
+    // Object.defineProperty(System.Array.prototype,Symbol.iterator,function() {
+    //     let values = [];
+    //     let iterator = this.GetEnumerator();
+    //     while (iterator.MoveNext()) {
+    //         let key = iterator.Current;
+    //         values.push({ key: key, value: this.get_Item(key) });
+    //     }
+    //     return {
+    //         index: 0, values: values, next() {
+    //             let index = this.index++;
+    //             return {
+    //                 value: this.values[index], done: index >= this.values.length,
+    //             };
+    //         },
+    //     }
+    // } )
+    csharp.UnityEngine.Transform.prototype[Symbol.iterator] = function () {
+        let target = this;
+        return (function* () {
+            for (let i = 0; i < target.childCount; i++) {
+                yield target.GetChild(i);
+            }
+        })();
+    };
+    // $extension(GameObject, TetrisUtil);
+    // $extension(Transform, TetrisUtil);
+    csharp.UnityEngine.GameObject.prototype[Symbol.iterator] = function () {
+        let target = this.transform;
+        return (function* () {
+            for (let i = 0; i < target.childCount; i++) {
+                yield target.GetChild(i);
+            }
+        })();
+    };
+    Object.defineProperty(csharp.System.Array.prototype, 'toArray', {
+        enumerable: true, writable: true, value: function () {
+            let arr = [];
+            for (let i = 0n; i < this.Length; i++) {
+                arr.push(this.GetValue(i));
+            }
+            return arr;
+        },
+    });
+    if (List$1?.prototype != null) {
+        Object.defineProperty(List$1.prototype, 'toArray', {
+            enumerable: true, writable: true, value: function () {
+                let arr = [];
+                for (let i = 0; i < this.Count(); i++) {
+                    arr.push(this.get_Item(i));
+                }
+                return arr;
+            },
+        });
+    }
+    Object.defineProperty(Object.prototype, 'tap', {
+        value: function (intercept) {
+            var val = (this instanceof Number || this instanceof String || this instanceof Boolean || this instanceof csharp.UnityEngine.Object) ? this.valueOf() : this;
+            intercept(val);
+            return val;
+        }, enumerable: true, configurable: true, writable: true,
+    });
+    // https://gist.github.com/getify/9104721
+    if (!(Symbol.iterator in Object.prototype)) {
+        Object.defineProperty(Object.prototype, Symbol.iterator, {
+            enumerable: true, writable: true, configurable: true,
+            // https://twitter.com/juandopazo/status/436298238464122880
+            value: function* () {
+                var o = this;
+                var ks = Object.keys(o);
+                for (var idx = 0, length = ks.length; idx < length; idx++) {
+                    yield o[ks[idx]];
+                }
+            },
+        });
+    }
+    // Object.prototype.tap = function(intercept){
+    //     var val = (this instanceof Number || this instanceof String || this instanceof Boolean ||
+    // this instanceof UnityEngine.Object) ? this.valueOf() : this; intercept(val); return val; }
+    // See if an array contains an object
+    Array.prototype.contains = function (obj) {
+        var i = this.length;
+        while (i--) {
+            if (this[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    };
+    // Global declaration
+    //declare var IsDefined: typeof isDefined;
+    // Global scope augmentation
+    var window = window || null;
+    const _global = (window || global);
+    _global.IsDefined = isDefined;
+    puerts__namespace.registerBuildinModule('path', {
+        dirname(path) {
+            return csharp.System.IO.Path.GetDirectoryName(path);
+        }, resolve(dir, url) {
+            url = url.replace(/\\/g, '/');
+            while (url.startsWith('../')) {
+                dir = csharp.System.IO.Path.GetDirectoryName(dir);
+                url = url.substr(3);
+            }
+            return csharp.System.IO.Path.Combine(dir, url);
+        },
+    });
+    puerts__namespace.registerBuildinModule('fs', {
+        existsSync(path) {
+            return csharp.System.IO.File.Exists(path);
+        }, readFileSync(path) {
+            return csharp.System.IO.File.ReadAllText(path);
+        },
+    });
+    (function () {
+        let global = this ?? globalThis;
+        global['Buffer'] = global['Buffer'] ?? {};
+    })();
+    //sourceMapSupport.install();
+    //import 'source-map-support/register'
+
+    csharp.System.Collections.Generic.Dictionary$2;
+    csharp.System.Collections.Generic.List$1;
+    // #region Dictionary<TKey,TValue> 扩展, 替换 $generic 方法
+    const srcGeneric = puerts.$generic;
+    // cache types
+    let list = new Array();
+    globalThis.instances = globalThis.instances || new Set();
+    globalThis.I = globalThis.I || function (c, ...args) {
+        if (!globalThis.instances.has(c)) {
+            globalThis.instances.set(c, args[0] instanceof c ? args[0] : new c(...args));
+        }
+        return globalThis.instances.get(c);
+    };
+    function cache(type) {
+        if (!type)
+            return false;
+        for (let i = 0; i < list.length; i++) {
+            if (type.Equals(list[i]))
+                return false;
+        }
+        list.push(type);
+        return true;
+    }
+    // overwrite generic method
+    function generic(genericType, ...genericArguments) {
+        let Class = srcGeneric(genericType, ...genericArguments);
+        let type = puerts.$typeof(Class);
+        if (genericArguments.length == 2 && cache(type)) {
+            try {
+                let dictType = puerts.$typeof(srcGeneric(csharp.System.Collections.Generic.Dictionary$2, ...genericArguments));
+                if (dictType && dictType.IsAssignableFrom(type)) {
+                    Class.prototype['forEach'] = function (callbackfn) {
+                        let iterator = this.Keys.GetEnumerator();
+                        while (iterator.MoveNext()) {
+                            let key = iterator.Current;
+                            let ret = callbackfn(this.get_Item(key), key);
+                            if (ret !== void 0 && !ret)
+                                break;
+                        }
+                    };
+                    Class.prototype['getKeys'] = function () {
+                        let result = [];
+                        let iterator = this.Keys.GetEnumerator();
+                        while (iterator.MoveNext()) {
+                            result.push(iterator.Current);
+                        }
+                        return result;
+                    };
+                    Class.prototype['getValues'] = function () {
+                        let result = [];
+                        let iterator = this.Values.GetEnumerator();
+                        while (iterator.MoveNext()) {
+                            result.push(iterator.Current);
+                        }
+                        return result;
+                    };
+                    Class.prototype[Symbol.iterator] = function () {
+                        let values = [];
+                        let iterator = this.Keys.GetEnumerator();
+                        while (iterator.MoveNext()) {
+                            let key = iterator.Current;
+                            values.push({ key: key, value: this.get_Item(key) });
+                        }
+                        return {
+                            index: 0, values: values, next() {
+                                let index = this.index++;
+                                return {
+                                    value: this.values[index], done: index >= this.values.length,
+                                };
+                            },
+                        };
+                    };
+                }
+            }
+            catch (e) {
+                console.warn(e);
+            }
+        }
+        return Class;
+    }
+    // replace method
+    (function () {
+        let puerts = globalThis['puerts'];
+        if (puerts && puerts['$generic'].toString() !== generic.toString()) {
+            puerts['$generic'] = generic;
+            puerts['$srcGeneric'] = srcGeneric;
+        }
+        else {
+            console.log("puerts reloaded");
+            //throw new Error('puerts is undefined or redefinition \'$generic\'');
+        }
+    })();
+    // #endregion
+    // #region Uint8Array 与 byte[] 类型互转
+    function Uint8ArrayToBytes(data) {
+        let result = csharp.System.Array.CreateInstance(puerts.$typeof(csharp.System.Byte), data.length);
+        for (let i = 0; i < result.Length; i++) {
+            result.set_Item(i, data[i]);
+        }
+        return result;
+    }
+    function BytesToUint8Array(data) {
+        let result = new Uint8Array(data.Length);
+        for (let i = 0; i < data.Length; i++) {
+            result[i] = data.get_Item(i);
+        }
+        return result;
+    }
+    function dict_install() {
+        //(function() {
+        let csharp = globalThis['puerts'];
+        csharp['Uint8ArrayToBytes'] = Uint8ArrayToBytes;
+        csharp['BytesToUint8Array'] = BytesToUint8Array;
+        //})()
+    }
+    //#endregion
 
     var TestCs2Ts$1 = csharp.Sandbox.TestCs2Ts;
     var Debug$1 = csharp.UnityEngine.Debug;
@@ -439,6 +729,7 @@
     //     let name = p[i];
     //   
     // }
+    dict_install();
     global.$providers = new Map();
     global.$require = (obj, fn, ...args) => {
         if (!global.$providers.has(obj.GetType().FullName)) {
