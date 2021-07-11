@@ -12,11 +12,15 @@ namespace UnityRoyale
         public UnityAction<int, Vector2> OnDragAction;
         public UnityAction<int> OnTapDownAction, OnTapReleaseAction;
 
-        [HideInInspector] public int cardId;
-        [HideInInspector] public CardData cardData;
+        [HideInInspector]
+        public int cardId;
+
+        [HideInInspector]
+        public CardData cardData;
 
         public Image portraitImage; //Inspector-set reference
         private CanvasGroup canvasGroup;
+        void OnEnable() { }
 
         private void Awake()
         {
@@ -32,19 +36,19 @@ namespace UnityRoyale
 
         public void OnPointerDown(PointerEventData pointerEvent)
         {
-            if(OnTapDownAction != null)
+            if (OnTapDownAction != null)
                 OnTapDownAction(cardId);
         }
 
         public void OnDrag(PointerEventData pointerEvent)
         {
-            if(OnDragAction != null)
+            if (OnDragAction != null)
                 OnDragAction(cardId, pointerEvent.delta);
         }
 
         public void OnPointerUp(PointerEventData pointerEvent)
         {
-            if(OnTapReleaseAction != null)
+            if (OnTapReleaseAction != null)
                 OnTapReleaseAction(cardId);
         }
 

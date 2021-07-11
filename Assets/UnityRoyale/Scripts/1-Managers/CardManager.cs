@@ -9,6 +9,7 @@ namespace UnityRoyale
 {
     public class CardManager : MonoBehaviour
     {
+        void OnEnable() { }
         public Camera mainCamera; //public reference
         public LayerMask playingFieldMask;
         public GameObject cardPrefab;

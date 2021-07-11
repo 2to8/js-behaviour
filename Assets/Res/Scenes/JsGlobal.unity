@@ -243,6 +243,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
@@ -260,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":381.0,"y":167.0},"$type":"FlowCanvas.Nodes.StartEvent","$id":"0"},{"_action":{"actions":[{"log":{"_value":"Hello
-    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":631.0,"y":239.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
+  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":385.0,"y":187.0},"$type":"FlowCanvas.Nodes.StartEvent","$id":"0"},{"_action":{"actions":[{"log":{"_value":"Hello
+    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":563.0,"y":281.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
     ","_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:

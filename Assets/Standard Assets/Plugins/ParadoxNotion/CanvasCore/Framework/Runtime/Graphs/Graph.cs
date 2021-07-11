@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Collections.Generic;
+using GameEngine.Extensions;
 using NodeCanvas.Framework.Internal;
 using ParadoxNotion;
 using ParadoxNotion.Serialization;
@@ -538,7 +539,8 @@ namespace NodeCanvas.Framework
             }
 
             if ( primeNode == null && requiresPrimeNode ) {
-                Logger.LogError("You've tried to start graph without a 'Start' node.", LogTag.GRAPH, this);
+                //Debug.Log(newAgent?.GetPath()+$" => {this.GetType().FullName}".ToRed(),newAgent?.gameObject);
+                Logger.Log($"{(newAgent?.GetPath() + " => " +this.GetType().Name).ToYellow()} You've tried to start graph without a 'Start' node.".ToRed(), LogTag.GRAPH, newAgent?.gameObject);
                 return;
             }
 

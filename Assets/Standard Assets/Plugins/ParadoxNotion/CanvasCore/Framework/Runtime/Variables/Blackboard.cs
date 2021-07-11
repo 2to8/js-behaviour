@@ -5,15 +5,16 @@ using ParadoxNotion.Design;
 using ParadoxNotion.Serialization;
 using UnityEngine;
 using System.Linq;
-
+using Sirenix.OdinInspector;
 
 namespace NodeCanvas.Framework
 {
 
     /// A Blackboard component to hold variables
     [ParadoxNotion.Design.SpoofAOT]
-    public class Blackboard : MonoBehaviour, ISerializationCallbackReceiver, IBlackboard
+    public class Blackboard : SerializedMonoBehaviour, ISerializationCallbackReceiver, IBlackboard
     {
+        void OnEnable() { }
 
         ///Remark: We serialize the whole blackboard as normal which is the previous behaviour.
         ///To support prefab overrides we now also serialize each variable individually.

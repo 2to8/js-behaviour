@@ -6,6 +6,6 @@ namespace UnityRoyale
 {
     public class InputManager : MonoBehaviour
     {
-        
+        void OnEnable() { }
     }
 }

@@ -7,7 +7,7 @@ import GameObject = UnityEngine.GameObject;
 
 export class TestAction extends TsActionTest {
     OnExecute() {
-        Debug.Log('test ts')
+        Debug.Log('test ts');
         $(id.test, tag => {
             Debug.Log(tag.name);
             tag.gameObject.SetActive(false);

@@ -7,7 +7,8 @@ namespace UnityRoyale
 {
 	public class CardPlayerBridge : MonoBehaviour, INotificationReceiver
 	{
-		public GameManager gameManager; //public reference
+        void OnEnable() { }
+        public GameManager gameManager; //public reference
 
 		//will ask the manager to play a Card
 		public void OnNotify(Playable origin, INotification notification, object context)

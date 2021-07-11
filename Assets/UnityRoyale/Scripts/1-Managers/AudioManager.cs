@@ -16,7 +16,9 @@ public class AudioManager : MonoBehaviour
 		audioSource = GetComponent<AudioSource>();
 	}
 
-	public void GoToDefaultSnapshot()
+    void OnEnable() { }
+
+    public void GoToDefaultSnapshot()
 	{
 		ChangeSnapshots(1f, 0f, .1f);
 	}
