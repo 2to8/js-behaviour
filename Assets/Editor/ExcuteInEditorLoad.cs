@@ -20,6 +20,14 @@ namespace Sandbox
         {
             Debug.Log("ExecuteInEditorLoad()");
             UnityEditor.EditorApplication.delayCall += DoSomethingPrepare;
+            UnityEditor.SceneManagement.EditorSceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        static void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            if (arg0.name != "JsGlobal" && !Application.isPlaying) {
+                DoSomethingPrepare();
+            }
         }
 
         /// <summary>
