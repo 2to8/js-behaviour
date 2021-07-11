@@ -1,0 +1,9 @@
+﻿{
+    "name": "Puerts.Editor",
+    "references": [
+        "Puerts.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}

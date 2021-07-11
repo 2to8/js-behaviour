@@ -20,7 +20,7 @@ namespace Sandbox
         {
             Debug.Log("ExecuteInEditorLoad()");
             UnityEditor.EditorApplication.delayCall += DoSomethingPrepare;
-            UnityEditor.SceneManagement.EditorSceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         static void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)

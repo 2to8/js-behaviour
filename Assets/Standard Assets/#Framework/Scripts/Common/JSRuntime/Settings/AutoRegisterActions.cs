@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Common.JSRuntime.Settings {
 
-[Configure, PuertsIgnore]
+
 public static class AutoRegisterActions {
 
     [RegisterEnv]

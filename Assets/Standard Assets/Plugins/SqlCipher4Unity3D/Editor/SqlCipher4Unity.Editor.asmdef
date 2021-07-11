@@ -1,0 +1,10 @@
+﻿{
+    "name": "SqlCipher4Unity.Editor",
+    "references": [
+        "Puerts.Editor",
+        "SqlCipher4Unity3D"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}
