@@ -4,7 +4,10 @@
 /obj
 /Temp
 /Builds
-/TsProj/node_modules
+
+node_modules/
+.cache/
+
 /*.csproj
 /*.csproj.*
 /*.sln
@@ -13,4 +16,4 @@
 !/Assets/Script/App/Runtime/Gen
 # /Assets/Script/App/Runtime/Gen/*
 !/Assets/Script/App/Runtime/Gen/AutoStaticUsing.cs
-.cache/
+

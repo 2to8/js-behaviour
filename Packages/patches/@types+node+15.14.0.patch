@@ -1,7 +1,0 @@
-diff --git a/node_modules/@types/node/globals.global.d.ts b/node_modules/@types/node/globals.global.d.ts
-index d66acba..e9e5f9f 100755
---- a/node_modules/@types/node/globals.global.d.ts
-+++ b/node_modules/@types/node/globals.global.d.ts
-@@ -1 +1 @@
--declare var global: NodeJS.Global & typeof globalThis;
-+declare var global: NodeJS.Global & typeof globalThis & any;
