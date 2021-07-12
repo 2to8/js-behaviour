@@ -27,6 +27,7 @@ namespace Base.Runtime
             if (m_jsEnv != null && m_jsEnv.isolate != IntPtr.Zero && !force) return m_jsEnv;
             m_jsEnv = new JsEnv(new JsLoaderRuntime(), debugPort);
             m_jsEnv.AutoUsing();
+           
             m_jsEnv.Eval(@"require('sourcemap')");
             if (useDebug && debugPort != -1 && Application.isEditor) {
                 m_jsEnv.WaitDebuggerTimeout(5);

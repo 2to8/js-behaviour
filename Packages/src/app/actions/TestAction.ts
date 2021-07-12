@@ -10,7 +10,7 @@ export class TestAction extends TsActionTest {
         Debug.Log('test ts');
         $(id.test, tag => {
             Debug.Log(tag.name);
-            tag.gameObject.SetActive(false);
+            //tag.gameObject.SetActive(false);
         })
     }
 }

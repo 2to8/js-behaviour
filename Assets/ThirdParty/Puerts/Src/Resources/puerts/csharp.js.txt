@@ -150,8 +150,8 @@ var global = global || (function () { return this; }());
                 parentFunc = typeof parentFunc === "function" ? parentFunc : undefined;
                 Object.defineProperty(cls.prototype, key, {
                     value: bindThisToFirstArgument(func, parentFunc),
-                    writable: false,
-                    configurable: false
+                    writable: true,
+                    configurable: true
                 });
             }
         })

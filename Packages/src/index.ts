@@ -1,8 +1,9 @@
 import { TestAction } from 'app/actions/TestAction';
 import { DebugText } from 'app/graph/DebugText';
+import extensions from 'extensions';
 import { dict_install } from 'libs/Dictionary';
 import TestBind from 'sandbox/TestBind';
-import { Sandbox, System, UnityEngine } from 'csharp';
+import { Puerts, PuertsStaticWrap, Sandbox, System, UnityEngine } from 'csharp';
 import { Component } from 'component/component-base';
 import { component, property } from 'component/component-decoration';
 import { uses } from 'support/utils';
@@ -15,6 +16,9 @@ export * from './component/component-info-mgr';
 export * from './component/component-inst-mgr';
 
 import EcsInit from 'EcsInit';
+import JsEnv = Puerts.JsEnv;
+import PuertsHelper = PuertsStaticWrap.PuertsHelper;
+
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -39,12 +43,18 @@ global.$testPrototype = function() {
 //   
 // }
 
+extensions();
+
 dict_install();
+
+global.$InitEnv = (env: JsEnv) => {
+    PuertsHelper.UsingActions(env);
+}
 
 global.$providers = new Map<string, any>();
 global.$require = (obj: System.Object, fn: string, ...args: any[]) => {
-    if(!global.$providers.has(obj.GetType().FullName)) {
-        Debug.LogError(`${obj.GetType().FullName} 没有添加到 module 列表`)
+    if (!global.$providers.has(obj.GetType().FullName)) {
+        Debug.LogError(`${ obj.GetType().FullName } 没有添加到 module 列表`)
         return;
     }
     obj[fn].call(obj, ...args);
@@ -58,7 +68,6 @@ global.$testBind = (obj: TestBind) => {
     obj.num = 5;
     obj.test2();
 }
-
 
 uses(   //
     TestBind,//

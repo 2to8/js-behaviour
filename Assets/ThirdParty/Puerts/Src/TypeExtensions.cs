@@ -7,6 +7,8 @@
 
 using System;
 using System.Linq;
+using Sirenix.Utilities;
+using UnityEngine;
 
 namespace Puerts
 {
@@ -156,7 +158,71 @@ namespace Puerts
             }
         }
 
-        public static string GetFriendlyName(this Type type)
+//        public static string GetFriendlyName(this Type type)
+//        {
+//            if (type == typeof(int))
+//                return "int";
+//            if (type == typeof(uint))
+//                return "uint";
+//            else if (type == typeof(short))
+//                return "short";
+//            else if (type == typeof(byte))
+//                return "byte";
+//            else if (type == typeof(sbyte))
+//                return "sbyte";
+//            else if (type == typeof(ushort))
+//                return "ushort";
+//            else if (type == typeof(bool))
+//                return "bool";
+//            else if (type == typeof(long))
+//                return "long";
+//            else if (type == typeof(ulong))
+//                return "ulong";
+//            else if (type == typeof(float))
+//                return "float";
+//            else if (type == typeof(double))
+//                return "double";
+//            else if (type == typeof(decimal))
+//                return "decimal";
+//            else if (type == typeof(string))
+//                return "string";
+//            else if (type == typeof(void))
+//                return "void";
+//            else if (type.IsArray)
+//            {
+//                if (type.GetArrayRank() > 1)
+//                {
+//                    return GetFriendlyName(type.GetElementType()) + "["+ new String(',', type.GetArrayRank() - 1) + "]";
+//                }
+//                else
+//                {
+//                    return GetFriendlyName(type.GetElementType()) + "[]";
+//                }
+//            }
+//            else if (type.IsNested)
+//            {
+//                if (type.DeclaringType.IsGenericTypeDefinition)
+//                {
+//                    var genericArgumentNames = type.GetGenericArguments()
+//                        .Select(x => GetFriendlyName(x)).ToArray();
+//                    return type.DeclaringType.FullName.Split('`')[0] + "<" + string.Join(", ", genericArgumentNames) + ">" + '.' + type.Name;
+//                }
+//                else
+//                {
+//                    return GetFriendlyName(type.DeclaringType) + '.' + GetNameWithoutNamespace(type);
+//                }
+//            }
+//            else if (type.IsGenericType)
+//            {
+//                var genericArgumentNames = type.GetGenericArguments()
+//                    .Select(x => GetFriendlyName(x)).ToArray();
+//                return type.FullName.Split('`')[0] + "<" + string.Join(", ", genericArgumentNames) + ">";
+//            }
+//            else
+//                return type.FullName;
+//        }
+
+ public static string GetFriendlyName(this Type type, int n = -1)
         {
             if (type == typeof(int))
                 return "int";
@@ -196,25 +262,36 @@ namespace Puerts
                 {
                     return GetFriendlyName(type.GetElementType()) + "[]";
                 }
-            }
-            else if (type.IsNested)
-            {
+            } else if (type.IsNested) {
+                if (n > 100) {
+                    Debug.Log(type.GetNiceFullName());
+
+                    return "";
+                }
                 if (type.DeclaringType.IsGenericTypeDefinition)
                 {
-                    var genericArgumentNames = type.GetGenericArguments()
-                        .Select(x => GetFriendlyName(x)).ToArray();
-                    return type.DeclaringType.FullName.Split('`')[0] + "<" + string.Join(", ", genericArgumentNames) + ">" + '.' + type.Name;
+
+                        var genericArgumentNames = type.GetGenericArguments()
+                        // fix:
+                        .Select(x => x.IsGenericParameter ? x.FullName ?? "T" :  GetFriendlyName(x.FullName ==null  || x.FullName == "T" ? x.BaseType : x, n+=1)).ToArray();
+                    return (type.DeclaringType.FullName ?? type.DeclaringType.GetGenericTypeDefinition().FullName).Split('`')[0] + "<" + string.Join(", ", genericArgumentNames) + ">" + '.' + type.Name;
                 }
                 else
                 {
-                    return GetFriendlyName(type.DeclaringType) + '.' + GetNameWithoutNamespace(type);
+                    return GetFriendlyName(type.DeclaringType, n+=1) + '.' + GetNameWithoutNamespace(type);
                 }
             }
             else if (type.IsGenericType)
             {
+                if (n > 100) {
+                    Debug.Log(type.GetNiceFullName());
+
+                    return "";
+                }
                 var genericArgumentNames = type.GetGenericArguments()
-                    .Select(x => GetFriendlyName(x)).ToArray();
-                return type.FullName.Split('`')[0] + "<" + string.Join(", ", genericArgumentNames) + ">";
+                    // fix:
+                    .Select(x => x.IsGenericParameter ? x.FullName ?? "T" : GetFriendlyName( x.FullName ==null || x.FullName == "T"  ? x.BaseType : x, n+=1)).ToArray();
+                return (type.FullName ?? type.GetGenericTypeDefinition().FullName).Split('`')[0] + "<" + string.Join(", ", genericArgumentNames) + ">";
             }
             else
                 return type.FullName;

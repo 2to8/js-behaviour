@@ -328,7 +328,7 @@ namespace Puerts.Editor
 #endif
         }
 
-        static Dictionary<Type, MethodInfo[]> extensionMethods = null;
+        public static Dictionary<Type, MethodInfo[]> extensionMethods = null;
 
         static bool IsClass(Type type)
         {
