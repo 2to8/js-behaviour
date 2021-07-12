@@ -33,6 +33,7 @@ namespace NodeCanvas.Framework
 
         private IBlackboard _bb;
         private Variable _varRef;
+        public Node node;
 
         ///Raised when the BBParameter is linked to a different variable reference.
         public event Action<Variable> onVariableReferenceChanged;

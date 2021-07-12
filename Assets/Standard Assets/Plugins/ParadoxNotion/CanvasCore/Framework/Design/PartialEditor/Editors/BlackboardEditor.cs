@@ -1,5 +1,5 @@
 ﻿#if UNITY_EDITOR
-
+using System;
 using FavouritesEd;
 using GameEngine.Extensions;
 using System.Collections;
@@ -12,8 +12,11 @@ using ParadoxNotion;
 using ParadoxNotion.Design;
 using Sirenix.Utilities;
 using System.IO;
+using MoreTags.TagHelpers;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using Object = UnityEngine.Object;
 
 //using WebSocketSharp;
 
@@ -352,6 +355,8 @@ namespace NodeCanvas.Editor
             var menu = new GenericMenu();
             menu = EditorUtils.GetPreferedTypesSelectionMenu(typeof(object), AddNewVariable, menu, "New", true);
 
+   
+
             if (bb.propertiesBindTarget != null) {
                 foreach (var comp in bb.propertiesBindTarget.GetComponents(typeof(Component))
                     .Where(c => c.hideFlags == 0)) {
@@ -412,6 +417,52 @@ namespace NodeCanvas.Editor
                 data.BindProperty(f);
                 UndoUtility.SetDirty(contextObject);
             };
+
+            if(data.varType == typeof(AssetReference) && data.value != null){
+                var t = (AssetReference) data.value;
+                var path = AssetDatabase.GUIDToAssetPath(t.AssetGUID);
+                menu.AddItem(new GUIContent(path.Replace("Assets/","").Replace("/","\\")), false,
+                    () => { Selection.activeObject = AssetDatabase.LoadAssetAtPath(path, typeof(Object)); });
+            }
+
+
+            menu.AddItem(new GUIContent($"[new value] {data.varType.GetNiceFullName()}"),false, () => {
+                //GUI.color = data.isExposedPublic ? GUI.color.WithAlpha(0.5f) : GUI.color;
+                //EditorGUIUtility.labelWidth = 10;
+                //var newVal = VariableField(data, contextObject, layoutOptions);
+                var newVal = data.value;
+                if(typeof(ScriptableObject).IsAssignableFrom(data.varType)) {
+                    newVal = ScriptableObject.CreateInstance(data.varType);
+                } else if(!typeof(Component).IsAssignableFrom(data.varType)) {
+                    newVal = Activator.CreateInstance(data.varType);
+                }
+                //EditorGUIUtility.labelWidth = 0;
+                if ( !Equals(data.value, newVal) ) {
+                    UndoUtility.RecordObject(contextObject, "Variable Value Change");
+                    data.value = newVal;
+                    UndoUtility.SetDirty(contextObject);
+                }
+            });
+
+            if(!data.name.Contains("_Tags")
+                && (data.varType.GetEnumerableElementType() ?? data.varType) != typeof(TagPress)) {
+                menu.AddItem(new GUIContent($"[Add Tags]"), false, () => {
+                    UndoUtility.RecordObject(contextObject, "Tags Variable Added");
+                    var name = $"{data.name}_Tags";
+
+                    while(bb.GetVariable(name) != null) {
+                        name += ".";
+                    }
+
+                    bb.AddVariable(name, typeof(List<TagPress>));
+                    UndoUtility.SetDirty(contextObject);
+                });
+            }
+
+
+            menu.AddItem(new GUIContent($"open script"),false, () => {
+                EditorUtils.OpenScriptOfType(data.varType.GetEnumerableElementType() ?? data.varType);
+            });
 
             menu.AddDisabledItem(new GUIContent(string.Format("Type: {0}", data.varType.FriendlyName())));
 

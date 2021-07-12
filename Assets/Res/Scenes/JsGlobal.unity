@@ -224,6 +224,8 @@ GameObject:
   - component: {fileID: 1195313384}
   - component: {fileID: 1195313383}
   - component: {fileID: 1195313386}
+  - component: {fileID: 1195313388}
+  - component: {fileID: 1195313387}
   m_Layer: 0
   m_Name: GraphTest
   m_TagString: Untagged
@@ -269,8 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":385.0,"y":187.0},"$type":"FlowCanvas.Nodes.StartEvent","$id":"0"},{"_action":{"actions":[{"log":{"_value":"Hello
-    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":563.0,"y":281.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
+  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":346.0,"y":235.0},"$type":"FlowCanvas.Nodes.StartEvent","$id":"0"},{"_action":{"actions":[{"log":{"_value":"Hello
+    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":539.0,"y":321.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
     ","_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
@@ -438,3 +440,103 @@ MonoBehaviour:
     m_LabelString: 
   BindScriptOnAwake: 0
   isAwaked: 1
+--- !u!114 &1195313387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195313382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 1480063512}
+  _blackboard: {fileID: 1195313383}
+--- !u!114 &1195313388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195313382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[]},"_position":{"x":252.0,"y":238.0},"$type":"NodeCanvas.StateMachines.ConcurrentState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 1714417724}
+  _blackboard: {fileID: 1195313383}
+--- !u!114 &1480063512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _haltSerialization: 0
+--- !u!114 &1714417724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _haltSerialization: 0

@@ -352,7 +352,7 @@ public class GraphOwnerInspector : UnityEditor.Editor {
                 EditorUtils.DrawEditorFieldDirect(
                     new GUIContent(variable.name,
                         "This is an Exposed Public variable of the graph local blackboard. You can use the arrows button on the right side to override/parametrize the default value."),
-                    variable.value, variable.varType, default(InspectedFieldInfo));
+                    variable.value, variable.varType, default(InspectedFieldInfo), null);
                 GUI.enabled = true;
 
                 if (GUILayout.Button(EditorUtils.GetTempContent("▽△", null, "Override Variable"), Styles.centerLabel,
@@ -375,7 +375,7 @@ public class GraphOwnerInspector : UnityEditor.Editor {
             var info = new InspectedFieldInfo();
             info.unityObjectContext = owner;
             exposedParam.valueBoxed = EditorUtils.DrawEditorFieldDirect(new GUIContent(variable.name),
-                exposedParam.valueBoxed, variable.varType, info);
+                exposedParam.valueBoxed, variable.varType, info,null);
 
             if (GUILayout.Button(EditorUtils.GetTempContent("▼▲", null, "Remove Override"), Styles.centerLabel,
                 GUILayout.Width(24))) {

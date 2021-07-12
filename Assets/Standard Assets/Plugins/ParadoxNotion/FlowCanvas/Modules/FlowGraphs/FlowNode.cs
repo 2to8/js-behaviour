@@ -1221,7 +1221,7 @@ namespace FlowCanvas
                     continue;
                 }
                 var serializationInfo = new InspectedFieldInfo(graph, null, null, null);
-                input.serializedValue = EditorUtils.ReflectedFieldInspector(input.displayName, input.serializedValue, input.type, serializationInfo);
+                input.serializedValue = EditorUtils.ReflectedFieldInspector(input.displayName, input.serializedValue, input.type, serializationInfo,null);
             }
         }
 

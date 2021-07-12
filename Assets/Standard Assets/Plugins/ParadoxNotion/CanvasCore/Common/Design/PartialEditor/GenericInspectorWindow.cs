@@ -1,13 +1,18 @@
 ﻿#if UNITY_EDITOR
-
+using System.Collections;
+using System.Collections.Generic;
+using NodeCanvas.Framework;
+using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ParadoxNotion.Design
 {
 
     ///A generic popup editor
-    public class GenericInspectorWindow : EditorWindow
+    public class GenericInspectorWindow : OdinEditorWindow
     {
 
         private static GenericInspectorWindow current;
@@ -19,9 +24,12 @@ namespace ParadoxNotion.Design
         private System.Action<object> write;
         private Vector2 scrollPos;
         private bool willRepaint;
+        private EdtDummy dummy;
 
         // ...
-        void OnEnable() {
+        protected override void OnEnable() {
+            base.OnEnable();
+
             titleContent = new GUIContent("Object Editor");
             current = this;
 
@@ -32,6 +40,8 @@ namespace ParadoxNotion.Design
         	EditorApplication.playmodeStateChanged -= PlayModeChange;
             EditorApplication.playmodeStateChanged += PlayModeChange;
 #endif
+            dummy = ScriptableObject.CreateInstance<EdtDummy>();
+
         }
 
         //...
@@ -69,7 +79,9 @@ namespace ParadoxNotion.Design
         }
 
         //...
-        void OnGUI() {
+        protected override void OnGUI() {
+
+            base.OnGUI();
 
             if ( targetType == null ) {
                 return;
@@ -90,7 +102,52 @@ namespace ParadoxNotion.Design
             scrollPos = GUILayout.BeginScrollView(scrollPos);
             var serializationInfo = new InspectedFieldInfo(unityObjectContext, null, null, null);
             var oldValue = read();
-            var newValue = EditorUtils.ReflectedFieldInspector(friendlyTitle, oldValue, targetType, serializationInfo);
+
+
+        if ( ((IList) new[] {typeof(AssetReference)}).Contains( targetType ) ) {
+            dummy.value = ( AssetReference )oldValue;
+        }  else if ( targetType == typeof( AssetLabelReference ) ) {
+            dummy.assetLabelReference = ( AssetLabelReference )oldValue;
+            dummy.sp = dummy.so.FindProperty( "assetLabelReference");
+        }  else if ( typeof( AssetReferenceGameObject ) == targetType ) {
+            dummy.assetReferenceGameObject = ( AssetReferenceGameObject )oldValue;
+            dummy.sp = dummy.so.FindProperty( "assetReferenceGameObjec" );
+        }
+        else if ( typeof( AssetLabelReference [] ) == targetType ) {
+            dummy.assetLabelReferences = new List<AssetLabelReference>();
+
+            (( AssetLabelReference [] )oldValue)?.ForEach( l => dummy.assetLabelReferences.Add( l ) );
+
+            //dummy.so = new SerializedObject( dummy )
+            dummy.sp = dummy.so.FindProperty( "assetLabelReferences");
+           // Debug.Log( "test" );
+        }
+        //
+        // else if ( targetType == typeof( AssetLabelReference [] ) ) {
+        //     dummy.assetLabelReferences = (AssetLabelReference []) oldValue;
+        // } else if (targetType  == typeof(AssetLabelReference)) {
+        //     dummy.assetLabelReference = ( AssetLabelReference )oldValue;
+        // }else if (targetType  == typeof(AssetReferenceGameObject)) {
+        //     dummy.assetReferenceGameObject = ( AssetReferenceGameObject )oldValue;
+        // }
+        else if (targetType  == typeof(AssetReferenceTexture)) {
+            dummy.assetReferenceTexture= ( AssetReferenceTexture )oldValue;
+            dummy.sp = dummy.so.FindProperty( "assetReferenceTexture");
+        }else if (targetType  == typeof(AssetReferenceTexture2D)) {
+            dummy.assetReferenceTexture2D = ( AssetReferenceTexture2D )oldValue;
+            dummy.sp = dummy.so.FindProperty( "assetReferenceTexture2D");
+        }else if (targetType  == typeof(AssetReferenceTexture3D)) {
+            dummy.assetReferenceTexture3D = ( AssetReferenceTexture3D )oldValue;
+            dummy.sp = dummy.so.FindProperty( "assetReferenceTexture3D");
+
+        }if (targetType  == typeof(AssetReferenceSprite)) {
+            dummy.assetReferenceSprite = ( AssetReferenceSprite )oldValue;
+            dummy.sp = dummy.so.FindProperty( "assetReferenceSprite");
+
+        }
+
+
+            var newValue = EditorUtils.ReflectedFieldInspector(friendlyTitle, oldValue, targetType, serializationInfo, dummy);
             if ( !Equals(oldValue, newValue) || GUI.changed ) {
                 write(newValue);
             }

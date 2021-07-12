@@ -11835,6 +11835,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7396737023500930468, guid: 169b3e2b5927b4b3882cec67e4b87ecc, type: 3}
   m_PrefabInstance: {fileID: 530834599}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &541855555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d31b62ec9d586a4e94389d9071559ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"FlowCanvas.FlowScript","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _haltSerialization: 0
 --- !u!1001 &554445022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22407,7 +22428,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117297311}
-  m_LocalRotation: {x: 0.07686421, y: -0.12622193, z: 0.009810146, w: 0.98897105}
+  m_LocalRotation: {x: 0.07686419, y: -0.1262219, z: 0.00981014, w: 0.98897105}
   m_LocalPosition: {x: 4.24, y: 3.51, z: -5.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -29083,6 +29104,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9208325796772192681, guid: db0e64123bfee4a1d98818bc9a090934, type: 3}
   m_PrefabInstance: {fileID: 870448645}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1480063512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480063513}
+  m_Layer: 0
+  m_Name: Royale
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1480063513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480063512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.66480494, y: 488.54282, z: -2.4273193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1714417725}
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1489009601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29391,7 +29443,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506690191}
-  m_LocalRotation: {x: 0.23027983, y: 0.24231552, z: -0.05932401, w: 0.94060355}
+  m_LocalRotation: {x: 0.23027986, y: 0.24231555, z: -0.059324026, w: 0.94060355}
   m_LocalPosition: {x: -5.64, y: 8.12, z: -21.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -32170,6 +32222,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 527691167096621275, guid: f62610e9b516a4b66aac24ee2e430b63, type: 3}
   m_PrefabInstance: {fileID: 1712532526}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1714417724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1714417725}
+  - component: {fileID: 1714417727}
+  - component: {fileID: 1714417726}
+  m_Layer: 0
+  m_Name: AAUsageExample
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1714417725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714417724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480063513}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1714417726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714417724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _parentBlackboard: {fileID: 0}
+  _serializedBlackboard: '{"_variables":{}}'
+  _objectReferences: []
+  _serializedVariables: []
+--- !u!114 &1714417727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714417724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5c3ebb24c97464da319951cafe5a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":192.0,"y":360.0},"$type":"FlowCanvas.Nodes.StartEvent"},{"_action":{"refObject":{},"scene":{},"$type":"UnityRoyale.AAUsageExampleAction"},"_position":{"x":526.0,"y":343.0},"$type":"FlowCanvas.Nodes.TaskAction"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 541855555}
+  _blackboard: {fileID: 1714417726}
 --- !u!1001 &1716103713
 PrefabInstance:
   m_ObjectHideFlags: 0

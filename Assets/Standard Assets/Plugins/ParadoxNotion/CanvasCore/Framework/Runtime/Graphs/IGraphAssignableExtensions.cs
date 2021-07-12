@@ -173,7 +173,7 @@ namespace NodeCanvas.Framework
                 if ( bbParam == null ) {
                     GUILayout.BeginHorizontal();
                     GUI.enabled = false;
-                    EditorUtils.DrawEditorFieldDirect(new GUIContent(variable.name), variable.value, variable.varType, default(InspectedFieldInfo));
+                    EditorUtils.DrawEditorFieldDirect(new GUIContent(variable.name), variable.value, variable.varType, default(InspectedFieldInfo),null);
                     GUI.enabled = true;
                     int tmp = 0;
                     if ( GUILayout.Button(EditorUtils.GetTempContent("▽", null, "Write (In)"), Styles.centerLabel, GUILayout.Width(12)) ) { tmp = 1; }

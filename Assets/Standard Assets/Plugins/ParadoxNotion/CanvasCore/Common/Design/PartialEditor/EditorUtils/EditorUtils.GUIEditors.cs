@@ -191,7 +191,7 @@ namespace ParadoxNotion.Design
             options.unityObjectContext = info.unityObjectContext;
             list = EditorUtils.ReorderableList(list, options, (i, r) =>
             {
-                list[i] = ReflectedFieldInspector("Element " + i, list[i], argType, info);
+                list[i] = ReflectedFieldInspector("Element " + i, list[i], argType, info,null);
             });
 
             EditorGUI.indentLevel--;
@@ -249,8 +249,8 @@ namespace ParadoxNotion.Design
                 GUILayout.Box("", GUILayout.Width(6), GUILayout.Height(35));
 
                 GUILayout.BeginVertical();
-                keys[i] = ReflectedFieldInspector("K:", keys[i], keyType, info);
-                values[i] = ReflectedFieldInspector("V:", values[i], valueType, info);
+                keys[i] = ReflectedFieldInspector("K:", keys[i], keyType, info,null);
+                values[i] = ReflectedFieldInspector("V:", values[i], valueType, info,null);
                 GUILayout.EndVertical();
 
                 if ( GUILayout.Button("X", GUILayout.Width(18), GUILayout.Height(34)) ) {

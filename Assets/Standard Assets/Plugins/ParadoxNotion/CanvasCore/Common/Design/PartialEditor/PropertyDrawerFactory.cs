@@ -166,7 +166,7 @@ namespace ParadoxNotion.Design
         }
 
         public override object OnGUI(GUIContent content, object instance) {
-            return EditorUtils.DrawEditorFieldDirect(content, instance, objectType, info);
+            return EditorUtils.DrawEditorFieldDirect(content, instance, objectType, info,null);
         }
     }
 
