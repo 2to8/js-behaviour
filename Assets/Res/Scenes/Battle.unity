@@ -30761,6 +30761,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1612346068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _haltSerialization: 0
 --- !u!1001 &1614884450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32233,6 +32254,7 @@ GameObject:
   - component: {fileID: 1714417725}
   - component: {fileID: 1714417727}
   - component: {fileID: 1714417726}
+  - component: {fileID: 1714417728}
   m_Layer: 0
   m_Name: AAUsageExample
   m_TagString: Untagged
@@ -32292,7 +32314,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":192.0,"y":360.0},"$type":"FlowCanvas.Nodes.StartEvent"},{"_action":{"refObject":{},"scene":{},"$type":"UnityRoyale.AAUsageExampleAction"},"_position":{"x":526.0,"y":343.0},"$type":"FlowCanvas.Nodes.TaskAction"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":123.0,"y":373.0},"$type":"FlowCanvas.Nodes.StartEvent"},{"_action":{"refObject":{"_value":{"m_AssetGUID":"3d7094a1663ab0a44ab8e11c1defd922","m_SubObjectName":"","m_SubObjectType":""}},"scene":{"_value":{"m_AssetGUID":"d7c71ca08e6ff4e9fa7e86dc215ccaed","m_SubObjectName":"","m_SubObjectType":""}},"$type":"UnityRoyale.AAUsageExampleAction"},"_position":{"x":339.735,"y":358.0385},"$type":"FlowCanvas.Nodes.TaskAction"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"gg":{"_value":{"m_AssetGUID":"e27eea34851b44110a10d2b40b6c07c2","m_SubObjectName":"","m_SubObjectType":""},"_name":"gg","_id":"016bffa1-805a-421d-bc4d-c0f1f8b6ac61","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AddressableAssets.AssetReference,
+    Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myAssetReference.":{"_value":{"m_AssetGUID":"3d7094a1663ab0a44ab8e11c1defd922","m_SubObjectName":"","m_SubObjectType":""},"_name":"myAssetReference.","_id":"ddee0427-23a4-49e9-a438-98c0dd7404a0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AddressableAssets.AssetReference,
+    Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: 68.08271, y: -7.90969}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 541855555}
+  _blackboard: {fileID: 1714417726}
+--- !u!114 &1714417728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714417724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.16
@@ -32306,7 +32359,7 @@ MonoBehaviour:
   _lockBoundGraphPrefabOverrides: 1
   _preInitializeSubGraphs: 0
   _updateMode: 0
-  _graph: {fileID: 541855555}
+  _graph: {fileID: 1612346068}
   _blackboard: {fileID: 1714417726}
 --- !u!1001 &1716103713
 PrefabInstance:

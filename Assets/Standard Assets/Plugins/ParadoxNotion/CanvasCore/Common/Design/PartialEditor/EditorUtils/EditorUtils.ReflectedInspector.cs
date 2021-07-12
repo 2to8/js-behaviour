@@ -375,12 +375,16 @@ namespace ParadoxNotion.Design
             return value;
         }
 
+        static Dictionary<object[], EdtDummy> cache = new Dictionary<object[], EdtDummy>();
+
         //...
         public static object DirectFieldControl(GUIContent content, object value, Type t,
             UnityEngine.Object unityObjectContext, object[] attributes, out bool handled,
             params GUILayoutOption[] options)
         {
             handled = true;
+
+  
 
             //Check scene object type for UnityObjects. Consider Interfaces as scene object type. Assume that user uses interfaces with UnityObjects
             if (typeof(UnityObject).IsAssignableFrom(t) || t.IsInterface) {

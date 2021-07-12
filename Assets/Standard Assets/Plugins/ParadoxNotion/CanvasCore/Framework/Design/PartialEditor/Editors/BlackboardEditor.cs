@@ -111,14 +111,14 @@ namespace NodeCanvas.Editor
                 }
                 GUILayout.BeginHorizontal();
                 {
-                    if (GUILayout.Button("#RE", GUILayout.Width(30))) {
+                    if (GUILayout.Button("改名", GUILayout.Width(30))) {
                         if (!bb.tempName.IsNullOrWhitespace()) {
                             AssetDatabase.RenameAsset(bb.unityContextObject.AssetPath(), bb.tempName.Trim());
                             AssetDatabase.SaveAssets();
                         }
                     }
 
-                    if (GUILayout.Button("#F", GUILayout.Width(30))) {
+                    if (GUILayout.Button("收藏", GUILayout.Width(30))) {
                         FavouritesAsset.instance.AddObject("Nodes", bb.unityContextObject);
                     }
 
@@ -587,9 +587,17 @@ namespace NodeCanvas.Editor
                 return o;
             }
 
+            if (t == typeof(AssetReference) || t == typeof(AssetReferenceGameObject) ||
+                t == typeof(AssetLabelReference) || t == typeof(AssetReferenceTexture) ||
+                t == typeof(AssetReferenceTexture2D)) {
+                var serializationInfo = new InspectedFieldInfo(contextParent, null, data, null);
+                return EditorUtils.ReflectedFieldInspector(new GUIContent(), o, t, serializationInfo);
+            }
+
             ///----------------------------------------------------------------------------------------------
             bool handled;
-            o = EditorUtils.DirectFieldControl(GUIContent.none, o, t, contextParent, null, out handled, layoutOptions);
+
+            o = EditorUtils.DirectFieldControl(GUIContent.none, o, t, contextParent, new object []{contextParent,data}, out handled, layoutOptions);
 
             if (handled) {
                 return o;

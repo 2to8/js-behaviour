@@ -21,6 +21,10 @@ MonoBehaviour:
     m_Address: Assets/Settings/TagManager.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 3d7094a1663ab0a44ab8e11c1defd922
+    m_Address: Assets/UnityRoyale/Characters/Warrior/Warrior Blue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e475f1f6e1893ed45ae68f2d91299e30, type: 2}
   m_SchemaSet:
