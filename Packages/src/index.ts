@@ -7,6 +7,7 @@ import { Puerts, PuertsStaticWrap, Sandbox, System, UnityEngine } from 'csharp';
 import { Component } from 'component/component-base';
 import { component, property } from 'component/component-decoration';
 import { uses } from 'support/utils';
+import { $ } from 'types';
 import { SystemBehaviour1, SystemBehaviour2, SystemBehaviour3, TestBehaviour, UserBehaviour1, UserBehaviour2, UserBehaviour3 } from 'views/TestBehaviour';
 import TestScript = Sandbox.TestScript;
 import Debug = UnityEngine.Debug;
@@ -16,6 +17,7 @@ export * from './component/component-info-mgr';
 export * from './component/component-inst-mgr';
 
 import EcsInit from 'EcsInit';
+import { id } from 'Widget/id';
 import JsEnv = Puerts.JsEnv;
 import PuertsHelper = PuertsStaticWrap.PuertsHelper;
 
@@ -68,6 +70,8 @@ global.$testBind = (obj: TestBind) => {
     obj.num = 5;
     obj.test2();
 }
+
+
 
 uses(   //
     TestBind,//

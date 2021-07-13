@@ -422,6 +422,10 @@ namespace NodeCanvas.Framework
 #if UNITY_EDITOR
 
         private object _icon;
+
+        [HideInInspector]
+        public bool showDefaultUI;
+
         //The icon if any of the task
         public Texture2D icon {
             get

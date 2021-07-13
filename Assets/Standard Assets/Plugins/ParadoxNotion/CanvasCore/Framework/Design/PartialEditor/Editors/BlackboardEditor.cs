@@ -111,14 +111,14 @@ namespace NodeCanvas.Editor
                 }
                 GUILayout.BeginHorizontal();
                 {
-                    if (GUILayout.Button("改名", GUILayout.Width(30))) {
+                    if (GUILayout.Button("改名", GUILayout.Width(45))) {
                         if (!bb.tempName.IsNullOrWhitespace()) {
                             AssetDatabase.RenameAsset(bb.unityContextObject.AssetPath(), bb.tempName.Trim());
                             AssetDatabase.SaveAssets();
                         }
                     }
 
-                    if (GUILayout.Button("收藏", GUILayout.Width(30))) {
+                    if (GUILayout.Button("收藏", GUILayout.Width(45))) {
                         FavouritesAsset.instance.AddObject("Nodes", bb.unityContextObject);
                     }
 
