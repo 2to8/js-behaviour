@@ -1,5 +1,6 @@
 // using FlowCanvas;
 
+#if UNITY_EDITOR
 using GameEngine.Extensions;
 using NodeCanvas.BehaviourTrees;
 using NodeCanvas.Editor;
@@ -37,7 +38,7 @@ namespace MoreTags
     /// https://docs.unity.cn/ScriptReference/Editor-finishedDefaultHeaderGUI.html
     /// </summary>
     [InitializeOnLoad]
-    static class EditorHeaderGUID
+    public static class EditorHeaderGUID
     {
         static Dictionary<GameObject, bool> allows = new Dictionary<GameObject, bool>();
 
@@ -75,7 +76,8 @@ namespace MoreTags
             AssetDatabase.OpenAsset(ani.runtimeAnimatorController);
         }
 
-        static void CreateGraphOwner<T>(GameObject go, bool asBound = true) where T : GraphOwner
+        public static T CreateGraphOwner<T>(this GameObject go, bool asBound = true, bool open = true)
+            where T : GraphOwner
         {
             var owner = go.RequireComponent<T>();
 
@@ -104,8 +106,12 @@ namespace MoreTags
 //        }
             if (owner.graph != null) {
                 owner.Validate();
-                GraphEditor.OpenWindow(owner);
+                if (open) {
+                    GraphEditor.OpenWindow(owner);
+                }
             }
+
+            return owner;
 
             // if (owner.graph == null) {
             //     var newGraph = (Graph)ScriptableObject.CreateInstance(owner.graphType);
@@ -394,3 +400,4 @@ namespace MoreTags
         }
     }
 }
+#endif

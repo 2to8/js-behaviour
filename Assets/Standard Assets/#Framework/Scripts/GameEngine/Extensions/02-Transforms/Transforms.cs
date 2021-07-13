@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using Utils.Scenes;
 using Object = UnityEngine.Object;
 
@@ -17,6 +18,16 @@ namespace GameEngine.Extensions
     {
         public static void SetActive(this Component component, bool enable = true) =>
             component.gameObject.SetActive(enable);
+
+        public static Transform FindOrCreate(this Transform transform, string name) =>
+            transform.Find(name) ?? new GameObject(name).Of(go => go.transform.SetParent(transform)).transform;
+
+        public static GameObject FindOrCreate(this GameObject go, string name) =>
+            go?.transform.FindOrCreate(name).gameObject;
+
+        public static GameObject FindOrCreateRoot(this GameObject gameObject, string name) =>
+            gameObject.scene.GetRootGameObjects().FirstOrDefault(go => go.name == name) ??
+            new GameObject(name).Of(go => SceneManager.MoveGameObjectToScene(go, gameObject.scene));
 
         /**
          * 否则x=6 会被转成x=5
@@ -36,7 +47,7 @@ namespace GameEngine.Extensions
         {
             Transform transform;
             return Vector3Int.RoundToInt(component.transform.localPosition).x +
-                   (withParent ? Vector3Int.RoundToInt(component.transform.parent.localPosition).x + x : 0);
+                (withParent ? Vector3Int.RoundToInt(component.transform.parent.localPosition).x + x : 0);
         }
 
         public static int Y(this Component component, bool withParent = false, int y = 0) =>
@@ -58,13 +69,13 @@ namespace GameEngine.Extensions
 
         public static Vector2Int XY(this Component component, bool withParent = false, int x = 0, int y = 0)
         {
-            return new Vector2Int(component.X(withParent,0) + x, component.Y(withParent,0) + y);
+            return new Vector2Int(component.X(withParent, 0) + x, component.Y(withParent, 0) + y);
         }
 
         public static Vector2Int XZ(this Component component, bool withParent = false, int x = 0, int z = 0)
         {
             Vector3 localPosition;
-            return new Vector2Int(component.X(withParent,0) + x, component.Z(withParent,0) + z);
+            return new Vector2Int(component.X(withParent, 0) + x, component.Z(withParent, 0) + z);
         }
 
         // public static Vector2Int setIntXY(this Component component,int x = 0, int y = 0, bool withParent = false)
@@ -83,8 +94,8 @@ namespace GameEngine.Extensions
             int z = 0)
         {
             Vector3 localPosition;
-            return new Vector3Int(component.X(withParent,0) + x, component.Y(withParent,0) + y,
-                component.Z(withParent,0) + z);
+            return new Vector3Int(component.X(withParent, 0) + x, component.Y(withParent, 0) + y,
+                component.Z(withParent, 0) + z);
         }
 
         public static Vector3 addVector3(this Component component, float x, float y, float z) =>
