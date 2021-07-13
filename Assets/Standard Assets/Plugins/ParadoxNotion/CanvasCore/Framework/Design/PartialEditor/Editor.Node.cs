@@ -542,7 +542,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        static bool useAssetForSubGraph;
+        public static bool useAssetForSubGraph => EditorPrefs.GetBool(nameof(useAssetForSubGraph),false);
 
         //...
         static void GraphAssignableNodeGUI(Node node)
