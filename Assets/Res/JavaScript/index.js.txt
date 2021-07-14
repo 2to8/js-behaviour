@@ -2897,7 +2897,7 @@
 	var Button = csharp.UnityEngine.UI.Button;
 	var Transform = csharp.UnityEngine.Transform;
 	var Debug$4 = csharp.UnityEngine.Debug;
-	var Strings$1 = csharp.GameEngine.Extensions.Strings;
+	var Strings$2 = csharp.GameEngine.Extensions.Strings;
 	var Transforms = csharp.GameEngine.Extensions.Transforms;
 	// type QLink = typeof  $(p: (typeof Widget)[] | filter, _: (e: any,...params: any[]) => any): any
 	// {}
@@ -3149,10 +3149,10 @@
 	                // 如果第二个参数是button
 	                let isButton = f.isClassType(_) && puerts.$typeof(_).IsAssignableFrom(puerts.$typeof(Button));
 	                if (isButton) {
-	                    Debug$4.Log(Strings$1.ToYellow(`setup button ${Transforms.GetPath(t)}`));
+	                    Debug$4.Log(Strings$2.ToYellow(`setup button ${Transforms.GetPath(t)}`));
 	                    let button = t.GetComponent(puerts.$typeof(Button));
 	                    if (button != null) {
-	                        Debug$4.Log(Strings$1.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
+	                        Debug$4.Log(Strings$2.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
 	                        globalThis.ButtonEvents = globalThis.ButtonEvents || new Map();
 	                        let cb = globalThis.ButtonEvents.get(t.GetHashCode());
 	                        if (cb != null) {
@@ -3207,17 +3207,25 @@
 	}
 
 	var ConcurrentState = csharp.NodeCanvas.StateMachines.ConcurrentState;
-	var Strings = csharp.GameEngine.Extensions.Strings;
+	var Strings$1 = csharp.GameEngine.Extensions.Strings;
 	class TConcurrentState extends ConcurrentState {
 	    OnValidate($assignedGraph) {
 	        //super.OnValidate($assignedGraph);
-	        console.log(Strings.ToYellow("state validate"));
+	        console.log(Strings$1.ToYellow("state validate"));
 	    }
 	    OnGraphStarted() {
 	        //super.OnGraphStarted();
 	    }
 	    OnGraphStoped() {
 	        //super.OnGraphStoped();
+	    }
+	}
+
+	var Node = csharp.NodeCanvas.Framework.Node;
+	class TNode extends Node {
+	    Validate($assignedGraph) {
+	        //super.Validate($assignedGraph);
+	        console.log('[node validate]', this.tag, this.name);
 	    }
 	}
 
@@ -3728,6 +3736,7 @@
 	var Debug = csharp.UnityEngine.Debug;
 	var TestCs2Ts = csharp.Sandbox.TestCs2Ts;
 	var PuertsHelper = csharp.PuertsStaticWrap.PuertsHelper;
+	var Strings = csharp.GameEngine.Extensions.Strings;
 	global.$hello = (s) => {
 	    Debug.Log(`hello, ${s}`);
 	};
@@ -3755,8 +3764,9 @@
 	global.$providers = new Map();
 	global.$require = (obj, fn, ...args) => {
 	    if (!global.$providers.has(obj.GetType().FullName)) {
-	        Debug.LogError(`${obj.GetType().FullName} 没有添加到 module 列表`);
-	        return;
+	        Debug.Log(Strings.ToBlue(`${obj.GetType().FullName} 没有添加到 module 列表`));
+	        // 这个不检查父类是否已经添加, 不需要return
+	        //return;
 	    }
 	    obj[fn]?.call(obj, ...args);
 	};
@@ -3769,6 +3779,7 @@
 	};
 	$([id.Pause], [st.game.GameOver, [st.game.Pause]]);
 	uses(//
+	TNode, //
 	TConcurrentState, //
 	TestBind, //
 	TestAction, //

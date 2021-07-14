@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using App.Support;
 using NodeCanvas.Framework.Internal;
 using ParadoxNotion;
 using ParadoxNotion.Design;
@@ -259,6 +260,7 @@ namespace NodeCanvas.Framework
 
         ///Validate the node in it's graph
         public void Validate(Graph assignedGraph) {
+            this.JsCall(nameof(Validate));
             OnValidate(assignedGraph);
             var hardError = GetHardError();
             if ( hardError != null ) { Logger.LogError(hardError, LogTag.VALIDATION, this); }

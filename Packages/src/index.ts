@@ -1,10 +1,11 @@
 import { TestAction } from 'app/actions/TestAction';
 import { DebugText } from 'app/graph/DebugText';
 import { TConcurrentState } from 'app/graph/TConcurrentState';
+import { TNode } from 'app/graph/TNode';
 import extensions from 'extensions';
 import { dict_install } from 'libs/Dictionary';
 import TestBind from 'sandbox/TestBind';
-import { Puerts, PuertsStaticWrap, Sandbox, System, UnityEngine } from 'csharp';
+import { GameEngine, Puerts, PuertsStaticWrap, Sandbox, System, UnityEngine } from 'csharp';
 import { Component } from 'component/component-base';
 import { component, property } from 'component/component-decoration';
 import { uses } from 'support/utils';
@@ -22,6 +23,7 @@ import { id } from 'Widget/id';
 import { st } from 'Widget/st';
 import JsEnv = Puerts.JsEnv;
 import PuertsHelper = PuertsStaticWrap.PuertsHelper;
+import Strings = GameEngine.Extensions.Strings;
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -57,8 +59,9 @@ global.$InitEnv = (env: JsEnv) => {
 global.$providers = new Map<string, any>();
 global.$require = (obj: System.Object, fn: string, ...args: any[]) => {
     if (!global.$providers.has(obj.GetType().FullName)) {
-        Debug.LogError(`${ obj.GetType().FullName } 没有添加到 module 列表`)
-        return;
+        Debug.Log(Strings.ToBlue(`${ obj.GetType().FullName } 没有添加到 module 列表`))
+        // 这个不检查父类是否已经添加, 不需要return
+        //return;
     }
     obj[fn]?.call(obj, ...args);
 }
@@ -75,6 +78,7 @@ global.$testBind = (obj: TestBind) => {
 $([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ])
 
 uses(   //
+    TNode,//
     TConcurrentState,//
     TestBind,//
     TestAction,//
