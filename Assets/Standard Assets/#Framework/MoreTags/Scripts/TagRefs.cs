@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using NodeCanvas.Framework;
 using UnityEngine;
 
 namespace MoreTags {
@@ -12,7 +13,7 @@ public class TagRefs {
 
     public HashSet<GameObject> gameObjects = new HashSet<GameObject>();
 
-    // public HashSet<Node> nodes = new HashSet<Node>();
+    public HashSet<Node> nodes = new HashSet<Node>();
 
 }
 

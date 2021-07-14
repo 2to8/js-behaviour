@@ -25,6 +25,8 @@ namespace NodeCanvas.Framework
     abstract public partial class Node : IGraphElement, ISerializationCollectable
     {
 
+        public HashSet<string> Tags = new HashSet<string>();
+
         //----------------------------------------------------------------------------------------------
         ///Add on an IList (list/array) field to autosort it automatically when the children nodes are autosorted.
         ///Thus keeping the collection the same in respects to the children. Related only to tree graphs.

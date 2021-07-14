@@ -22,6 +22,8 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using System;
 using System.ComponentModel;
+using NodeCanvas.Framework;
+using ParadoxNotion.Design;
 using TMPro;
 using UniRx.Async;
 using UnityEditor;
@@ -264,26 +266,26 @@ namespace MoreTags
         //     }
         // }
 
-        // public static void CheckGameObjectTag(this Node node)
-        // {
-        //     //var tags = node.Tags;
-        //     if (node.Tags == null) {
-        //         node.Tags = new List<string>();
-        //     }
-        //     node.tag.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
-        //         .Select(s => s.Trim())
-        //         .Where(s => !string.IsNullOrWhiteSpace(s))
-        //         .ForEach(s => {
-        //             if (!node.Tags.Any(t => t.Equals(s, StringComparison.OrdinalIgnoreCase))) {
-        //                 node.Tags.Add(s);
-        //             }
-        //         });
-        //     if (node.tag != string.Join(",", node.Tags.Distinct())) {
-        //         node.tag = string.Join(",", node.Tags.Distinct());
-        //         UndoUtility.SetDirty(node.graph);
-        //     }
-        //     Debug.Log($"node tags: {node.tag}");
-        // }
+        public static void CheckGameObjectTag(this Node node)
+        {
+            //var tags = node.Tags;
+            if (node.Tags == null) {
+                node.Tags = new HashSet<string>();
+            }
+            node.tag.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => s.Trim())
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .ForEach(s => {
+                    if (!node.Tags.Any(t => t.Equals(s, StringComparison.OrdinalIgnoreCase))) {
+                        node.Tags.Add(s);
+                    }
+                });
+            if (node.tag != string.Join(",", node.Tags.Distinct())) {
+                node.tag = string.Join(",", node.Tags.Distinct());
+                UndoUtility.SetDirty(node.graph);
+            }
+            Debug.Log($"node tags: {node.tag}");
+        }
 
         public static void RemoveUnusedTag()
         {
@@ -343,38 +345,38 @@ namespace MoreTags
             }
         }
 
-        // public static void AddTag(this Node gameObject, params string[] tags)
-        // {
-        //     Debug.Log("tags: " + string.Join(", ", tags));
-        //     var tt = new List<string>();
-        //     tags.SelectMany(s => s.Split(',')).ForEach(s => tt.Add(s));
-        //     foreach (var _t in tt.Distinct()) {
-        //         var tag = _t._TagKey();
-        //         if (!refs.ContainsKey(tag)) {
-        //             refs.Add(tag, new TagTableData());
-        //             TagData.FirstOrDefault(t => t.name == tag, add => {
-        //                 add.name = tag;
-        //             });
-        //         }
-        //         if (gameObject != null) {
-        //             refs[tag].nodes.Add(gameObject);
-        //             if (!gameObject.Tags.Contains(tag)) {
-        //                 gameObject.Tags.Add(tag);
-        //             }
-        //
-        //             // if (!gameObject.GetTags().Contains(tag)) {
-        //             //
-        //             // }
-        //             // if (!gameObject.tag.Contains(tag)) {
-        //             //     gameObject.tag += (string.IsNullOrEmpty(gameObject.tag) ? string.Empty : ",")
-        //             //         + tag;
-        //             //     UndoUtility.SetDirty(gameObject.graph);
-        //             // }
-        //
-        //             //gameObject.RequireComponent<Tags>().ids.AddOnce(refs[tag].Id);
-        //         }
-        //     }
-        // }
+        public static void AddTag(this Node node, params string[] tags)
+        {
+            Debug.Log("tags: " + string.Join(", ", tags));
+            var tt = new List<string>();
+            tags.SelectMany(s => s.Split(',')).ForEach(s => tt.Add(s));
+            foreach (var _t in tt.Distinct()) {
+                var tag = _t._TagKey();
+                if (!refs.ContainsKey(tag)) {
+                    refs.Add(tag, new TagRefs());
+                    TagData.FirstOrInsert(t => t.name == tag, add => {
+                        add.name = tag;
+                    });
+                }
+                if (node != null) {
+                    refs[tag].nodes.Add(node);
+                    if (!node.Tags.Contains(tag)) {
+                        node.Tags.Add(tag);
+                    }
+        
+                    // if (!gameObject.GetTags().Contains(tag)) {
+                    //
+                    // }
+                    // if (!gameObject.tag.Contains(tag)) {
+                    //     gameObject.tag += (string.IsNullOrEmpty(gameObject.tag) ? string.Empty : ",")
+                    //         + tag;
+                    //     UndoUtility.SetDirty(gameObject.graph);
+                    // }
+        
+                    //gameObject.RequireComponent<Tags>().ids.AddOnce(refs[tag].Id);
+                }
+            }
+        }
 
         public static void AddTag(this GameObject gameObject, params string[] tags)
         {
@@ -481,23 +483,23 @@ namespace MoreTags
         //     AddTag(go, tags);
         // }
 
-        // public static void AddGameObjectTag(this Node go, params string[] tags)
-        // {
-        //     //CheckTagManager(go.scene);
-        //     CheckGameObjectTag(go);
-        //     AddTag(go, go.Tags.ToArray());
-        //     tags.Where(s =>
-        //             go.Tags.All(t => !t.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase)))
-        //         .ForEach(s => {
-        //             go.Tags.Add(s.Trim());
-        //             refs[s.Trim()].nodes.Add(go);
-        //         });
-        //     foreach (var tag in tags) {
-        //         if (!refs[tag].nodes.Contains(go)) {
-        //             refs[tag].nodes.Add(go);
-        //         }
-        //     }
-        // }
+        public static void AddGameObjectTag(this Node go, params string[] tags)
+        {
+            //CheckTagManager(go.scene);
+            CheckGameObjectTag(go);
+            AddTag(go, go.Tags.ToArray());
+            tags.Where(s =>
+                    go.Tags.All(t => !t.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase)))
+                .ForEach(s => {
+                    go.Tags.Add(s.Trim());
+                    refs[s.Trim()].nodes.Add(go);
+                });
+            foreach (var tag in tags) {
+                if (!refs[tag].nodes.Contains(go)) {
+                    refs[tag].nodes.Add(go);
+                }
+            }
+        }
 
         // public static void RemoveTags(this GameObject go, params string[] tags)
         // {
@@ -514,25 +516,25 @@ namespace MoreTags
         //     }
         // }
 
-        // public static void RemoveGameObjectTag(this Node go, params string[] tags)
-        // {
-        //     // CheckTagManager(go.scene);
-        //     //tags.Where(s => go.Tags.Contains(s)).ForEach(s => go.Tags.Remove(s));
-        //     var list = go.Tags.ToList();
-        //     list.Where(s =>
-        //             tags.Any(t => t.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase)))
-        //         .ForEach(s => go.Tags.Remove(s));
-        //     foreach (var tag in tags) {
-        //         if (refs.ContainsKey(tag)) {
-        //             refs[tag].nodes.Remove(go);
-        //         }
-        //         if (go.Tags.Contains(tag)) {
-        //             go.Tags.Remove(tag);
-        //         }
-        //     }
-        //     go.tag = string.Join(",", go.Tags);
-        //     CheckGameObjectTag(go);
-        // }
+        public static void RemoveNodeTag(this Node go, params string[] tags)
+        {
+            // CheckTagManager(go.scene);
+            //tags.Where(s => go.Tags.Contains(s)).ForEach(s => go.Tags.Remove(s));
+            var list = go.Tags.ToList();
+            list.Where(s =>
+                    tags.Any(t => t.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase)))
+                .ForEach(s => go.Tags.Remove(s));
+            foreach (var tag in tags) {
+                if (refs.ContainsKey(tag)) {
+                    refs[tag].nodes.Remove(go);
+                }
+                if (go.Tags.Contains(tag)) {
+                    go.Tags.Remove(tag);
+                }
+            }
+            go.tag = string.Join(",", go.Tags);
+            CheckGameObjectTag(go);
+        }
 
         public static string[] Tags(this GameObject go)
         {
@@ -568,10 +570,10 @@ namespace MoreTags
             return refs.Where(kv => kv.Value.gameObjects.Contains(go)).Select(kv => kv.Key);
         }
 
-        // public static IEnumerable<string> GameObjectTags(this Node go)
-        // {
-        //     return refs.Where(kv => kv.Value.nodes.Contains(go)).Select(kv => kv.Key);
-        // }
+        public static IEnumerable<string> GameObjectTags(this Node node)
+        {
+            return refs.Where(kv => kv.Value.nodes.Contains(node)).Select(kv => kv.Key);
+        }
 
         public static IEnumerable<string> AllTags() => refs.Keys.AsEnumerable();
 
