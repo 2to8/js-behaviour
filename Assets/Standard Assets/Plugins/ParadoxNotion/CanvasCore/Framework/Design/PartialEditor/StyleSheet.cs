@@ -118,7 +118,14 @@ namespace NodeCanvas.Editor
         }
 
         public static GUIStyle labelOnCanvas {
-            get { return styleSheet.styles.labelOnCanvas; }
+            get {
+                var style = styleSheet.styles.labelOnCanvas;
+                style.fontSize = 16;
+                style.alignment = TextAnchor.MiddleRight;
+                style.richText = true;
+                style.wordWrap = true;
+                return style;
+            }
         }
 
         public static GUIStyle commentsBox {

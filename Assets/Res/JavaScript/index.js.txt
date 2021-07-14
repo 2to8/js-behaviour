@@ -2829,6 +2829,9 @@
 	    class Pause extends Item {
 	    }
 	    id.Pause = Pause;
+	    class Game extends Item {
+	    }
+	    id.Game = Game;
 	    class Money extends Item {
 	    }
 	    id.Money = Money;
@@ -2872,6 +2875,21 @@
 	    })(id.btn || (id.btn = {}));
 	})(id || (id = {}));
 
+	var st;
+	(function (st) {
+	    (function (game) {
+	        class Playing extends Item {
+	        }
+	        game.Playing = Playing;
+	        class Pause extends Item {
+	        }
+	        game.Pause = Pause;
+	        class GameOver extends Item {
+	        }
+	        game.GameOver = GameOver;
+	    })(st.game || (st.game = {}));
+	})(st || (st = {}));
+
 	var Component$1 = csharp.UnityEngine.Component;
 	var GameObject = csharp.UnityEngine.GameObject;
 	var TagSystem = csharp.MoreTags.TagSystem;
@@ -2879,7 +2897,7 @@
 	var Button = csharp.UnityEngine.UI.Button;
 	var Transform = csharp.UnityEngine.Transform;
 	var Debug$4 = csharp.UnityEngine.Debug;
-	var Strings = csharp.GameEngine.Extensions.Strings;
+	var Strings$1 = csharp.GameEngine.Extensions.Strings;
 	var Transforms = csharp.GameEngine.Extensions.Transforms;
 	// type QLink = typeof  $(p: (typeof Widget)[] | filter, _: (e: any,...params: any[]) => any): any
 	// {}
@@ -2898,6 +2916,7 @@
 	    });
 	};
 	patch(id, 'Id');
+	patch(st, 'St');
 	class FindCheck {
 	    type;
 	    // public isItemFilter(value: any): value is ItemFilter {
@@ -3130,10 +3149,10 @@
 	                // 如果第二个参数是button
 	                let isButton = f.isClassType(_) && puerts.$typeof(_).IsAssignableFrom(puerts.$typeof(Button));
 	                if (isButton) {
-	                    Debug$4.Log(Strings.ToYellow(`setup button ${Transforms.GetPath(t)}`));
+	                    Debug$4.Log(Strings$1.ToYellow(`setup button ${Transforms.GetPath(t)}`));
 	                    let button = t.GetComponent(puerts.$typeof(Button));
 	                    if (button != null) {
-	                        Debug$4.Log(Strings.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
+	                        Debug$4.Log(Strings$1.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
 	                        globalThis.ButtonEvents = globalThis.ButtonEvents || new Map();
 	                        let cb = globalThis.ButtonEvents.get(t.GetHashCode());
 	                        if (cb != null) {
@@ -3187,6 +3206,21 @@
 	    }
 	}
 
+	var ConcurrentState = csharp.NodeCanvas.StateMachines.ConcurrentState;
+	var Strings = csharp.GameEngine.Extensions.Strings;
+	class TConcurrentState extends ConcurrentState {
+	    OnValidate($assignedGraph) {
+	        //super.OnValidate($assignedGraph);
+	        console.log(Strings.ToYellow("state validate"));
+	    }
+	    OnGraphStarted() {
+	        //super.OnGraphStarted();
+	    }
+	    OnGraphStoped() {
+	        //super.OnGraphStoped();
+	    }
+	}
+
 	function extensions () {
 	    console.log("init extensions");
 	    puerts.$extension(csharp.System.String, csharp.ParadoxNotion.StringUtils);
@@ -3215,9 +3249,6 @@
 	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Files);
 	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.UnityEngineObjectExtention);
-	    puerts.$extension(csharp.System.Object, csharp.App.Support.Exts);
-	    puerts.$extension(csharp.System.Object, csharp.ParadoxNotion.StringUtils);
-	    puerts.$extension(csharp.System.Object, csharp.GameEngine.Extensions.Strings);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.UnityEngine.UI.Extensions.MenuExtensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.RSG.Scene.Query.GameObjectExts);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.ParadoxNotion.ObjectUtils);
@@ -3252,15 +3283,17 @@
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.Rect, csharp.ParadoxNotion.RectUtils);
+	    puerts.$extension(csharp.System.Object, csharp.ParadoxNotion.StringUtils);
+	    puerts.$extension(csharp.System.Object, csharp.GameEngine.Extensions.Strings);
 	    puerts.$extension(csharp.System.Single, csharp.ParadoxNotion.Animation.Easing);
 	    puerts.$extension(csharp.System.Single, csharp.GameEngine.Extensions.FloatExtensions);
-	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.Transforms);
-	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.VectorExtesion);
-	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.TMPro.TMPro_ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.GameObjectExt);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.DG.Tweening.ShortcutExtensions);
+	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.Transforms);
+	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.VectorExtesion);
+	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.TMPro.TMPro_ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle, csharp.GameEngine.Extensions.AddressablesExtesion);
 	    puerts.$extension(csharp.UnityEngine.Events.UnityEvent, csharp.GameEngine.Extensions.AddressablesExtesion);
 	    puerts.$extension(csharp.UnityEngine.MonoBehaviour, csharp.GameEngine.Extensions.GameObjectExt);
@@ -3725,7 +3758,7 @@
 	        Debug.LogError(`${obj.GetType().FullName} 没有添加到 module 列表`);
 	        return;
 	    }
-	    obj[fn].call(obj, ...args);
+	    obj[fn]?.call(obj, ...args);
 	};
 	//TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
 	global.$testBind = (obj) => {
@@ -3734,7 +3767,9 @@
 	    obj.num = 5;
 	    obj.test2();
 	};
+	$([id.Pause], [st.game.GameOver, [st.game.Pause]]);
 	uses(//
+	TConcurrentState, //
 	TestBind, //
 	TestAction, //
 	DebugText, //

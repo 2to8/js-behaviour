@@ -15,8 +15,8 @@ namespace Base.Runtime
             m_Singleton ??= this as T;
         }
 
-        public static T Inst =>
-            m_Singleton ??= FindObjectOfType<T>() ?? SceneManager.GetActiveScene().GetRootGameObjects()
+        public static T instance =>
+            m_Singleton ??= FindObjectOfType<T>() ?? SceneManager.GetAllScenes().SelectMany(scene => scene.GetRootGameObjects())
                 .Select(t => t.GetComponentInChildren<T>(true)).FirstOrDefault();
     }
 }

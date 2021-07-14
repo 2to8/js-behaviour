@@ -14,6 +14,9 @@ namespace UnityRoyale
     [Name("AAUsageExample"), Category("✫ App"), Description("UnityRoyale.AAUsageExampleAction")]
     public partial class AAUsageExampleAction : ActionTask<Transform>
     {
+
+        public GameObject target;
+
         [HideInInspector]
         public BBParameter<AssetReferenceGameObject> refObject;
 

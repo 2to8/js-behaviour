@@ -14,7 +14,7 @@ namespace Sandbox
         [Button]
         void _测试cs绑定到cs()
         {
-            this.Js().Eval<Action<string>>("$hello").Invoke(GetType().FullName);
+            this.Env().Eval<Action<string>>("$hello").Invoke(GetType().FullName);
             this.JsCall("test2");
         }
     }

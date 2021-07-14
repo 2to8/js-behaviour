@@ -10,8 +10,34 @@ namespace Puerts
 {
     public static partial class JsEnvExt
     {
+
+        public static JsEnv CheckInit(this JsEnv jsEnv)
+        {
+            if (jsEnv.Eval<Action<string>>("$hello") == null) {
+                 jsEnv.Eval("require('index')");
+            }
+
+            return jsEnv;
+        }
         public static void Call<T>(this JsEnv jsEnv, T obj, string fn) =>
             jsEnv.Eval<Action<T, string>>("$require").Invoke(obj, fn);
+
+        public static void Call<T, T1>(this JsEnv jsEnv, T obj, string fn, T1 arg1) =>
+            jsEnv.Eval<Action<T, string, T1>>("$require").Invoke(obj, fn, arg1);
+
+        public static void Call<T, T1, T2>(this JsEnv jsEnv, T obj, string fn, T1 arg1, T2 arg2) =>
+            jsEnv.Eval<Action<T, string, T1, T2>>("$require").Invoke(obj, fn, arg1, arg2);
+
+        public static void Call<T, T1, T2, T3>(this JsEnv jsEnv, T obj, string fn, T1 arg1, T2 arg2, T3 arg3) =>
+            jsEnv.Eval<Action<T, string, T1, T2, T3>>("$require").Invoke(obj, fn, arg1, arg2, arg3);
+
+        public static void Call<T, T1, T2, T3, T4>(this JsEnv jsEnv, T obj, string fn, T1 arg1, T2 arg2, T3 arg3,
+            T4 arg4) =>
+            jsEnv.Eval<Action<T, string, T1, T2, T3, T4>>("$require").Invoke(obj, fn, arg1, arg2, arg3, arg4);
+
+        public static void Call<T, T1, T2, T3, T4, T5>(this JsEnv jsEnv, T obj, string fn, T1 arg1, T2 arg2, T3 arg3,
+            T4 arg4, T5 arg5) =>
+            jsEnv.Eval<Action<T, string, T1, T2, T3, T4, T5>>("$require").Invoke(obj, fn, arg1, arg2, arg3, arg4, arg5);
 
         public static bool DebuggerJoined(this JsEnv jsEnv) => PuertsDLL.InspectorTick(jsEnv.isolate);
 
@@ -45,17 +71,17 @@ namespace Puerts
         public static bool isDebugReady(this JsEnv jsEnv) => DebugPort == -1 || PuertsDLL.InspectorTick(Alive.isolate);
         static bool exited;
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        public static void RuntimeReload()
-        {
-            var i = 0;
-            foreach (var env in JsEnv.jsEnvs.ToList()) {
-                if (env != null) {
-                    Debug.Log($"Clean JsEnv({i += 1})");
-                    env.Dispose();
-                }
-            }
-        }
+//        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+//        public static void RuntimeReload()
+//        {
+//            var i = 0;
+//            foreach (var env in JsEnv.jsEnvs.ToList()) {
+//                if (env != null) {
+//                    Debug.Log($"Clean JsEnv({i += 1})");
+//                    env.Dispose();
+//                }
+//            }
+//        }
 
         public static int AliveId => Alive.Idx;
         public static JsEnv m_Alive;

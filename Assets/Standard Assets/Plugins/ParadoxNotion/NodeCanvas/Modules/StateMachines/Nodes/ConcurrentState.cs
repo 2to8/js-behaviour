@@ -1,21 +1,22 @@
+using App.Support;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 
-
 namespace NodeCanvas.StateMachines
 {
-
     [Name("Parallel")]
-    [Description("Execute a number of Actions with optional conditional requirement and in parallel to any other state, as soon as the FSM is started. All actions will prematurely be stoped as soon as the FSM stops as well. This is not a state per-se and thus can have neither incomming, nor outgoing transitions.")]
+    [Description(
+        "Execute a number of Actions with optional conditional requirement and in parallel to any other state, as soon as the FSM is started. All actions will prematurely be stoped as soon as the FSM stops as well. This is not a state per-se and thus can have neither incomming, nor outgoing transitions.")]
     [Color("ff64cb")]
     public class ConcurrentState : FSMNode, IUpdatable
     {
-
         [SerializeField]
         private ConditionList _conditionList;
+
         [SerializeField]
         private ActionList _actionList;
+
         [SerializeField]
         private bool _repeatStateActions;
 
@@ -40,64 +41,84 @@ namespace NodeCanvas.StateMachines
             get { return base.name.ToUpper(); }
         }
 
-        public override int maxInConnections { get { return 0; } }
-        public override int maxOutConnections { get { return 0; } }
-        public override bool allowAsPrime { get { return false; } }
+        public override int maxInConnections {
+            get { return 0; }
+        }
+
+        public override int maxOutConnections {
+            get { return 0; }
+        }
+
+        public override bool allowAsPrime {
+            get { return false; }
+        }
 
         ///----------------------------------------------------------------------------------------------
-
-        public override void OnValidate(Graph assignedGraph) {
-            if ( conditionList == null ) {
-                conditionList = (ConditionList)Task.Create(typeof(ConditionList), assignedGraph);
+        public override void OnValidate(Graph assignedGraph)
+        {
+            if (conditionList == null) {
+                conditionList = (ConditionList) Task.Create(typeof(ConditionList), assignedGraph);
                 conditionList.checkMode = ConditionList.ConditionsCheckMode.AllTrueRequired;
             }
 
-            if ( actionList == null ) {
-                actionList = (ActionList)Task.Create(typeof(ActionList), assignedGraph);
+            if (actionList == null) {
+                actionList = (ActionList) Task.Create(typeof(ActionList), assignedGraph);
                 actionList.executionMode = ActionList.ActionsExecutionMode.ActionsRunInParallel;
             }
+
+            this.JsCall(nameof(OnValidate),assignedGraph);
         }
 
-        public override void OnGraphStarted() {
+        public override void OnGraphStarted()
+        {
             conditionList.Enable(graphAgent, graphBlackboard);
             accessed = false;
+            this.JsCall(nameof(OnGraphStarted));
         }
 
-        public override void OnGraphStoped() {
+        public override void OnGraphStoped()
+        {
             conditionList.Disable();
             actionList.EndAction(null);
             accessed = false;
+            this.JsCall(nameof(OnGraphStoped));
         }
 
-        public override void OnGraphPaused() {
+        public override void OnGraphPaused()
+        {
             actionList.Pause();
+            this.JsCall(nameof(OnGraphPaused));
         }
 
-        void IUpdatable.Update() {
-            if ( status == Status.Resting || status == Status.Running ) {
+        void IUpdatable.Update()
+        {
+            if (status == Status.Resting || status == Status.Running) {
                 status = Status.Running;
-                if ( conditionList.Check(graphAgent, graphBlackboard) ) {
+                if (conditionList.Check(graphAgent, graphBlackboard)) {
                     accessed = true;
                 }
-                if ( accessed && actionList.Execute(graphAgent, graphBlackboard) != Status.Running ) {
+
+                if (accessed && actionList.Execute(graphAgent, graphBlackboard) != Status.Running) {
                     accessed = false;
-                    if ( !repeatStateActions ) {
+                    if (!repeatStateActions) {
                         status = Status.Success;
                     }
                 }
+
+                this.JsCall(nameof(IUpdatable.Update));
             }
         }
-
 
         ///----------------------------------------------------------------------------------------------
         ///---------------------------------------UNITY EDITOR-------------------------------------------
 #if UNITY_EDITOR
-
-        protected override void OnNodeGUI() {
-            if ( repeatStateActions ) {
+        protected override void OnNodeGUI()
+        {
+            if (repeatStateActions) {
                 GUILayout.Label("<b>[REPEAT]</b>");
             }
-            if ( conditionList.conditions.Count > 0 ) {
+
+            if (conditionList.conditions.Count > 0) {
                 GUILayout.BeginVertical(Styles.roundedBox);
                 GUILayout.Label(conditionList.summaryInfo);
                 GUILayout.EndVertical();
@@ -106,21 +127,17 @@ namespace NodeCanvas.StateMachines
             GUILayout.BeginVertical(Styles.roundedBox);
             GUILayout.Label(actionList.summaryInfo);
             GUILayout.EndVertical();
-
             base.OnNodeGUI();
         }
 
-        protected override void OnNodeInspectorGUI() {
-
+        protected override void OnNodeInspectorGUI()
+        {
             repeatStateActions = UnityEditor.EditorGUILayout.ToggleLeft("Repeat", repeatStateActions);
             EditorUtils.Separator();
-
             EditorUtils.CoolLabel("Conditions (optional)");
             conditionList.ShowListGUI();
             conditionList.ShowNestedConditionsGUI();
-
             EditorUtils.BoldSeparator();
-
             EditorUtils.CoolLabel("Actions");
             actionList.ShowListGUI();
             actionList.ShowNestedActionsGUI();

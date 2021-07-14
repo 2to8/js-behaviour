@@ -14,6 +14,8 @@ export module id {
     
     export class Pause extends Item {}
     
+    export class Game extends Item {}
+    
     export class Money extends Item {}
     
     export class Coin extends Item {}

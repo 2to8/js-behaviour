@@ -1,5 +1,5 @@
 
-import { System, ParadoxNotion, GameEngine, TMPro, UnityEngine, Utils, UnityEditor, DG, Puerts, PuertsStaticWrap, Base, App, RSG, Unity, MoreTags, Common, SqlCipher4Unity3D, SQLiteNetExtensions, PuertsTest } from 'csharp';
+import { System, ParadoxNotion, GameEngine, TMPro, UnityEngine, Utils, UnityEditor, DG, Puerts, PuertsStaticWrap, Base, RSG, Unity, MoreTags, Common, SqlCipher4Unity3D, SQLiteNetExtensions, PuertsTest } from 'csharp';
 import { $extension } from 'puerts';
 export default function() {
 
@@ -31,9 +31,6 @@ export default function() {
     $extension(UnityEngine.Object, GameEngine.Extensions.Files)
     $extension(UnityEngine.Object, GameEngine.Extensions.UnityComponentExtention)
     $extension(UnityEngine.Object, GameEngine.Extensions.UnityEngineObjectExtention)
-    $extension(System.Object, App.Support.Exts)
-    $extension(System.Object, ParadoxNotion.StringUtils)
-    $extension(System.Object, GameEngine.Extensions.Strings)
     $extension(UnityEngine.GameObject, UnityEngine.UI.Extensions.MenuExtensions)
     $extension(UnityEngine.GameObject, RSG.Scene.Query.GameObjectExts)
     $extension(UnityEngine.GameObject, ParadoxNotion.ObjectUtils)
@@ -68,15 +65,17 @@ export default function() {
     $extension(UnityEngine.Component, GameEngine.Extensions.UnityComponentExtention)
     $extension(UnityEngine.Component, DG.Tweening.ShortcutExtensions)
     $extension(UnityEngine.Rect, ParadoxNotion.RectUtils)
+    $extension(System.Object, ParadoxNotion.StringUtils)
+    $extension(System.Object, GameEngine.Extensions.Strings)
     $extension(System.Single, ParadoxNotion.Animation.Easing)
     $extension(System.Single, GameEngine.Extensions.FloatExtensions)
-    $extension(UnityEngine.Vector3, GameEngine.Extensions.Transforms)
-    $extension(UnityEngine.Vector3, GameEngine.Extensions.VectorExtesion)
-    $extension(UnityEngine.Vector3, TMPro.TMPro_ExtensionMethods)
     $extension(UnityEngine.Transform, GameEngine.Extensions.Transforms)
     $extension(UnityEngine.Transform, GameEngine.Extensions.GameObjectExt)
     $extension(UnityEngine.Transform, GameEngine.Extensions.UnityComponentExtention)
     $extension(UnityEngine.Transform, DG.Tweening.ShortcutExtensions)
+    $extension(UnityEngine.Vector3, GameEngine.Extensions.Transforms)
+    $extension(UnityEngine.Vector3, GameEngine.Extensions.VectorExtesion)
+    $extension(UnityEngine.Vector3, TMPro.TMPro_ExtensionMethods)
     $extension(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle, GameEngine.Extensions.AddressablesExtesion)
     $extension(UnityEngine.Events.UnityEvent, GameEngine.Extensions.AddressablesExtesion)
     $extension(UnityEngine.MonoBehaviour, GameEngine.Extensions.GameObjectExt)

@@ -10,6 +10,7 @@ namespace Base.Runtime
         public int debugPort = 9229;
         public bool useDebug = true;
         JsEnv m_jsEnv;
+        public bool inited;
 
         public JsEnv env {
             get {
@@ -24,10 +25,10 @@ namespace Base.Runtime
 
         public JsEnv Init(bool force = false)
         {
+            inited = false;
             if (m_jsEnv != null && m_jsEnv.isolate != IntPtr.Zero && !force) return m_jsEnv;
             m_jsEnv = new JsEnv(new JsLoaderRuntime(), debugPort);
             m_jsEnv.AutoUsing();
-           
             m_jsEnv.Eval(@"require('sourcemap')");
             if (useDebug && debugPort != -1 && Application.isEditor) {
                 m_jsEnv.WaitDebuggerTimeout(5);
@@ -53,7 +54,9 @@ namespace Base.Runtime
         {
             if (!m_Updated) {
                 m_Updated = true;
-                env?.Tick();
+                if (env?.IsDisposed() == false) {
+                    env?.Tick();
+                }
             }
         }
     }

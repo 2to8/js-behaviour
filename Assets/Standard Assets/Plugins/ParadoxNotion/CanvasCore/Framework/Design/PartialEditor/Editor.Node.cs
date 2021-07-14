@@ -773,6 +773,9 @@ namespace NodeCanvas.Framework
 
             var commentsRect = new Rect();
             var style = StyleSheet.commentsBox;
+            style.fontSize = 16;
+            style.fontStyle = FontStyle.Bold;
+            style.alignment = TextAnchor.MiddleCenter;
             var size = style.CalcSize(EditorUtils.GetTempContent(node.comments));
             if (node.commentsAlignment == Alignment2x2.Top) {
                 size.y = style.CalcHeight(EditorUtils.GetTempContent(node.comments), node.rect.width);
@@ -794,9 +797,9 @@ namespace NodeCanvas.Framework
                     node.rect.height);
             }
 
-            GUI.color = new Color(1, 1, 1, 0.6f);
+            GUI.color = Color.yellow ;// new Color(1, 1, 1, 0.6f);
             GUI.backgroundColor = new Color(1f, 1f, 1f, 0.2f);
-            GUI.Box(commentsRect, node.comments, StyleSheet.commentsBox);
+            GUI.Box(commentsRect, node.comments, /*StyleSheet.commentsBox*/style);
             GUI.backgroundColor = Color.white;
             GUI.color = Color.white;
         }
@@ -805,12 +808,13 @@ namespace NodeCanvas.Framework
         static void DrawNodeTag(Node node)
         {
             if (!string.IsNullOrEmpty(node.tag)) {
-                var size = StyleSheet.labelOnCanvas.CalcSize(EditorUtils.GetTempContent(node.tag));
-                var tagRect = new Rect(node.rect.x - size.x - 10, node.rect.y, size.x, size.y);
-                GUI.Label(tagRect, node.tag, StyleSheet.labelOnCanvas);
+                var text = node.tag.Replace(",", "\n").ToCapitalStr();
+                var size = StyleSheet.labelOnCanvas.CalcSize(EditorUtils.GetTempContent(text));
+                var tagRect = new Rect(node.rect.x - size.x - 10- 5, node.rect.y, size.x, size.y);
+                GUI.Label(tagRect, text, StyleSheet.labelOnCanvas);
                 tagRect.width = Icons.tagIcon.width;
                 tagRect.height = Icons.tagIcon.height;
-                tagRect.y += tagRect.height - 2;
+                tagRect.y += tagRect.height - 2 - 25;
                 tagRect.x = node.rect.x - 22;
                 GUI.DrawTexture(tagRect, Icons.tagIcon);
             }

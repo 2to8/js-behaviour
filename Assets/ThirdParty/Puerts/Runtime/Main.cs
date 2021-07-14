@@ -11,14 +11,15 @@ namespace App.Runtime
     public class Main : Singleton<Main>
     {
         public static bool m_Inited;
+        public static JsEnvRuntime runtime => JsEnvRuntime.instance;
 
         public static JsEnv js {
             get {
-                if (!m_Inited) {
-                    Inst.Init();
+                if (!m_Inited || runtime.env.IsDisposed() != false || runtime.inited == false) {
+                    instance.Init(true);
                 }
 
-                return JsEnvRuntime.Inst.env;
+                return runtime.env;
             }
         }
 
@@ -37,24 +38,26 @@ namespace App.Runtime
             Init();
         }
 
-        void Init()
+        void Init(bool force = false)
         {
-            if (!m_Inited) {
+            if (!m_Inited || force) {
+                Debug.Log("<color=white>[JsEnv] init</color>");
                 m_Inited = true;
-                JsEnvRuntime.Inst.Init(true);
-                JsEnvRuntime.Inst.env.Eval("var app = require('index').default || require('index');");
-                JsEnvRuntime.Inst.env.Eval<Action<JsEnv>>("$InitEnv").Invoke(JsEnvRuntime.Inst.env);
+                runtime.Init(true);
+                runtime.env.Eval("var app = require('index').default || require('index');");
+                runtime.env.Eval<Action<JsEnv>>("$InitEnv").Invoke(runtime.env);
+                runtime.inited = true;
             }
         }
 
         private void OnDestroy()
         {
-            JsEnvRuntime.Inst.Shut();
+            runtime.Shut();
         }
 
         private void Update()
         {
-            JsEnvRuntime.Inst.Update();
+            runtime.Update();
         }
     }
 }

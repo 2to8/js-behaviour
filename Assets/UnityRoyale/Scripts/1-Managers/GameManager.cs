@@ -254,9 +254,9 @@ namespace UnityRoyale
 
         private void OnPlaceableDealtDamage(ThinkingPlaceable p)
         {
-            if (p.target.state != ThinkingPlaceable.States.Dead) {
+            if (p.target.state != ThinkingPlaceable.States.Dead && p.target.healthBar != null) {
                 float newHealth = p.target.SufferDamage(p.damage);
-                p.target.healthBar.SetHealth(newHealth);
+                p.target.healthBar?.SetHealth(newHealth);
             }
         }
 

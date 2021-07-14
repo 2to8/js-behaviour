@@ -11,6 +11,7 @@ import { $typeof } from 'puerts';
 import React from 'react';
 //import { debug } from 'webpack';
 import { id } from 'Widget/id';
+import { st } from 'Widget/st';
 import Entity = Dots.Entity;
 //import ItemFilter = ReactSystem.ItemFilter;
 import MonoBehaviour = UnityEngine.MonoBehaviour;
@@ -52,6 +53,7 @@ const patch = (ns: object, path?: string) => {
 }
 
 patch(id, 'Id')
+patch(st, 'St')
 
 export class FindCheck {
     type: System.Type
@@ -236,7 +238,7 @@ export class FindCheck {
     
 }
 
-export function $<A extends ALL>(p: React.Component | typeof Item | (typeof Item | typeof Component | (typeof Item | typeof Component)[])[] | ItemFilter | (new(...args: any[]) => A), _?: ((t: Tags, go: GameObject) => any) /*| ((e: A, ...params: any[]) => any)*/ | (new(...args: any[]) => A), callback?: ((c: A, e?: Entity | GameObject) => any) | (() => any)): A {
+export function $<A extends ALL>(p: React.Component | typeof Item | (typeof Item | typeof Component | (typeof Item | typeof Component)[])[] | ItemFilter | (new(...args: any[]) => A), _?: ((t: Tags, go: GameObject) => any) /*| ((e: A, ...params: any[]) => any)*/ | (new(...args: any[]) => A) | (typeof Item | typeof Component | (typeof Item | typeof Component)[])[], callback?: ((c: A, e?: Entity | GameObject) => any) | (() => any)): A {
     
     let f = new FindCheck();
     console.log(`Test $() ${ f.isClassType(() => null) } ${ f.isClassType(id.Pause) }`)
@@ -273,7 +275,7 @@ export function $<A extends ALL>(p: React.Component | typeof Item | (typeof Item
                 return tags as A;
                 
             } else if (f.isFn(_)) {
-                _?.call(tags, tags.gameObject)
+                (_ as Function)?.call(tags, tags.gameObject)
                 return tags?.gameObject as A;
             }
             
@@ -297,7 +299,7 @@ export function $<A extends ALL>(p: React.Component | typeof Item | (typeof Item
         // 第二个参数是回调
         if (f.isFn(_)) {
             console.log(`press callback2 = ${ list?.Count }`)
-            list?.forEach(t => _.call(t.GetComponent($typeof(Transform)), t.GetComponent($typeof(Tags)), t))
+            list?.forEach(t => (_ as Function).call(t.GetComponent($typeof(Transform)), t.GetComponent($typeof(Tags)), t))
         }
         
         // 第三个参数是回调

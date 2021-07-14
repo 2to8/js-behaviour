@@ -39,7 +39,7 @@ namespace Base.Runtime
         /// <summary>
         /// 为了Typescript脚本生成引用
         /// </summary>
-        public static JsBehaviourMgr Instance => Inst;
+        public static JsBehaviourMgr Instance => instance;
 
         private readonly Dictionary<int, JsBehaviour> instId2Jsb = new Dictionary<int, JsBehaviour>();
     }

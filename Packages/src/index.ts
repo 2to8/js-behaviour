@@ -1,5 +1,6 @@
 import { TestAction } from 'app/actions/TestAction';
 import { DebugText } from 'app/graph/DebugText';
+import { TConcurrentState } from 'app/graph/TConcurrentState';
 import extensions from 'extensions';
 import { dict_install } from 'libs/Dictionary';
 import TestBind from 'sandbox/TestBind';
@@ -18,9 +19,9 @@ export * from './component/component-inst-mgr';
 
 import EcsInit from 'EcsInit';
 import { id } from 'Widget/id';
+import { st } from 'Widget/st';
 import JsEnv = Puerts.JsEnv;
 import PuertsHelper = PuertsStaticWrap.PuertsHelper;
-
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -59,7 +60,7 @@ global.$require = (obj: System.Object, fn: string, ...args: any[]) => {
         Debug.LogError(`${ obj.GetType().FullName } 没有添加到 module 列表`)
         return;
     }
-    obj[fn].call(obj, ...args);
+    obj[fn]?.call(obj, ...args);
 }
 
 //TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
@@ -71,9 +72,10 @@ global.$testBind = (obj: TestBind) => {
     obj.test2();
 }
 
-
+$([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ])
 
 uses(   //
+    TConcurrentState,//
     TestBind,//
     TestAction,//
     DebugText,//

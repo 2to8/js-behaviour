@@ -13,27 +13,27 @@ namespace Base.Runtime
                 return;
             }
 
-            if (JsEnvRuntime.Inst.env?.IsDisposed() != false) return;
-            jsComponentId = JsEnvRuntime.Inst.env.Eval<int>($"app.compInstMgr.newComponent('{JsComponentName}')");
+            if (JsEnvRuntime.instance.env?.IsDisposed() != false) return;
+            jsComponentId = JsEnvRuntime.instance.env.Eval<int>($"app.compInstMgr.newComponent('{JsComponentName}')");
             if (jsComponentId < 0) {
                 return;
             }
 
-            jsAwake = JsEnvRuntime.Inst.env.Eval<Action>(
+            jsAwake = JsEnvRuntime.instance.env.Eval<Action>(
                 $"app.compInstMgr.getComponentMethod({jsComponentId}, 'Awake')");
-            jsStart = JsEnvRuntime.Inst.env.Eval<Action>(
+            jsStart = JsEnvRuntime.instance.env.Eval<Action>(
                 $"app.compInstMgr.getComponentMethod({jsComponentId}, 'Start')");
             jsOnEnable =
-                JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnEnable')");
+                JsEnvRuntime.instance.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnEnable')");
             jsOnDisable =
-                JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDisable')");
+                JsEnvRuntime.instance.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDisable')");
             jsOnDestroy =
-                JsEnvRuntime.Inst.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDestroy')");
+                JsEnvRuntime.instance.env.Eval<Action>($"app.compInstMgr.getComponentMethod({jsComponentId}, 'OnDestroy')");
             jsBindProperty =
-                JsEnvRuntime.Inst.env.Eval<Action<int>>(
+                JsEnvRuntime.instance.env.Eval<Action<int>>(
                     $"app.compInstMgr.getComponentMethod({jsComponentId}, 'BindProperty')");
             jsUnbindProperty =
-                JsEnvRuntime.Inst.env.Eval<Action>(
+                JsEnvRuntime.instance.env.Eval<Action>(
                     $"app.compInstMgr.getComponentMethod({jsComponentId}, 'UnbindProperty')");
             jsBindProperty?.Invoke(GetInstanceID());
             jsAwake?.Invoke();
@@ -41,25 +41,25 @@ namespace Base.Runtime
 
         protected void Start()
         {
-            if (JsEnvRuntime.Inst.env?.IsDisposed() == false)
+            if (JsEnvRuntime.instance.env?.IsDisposed() == false)
                 jsStart?.Invoke();
         }
 
         protected void OnEnable()
         {
-            if (JsEnvRuntime.Inst.env?.IsDisposed() == false)
+            if (JsEnvRuntime.instance.env?.IsDisposed() == false)
                 jsOnEnable?.Invoke();
         }
 
         protected void OnDisable()
         {
-            if (JsEnvRuntime.Inst.env?.IsDisposed() == false)
+            if (JsEnvRuntime.instance.env?.IsDisposed() == false)
                 jsOnDisable?.Invoke();
         }
 
         protected void OnDestroy()
         {
-            if (JsEnvRuntime.Inst.env?.IsDisposed() != false) return;
+            if (JsEnvRuntime.instance.env?.IsDisposed() != false) return;
             jsOnDestroy?.Invoke();
             jsUnbindProperty?.Invoke();
             jsAwake = null;
@@ -67,7 +67,7 @@ namespace Base.Runtime
             jsOnEnable = null;
             jsOnDisable = null;
             jsOnDestroy = null;
-            JsEnvRuntime.Inst.env.Eval($"app.compInstMgr.delComponent({jsComponentId})");
+            JsEnvRuntime.instance.env.Eval($"app.compInstMgr.delComponent({jsComponentId})");
             JsBehaviourMgr.Instance.Remove(GetInstanceID());
         }
 
