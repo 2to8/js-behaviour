@@ -53,28 +53,28 @@ public static class Extensions {
         TagSystem.GameObjectTags(go).Contains(tag);
 
     public static bool HasTag(this Node node, string tag) =>
-        TagSystem.GameObjectTags(node).Contains(tag);
+        TagSystem.NodeTags(node).Contains(tag);
 
     public static bool AnyTags(this GameObject go, params string[] tags) =>
         TagSystem.GameObjectTags(go).Intersect(tags).Any();
 
     public static bool AnyTags(this Node node, params string[] tags) =>
-        TagSystem.GameObjectTags(node).Intersect(tags).Any();
+        TagSystem.NodeTags(node).Intersect(tags).Any();
 
     public static bool BothTags(this GameObject go, params string[] tags) =>
         TagSystem.GameObjectTags(go).Intersect(tags).Count() == tags.Length;
 
     public static bool BothTags(this Node node, params string[] tags) =>
-        TagSystem.GameObjectTags(node).Intersect(tags).Count() == tags.Length;
+        TagSystem.NodeTags(node).Intersect(tags).Count() == tags.Length;
 
     public static IEnumerable<string> GetTags(this GameObject go) => TagSystem.GetTags(go?.GetComponent<Tags>()?.ids);// TagSystem.GameObjectTags(go).ToArray();
-     public static string[] GetTags(this Node go) => TagSystem.GameObjectTags(go).ToArray();
+     public static string[] GetTags(this Node go) => TagSystem.NodeTags(go).ToArray();
 
     public static IEnumerable<string> FindTags(this GameObject go, TagNames tags) =>
         TagSystem.GameObjectTags(go).Intersect(tags);
 
     public static string[] FindTags(this Node node, TagNames tags) =>
-        TagSystem.GameObjectTags(node).Intersect(tags).ToArray();
+        TagSystem.NodeTags(node).Intersect(tags).ToArray();
 
     public static IEnumerable<GameObject> GetChildrenList(this GameObject go, bool self = true)
     {

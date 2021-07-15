@@ -12282,7 +12282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_onEnterList":{"executionMode":1,"actions":[{"refObject":{},"scene":{},"state":{},"IntTreview":[1,2,7],"$type":"UnityRoyale.AAUsageExampleAction"}]},"_onUpdateList":{"executionMode":1,"actions":[]},"_onExitList":{"executionMode":1,"actions":[]},"foldEnter":true,"_name":"Start","_tag":"home","_position":{"x":585.0,"y":358.0},"$type":"NodeCanvas.StateMachines.SuperActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[]},"_position":{"x":785.0,"y":555.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_nestedBT":{"_value":1},"_UID":"5dda7ac9-0abe-4ad5-b710-8feb5cba8a0a","_tag":"grgr,sfe,sefe","_position":{"x":378.0,"y":558.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"2"},{"_tag":"sefe","_position":{"x":488.7963,"y":266.7918},"$type":"NodeCanvas.StateMachines.EmptyState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_onEnterList":{"executionMode":1,"actions":[{"refObject":{},"scene":{},"state":{},"IntTreview":[1,2,7],"$type":"UnityRoyale.AAUsageExampleAction"}]},"_onUpdateList":{"executionMode":1,"actions":[]},"_onExitList":{"executionMode":1,"actions":[]},"foldEnter":true,"Tags":{},"_name":"Start","_tag":"home","_position":{"x":585.0,"y":358.0},"$type":"NodeCanvas.StateMachines.SuperActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_position":{"x":785.0,"y":555.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_nestedBT":{"_value":1},"Tags":{},"_UID":"5dda7ac9-0abe-4ad5-b710-8feb5cba8a0a","_tag":"grgr,sfe,sefe","_position":{"x":378.0,"y":558.0},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"2"},{"Tags":{},"_tag":"sefe","_position":{"x":488.7963,"y":266.7918},"$type":"NodeCanvas.StateMachines.EmptyState"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 1483339691}
@@ -25296,7 +25296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d31b62ec9d586a4e94389d9071559ca, type: 3}
   m_Name: FlowScript
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":356.0,"y":381.0},"$type":"FlowCanvas.Nodes.TaskAction"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _serializedGraph: '{"type":"FlowCanvas.FlowScript","nodes":[{"Tags":{},"_position":{"x":356.0,"y":381.0},"$type":"FlowCanvas.Nodes.TaskAction"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _objectReferences: []
   _graphSource:
     _version: 3.16
@@ -33383,7 +33383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"_position":{"x":304.0,"y":295.0},"$type":"FlowCanvas.Nodes.StartEvent"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"Tags":{},"_position":{"x":304.0,"y":295.0},"$type":"FlowCanvas.Nodes.StartEvent"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.16
@@ -33420,7 +33420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_position":{"x":406.0,"y":340.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_position":{"x":406.0,"y":340.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.16
@@ -33449,7 +33449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":293.0,"y":345.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"Tags":{},"_position":{"x":293.0,"y":345.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.16
@@ -41570,8 +41570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_onEnterList":{"executionMode":1,"actions":[]},"_onUpdateList":{"executionMode":1,"actions":[]},"_onExitList":{"executionMode":1,"actions":[]},"_name":"Start","_tag":"","_position":{"x":526.0,"y":471.0},"_comment":"\u6d4b\u8bd5","$type":"NodeCanvas.StateMachines.SuperActionState"},{"_tag":"","_position":{"x":222.0,"y":366.0},"$type":"NodeCanvas.StateMachines.AnyState"},{"_conditionList":{"conditions":[{"valueA":{"_name":"enabled","_targetVariableID":"0e81181a-1a7b-410a-aecd-42e03ada85c7"},"valueB":{"_value":true},"showDefaultUI":true,"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}]},"_actionList":{"executionMode":1,"actions":[{"refObject":{},"scene":{},"state":{},"IntTreview":[1,2,7],"$type":"UnityRoyale.AAUsageExampleAction"}]},"_tag":"G.Main,
-    Test","_position":{"x":720.0,"y":207.0},"$type":"NodeCanvas.StateMachines.ConcurrentState"},{"_actionList":{"executionMode":1,"actions":[]},"_position":{"x":585.0,"y":315.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"enabled":{"_value":true,"_name":"enabled","_id":"0e81181a-1a7b-410a-aecd-42e03ada85c7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_onEnterList":{"executionMode":1,"actions":[]},"_onUpdateList":{"executionMode":1,"actions":[]},"_onExitList":{"executionMode":1,"actions":[]},"Tags":{},"_name":"Start","_tag":"","_position":{"x":526.0,"y":471.0},"_comment":"\u6d4b\u8bd5","$type":"NodeCanvas.StateMachines.SuperActionState"},{"Tags":{},"_tag":"","_position":{"x":222.0,"y":366.0},"$type":"NodeCanvas.StateMachines.AnyState"},{"_conditionList":{"conditions":[{"valueA":{"_name":"enabled","_targetVariableID":"0e81181a-1a7b-410a-aecd-42e03ada85c7"},"valueB":{"_value":true},"showDefaultUI":true,"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}]},"_actionList":{"executionMode":1,"actions":[{"refObject":{},"scene":{},"state":{},"IntTreview":[1,2,7],"$type":"UnityRoyale.AAUsageExampleAction"}]},"Tags":{},"_tag":"G.Main,
+    Test","_position":{"x":720.0,"y":207.0},"$type":"NodeCanvas.StateMachines.ConcurrentState"},{"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_position":{"x":585.0,"y":315.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"enabled":{"_value":true,"_name":"enabled","_id":"0e81181a-1a7b-410a-aecd-42e03ada85c7","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:

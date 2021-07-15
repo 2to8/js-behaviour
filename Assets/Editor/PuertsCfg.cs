@@ -7,8 +7,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Puerts;
+using UnityEditor;
 using UnityEngine;
 
 //1、配置类必须打[Configure]标签
@@ -27,6 +29,7 @@ public class PuertsCfg
 
             var namespaces = new HashSet<string>
             {
+                "DG",
                 "System",
                 "System.IO",
                 "System.Net",
@@ -41,6 +44,7 @@ public class PuertsCfg
                 "UnityEngine.U2D",
                 "UnityEditor",
                 "Base.Mono",
+                "DG.Tweening",
                 "Base.Runtime",
                 "App.Mono",
                 "App.Runtime",
@@ -78,7 +82,7 @@ public class PuertsCfg
                     if (type.Namespace == null || type.Name == null) continue;
                     if (registered.ContainsKey(type.Namespace) && registered[type.Namespace].Contains(type.Name))
                         continue; // 忽略重复的类
-                    bool accept = namespaces.Contains(type.Namespace) || assembly.GetName().Name == "Assembly-CSharp";
+                    bool accept = namespaces.Contains(type.Namespace) || namespaces.Any(t =>  type.Namespace.StartsWith(t+"."))   || assembly.GetName().Name .Contains("Assembly-CSharp");
                     if (accept && ignored.ContainsKey(type.Namespace) &&
                         ignored[type.Namespace].Contains(type.Name)) continue;
                     if (accept)
@@ -97,6 +101,11 @@ public class PuertsCfg
                     }
                 }
             }
+
+            // dotween 
+            //types.Add(typeof(DG.Tweening.Sequence));
+            //types.Add(typeof(DG.Tweening.DOTween));
+           // types.Add(typeof(DG.Tweening.DOTweenModuleSprite));
 
             types.Add(typeof(System.Convert));
             types.Add(typeof(System.Text.Encoding));

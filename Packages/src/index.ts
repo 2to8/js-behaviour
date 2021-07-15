@@ -24,6 +24,8 @@ import { st } from 'Widget/st';
 import JsEnv = Puerts.JsEnv;
 import PuertsHelper = PuertsStaticWrap.PuertsHelper;
 import Strings = GameEngine.Extensions.Strings;
+import UI = UnityEngine.UI;
+import GameObject = UnityEngine.GameObject;
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -63,10 +65,14 @@ global.$require = (obj: System.Object, fn: string, ...args: any[]) => {
         // 这个不检查父类是否已经添加, 不需要return
         //return;
     }
+    //obj['Init']?.call(obj);
     obj[fn]?.call(obj, ...args);
+    
 }
 
 //TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
+
+// GameObject.Find("test").transform.do
 
 global.$testBind = (obj: TestBind) => {
     Debug.Log('test bind 5');

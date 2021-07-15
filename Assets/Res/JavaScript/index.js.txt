@@ -2896,8 +2896,8 @@
 	var Tags = csharp.MoreTags.Tags;
 	var Button = csharp.UnityEngine.UI.Button;
 	var Transform = csharp.UnityEngine.Transform;
-	var Debug$4 = csharp.UnityEngine.Debug;
-	var Strings$2 = csharp.GameEngine.Extensions.Strings;
+	var Debug$5 = csharp.UnityEngine.Debug;
+	var Strings$3 = csharp.GameEngine.Extensions.Strings;
 	var Transforms = csharp.GameEngine.Extensions.Transforms;
 	// type QLink = typeof  $(p: (typeof Widget)[] | filter, _: (e: any,...params: any[]) => any): any
 	// {}
@@ -3149,10 +3149,10 @@
 	                // 如果第二个参数是button
 	                let isButton = f.isClassType(_) && puerts.$typeof(_).IsAssignableFrom(puerts.$typeof(Button));
 	                if (isButton) {
-	                    Debug$4.Log(Strings$2.ToYellow(`setup button ${Transforms.GetPath(t)}`));
+	                    Debug$5.Log(Strings$3.ToYellow(`setup button ${Transforms.GetPath(t)}`));
 	                    let button = t.GetComponent(puerts.$typeof(Button));
 	                    if (button != null) {
-	                        Debug$4.Log(Strings$2.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
+	                        Debug$5.Log(Strings$3.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
 	                        globalThis.ButtonEvents = globalThis.ButtonEvents || new Map();
 	                        let cb = globalThis.ButtonEvents.get(t.GetHashCode());
 	                        if (cb != null) {
@@ -3187,31 +3187,70 @@
 	}
 
 	var TsActionTest = csharp.App.Actions.TsActionTest;
-	var Debug$3 = csharp.UnityEngine.Debug;
+	var Debug$4 = csharp.UnityEngine.Debug;
 	class TestAction extends TsActionTest {
+	    m_testProp = 10;
+	    // Init() {
+	    //     Debug.Log(Strings.ToBlue('init TestAction'))
+	    //     this.m_testProp = 100;
+	    // }
 	    OnExecute() {
-	        Debug$3.Log('test ts');
+	        Debug$4.Log('test ts');
+	        //this.testProp = 20;
+	        console.log('testProp=', this.m_testProp);
 	        $(id.test, tag => {
-	            Debug$3.Log(tag.name);
+	            Debug$4.Log(tag.name);
 	            //tag.gameObject.SetActive(false);
 	        });
 	    }
 	}
+	let TA = TestAction;
+	let N = new TA();
+	for (const name of Object.keys(N)) {
+	    console.log(name, N[name]);
+	    TsActionTest.prototype[name] = N[name];
+	}
+	//
+	// class Describer {
+	//     private static FRegEx = new RegExp(/(?:this\.)(.+?(?= ))/g);
+	//     static describe(val: Function, parent = false): string[] {
+	//         var result = [];
+	//         if (parent) {
+	//             var proto = Object.getPrototypeOf(val.prototype);
+	//             if (proto) {
+	//                 result = result.concat(this.describe(proto.constructor, parent));
+	//             }
+	//         }
+	//         result = result.concat(val.toString().match(this.FRegEx) || []);
+	//         return result;
+	//     }
+	// }
+	//
+	// console.log(Describer.describe(TestAction)); // ["this.a1", "this.a2"]
+	//
+	// //Object.setPrototypeOf(TsActionTest, TestAction.prototype)
+	//
+	// let ks = Object.getOwnPropertyNames(TestAction.prototype);
+	// console.log(Strings.ToRed("test prototype"), ks)
+	// // let pr = Object.getPrototypeOf(TsActionTest.prototype)
+	// // for (const name in ks) {
+	// //     pr[name] = TsActionTest.prototype[name];
+	// // }
 
 	var DebugLogText = csharp.NodeCanvas.Tasks.Actions.DebugLogText;
-	var Debug$2 = csharp.UnityEngine.Debug;
+	var Debug$3 = csharp.UnityEngine.Debug;
 	class DebugText extends DebugLogText {
 	    OnExecute() {
-	        Debug$2.Log(`[Js] ${this.log.value}`);
+	        Debug$3.Log(`[Js] ${this.log.value}`);
 	    }
 	}
 
 	var ConcurrentState = csharp.NodeCanvas.StateMachines.ConcurrentState;
-	var Strings$1 = csharp.GameEngine.Extensions.Strings;
+	var Strings$2 = csharp.GameEngine.Extensions.Strings;
 	class TConcurrentState extends ConcurrentState {
 	    OnValidate($assignedGraph) {
 	        //super.OnValidate($assignedGraph);
-	        console.log(Strings$1.ToYellow("state validate"));
+	        console.log(Strings$2.ToYellow("state validate"));
 	    }
 	    OnGraphStarted() {
 	        //super.OnGraphStarted();
@@ -3225,7 +3264,9 @@
 	class TNode extends Node {
 	    Validate($assignedGraph) {
 	        //super.Validate($assignedGraph);
-	        console.log('[node validate]', this.tag, this.name);
+	        if (this.tag != null) {
+	            console.log('[node validate]', this.tag, this.name);
+	        }
 	    }
 	}
 
@@ -3235,28 +3276,51 @@
 	    puerts.$extension(csharp.System.String, csharp.GameEngine.Extensions.Strings);
 	    puerts.$extension(csharp.System.String, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.System.String, csharp.GameEngine.Extensions.Files);
+	    puerts.$extension(csharp.System.String, csharp.SearchPRO.GUIUtils);
+	    puerts.$extension(csharp.System.String, csharp.UnityEditor.ShaderGraph.TextUtil);
+	    puerts.$extension(csharp.System.String, csharp.DG.DemiEditor.StringExtensions);
 	    puerts.$extension(csharp.System.String, csharp.TMPro.TMPro_ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.Renderer, csharp.UnityEngine.RendererExtensions);
 	    puerts.$extension(csharp.UnityEngine.Texture2D, csharp.UnityEngine.ImageConversion);
+	    puerts.$extension(csharp.UnityEngine.Texture2D, csharp.DG.DemiEditor.TextureExtensions);
 	    puerts.$extension(csharp.UnityEngine.ParticleSystem, csharp.UnityEngine.ParticlePhysicsExtensions);
 	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.UnityEngine.PhysicsSceneExtensions);
 	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.UnityEngine.PhysicsSceneExtensions2D);
 	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.Utils.Scenes.SceneUtil);
 	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.GameEngine.Extensions.SceneExtensions);
-	    puerts.$extension(csharp.System.Reflection.ParameterInfo, csharp.ParadoxNotion.ReflectionTools);
+	    // $extension(System.Reflection.ParameterInfo, ParadoxNotion.ReflectionTools)
+	    puerts.$extension(csharp.UnityEngine.Animations.AnimationPlayableOutput, csharp.UnityEngine.Experimental.Animations.AnimationPlayableOutputExtensions);
+	    puerts.$extension(csharp.UnityEngine.Animator, csharp.UnityEngine.Animations.AnimatorJobExtensions);
+	    puerts.$extension(csharp.UnityEngine.Animator, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Sprite, csharp.UnityEngine.U2D.SpriteDataAccessExtensions);
+	    puerts.$extension(csharp.UnityEngine.Sprite, csharp.UnityEditor.U2D.SpriteEditorExtension);
 	    puerts.$extension(csharp.UnityEngine.SpriteRenderer, csharp.UnityEngine.U2D.SpriteRendererDataAccessExtensions);
+	    puerts.$extension(csharp.UnityEngine.SpriteRenderer, csharp.DG.Tweening.DOTweenModuleSprite);
+	    // $extension(UnityEngine.Rendering.CommandBuffer, UnityEngine.Rendering.CommandBufferExtensions)
+	    // $extension(UnityEngine.Rendering.CommandBuffer, UnityEngine.Rendering.PostProcessing.RuntimeUtilities)
+	    puerts.$extension(csharp.System.Boolean, csharp.UnityEngine.Assertions.Must.MustExtensions);
+	    puerts.$extension(csharp.System.Boolean, csharp.NUnit.Framework.AssertEx);
+	    puerts.$extension(csharp.System.Single, csharp.UnityEngine.Assertions.Must.MustExtensions);
+	    puerts.$extension(csharp.System.Single, csharp.ParadoxNotion.Animation.Easing);
+	    puerts.$extension(csharp.System.Single, csharp.GameEngine.Extensions.FloatExtensions);
 	    puerts.$extension(csharp.UnityEngine.Terrain, csharp.UnityEngine.TerrainExtensions);
+	    // $extension(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.UQueryExtensions)
+	    // $extension(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.VisualElementExtensions)
+	    // $extension(UnityEngine.UIElements.VisualElement, UnityEditor.UIElements.BindingExtensions)
 	    puerts.$extension(csharp.UnityEngine.WWW, csharp.UnityEngine.WWWAudioExtensions);
+	    puerts.$extension(csharp.UnityEngine.Video.VideoPlayer, csharp.UnityEngine.Experimental.Video.VideoPlayerExtensions);
 	    puerts.$extension(csharp.UnityEngine.Material, csharp.UnityEditor.MaterialEditorExtensions);
+	    puerts.$extension(csharp.UnityEngine.Material, csharp.DG.Tweening.DOTweenModuleUnityVersion);
 	    puerts.$extension(csharp.UnityEngine.Material, csharp.DG.Tweening.ShortcutExtensions);
-	    puerts.$extension(csharp.Puerts.JsEnv, csharp.PuertsStaticWrap.PuertsHelper);
-	    puerts.$extension(csharp.UnityEngine.Object, csharp.Base.Runtime.UnityEngineObjectExt);
-	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Strings);
-	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Transforms);
-	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Files);
-	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.UnityComponentExtention);
-	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.UnityEngineObjectExtention);
+	    puerts.$extension(csharp.UnityEngine.U2D.SpriteAtlas, csharp.UnityEditor.U2D.SpriteAtlasExtensions);
+	    //$extension(UnityEditor.Profiling.Memory.Experimental.ObjectFlags, UnityEditor.Profiling.Memory.Experimental.ObjectFlagsExtensions)
+	    //$extension(UnityEditor.Profiling.Memory.Experimental.TypeFlags, UnityEditor.Profiling.Memory.Experimental.TypeFlagsExtensions)
+	    puerts.$extension(csharp.UnityEditor.EditorWindow, csharp.UnityEditor.UIElements.UIElementsEntryPoint);
+	    puerts.$extension(csharp.UnityEditor.EditorWindow, csharp.marijnz.EditorCoroutines.EditorCoroutineExtensions);
+	    puerts.$extension(csharp.UnityEngine.Camera, csharp.UnityEditor.Rendering.EditorCameraUtils);
+	    puerts.$extension(csharp.UnityEngine.Camera, csharp.UnityEngine.Rendering.Universal.CameraExtensions);
+	    puerts.$extension(csharp.UnityEngine.Camera, csharp.DG.Tweening.ShortcutExtensions);
+	    puerts.$extension(csharp.UnityEditor.iOS.Xcode.PBXProject, csharp.UnityEditor.iOS.Xcode.Extensions.PBXProjectExtensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.UnityEngine.UI.Extensions.MenuExtensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.RSG.Scene.Query.GameObjectExts);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.ParadoxNotion.ObjectUtils);
@@ -3269,12 +3333,14 @@
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.MoreTags.Extensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.MoreTags.TagSystem);
 	    puerts.$extension(csharp.UnityEngine.UI.ScrollRect, csharp.UnityEngine.UI.Extensions.ScrollRectExtensions);
+	    puerts.$extension(csharp.UnityEngine.UI.ScrollRect, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.UnityEngine.UI.Extensions.UIExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.UnityEngine.UI.Extensions.RectTransformExtension);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.GameEngine.Extensions.RectTransformExtension);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.GameEngine.Extensions.UIExtend);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.GameEngine.Extensions.UnityComponentExtention);
+	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.Vector2, csharp.UnityEngine.UI.Extensions.UIExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.Vector2, csharp.ParadoxNotion.RectUtils);
 	    puerts.$extension(csharp.UnityEngine.Canvas, csharp.UnityEngine.UI.Extensions.UIExtensionMethods);
@@ -3282,6 +3348,7 @@
 	    puerts.$extension(csharp.UnityEngine.Color, csharp.MoreTags.Extensions);
 	    puerts.$extension(csharp.UnityEngine.Color, csharp.TMPro.TMPro_ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.GUIStyle, csharp.ParadoxNotion.GUIStyleUtils);
+	    puerts.$extension(csharp.UnityEngine.GUIStyle, csharp.DG.DemiEditor.GUIStyleExtensions);
 	    puerts.$extension(csharp.UnityEngine.LayerMask, csharp.ParadoxNotion.LayerUtils);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.ParadoxNotion.ObjectUtils);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.Transforms);
@@ -3291,13 +3358,22 @@
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.Rect, csharp.ParadoxNotion.RectUtils);
+	    puerts.$extension(csharp.UnityEngine.Rect, csharp.UnityEditor.Rendering.LookDev.RectExtension);
 	    puerts.$extension(csharp.System.Object, csharp.ParadoxNotion.StringUtils);
 	    puerts.$extension(csharp.System.Object, csharp.GameEngine.Extensions.Strings);
-	    puerts.$extension(csharp.System.Single, csharp.ParadoxNotion.Animation.Easing);
-	    puerts.$extension(csharp.System.Single, csharp.GameEngine.Extensions.FloatExtensions);
+	    puerts.$extension(csharp.System.Object, csharp.NUnit.Framework.AssertEx);
+	    puerts.$extension(csharp.UnityEditor.GenericMenu, csharp.ParadoxNotion.Design.EditorUtils);
+	    puerts.$extension(csharp.ParadoxNotion.Design.EditorUtils.ScriptInfo, csharp.ParadoxNotion.Design.EditorUtils);
+	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Strings);
+	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Transforms);
+	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Files);
+	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.UnityComponentExtention);
+	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.UnityEngineObjectExtention);
+	    puerts.$extension(csharp.UnityEngine.Object, csharp.Base.Runtime.UnityEngineObjectExt);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.GameObjectExt);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.UnityComponentExtention);
+	    puerts.$extension(csharp.UnityEngine.Transform, csharp.DG.Tweening.DOTweenProShortcuts);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.VectorExtesion);
@@ -3310,41 +3386,95 @@
 	    puerts.$extension(csharp.UnityEngine.ScriptableObject, csharp.GameEngine.Extensions.ScritableExt);
 	    puerts.$extension(csharp.System.IO.FileInfo, csharp.GameEngine.Extensions.Files);
 	    puerts.$extension(csharp.UnityEngine.UI.Image, csharp.GameEngine.Extensions.UIExtend);
+	    puerts.$extension(csharp.UnityEngine.UI.Image, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.AsyncOperation, csharp.GameEngine.Extensions.UnityAsyncOperationAwaiter);
 	    puerts.$extension(csharp.UnityEngine.AnimationCurve, csharp.GameEngine.Extensions.UnityComponentExtention);
-	    puerts.$extension(csharp.UnityEngine.Animator, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Networking.UnityWebRequestAsyncOperation, csharp.GameEngine.Extensions.ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.PolygonCollider2D, csharp.Common.PolygonCollider2DExt);
-	    puerts.$extension(csharp.UnityEngine.Color32, csharp.TMPro.TMPro_ExtensionMethods);
-	    puerts.$extension(csharp.UnityEngine.Quaternion, csharp.TMPro.TMPro_ExtensionMethods);
-	    puerts.$extension(csharp.SqlCipher4Unity3D.SQLiteConnection, csharp.SQLiteNetExtensions.Extensions.WriteOperations);
-	    puerts.$extension(csharp.UnityEngine.Camera, csharp.DG.Tweening.ShortcutExtensions);
+	    puerts.$extension(csharp.Puerts.JsEnv, csharp.PuertsStaticWrap.PuertsHelper);
+	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenProShortcuts);
+	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenModulePhysics);
+	    //$extension(UnityEditor.ShaderGraph.Internal.CoordinateSpace, UnityEditor.ShaderGraph.Internal.CoordinateSpaceExtensions)
+	    //$extension(UnityEditor.ShaderGraph.Internal.NeededCoordinateSpace, UnityEditor.ShaderGraph.Internal.CoordinateSpaceExtensions)
+	    puerts.$extension(csharp.UnityEngine.AndroidJavaObject, csharp.UnityEngine.Monetization.AndroidJavaObjectExtensions);
+	    puerts.$extension(csharp.UnityEngine.AudioSource, csharp.DG.Tweening.DOTweenModuleAudio);
+	    puerts.$extension(csharp.UnityEngine.Audio.AudioMixer, csharp.DG.Tweening.DOTweenModuleAudio);
+	    puerts.$extension(csharp.UnityEngine.Rigidbody2D, csharp.DG.Tweening.DOTweenModulePhysics2D);
+	    puerts.$extension(csharp.UnityEngine.CanvasGroup, csharp.DG.Tweening.DOTweenModuleUI);
+	    puerts.$extension(csharp.UnityEngine.UI.LayoutElement, csharp.DG.Tweening.DOTweenModuleUI);
+	    puerts.$extension(csharp.UnityEngine.UI.Outline, csharp.DG.Tweening.DOTweenModuleUI);
+	    puerts.$extension(csharp.UnityEngine.UI.Slider, csharp.DG.Tweening.DOTweenModuleUI);
+	    puerts.$extension(csharp.UnityEngine.UI.Text, csharp.DG.Tweening.DOTweenModuleUI);
+	    //$extension(UnityEngine.Rendering.MaterialQuality, UnityEngine.Rendering.MaterialQualityUtilities)
+	    //$extension(NUnit.Framework.Constraints.ConstraintExpression, UnityEngine.TestTools.Constraints.ConstraintExtensions)
+	    puerts.$extension(csharp.UnityEditor.SerializedProperty, csharp.UnityEditor.Rendering.SerializedBitArrayUtilities);
+	    puerts.$extension(csharp.UnityEditor.SerializedProperty, csharp.DG.DemiEditor.SerializedPropertyExtensions);
+	    puerts.$extension(csharp.UnityEngine.Rendering.ShaderKeywordSet, csharp.UnityEditor.Rendering.Utilities.EditorMaterialQualityUtilities);
 	    puerts.$extension(csharp.UnityEngine.Light, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.LineRenderer, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.TrailRenderer, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.DG.Tweening.Sequence, csharp.DG.Tweening.TweenSettingsExtensions);
+	    puerts.$extension(csharp.UnityEngine.Color32, csharp.TMPro.TMPro_ExtensionMethods);
+	    puerts.$extension(csharp.UnityEngine.Quaternion, csharp.TMPro.TMPro_ExtensionMethods);
+	    puerts.$extension(csharp.SqlCipher4Unity3D.SQLiteConnection, csharp.SQLiteNetExtensions.Extensions.WriteOperations);
 	    puerts.$extension(csharp.PuertsTest.BaseClass, csharp.PuertsTest.BaseClassExtension);
 	}
 
 	var TestCs2Ts$1 = csharp.Sandbox.TestCs2Ts;
-	var Debug$1 = csharp.UnityEngine.Debug;
+	var Debug$2 = csharp.UnityEngine.Debug;
 	class TestBind extends TestCs2Ts$1 {
 	    test2() {
-	        Debug$1.Log(this.num + " = test7..");
+	        Debug$2.Log(this.num + " = test7..");
 	        this.num = 100;
 	        //$(CardManager).cardPrefab = 
 	        //
 	    }
 	}
 
+	var Strings$1 = csharp.GameEngine.Extensions.Strings;
+	var Debug$1 = csharp.UnityEngine.Debug;
 	function uses(...c) {
 	    c.forEach(type => {
 	        let pr = Object.getPrototypeOf(type.prototype);
 	        if (puerts.$typeof(pr.constructor) != null) {
+	            //Object.setPrototypeOf(pr,type.prototype);
+	            //pr.prototype = Object.create(Object.getPrototypeOf(type)) 
+	            //Object.setPrototypeOf(Object.getPrototypeOf(type.prototype), type.prototype);
+	            //appendChain(pr, new type());
+	            //Object.setPrototypeOf(pr,Object.getPrototypeOf(type) );
 	            Object.getOwnPropertyNames(type.prototype).forEach(name => {
 	                console.log(`[check] ${type.name}[${puerts.$typeof(pr.constructor).FullName}] => ${name}`);
 	                pr[name] = type.prototype[name];
 	            });
+	            if (!puerts.$typeof(pr.constructor).IsAbstract) {
+	                let TA = type;
+	                let N = new TA();
+	                for (const name of Object.keys(N)) {
+	                    console.log(name, N[name]);
+	                    pr[name] = N[name];
+	                }
+	            }
+	            Debug$1.Log(Strings$1.ToBlue(type.name + ' : ' + JSON.stringify(Object.keys(type.prototype)) + ' : ' + Object.getOwnPropertyNames(type.prototype)));
+	            for (let name of Object.keys(Object.getPrototypeOf(type.prototype))) {
+	                if (type.prototype.hasOwnProperty(name)) {
+	                    console.log(Strings$1.ToYellow(`[check] ${type.name}[${puerts.$typeof(pr.constructor).FullName}] => ${name}`));
+	                    pr[name] = type.prototype[name];
+	                }
+	            }
+	            // var getAllPropertyNames = (obj) => {
+	            //     let props = [];
+	            //     do {
+	            //         props = props.concat(Object.getOwnPropertyNames(obj));
+	            //     } while (obj = Object.getPrototypeOf(obj));
+	            //     return props;
+	            // };
+	            //
+	            // for (let prop of getAllPropertyNames(type.prototype)) {
+	            //     console.log(prop);
+	            // }
+	            // Object.keys(type.prototype).forEach(name => {
+	            //     pr[name] = type.prototype[name];
+	            // });
 	            global.$providers.set(puerts.$typeof(pr.constructor).FullName, type);
 	        }
 	    });
@@ -3768,9 +3898,11 @@
 	        // 这个不检查父类是否已经添加, 不需要return
 	        //return;
 	    }
+	    //obj['Init']?.call(obj);
 	    obj[fn]?.call(obj, ...args);
 	};
 	//TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
+	// GameObject.Find("test").transform.do
 	global.$testBind = (obj) => {
 	    Debug.Log('test bind 5');
 	    Debug.Log(obj.num);

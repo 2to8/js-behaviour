@@ -223,7 +223,8 @@ namespace Puerts
 //        }
 
  public static string GetFriendlyName(this Type type, int n = -1)
-        {
+ {
+            if (type == null) return "null";
             if (type == typeof(int))
                 return "int";
             if (type == typeof(uint))

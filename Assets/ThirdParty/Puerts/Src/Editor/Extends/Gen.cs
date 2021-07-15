@@ -33,6 +33,7 @@ namespace Puerts
                 var key = tk.Key;
                 if (key == "float") key = "System.Single";
                 if (key == "string") key = "System.String";
+                if (key == "bool") key = "System.Boolean";
                 if (!key.Contains("[") && !key.Contains("<") && !key.Contains("&") && !key.Contains("Unity.Entities")) {
                     names.Add(key.Split('.').FirstOrDefault());
                     tk.Value.ForEach(value => {

@@ -1,3 +1,4 @@
+using NodeCanvas.Framework;
 using UnityEngine;
 
 namespace MoreTags {
@@ -7,6 +8,7 @@ public abstract class TagPattern {
     public abstract GameObject GameObject();
 
     public abstract GameObject[] GameObjects();
+    public abstract Node[] Nodes();
 
     public abstract int Count();
 

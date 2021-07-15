@@ -150,8 +150,8 @@ public class ExamplesCfg
 
                     if (has) {
                         total += 1;
-                        var pstr = string.Join(", ", parameterInfos.Select(pi => pi.ParameterType.GetFriendlyName()));
-                        Debug.Log($"{t.GetFriendlyName()} => {pstr}");
+                        //var pstr = string.Join(", ", parameterInfos.Select(pi => pi.ParameterType.GetFriendlyName()));
+                        //Debug.Log($"{t.GetFriendlyName()} => {pstr}");
                     }
 
                     //MethodBody methodBody = methodBase.GetMethodBody();
