@@ -9,8 +9,9 @@ import Strings = GameEngine.Extensions.Strings;
 
 export class TestAction extends TsActionTest {
     m_testProp: number = 10;
+    static testStatic: number = 100;
     
-    // Init() {
+    // $Init() {
     //     Debug.Log(Strings.ToBlue('init TestAction'))
     //     this.m_testProp = 100;
     // }
@@ -19,6 +20,7 @@ export class TestAction extends TsActionTest {
         Debug.Log('test ts');
         //this.testProp = 20;
         console.log('testProp=', this.m_testProp)
+        console.log('testStatic=', TestAction.testStatic)
         $(id.test, tag => {
             Debug.Log(tag.name);
             //tag.gameObject.SetActive(false);
@@ -26,12 +28,12 @@ export class TestAction extends TsActionTest {
     }
 }
 
-let TA: any = TestAction;
-let N = new TA();
-for (const name of Object.keys(N)) {
-    console.log(name, N[name])
-    TsActionTest.prototype[name] = N[name];
-}
+// let TA: any = TestAction;
+// let N = new TA();
+// for (const name of Object.keys(N)) {
+//     console.log(name, N[name])
+//     TsActionTest.prototype[name] = N[name];
+// }
 
 //
 // class Describer {

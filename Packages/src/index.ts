@@ -65,7 +65,7 @@ global.$require = (obj: System.Object, fn: string, ...args: any[]) => {
         // 这个不检查父类是否已经添加, 不需要return
         //return;
     }
-    //obj['Init']?.call(obj);
+    obj['$Init']?.call(obj);
     obj[fn]?.call(obj, ...args);
     
 }

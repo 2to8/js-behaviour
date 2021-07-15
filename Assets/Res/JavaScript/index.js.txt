@@ -3190,7 +3190,8 @@
 	var Debug$4 = csharp.UnityEngine.Debug;
 	class TestAction extends TsActionTest {
 	    m_testProp = 10;
-	    // Init() {
+	    static testStatic = 100;
+	    // $Init() {
 	    //     Debug.Log(Strings.ToBlue('init TestAction'))
 	    //     this.m_testProp = 100;
 	    // }
@@ -3198,18 +3199,19 @@
 	        Debug$4.Log('test ts');
 	        //this.testProp = 20;
 	        console.log('testProp=', this.m_testProp);
+	        console.log('testStatic=', TestAction.testStatic);
 	        $(id.test, tag => {
 	            Debug$4.Log(tag.name);
 	            //tag.gameObject.SetActive(false);
 	        });
 	    }
 	}
-	let TA = TestAction;
-	let N = new TA();
-	for (const name of Object.keys(N)) {
-	    console.log(name, N[name]);
-	    TsActionTest.prototype[name] = N[name];
-	}
+	// let TA: any = TestAction;
+	// let N = new TA();
+	// for (const name of Object.keys(N)) {
+	//     console.log(name, N[name])
+	//     TsActionTest.prototype[name] = N[name];
+	// }
 	//
 	// class Describer {
 	//     private static FRegEx = new RegExp(/(?:this\.)(.+?(?= ))/g);
@@ -3898,7 +3900,7 @@
 	        // 这个不检查父类是否已经添加, 不需要return
 	        //return;
 	    }
-	    //obj['Init']?.call(obj);
+	    obj['$Init']?.call(obj);
 	    obj[fn]?.call(obj, ...args);
 	};
 	//TestCs2Ts.prototype['test2'] = TestBind.prototype['test2'];
