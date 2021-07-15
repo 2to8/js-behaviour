@@ -27,7 +27,7 @@ public static partial class Strings {
     public static string _TagKey(this string str)
     {
         var opt = RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace;
-        str = Regex.Replace($"{str}", @"\s+", "_", opt);
+        str = Regex.Replace($"{str.Trim()}", @"\s+", "_", opt);
 
         return str.Replace("__", "_").ToCapitalStr();
     }

@@ -12,6 +12,7 @@ using FlowCanvas;
 using MoreTags;
 using NodeCanvas.BehaviourTrees;
 using NodeCanvas.StateMachines;
+using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -542,7 +543,7 @@ namespace NodeCanvas.Framework
             }
         }
 
-        public static bool useAssetForSubGraph => EditorPrefs.GetBool(nameof(useAssetForSubGraph),false);
+        public static bool useAssetForSubGraph => EditorPrefs.GetBool(nameof(useAssetForSubGraph), false);
 
         //...
         static void GraphAssignableNodeGUI(Node node)
@@ -797,7 +798,7 @@ namespace NodeCanvas.Framework
                     node.rect.height);
             }
 
-            GUI.color = Color.yellow ;// new Color(1, 1, 1, 0.6f);
+            GUI.color = Color.yellow; // new Color(1, 1, 1, 0.6f);
             GUI.backgroundColor = new Color(1f, 1f, 1f, 0.2f);
             GUI.Box(commentsRect, node.comments, /*StyleSheet.commentsBox*/style);
             GUI.backgroundColor = Color.white;
@@ -810,7 +811,7 @@ namespace NodeCanvas.Framework
             if (!string.IsNullOrEmpty(node.tag)) {
                 var text = node.tag.Replace(",", "\n").ToCapitalStr();
                 var size = StyleSheet.labelOnCanvas.CalcSize(EditorUtils.GetTempContent(text));
-                var tagRect = new Rect(node.rect.x - size.x - 10- 5, node.rect.y, size.x, size.y);
+                var tagRect = new Rect(node.rect.x - (size.x+15) - 10 - 5, node.rect.y, size.x+15, size.y);
                 GUI.Label(tagRect, text, StyleSheet.labelOnCanvas);
                 tagRect.width = Icons.tagIcon.width;
                 tagRect.height = Icons.tagIcon.height;
@@ -892,6 +893,48 @@ namespace NodeCanvas.Framework
             if (!node.showIcon && node.allowAsPrime) {
                 node.customName = EditorGUILayout.TextField(node.customName);
                 EditorUtils.CommentLastTextField(node.customName, "Name...");
+            }
+
+//            if (GUILayout.Button("#Tag", GUILayout.Width(50))) {
+//
+//            }
+            var catpion = $"#Tag";
+            Rect createBtnRect = GUILayoutUtility.GetRect(new GUIContent(catpion), EditorStyles.toolbarDropDown,
+                /*GUILayout.ExpandWidth(true)*/GUILayout.Width(50));
+            if (GUI.Button(createBtnRect, catpion, EditorStyles.toolbarDropDown)) {
+                // GenericMenu menu = new GenericMenu();
+                void handleItemClicked(object parameter)
+                {
+                    Debug.Log(parameter);
+                }
+
+                GenericMenu menu = new GenericMenu();
+//                menu.AddItem(new GUIContent("Item 1"), false, handleItemClicked, "Item 1");
+//                menu.AddItem(new GUIContent("Item 2"), false, handleItemClicked, "Item 2");
+//                menu.AddItem(new GUIContent("Item 3"), false, handleItemClicked, "Item 3");
+                var tags = $"{node.tag}".Split(',').ToList();
+                TagSystem.AllTags().OrderBy(s => s).ForEach(tag => {
+                    menu.AddItem(new GUIContent( /*"Tags/" +*/ tag.Replace(".", "/")),
+                        tags.Any(t => t == tag._TagKey()), () => {
+                            if(tags.Any(t => t._TagKey() == tag._TagKey())) {
+                                tags.RemoveAll(t => t._TagKey() == tag._TagKey());
+                            }
+                            else {
+                                tags.Add(tag);
+                            }
+
+                            node.tag = string.Join(",", tags.Where(t => !string.IsNullOrEmpty(t)));
+//
+// bbParam.useBlackboard = false;
+//
+//                            if (typeof(string).IsAssignableFrom(bbParam.varType)) {
+//                                bbParam.SetValueBoxed(tag);
+//                            } else if (typeof(int).IsAssignableFrom(bbParam.varType)) {
+//                                bbParam.SetValueBoxed(TagSystem.refs[tag].Id);
+//                            }
+                        });
+                });
+                menu.DropDown(createBtnRect);
             }
 
             node.tag = EditorGUILayout.TextField(node.tag);
