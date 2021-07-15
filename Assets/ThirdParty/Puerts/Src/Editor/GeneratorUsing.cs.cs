@@ -93,7 +93,7 @@ namespace Puerts.Editor
             {
                 AddRef(refs, type.GetElementType());
             }
-            else if (IsDelegate(type) && !type.IsGenericParameter && type != typeof(Delegate) && type != typeof(MulticastDelegate))
+            else if (IsDelegate(type) && !type.IsGenericParameter && type != typeof(Delegate) && type != typeof(MulticastDelegate) && type.IsPublic)
             {
                 refs.Add(type);
             }
@@ -103,10 +103,10 @@ namespace Puerts.Editor
             var invoke = type.GetMethod("Invoke", Flags);
             if (invoke != null)
             {
-                var valueType = invoke.ReturnType != typeof(void) && invoke.ReturnType.IsValueType;
+                var valueType = invoke.ReturnType != typeof(void) && invoke.ReturnType.IsValueType && invoke.ReturnType.IsPublic;
                 foreach (var param in invoke.GetParameters())
                 {
-                    if (param.ParameterType.IsGenericParameter)
+                    if (param.ParameterType.IsGenericParameter || !param.ParameterType.IsPublic || param.ParameterType.IsGenericType)
                         return false;
                     if (param.ParameterType.IsValueType)
                         valueType = true;
@@ -133,6 +133,13 @@ namespace Puerts.Editor
             Debug.Log("finished! use " + (DateTime.Now - start).TotalMilliseconds + " ms");
             AssetDatabase.Refresh();
         }
+
+//        static void AddRefEx(List<Type> refs, Type type)
+//        {
+//            if (type.IsPublic) {
+//                AddRef(refs,type);
+//            }
+//        }
 
         static void GenerateCode(string saveTo)
         {
@@ -169,9 +176,9 @@ namespace Puerts.Editor
             var allowVoid = AllowArgumentsLength("UsingAction");
             var allowReturn = AllowArgumentsLength("UsingFunc");
             var genInfos = new List<GenInfo>();
-            foreach (var type in refTypes.Distinct())
+            foreach (var type in refTypes.Where(t => t.IsPublic).Distinct())
             {
-                if (HasValueParameter(type))
+                if (HasValueParameter(type) && type.IsPublic && type.GetMethod("Invoke", Flags).GetParameters().All(t => t.ParameterType.IsPublic))
                 {
                     var info = ToGenInfo(type);
                     if (info.HasReturn && !allowReturn.Contains(info.Parameters.Length) || !info.HasReturn && !allowVoid.Contains(info.Parameters.Length))

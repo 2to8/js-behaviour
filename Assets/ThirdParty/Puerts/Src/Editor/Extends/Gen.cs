@@ -22,7 +22,8 @@ namespace Puerts
                     tt[tk.Key.GetFriendlyName()] = new HashSet<string>();
                     tk.Value.ForEach(v => {
                         //Debug.Log(tk.Key.GetFriendlyName());
-                        if (!v.DeclaringType.GetFriendlyName().StartsWith("System.")) {
+                        if (!v.DeclaringType.GetFriendlyName().StartsWith("System.") && v.DeclaringType.IsPublic &&
+                            tk.Key.IsPublic && tk.Key.IsClass) {
                             tt[tk.Key.GetFriendlyName()].Add(v.DeclaringType.GetFriendlyName());
                         }
                     });
@@ -34,7 +35,9 @@ namespace Puerts
                 if (key == "float") key = "System.Single";
                 if (key == "string") key = "System.String";
                 if (key == "bool") key = "System.Boolean";
-                if (!key.Contains("[") && !key.Contains("<") && !key.Contains("&") && !key.Contains("Unity.Entities")) {
+                if (!key.Contains("[") && !key.Contains("<") && !key.Contains("&") && !key.Contains("Unity.Entities") &&
+                    key != "System.Reflection.ParameterInfo" && !key.StartsWith("UnityEditor.") &&
+                    key != "UnityEngine.Rendering.CommandBuffer") {
                     names.Add(key.Split('.').FirstOrDefault());
                     tk.Value.ForEach(value => {
                         output += $"    $extension({key}, {value})\n";
@@ -71,7 +74,7 @@ export default function() {{
             }
 
             GenerateExtensions();
-            ExamplesCfg.TestUsingAction();
+            //ExamplesCfg.TestUsingAction();
 
             //Debug.Log("finished! use " + (DateTime.Now - start).TotalMilliseconds + " ms");
             AssetDatabase.Refresh();

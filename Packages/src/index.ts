@@ -22,7 +22,6 @@ import EcsInit from 'EcsInit';
 import { id } from 'Widget/id';
 import { st } from 'Widget/st';
 import JsEnv = Puerts.JsEnv;
-import PuertsHelper = PuertsStaticWrap.PuertsHelper;
 import Strings = GameEngine.Extensions.Strings;
 import UI = UnityEngine.UI;
 import GameObject = UnityEngine.GameObject;
@@ -55,7 +54,8 @@ extensions();
 dict_install();
 
 global.$InitEnv = (env: JsEnv) => {
-    PuertsHelper.UsingActions(env);
+    PuertsStaticWrap.AutoStaticUsing.AutoUsing(env);
+    //PuertsHelper.UsingActions(env);
 }
 
 global.$providers = new Map<string, any>();

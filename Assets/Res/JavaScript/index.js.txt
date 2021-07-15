@@ -3286,43 +3286,25 @@
 	    puerts.$extension(csharp.UnityEngine.Texture2D, csharp.UnityEngine.ImageConversion);
 	    puerts.$extension(csharp.UnityEngine.Texture2D, csharp.DG.DemiEditor.TextureExtensions);
 	    puerts.$extension(csharp.UnityEngine.ParticleSystem, csharp.UnityEngine.ParticlePhysicsExtensions);
-	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.UnityEngine.PhysicsSceneExtensions);
-	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.UnityEngine.PhysicsSceneExtensions2D);
-	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.Utils.Scenes.SceneUtil);
-	    puerts.$extension(csharp.UnityEngine.SceneManagement.Scene, csharp.GameEngine.Extensions.SceneExtensions);
-	    // $extension(System.Reflection.ParameterInfo, ParadoxNotion.ReflectionTools)
-	    puerts.$extension(csharp.UnityEngine.Animations.AnimationPlayableOutput, csharp.UnityEngine.Experimental.Animations.AnimationPlayableOutputExtensions);
 	    puerts.$extension(csharp.UnityEngine.Animator, csharp.UnityEngine.Animations.AnimatorJobExtensions);
 	    puerts.$extension(csharp.UnityEngine.Animator, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Sprite, csharp.UnityEngine.U2D.SpriteDataAccessExtensions);
 	    puerts.$extension(csharp.UnityEngine.Sprite, csharp.UnityEditor.U2D.SpriteEditorExtension);
 	    puerts.$extension(csharp.UnityEngine.SpriteRenderer, csharp.UnityEngine.U2D.SpriteRendererDataAccessExtensions);
 	    puerts.$extension(csharp.UnityEngine.SpriteRenderer, csharp.DG.Tweening.DOTweenModuleSprite);
-	    // $extension(UnityEngine.Rendering.CommandBuffer, UnityEngine.Rendering.CommandBufferExtensions)
-	    // $extension(UnityEngine.Rendering.CommandBuffer, UnityEngine.Rendering.PostProcessing.RuntimeUtilities)
-	    puerts.$extension(csharp.System.Boolean, csharp.UnityEngine.Assertions.Must.MustExtensions);
-	    puerts.$extension(csharp.System.Boolean, csharp.NUnit.Framework.AssertEx);
-	    puerts.$extension(csharp.System.Single, csharp.UnityEngine.Assertions.Must.MustExtensions);
-	    puerts.$extension(csharp.System.Single, csharp.ParadoxNotion.Animation.Easing);
-	    puerts.$extension(csharp.System.Single, csharp.GameEngine.Extensions.FloatExtensions);
 	    puerts.$extension(csharp.UnityEngine.Terrain, csharp.UnityEngine.TerrainExtensions);
-	    // $extension(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.UQueryExtensions)
-	    // $extension(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.VisualElementExtensions)
-	    // $extension(UnityEngine.UIElements.VisualElement, UnityEditor.UIElements.BindingExtensions)
+	    puerts.$extension(csharp.UnityEngine.UIElements.VisualElement, csharp.UnityEngine.UIElements.UQueryExtensions);
+	    puerts.$extension(csharp.UnityEngine.UIElements.VisualElement, csharp.UnityEngine.UIElements.VisualElementExtensions);
+	    puerts.$extension(csharp.UnityEngine.UIElements.VisualElement, csharp.UnityEditor.UIElements.BindingExtensions);
 	    puerts.$extension(csharp.UnityEngine.WWW, csharp.UnityEngine.WWWAudioExtensions);
 	    puerts.$extension(csharp.UnityEngine.Video.VideoPlayer, csharp.UnityEngine.Experimental.Video.VideoPlayerExtensions);
 	    puerts.$extension(csharp.UnityEngine.Material, csharp.UnityEditor.MaterialEditorExtensions);
 	    puerts.$extension(csharp.UnityEngine.Material, csharp.DG.Tweening.DOTweenModuleUnityVersion);
 	    puerts.$extension(csharp.UnityEngine.Material, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.U2D.SpriteAtlas, csharp.UnityEditor.U2D.SpriteAtlasExtensions);
-	    //$extension(UnityEditor.Profiling.Memory.Experimental.ObjectFlags, UnityEditor.Profiling.Memory.Experimental.ObjectFlagsExtensions)
-	    //$extension(UnityEditor.Profiling.Memory.Experimental.TypeFlags, UnityEditor.Profiling.Memory.Experimental.TypeFlagsExtensions)
-	    puerts.$extension(csharp.UnityEditor.EditorWindow, csharp.UnityEditor.UIElements.UIElementsEntryPoint);
-	    puerts.$extension(csharp.UnityEditor.EditorWindow, csharp.marijnz.EditorCoroutines.EditorCoroutineExtensions);
 	    puerts.$extension(csharp.UnityEngine.Camera, csharp.UnityEditor.Rendering.EditorCameraUtils);
 	    puerts.$extension(csharp.UnityEngine.Camera, csharp.UnityEngine.Rendering.Universal.CameraExtensions);
 	    puerts.$extension(csharp.UnityEngine.Camera, csharp.DG.Tweening.ShortcutExtensions);
-	    puerts.$extension(csharp.UnityEditor.iOS.Xcode.PBXProject, csharp.UnityEditor.iOS.Xcode.Extensions.PBXProjectExtensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.UnityEngine.UI.Extensions.MenuExtensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.RSG.Scene.Query.GameObjectExts);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.ParadoxNotion.ObjectUtils);
@@ -3343,15 +3325,9 @@
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.GameEngine.Extensions.UIExtend);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.DG.Tweening.DOTweenModuleUI);
-	    puerts.$extension(csharp.UnityEngine.Vector2, csharp.UnityEngine.UI.Extensions.UIExtensionMethods);
-	    puerts.$extension(csharp.UnityEngine.Vector2, csharp.ParadoxNotion.RectUtils);
 	    puerts.$extension(csharp.UnityEngine.Canvas, csharp.UnityEngine.UI.Extensions.UIExtensionMethods);
-	    puerts.$extension(csharp.UnityEngine.Color, csharp.ParadoxNotion.ColorUtils);
-	    puerts.$extension(csharp.UnityEngine.Color, csharp.MoreTags.Extensions);
-	    puerts.$extension(csharp.UnityEngine.Color, csharp.TMPro.TMPro_ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.GUIStyle, csharp.ParadoxNotion.GUIStyleUtils);
 	    puerts.$extension(csharp.UnityEngine.GUIStyle, csharp.DG.DemiEditor.GUIStyleExtensions);
-	    puerts.$extension(csharp.UnityEngine.LayerMask, csharp.ParadoxNotion.LayerUtils);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.ParadoxNotion.ObjectUtils);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.GameObjectExt);
@@ -3359,13 +3335,9 @@
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.ReplaceComponent);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.DG.Tweening.ShortcutExtensions);
-	    puerts.$extension(csharp.UnityEngine.Rect, csharp.ParadoxNotion.RectUtils);
-	    puerts.$extension(csharp.UnityEngine.Rect, csharp.UnityEditor.Rendering.LookDev.RectExtension);
 	    puerts.$extension(csharp.System.Object, csharp.ParadoxNotion.StringUtils);
 	    puerts.$extension(csharp.System.Object, csharp.GameEngine.Extensions.Strings);
 	    puerts.$extension(csharp.System.Object, csharp.NUnit.Framework.AssertEx);
-	    puerts.$extension(csharp.UnityEditor.GenericMenu, csharp.ParadoxNotion.Design.EditorUtils);
-	    puerts.$extension(csharp.ParadoxNotion.Design.EditorUtils.ScriptInfo, csharp.ParadoxNotion.Design.EditorUtils);
 	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Strings);
 	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.UnityEngine.Object, csharp.GameEngine.Extensions.Files);
@@ -3377,10 +3349,6 @@
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.DG.Tweening.DOTweenProShortcuts);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.DG.Tweening.ShortcutExtensions);
-	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.Transforms);
-	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.GameEngine.Extensions.VectorExtesion);
-	    puerts.$extension(csharp.UnityEngine.Vector3, csharp.TMPro.TMPro_ExtensionMethods);
-	    puerts.$extension(csharp.UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle, csharp.GameEngine.Extensions.AddressablesExtesion);
 	    puerts.$extension(csharp.UnityEngine.Events.UnityEvent, csharp.GameEngine.Extensions.AddressablesExtesion);
 	    puerts.$extension(csharp.UnityEngine.MonoBehaviour, csharp.GameEngine.Extensions.GameObjectExt);
 	    puerts.$extension(csharp.UnityEngine.MonoBehaviour, csharp.GameEngine.Extensions.MonoBehaviourExt);
@@ -3393,11 +3361,9 @@
 	    puerts.$extension(csharp.UnityEngine.AnimationCurve, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Networking.UnityWebRequestAsyncOperation, csharp.GameEngine.Extensions.ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.PolygonCollider2D, csharp.Common.PolygonCollider2DExt);
-	    puerts.$extension(csharp.Puerts.JsEnv, csharp.PuertsStaticWrap.PuertsHelper);
+	    puerts.$extension(csharp.Puerts.JsEnv, csharp.PuertsStaticWrap.AutoStaticUsing);
 	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenProShortcuts);
 	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenModulePhysics);
-	    //$extension(UnityEditor.ShaderGraph.Internal.CoordinateSpace, UnityEditor.ShaderGraph.Internal.CoordinateSpaceExtensions)
-	    //$extension(UnityEditor.ShaderGraph.Internal.NeededCoordinateSpace, UnityEditor.ShaderGraph.Internal.CoordinateSpaceExtensions)
 	    puerts.$extension(csharp.UnityEngine.AndroidJavaObject, csharp.UnityEngine.Monetization.AndroidJavaObjectExtensions);
 	    puerts.$extension(csharp.UnityEngine.AudioSource, csharp.DG.Tweening.DOTweenModuleAudio);
 	    puerts.$extension(csharp.UnityEngine.Audio.AudioMixer, csharp.DG.Tweening.DOTweenModuleAudio);
@@ -3407,17 +3373,11 @@
 	    puerts.$extension(csharp.UnityEngine.UI.Outline, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.UI.Slider, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.UI.Text, csharp.DG.Tweening.DOTweenModuleUI);
-	    //$extension(UnityEngine.Rendering.MaterialQuality, UnityEngine.Rendering.MaterialQualityUtilities)
-	    //$extension(NUnit.Framework.Constraints.ConstraintExpression, UnityEngine.TestTools.Constraints.ConstraintExtensions)
-	    puerts.$extension(csharp.UnityEditor.SerializedProperty, csharp.UnityEditor.Rendering.SerializedBitArrayUtilities);
-	    puerts.$extension(csharp.UnityEditor.SerializedProperty, csharp.DG.DemiEditor.SerializedPropertyExtensions);
-	    puerts.$extension(csharp.UnityEngine.Rendering.ShaderKeywordSet, csharp.UnityEditor.Rendering.Utilities.EditorMaterialQualityUtilities);
+	    puerts.$extension(csharp.NUnit.Framework.Constraints.ConstraintExpression, csharp.UnityEngine.TestTools.Constraints.ConstraintExtensions);
 	    puerts.$extension(csharp.UnityEngine.Light, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.LineRenderer, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.TrailRenderer, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.DG.Tweening.Sequence, csharp.DG.Tweening.TweenSettingsExtensions);
-	    puerts.$extension(csharp.UnityEngine.Color32, csharp.TMPro.TMPro_ExtensionMethods);
-	    puerts.$extension(csharp.UnityEngine.Quaternion, csharp.TMPro.TMPro_ExtensionMethods);
 	    puerts.$extension(csharp.SqlCipher4Unity3D.SQLiteConnection, csharp.SQLiteNetExtensions.Extensions.WriteOperations);
 	    puerts.$extension(csharp.PuertsTest.BaseClass, csharp.PuertsTest.BaseClassExtension);
 	}
@@ -3867,7 +3827,6 @@
 
 	var Debug = csharp.UnityEngine.Debug;
 	var TestCs2Ts = csharp.Sandbox.TestCs2Ts;
-	var PuertsHelper = csharp.PuertsStaticWrap.PuertsHelper;
 	var Strings = csharp.GameEngine.Extensions.Strings;
 	global.$hello = (s) => {
 	    Debug.Log(`hello, ${s}`);
@@ -3891,7 +3850,8 @@
 	extensions();
 	dict_install();
 	global.$InitEnv = (env) => {
-	    PuertsHelper.UsingActions(env);
+	    csharp.PuertsStaticWrap.AutoStaticUsing.AutoUsing(env);
+	    //PuertsHelper.UsingActions(env);
 	};
 	global.$providers = new Map();
 	global.$require = (obj, fn, ...args) => {

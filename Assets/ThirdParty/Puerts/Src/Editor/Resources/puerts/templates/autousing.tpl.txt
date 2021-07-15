@@ -24,13 +24,13 @@ function parameters(params) {
         }
         public static void UsingAction(this JsEnv jsEnv, params string[] args)
         {
-            jsEnv.UsingGeneric(true, FindTypes(args));
+            jsEnv.UsingGenericA(true, FindTypes(args));
         }
         public static void UsingFunc(this JsEnv jsEnv, params string[] args)
         {
-            jsEnv.UsingGeneric(false, FindTypes(args));
+            jsEnv.UsingGenericA(false, FindTypes(args));
         }
-        public static void UsingGeneric(this JsEnv jsEnv, bool usingAction, params Type[] types)
+        public static void UsingGenericA(this JsEnv jsEnv, bool usingAction, params Type[] types)
         {
             var name = usingAction ? "UsingAction" : "UsingFunc";
             var count = types.Length;
