@@ -63,7 +63,7 @@ namespace UnityRoyale
 
             backupCardTransform.SetParent(cardsDashboard, true);
             //move and scale into position
-            backupCardTransform.DOAnchorPos(new Vector2(210f * (position+1) + 20f, 0f),
+            backupCardTransform.DOAnchorPos(new Vector2(210f * (position+1)-55f/* + 20f*/, 0f),
                                             .2f + (.05f*position)).SetEase(Ease.OutQuad);
             backupCardTransform.localScale = Vector3.one;
 
@@ -85,11 +85,11 @@ namespace UnityRoyale
 
             //create new card
             backupCardTransform = Instantiate<GameObject>(cardPrefab, cardsPanel).GetComponent<RectTransform>();
-            backupCardTransform.localScale = Vector3.one * 0.7f;
+            backupCardTransform.localScale = Vector3.one * /*0.7*/0.85f;
             
             //send it to the bottom left corner
-            backupCardTransform.anchoredPosition = new Vector2(180f, -300f);
-            backupCardTransform.DOAnchorPos(new Vector2(180f, 0f), .2f).SetEase(Ease.OutQuad);
+            backupCardTransform.anchoredPosition = new Vector2(/*180f*/125f, -300f);
+            backupCardTransform.DOAnchorPos(new Vector2(/*180f*/125f, /*0f*/14.5f), .2f).SetEase(Ease.OutQuad);
 
             //populate CardData on the Card script
             Card cardScript = backupCardTransform.GetComponent<Card>();
@@ -170,7 +170,7 @@ namespace UnityRoyale
             }
             else
             {
-                cards[cardId].GetComponent<RectTransform>().DOAnchorPos(new Vector2(220f * (cardId+1), 0f),
+                cards[cardId].GetComponent<RectTransform>().DOAnchorPos(new Vector2(210f/*220f */* (cardId+1)-55f, 0f),
                                                                         .2f).SetEase(Ease.OutQuad);
             }
 

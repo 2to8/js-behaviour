@@ -2897,7 +2897,7 @@
 	var Button = csharp.UnityEngine.UI.Button;
 	var Transform = csharp.UnityEngine.Transform;
 	var Debug$5 = csharp.UnityEngine.Debug;
-	var Strings$3 = csharp.GameEngine.Extensions.Strings;
+	var Strings$4 = csharp.GameEngine.Extensions.Strings;
 	var Transforms = csharp.GameEngine.Extensions.Transforms;
 	// type QLink = typeof  $(p: (typeof Widget)[] | filter, _: (e: any,...params: any[]) => any): any
 	// {}
@@ -3149,10 +3149,10 @@
 	                // 如果第二个参数是button
 	                let isButton = f.isClassType(_) && puerts.$typeof(_).IsAssignableFrom(puerts.$typeof(Button));
 	                if (isButton) {
-	                    Debug$5.Log(Strings$3.ToYellow(`setup button ${Transforms.GetPath(t)}`));
+	                    Debug$5.Log(Strings$4.ToYellow(`setup button ${Transforms.GetPath(t)}`));
 	                    let button = t.GetComponent(puerts.$typeof(Button));
 	                    if (button != null) {
-	                        Debug$5.Log(Strings$3.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
+	                        Debug$5.Log(Strings$4.ToYellow(`Check Button ${Transforms.GetPath(t)} => ${isButton}`));
 	                        globalThis.ButtonEvents = globalThis.ButtonEvents || new Map();
 	                        let cb = globalThis.ButtonEvents.get(t.GetHashCode());
 	                        if (cb != null) {
@@ -3188,9 +3188,13 @@
 
 	var TsActionTest = csharp.App.Actions.TsActionTest;
 	var Debug$4 = csharp.UnityEngine.Debug;
+	var Strings$3 = csharp.GameEngine.Extensions.Strings;
 	class TestAction extends TsActionTest {
 	    m_testProp = 10;
 	    static testStatic = 100;
+	    static staticFunc() {
+	        console.log('[test static]');
+	    }
 	    // $Init() {
 	    //     Debug.Log(Strings.ToBlue('init TestAction'))
 	    //     this.m_testProp = 100;
@@ -3232,8 +3236,14 @@
 	//
 	// //Object.setPrototypeOf(TsActionTest, TestAction.prototype)
 	//
-	// let ks = Object.getOwnPropertyNames(TestAction.prototype);
-	// console.log(Strings.ToRed("test prototype"), ks)
+	let ks = Object.getOwnPropertyNames(TestAction.prototype);
+	console.log(Strings$3.ToRed('test prototype'), ks);
+	console.log(Object.getOwnPropertyNames(TestAction));
+	let a = TestAction;
+	a['staticFunc']();
+	(function (a) {
+	    a['staticFunc']();
+	})(TestAction);
 	// // let pr = Object.getPrototypeOf(TsActionTest.prototype)
 	// // for (const name in ks) {
 	// //     pr[name] = TsActionTest.prototype[name];

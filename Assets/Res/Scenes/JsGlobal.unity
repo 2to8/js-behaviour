@@ -212,7 +212,7 @@ MonoBehaviour:
     SerializationNodes: []
   debugPort: 9229
   useDebug: 1
-  inited: 0
+  inited: 1
 --- !u!1 &1195313382
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"Tags":{},"_position":{"x":346.0,"y":235.0},"$type":"FlowCanvas.Nodes.StartEvent","$id":"0"},{"_action":{"actions":[{"log":{"_value":"Hello
-    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"Tags":{},"_position":{"x":528.0,"y":374.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
+  _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"tags":{},"_position":{"x":346.0,"y":235.0},"$type":"FlowCanvas.Nodes.StartEvent","$id":"0"},{"_action":{"actions":[{"log":{"_value":"Hello
+    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"tags":{},"_position":{"x":528.0,"y":374.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
     ","_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"myGameObject":{"_name":"myGameObject","_id":"e545f4a1-07cb-42a1-b207-e4d405abfb8a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
   _boundGraphObjectReferences: []
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_tag":"Craft_3","_position":{"x":594.0,"y":419.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_tag":"Id.Choice,SpaceHazards,MainCamera","_position":{"x":621.0,"y":233.0},"$type":"NodeCanvas.StateMachines.ConcurrentState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"tags":{},"_tag":"Craft_3","_position":{"x":594.0,"y":419.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[]},"tags":{},"_tag":"Id.Choice,SpaceHazards,MainCamera","_position":{"x":610.0,"y":226.0},"$type":"NodeCanvas.StateMachines.ConcurrentState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.16

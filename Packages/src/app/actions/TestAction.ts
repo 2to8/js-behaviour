@@ -11,10 +11,16 @@ export class TestAction extends TsActionTest {
     m_testProp: number = 10;
     static testStatic: number = 100;
     
+    static staticFunc() {
+        console.log('[test static]')
+    }
+    
     // $Init() {
     //     Debug.Log(Strings.ToBlue('init TestAction'))
     //     this.m_testProp = 100;
     // }
+    
+    //OnExecute(t:number);
     
     OnExecute() {
         Debug.Log('test ts');
@@ -55,8 +61,16 @@ export class TestAction extends TsActionTest {
 //
 // //Object.setPrototypeOf(TsActionTest, TestAction.prototype)
 //
-// let ks = Object.getOwnPropertyNames(TestAction.prototype);
-// console.log(Strings.ToRed("test prototype"), ks)
+let ks = Object.getOwnPropertyNames(TestAction.prototype);
+console.log(Strings.ToRed('test prototype'), ks)
+console.log(Object.getOwnPropertyNames(TestAction))
+let a: any = TestAction;
+a['staticFunc']();
+
+(function <T>(a: new (...args: any[]) => T) {
+    a['staticFunc']();
+})(TestAction);
+
 // // let pr = Object.getPrototypeOf(TsActionTest.prototype)
 // // for (const name in ks) {
 // //     pr[name] = TsActionTest.prototype[name];
