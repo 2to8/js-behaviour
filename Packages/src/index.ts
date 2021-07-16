@@ -4,8 +4,9 @@ import { TConcurrentState } from 'app/graph/TConcurrentState';
 import { TNode } from 'app/graph/TNode';
 import extensions from 'extensions';
 import { dict_install } from 'libs/Dictionary';
+import { $extension } from 'puerts';
 import TestBind from 'sandbox/TestBind';
-import { GameEngine, Puerts, PuertsStaticWrap, Sandbox, System, UnityEngine } from 'csharp';
+import { GameEngine, MoreTags, NodeCanvas, Puerts, PuertsStaticWrap, Sandbox, System, UnityEditor, UnityEngine } from 'csharp';
 import { Component } from 'component/component-base';
 import { component, property } from 'component/component-decoration';
 import { uses } from 'support/utils';
@@ -25,6 +26,8 @@ import JsEnv = Puerts.JsEnv;
 import Strings = GameEngine.Extensions.Strings;
 import UI = UnityEngine.UI;
 import GameObject = UnityEngine.GameObject;
+import TagSystem = MoreTags.TagSystem;
+import Node = NodeCanvas.Framework.Node;
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -50,6 +53,7 @@ global.$testPrototype = function() {
 // }
 
 extensions();
+//$extension(Node, TagSystem)
 
 dict_install();
 

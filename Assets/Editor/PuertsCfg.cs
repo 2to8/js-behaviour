@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using MoreTags;
 using Puerts;
 using UnityEditor;
 using UnityEngine;
@@ -108,6 +109,7 @@ public class PuertsCfg
            // types.Add(typeof(DG.Tweening.DOTweenModuleSprite));
 
             types.Add(typeof(System.Convert));
+            types.Add(typeof(TagSystem));
             types.Add(typeof(System.Text.Encoding));
             types.Add(typeof(UnityEngine.UI.Button.ButtonClickedEvent));
             types.Add(typeof(UnityEngine.EventSystems.EventSystem));

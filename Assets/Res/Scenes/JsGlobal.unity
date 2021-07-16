@@ -212,7 +212,7 @@ MonoBehaviour:
     SerializationNodes: []
   debugPort: 9229
   useDebug: 1
-  inited: 1
+  inited: 0
 --- !u!1 &1195313382
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_position":{"x":598.0,"y":228.0},"$type":"NodeCanvas.StateMachines.ConcurrentState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_tag":"Craft_3","_position":{"x":594.0,"y":419.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[]},"Tags":{},"_tag":"Id.Choice,SpaceHazards,MainCamera","_position":{"x":621.0,"y":233.0},"$type":"NodeCanvas.StateMachines.ConcurrentState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences: []
   _boundGraphSource:
     _version: 3.16

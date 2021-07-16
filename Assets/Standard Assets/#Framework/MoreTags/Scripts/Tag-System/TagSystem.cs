@@ -264,18 +264,18 @@ namespace MoreTags
         public static void CheckGameObjectTag(this Node node)
         {
             //var tags = node.Tags;
-            if (node.Tags == null) {
-                node.Tags = new HashSet<string>();
+            if (node.tags == null) {
+                node.tags = new HashSet<string>();
             }
 
             node.tag.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim())
                 .Where(s => !string.IsNullOrWhiteSpace(s)).ForEach(s => {
-                    if (!node.Tags.Any(t => t.Equals(s, StringComparison.OrdinalIgnoreCase))) {
-                        node.Tags.Add(s);
+                    if (!node.tags.Any(t => t.Equals(s, StringComparison.OrdinalIgnoreCase))) {
+                        node.tags.Add(s);
                     }
                 });
-            if (node.tag != string.Join(",", node.Tags.Distinct())) {
-                node.tag = string.Join(",", node.Tags.Distinct());
+            if (node.tag != string.Join(",", node.tags.Distinct())) {
+                node.tag = string.Join(",", node.tags.Distinct());
                 UndoUtility.SetDirty(node.graph);
             }
 
@@ -348,8 +348,8 @@ namespace MoreTags
 
                 if (node != null) {
                     refs[tag].nodes.Add(node);
-                    if (!node.Tags.Contains(tag)) {
-                        node.Tags.Add(tag);
+                    if (!node.tags.Contains(tag)) {
+                        node.tags.Add(tag);
                     }
 
                     // if (!gameObject.GetTags().Contains(tag)) {
@@ -472,10 +472,10 @@ namespace MoreTags
         {
             //CheckTagManager(go.scene);
             CheckGameObjectTag(go);
-            AddTag(go, go.Tags.ToArray());
-            tags.Where(s => go.Tags.All(t => !t.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase))).ForEach(
+            AddTag(go, go.tags.ToArray());
+            tags.Where(s => go.tags.All(t => !t.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase))).ForEach(
                 s => {
-                    go.Tags.Add(s.Trim());
+                    go.tags.Add(s.Trim());
                     refs[s.Trim()].nodes.Add(go);
                 });
             foreach (var tag in tags) {
@@ -504,20 +504,20 @@ namespace MoreTags
         {
             // CheckTagManager(go.scene);
             //tags.Where(s => go.Tags.Contains(s)).ForEach(s => go.Tags.Remove(s));
-            var list = go.Tags.ToList();
+            var list = go.tags.ToList();
             list.Where(s => tags.Any(t => t.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase)))
-                .ForEach(s => go.Tags.Remove(s));
+                .ForEach(s => go.tags.Remove(s));
             foreach (var tag in tags) {
                 if (refs.ContainsKey(tag)) {
                     refs[tag].nodes.Remove(go);
                 }
 
-                if (go.Tags.Contains(tag)) {
-                    go.Tags.Remove(tag);
+                if (go.tags.Contains(tag)) {
+                    go.tags.Remove(tag);
                 }
             }
 
-            go.tag = string.Join(",", go.Tags);
+            go.tag = string.Join(",", go.tags);
             CheckGameObjectTag(go);
         }
 

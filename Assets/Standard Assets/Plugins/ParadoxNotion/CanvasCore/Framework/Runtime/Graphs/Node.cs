@@ -9,6 +9,7 @@ using ParadoxNotion.Serialization;
 using ParadoxNotion.Serialization.FullSerializer;
 using ParadoxNotion.Services;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Logger = ParadoxNotion.Services.Logger;
 
 namespace NodeCanvas.Framework
@@ -22,10 +23,11 @@ namespace NodeCanvas.Framework
 
     [ParadoxNotion.Design.SpoofAOT]
     [System.Serializable, fsSerializeAsReference, fsDeserializeOverwrite]
-    abstract public partial class Node : IGraphElement, ISerializationCollectable
+    /*abstract*/ public partial class Node : IGraphElement, ISerializationCollectable
     {
 
-        public HashSet<string> Tags = new HashSet<string>();
+        [FormerlySerializedAs("Tags")]
+        public HashSet<string> tags = new HashSet<string>();
 
         //----------------------------------------------------------------------------------------------
         ///Add on an IList (list/array) field to autosort it automatically when the children nodes are autosorted.
@@ -155,19 +157,19 @@ namespace NodeCanvas.Framework
         }
 
         ///The numer of possible inputs. -1 for infinite.
-        abstract public int maxInConnections { get; }
+        /*abstract*/ virtual public int maxInConnections { get; }
         ///The numer of possible outputs. -1 for infinite.
-        abstract public int maxOutConnections { get; }
+        /*abstract*/virtual public int maxOutConnections { get; }
         ///The output connection Type this node has.
-        abstract public System.Type outConnectionType { get; }
+        /*abstract*/virtual public System.Type outConnectionType { get; }
         ///Can this node be set as prime (Start)?
-        abstract public bool allowAsPrime { get; }
+        /*abstract*/virtual public bool allowAsPrime { get; }
         // /Can this node connect to itself?
-        abstract public bool canSelfConnect { get; }
+        /*abstract*/virtual public bool canSelfConnect { get; }
         ///Alignment of the comments when shown.
-        abstract public Alignment2x2 commentsAlignment { get; }
+        /*abstract*/virtual public Alignment2x2 commentsAlignment { get; }
         ///Alignment of the icons.
-        abstract public Alignment2x2 iconAlignment { get; }
+        /*abstract*/virtual public Alignment2x2 iconAlignment { get; }
 
         ///The current status of the node
         public Status status {

@@ -1,5 +1,5 @@
 
-import { System, ParadoxNotion, GameEngine, SearchPRO, UnityEditor, DG, TMPro, UnityEngine, RSG, Unity, MoreTags, NUnit, Base, Common, Puerts, PuertsStaticWrap, SqlCipher4Unity3D, SQLiteNetExtensions, PuertsTest } from 'csharp';
+import { System, ParadoxNotion, GameEngine, SearchPRO, UnityEditor, DG, TMPro, UnityEngine, RSG, Unity, MoreTags, NodeCanvas, NUnit, Base, Common, Puerts, PuertsStaticWrap, SqlCipher4Unity3D, SQLiteNetExtensions, PuertsTest } from 'csharp';
 import { $extension } from 'puerts';
 export default function() {
 
@@ -57,6 +57,9 @@ export default function() {
     $extension(UnityEngine.RectTransform, GameEngine.Extensions.UnityComponentExtention)
     $extension(UnityEngine.RectTransform, DG.Tweening.DOTweenModuleUI)
     $extension(UnityEngine.Canvas, UnityEngine.UI.Extensions.UIExtensionMethods)
+    $extension(NodeCanvas.Framework.Node, NodeCanvas.BehaviourTrees.BehaviourTreeExtensions)
+    $extension(NodeCanvas.Framework.Node, MoreTags.Extensions)
+    $extension(NodeCanvas.Framework.Node, MoreTags.TagSystem)
     $extension(UnityEngine.GUIStyle, ParadoxNotion.GUIStyleUtils)
     $extension(UnityEngine.GUIStyle, DG.DemiEditor.GUIStyleExtensions)
     $extension(UnityEngine.Component, ParadoxNotion.ObjectUtils)

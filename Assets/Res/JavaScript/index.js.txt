@@ -3268,6 +3268,7 @@
 	        //super.Validate($assignedGraph);
 	        if (this.tag != null) {
 	            console.log('[node validate]', this.tag, this.name);
+	            this.tag.split(',').forEach(tag => this.AddTag(tag));
 	        }
 	    }
 	}
@@ -3326,6 +3327,9 @@
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.Canvas, csharp.UnityEngine.UI.Extensions.UIExtensionMethods);
+	    puerts.$extension(csharp.NodeCanvas.Framework.Node, csharp.NodeCanvas.BehaviourTrees.BehaviourTreeExtensions);
+	    puerts.$extension(csharp.NodeCanvas.Framework.Node, csharp.MoreTags.Extensions);
+	    puerts.$extension(csharp.NodeCanvas.Framework.Node, csharp.MoreTags.TagSystem);
 	    puerts.$extension(csharp.UnityEngine.GUIStyle, csharp.ParadoxNotion.GUIStyleUtils);
 	    puerts.$extension(csharp.UnityEngine.GUIStyle, csharp.DG.DemiEditor.GUIStyleExtensions);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.ParadoxNotion.ObjectUtils);
@@ -3848,6 +3852,7 @@
 	//   
 	// }
 	extensions();
+	//$extension(Node, TagSystem)
 	dict_install();
 	global.$InitEnv = (env) => {
 	    csharp.PuertsStaticWrap.AutoStaticUsing.AutoUsing(env);
