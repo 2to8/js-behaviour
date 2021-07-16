@@ -3280,7 +3280,6 @@
 	    puerts.$extension(csharp.System.String, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.System.String, csharp.GameEngine.Extensions.Files);
 	    puerts.$extension(csharp.System.String, csharp.SearchPRO.GUIUtils);
-	    puerts.$extension(csharp.System.String, csharp.UnityEditor.ShaderGraph.TextUtil);
 	    puerts.$extension(csharp.System.String, csharp.DG.DemiEditor.StringExtensions);
 	    puerts.$extension(csharp.System.String, csharp.TMPro.TMPro_ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.Renderer, csharp.UnityEngine.RendererExtensions);
@@ -3290,20 +3289,15 @@
 	    puerts.$extension(csharp.UnityEngine.Animator, csharp.UnityEngine.Animations.AnimatorJobExtensions);
 	    puerts.$extension(csharp.UnityEngine.Animator, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Sprite, csharp.UnityEngine.U2D.SpriteDataAccessExtensions);
-	    puerts.$extension(csharp.UnityEngine.Sprite, csharp.UnityEditor.U2D.SpriteEditorExtension);
 	    puerts.$extension(csharp.UnityEngine.SpriteRenderer, csharp.UnityEngine.U2D.SpriteRendererDataAccessExtensions);
 	    puerts.$extension(csharp.UnityEngine.SpriteRenderer, csharp.DG.Tweening.DOTweenModuleSprite);
 	    puerts.$extension(csharp.UnityEngine.Terrain, csharp.UnityEngine.TerrainExtensions);
 	    puerts.$extension(csharp.UnityEngine.UIElements.VisualElement, csharp.UnityEngine.UIElements.UQueryExtensions);
 	    puerts.$extension(csharp.UnityEngine.UIElements.VisualElement, csharp.UnityEngine.UIElements.VisualElementExtensions);
-	    puerts.$extension(csharp.UnityEngine.UIElements.VisualElement, csharp.UnityEditor.UIElements.BindingExtensions);
 	    puerts.$extension(csharp.UnityEngine.WWW, csharp.UnityEngine.WWWAudioExtensions);
 	    puerts.$extension(csharp.UnityEngine.Video.VideoPlayer, csharp.UnityEngine.Experimental.Video.VideoPlayerExtensions);
-	    puerts.$extension(csharp.UnityEngine.Material, csharp.UnityEditor.MaterialEditorExtensions);
 	    puerts.$extension(csharp.UnityEngine.Material, csharp.DG.Tweening.DOTweenModuleUnityVersion);
 	    puerts.$extension(csharp.UnityEngine.Material, csharp.DG.Tweening.ShortcutExtensions);
-	    puerts.$extension(csharp.UnityEngine.U2D.SpriteAtlas, csharp.UnityEditor.U2D.SpriteAtlasExtensions);
-	    puerts.$extension(csharp.UnityEngine.Camera, csharp.UnityEditor.Rendering.EditorCameraUtils);
 	    puerts.$extension(csharp.UnityEngine.Camera, csharp.UnityEngine.Rendering.Universal.CameraExtensions);
 	    puerts.$extension(csharp.UnityEngine.Camera, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.UnityEngine.UI.Extensions.MenuExtensions);

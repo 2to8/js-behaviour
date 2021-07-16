@@ -39,7 +39,7 @@ namespace Puerts
                     key != "System.Reflection.ParameterInfo" && !key.StartsWith("UnityEditor.") &&
                     key != "UnityEngine.Rendering.CommandBuffer") {
                     names.Add(key.Split('.').FirstOrDefault());
-                    tk.Value.ForEach(value => {
+                    tk.Value.Where(s => !s.StartsWith("UnityEditor.")).ForEach(value => {
                         output += $"    $extension({key}, {value})\n";
                         names.Add(value.Split('.').FirstOrDefault());
                     });

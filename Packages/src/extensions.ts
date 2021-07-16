@@ -1,5 +1,5 @@
 
-import { System, ParadoxNotion, GameEngine, SearchPRO, UnityEditor, DG, TMPro, UnityEngine, RSG, Unity, MoreTags, NodeCanvas, NUnit, Base, Common, Puerts, PuertsStaticWrap, SqlCipher4Unity3D, SQLiteNetExtensions, PuertsTest } from 'csharp';
+import { System, ParadoxNotion, GameEngine, SearchPRO, DG, TMPro, UnityEngine, RSG, Unity, MoreTags, NodeCanvas, NUnit, Base, Common, Puerts, PuertsStaticWrap, SqlCipher4Unity3D, SQLiteNetExtensions, PuertsTest } from 'csharp';
 import { $extension } from 'puerts';
 export default function() {
 
@@ -10,7 +10,6 @@ export default function() {
     $extension(System.String, GameEngine.Extensions.Transforms)
     $extension(System.String, GameEngine.Extensions.Files)
     $extension(System.String, SearchPRO.GUIUtils)
-    $extension(System.String, UnityEditor.ShaderGraph.TextUtil)
     $extension(System.String, DG.DemiEditor.StringExtensions)
     $extension(System.String, TMPro.TMPro_ExtensionMethods)
     $extension(UnityEngine.Renderer, UnityEngine.RendererExtensions)
@@ -20,20 +19,15 @@ export default function() {
     $extension(UnityEngine.Animator, UnityEngine.Animations.AnimatorJobExtensions)
     $extension(UnityEngine.Animator, GameEngine.Extensions.UnityComponentExtention)
     $extension(UnityEngine.Sprite, UnityEngine.U2D.SpriteDataAccessExtensions)
-    $extension(UnityEngine.Sprite, UnityEditor.U2D.SpriteEditorExtension)
     $extension(UnityEngine.SpriteRenderer, UnityEngine.U2D.SpriteRendererDataAccessExtensions)
     $extension(UnityEngine.SpriteRenderer, DG.Tweening.DOTweenModuleSprite)
     $extension(UnityEngine.Terrain, UnityEngine.TerrainExtensions)
     $extension(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.UQueryExtensions)
     $extension(UnityEngine.UIElements.VisualElement, UnityEngine.UIElements.VisualElementExtensions)
-    $extension(UnityEngine.UIElements.VisualElement, UnityEditor.UIElements.BindingExtensions)
     $extension(UnityEngine.WWW, UnityEngine.WWWAudioExtensions)
     $extension(UnityEngine.Video.VideoPlayer, UnityEngine.Experimental.Video.VideoPlayerExtensions)
-    $extension(UnityEngine.Material, UnityEditor.MaterialEditorExtensions)
     $extension(UnityEngine.Material, DG.Tweening.DOTweenModuleUnityVersion)
     $extension(UnityEngine.Material, DG.Tweening.ShortcutExtensions)
-    $extension(UnityEngine.U2D.SpriteAtlas, UnityEditor.U2D.SpriteAtlasExtensions)
-    $extension(UnityEngine.Camera, UnityEditor.Rendering.EditorCameraUtils)
     $extension(UnityEngine.Camera, UnityEngine.Rendering.Universal.CameraExtensions)
     $extension(UnityEngine.Camera, DG.Tweening.ShortcutExtensions)
     $extension(UnityEngine.GameObject, UnityEngine.UI.Extensions.MenuExtensions)
