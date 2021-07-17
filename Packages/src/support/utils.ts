@@ -5,6 +5,7 @@ import { $typeof } from 'puerts';
 import TestBind from 'sandbox/TestBind';
 import Strings = GameEngine.Extensions.Strings;
 import Debug = UnityEngine.Debug;
+import Component = UnityEngine.Component;
 
 /**
  *** Object.appendChain(@object, @prototype)
@@ -62,7 +63,7 @@ export function uses(...c: Constructor[]) {
                 pr[name] = type.prototype[name];
             });
             
-            if (!$typeof(pr.constructor).IsAbstract) {
+            if (!$typeof(pr.constructor).IsAbstract && !$typeof(Component).IsAssignableFrom($typeof(pr.constructor))) {
                 let TA: any = type;
                 let N = new TA();
                 for (const name of Object.keys(N)) {

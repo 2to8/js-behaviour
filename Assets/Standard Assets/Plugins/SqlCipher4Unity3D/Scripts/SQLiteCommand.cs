@@ -325,7 +325,7 @@ public class SQLiteCommand {
                     SQLite3.BindText(stmt, index, JsonConvert.SerializeObject/*JsonUtility.ToJson*/(value), -1, NegativePointer);
 
                     //throw new NotSupportedException("Cannot store type: " + Orm.GetType(value));
-                    Debug.LogWarning("Try store JSON type: " + Orm.GetType(value));
+                    Debug.Log($"<color=yellow>Try store JSON type: {Orm.GetType(value)}</color>");
                 }
             }
         }

@@ -2890,7 +2890,7 @@
 	    })(st.game || (st.game = {}));
 	})(st || (st = {}));
 
-	var Component$1 = csharp.UnityEngine.Component;
+	var Component$2 = csharp.UnityEngine.Component;
 	var GameObject = csharp.UnityEngine.GameObject;
 	var TagSystem = csharp.MoreTags.TagSystem;
 	var Tags = csharp.MoreTags.Tags;
@@ -2993,7 +2993,7 @@
 	        return res;
 	    }
 	    isComponent(value) {
-	        if (value != null && puerts.$typeof(value)?.IsAssignableFrom(puerts.$typeof(Component$1))) {
+	        if (value != null && puerts.$typeof(value)?.IsAssignableFrom(puerts.$typeof(Component$2))) {
 	            return true;
 	        }
 	        return false;
@@ -3116,7 +3116,7 @@
 	                        return button;
 	                    }
 	                }
-	                else if (type.IsAssignableFrom(puerts.$typeof(Component$1))) {
+	                else if (type.IsAssignableFrom(puerts.$typeof(Component$2))) {
 	                    callback?.call(tags, tags.GetComponent(type));
 	                }
 	                return tags;
@@ -3131,7 +3131,7 @@
 	    if (f.isClassType(p)) {
 	        // console.log('is query etc: id.btn.pause')
 	        let query = f.makeQuery(TagSystem.query.tags(), p);
-	        if (f.isClassType(_) && puerts.$typeof(_)?.IsAssignableFrom(puerts.$typeof(Component$1))) {
+	        if (f.isClassType(_) && puerts.$typeof(_)?.IsAssignableFrom(puerts.$typeof(Component$2))) {
 	            console.log(`found type: ${puerts.$typeof(_).FullName}`);
 	            query.withTypes(puerts.$typeof(_));
 	        }
@@ -3199,6 +3199,7 @@
 	    //     Debug.Log(Strings.ToBlue('init TestAction'))
 	    //     this.m_testProp = 100;
 	    // }
+	    //OnExecute(t:number);
 	    OnExecute() {
 	        Debug$4.Log('test ts');
 	        //this.testProp = 20;
@@ -3403,6 +3404,7 @@
 
 	var Strings$1 = csharp.GameEngine.Extensions.Strings;
 	var Debug$1 = csharp.UnityEngine.Debug;
+	var Component$1 = csharp.UnityEngine.Component;
 	function uses(...c) {
 	    c.forEach(type => {
 	        let pr = Object.getPrototypeOf(type.prototype);
@@ -3416,7 +3418,7 @@
 	                console.log(`[check] ${type.name}[${puerts.$typeof(pr.constructor).FullName}] => ${name}`);
 	                pr[name] = type.prototype[name];
 	            });
-	            if (!puerts.$typeof(pr.constructor).IsAbstract) {
+	            if (!puerts.$typeof(pr.constructor).IsAbstract && !puerts.$typeof(Component$1).IsAssignableFrom(puerts.$typeof(pr.constructor))) {
 	                let TA = type;
 	                let N = new TA();
 	                for (const name of Object.keys(N)) {
