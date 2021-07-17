@@ -1,4 +1,5 @@
 using GameEngine.Attributes;
+using GameEngine.Extensions;
 using GameEngine.Models.Contracts;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -22,6 +23,7 @@ namespace Database
 
         void OnEnable()
         {
+            Debug.Log(GetType().FullName+" loaded".ToRed());
             _instance = _instance ??= this;
         }
 

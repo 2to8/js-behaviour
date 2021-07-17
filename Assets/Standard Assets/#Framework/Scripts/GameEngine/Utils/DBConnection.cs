@@ -12,7 +12,7 @@ public class DbConnection : SQLiteConnection {
     public DbConnection(string databasePath, string password, SQLiteOpenFlags openFlags,
         bool storeDateTimeAsTicks = false) : base(databasePath, password, openFlags, storeDateTimeAsTicks) { }
 
-    public TableQuery<T> Table<T>() where T : new()
+    public new TableQuery<T> Table<T>() where T : new()
     {
         var result = GetTableInfo(typeof(T).Name);
 

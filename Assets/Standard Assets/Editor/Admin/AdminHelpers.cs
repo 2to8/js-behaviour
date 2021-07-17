@@ -43,7 +43,6 @@ namespace Admin
         }
 
 #if UNITY_EDITOR
-        [InitializeOnLoadMethod]
         [MenuItem("Debug/Bind DB Table")]
         static void AutoBindDBTable()
         {
@@ -51,25 +50,33 @@ namespace Admin
             // var scene = SceneManager.GetActiveScene();
             // if (!Enum.GetNames(typeof(SceneName)).Contains(scene.name)) return;
             Debug.Log("checking AutoBindDBTable".ToRed());
-            GetAssemblyByName().GetExportedTypes().Where(type =>
-                /*type.IsDefined<SceneBindAttribute>() &&*/
-                !(type.IsAbstract || type.IsGenericType) && typeof(TableBase).IsAssignableFrom(type)).ForEach(type => {
-                Debug.Log(type.FullName);
-                Core.FindOrCreatePreloadAsset(type);
-                //
-                // var attribute = type.GetCustomAttribute<SceneBindAttribute>();
-                // if (attribute.SceneName != scene.name) return;
-                // if (Object.FindObjectOfType(type) != null) return;
-                // Debug.Log(scene.name);
-                // var viewGo = GameObject.Find($"/{scene.name}/{type.Name}") ?? new GameObject(type.Name).Of(go =>
-                //     go.transform.SetParent((GameObject.Find("/" + scene.name) ?? new GameObject(scene.name))
-                //         .transform));
-                // viewGo.RequireComponent(type);
-                // EditorSceneManager.MarkSceneDirty(scene);
-                // //
-                // Debug.Log($"{type.GetNiceFullName()} bind to {scene.name}");
-            });
+            AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic && !string.IsNullOrEmpty(a.Location))
+                .SelectMany(a => a.GetExportedTypes()).Where(type =>
+                    /*type.IsDefined<SceneBindAttribute>() &&*/
+                    !(type.IsAbstract || type.IsGenericType) && typeof(TableBase).IsAssignableFrom(type) &&
+                    type.IsPublic).ForEach(type => {
+                    Debug.Log($"[loadPreset] {type.FullName}".ToBlue());
+                    Core.FindOrCreatePreloadAsset(type);
+                    //
+                    // var attribute = type.GetCustomAttribute<SceneBindAttribute>();
+                    // if (attribute.SceneName != scene.name) return;
+                    // if (Object.FindObjectOfType(type) != null) return;
+                    // Debug.Log(scene.name);
+                    // var viewGo = GameObject.Find($"/{scene.name}/{type.Name}") ?? new GameObject(type.Name).Of(go =>
+                    //     go.transform.SetParent((GameObject.Find("/" + scene.name) ?? new GameObject(scene.name))
+                    //         .transform));
+                    // viewGo.RequireComponent(type);
+                    // EditorSceneManager.MarkSceneDirty(scene);
+                    // //
+                    // Debug.Log($"{type.GetNiceFullName()} bind to {scene.name}");
+                });
+        }   
+        [InitializeOnLoadMethod]
+        static void OnReload()
+        {
+            EditorApplication.delayCall += AutoBindDBTable;
         }
 #endif
+
     }
 }

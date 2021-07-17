@@ -1,0 +1,262 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e41ed81bfdc2374f9beada20c87f55c, type: 3}
+  m_Name: TagPress
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Id
+      Entry: 3
+      Data: 0
+    - Name: IsUser
+      Entry: 5
+      Data: false
+    - Name: Enabled
+      Entry: 5
+      Data: true
+    - Name: Created
+      Entry: 3
+      Data: 1626461815949
+    - Name: Updated
+      Entry: 3
+      Data: 1626461815949
+    - Name: m_DefaultState
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: GameEngine.Models.Contracts.Idle, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: code
+      Entry: 6
+      Data: 
+    - Name: tid
+      Entry: 3
+      Data: 0
+    - Name: OnStartListener
+      Entry: 5
+      Data: false
+    - Name: OnUpdateListener
+      Entry: 5
+      Data: false
+    - Name: path
+      Entry: 6
+      Data: 
+    - Name: WithAll
+      Entry: 7
+      Data: 1|MoreTags.TagHelpers.TagList, Assembly-CSharp-firstpass
+    - Name: Created
+      Entry: 3
+      Data: 1626461815949
+    - Name: Updated
+      Entry: 3
+      Data: 1626461815949
+    - Name: m_Id
+      Entry: 3
+      Data: 0
+    - Name: tags
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tagType
+      Entry: 3
+      Data: 1
+    - Name: shared
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: WithAny
+      Entry: 7
+      Data: 4|MoreTags.TagHelpers.TagList, Assembly-CSharp-firstpass
+    - Name: Created
+      Entry: 3
+      Data: 1626461815949
+    - Name: Updated
+      Entry: 3
+      Data: 1626461815949
+    - Name: m_Id
+      Entry: 3
+      Data: 0
+    - Name: tags
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tagType
+      Entry: 3
+      Data: 1
+    - Name: shared
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: WithNone
+      Entry: 7
+      Data: 6|MoreTags.TagHelpers.TagList, Assembly-CSharp-firstpass
+    - Name: Created
+      Entry: 3
+      Data: 1626461815949
+    - Name: Updated
+      Entry: 3
+      Data: 1626461815949
+    - Name: m_Id
+      Entry: 3
+      Data: 0
+    - Name: tags
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tagType
+      Entry: 3
+      Data: 1
+    - Name: shared
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ResultAdd
+      Entry: 7
+      Data: 8|MoreTags.TagHelpers.TagList, Assembly-CSharp-firstpass
+    - Name: Created
+      Entry: 3
+      Data: 1626461815949
+    - Name: Updated
+      Entry: 3
+      Data: 1626461815949
+    - Name: m_Id
+      Entry: 3
+      Data: 0
+    - Name: tags
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tagType
+      Entry: 3
+      Data: 1
+    - Name: shared
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ResultRemove
+      Entry: 7
+      Data: 11|MoreTags.TagHelpers.TagList, Assembly-CSharp-firstpass
+    - Name: Created
+      Entry: 3
+      Data: 1626461815949
+    - Name: Updated
+      Entry: 3
+      Data: 1626461815949
+    - Name: m_Id
+      Entry: 3
+      Data: 0
+    - Name: tags
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tagType
+      Entry: 3
+      Data: 1
+    - Name: shared
+      Entry: 9
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+  findList: []
+  setList: []
+  m_WithAll:
+    m_Id: 0
+    shared: []
+  m_WithAny:
+    m_Id: 0
+    shared: []
+  m_WithNone:
+    m_Id: 0
+    shared: []
+  m_ResultAdd:
+    m_Id: 0
+    shared: []
+  m_ResultRemove:
+    m_Id: 0
+    shared: []

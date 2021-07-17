@@ -20,10 +20,10 @@ public class RedisLoader : DefaultLoader {
         return filepath;
     }
 
-    public bool FileExists(string filepath) => !redis.Get($"ts://{Path(filepath)}").IsNullOrWhitespace() ||
+    public new bool FileExists(string filepath) => !redis.Get($"ts://{Path(filepath)}").IsNullOrWhitespace() ||
         base.FileExists(Path(filepath));
 
-    public string ReadFile(string filepath, out string debugpath)
+    public new string ReadFile(string filepath, out string debugpath)
     {
         debugpath = $"ts://{Path(filepath)}";
 

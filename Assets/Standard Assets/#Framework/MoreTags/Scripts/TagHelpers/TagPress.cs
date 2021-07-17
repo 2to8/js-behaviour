@@ -17,7 +17,7 @@ public class TagPress : DbTable<TagPress> {
     [ReadOnly, OdinSerialize]
     public string code { get; set; }
 
-    [OdinSerialize, Unique]
+    [OdinSerialize]
     public int tid { get; set; }
 
     // [OdinSerialize, Title("是否启用", HorizontalLine = false)]

@@ -25,24 +25,20 @@ using WaitForEndOfFrame = UnityEngine.WaitForEndOfFrame;
 
 public static partial class Core
 {
-
     public static Vector2 ScreenToRectPos(this RectTransform rectTransform, Vector2 screen_pos)
     {
         var canvas = rectTransform.GetComponentInParent<Canvas>();
-
         if (canvas.renderMode != RenderMode.ScreenSpaceOverlay && canvas.worldCamera != null) {
             //Canvas is in Camera mode
             Vector2 anchorPos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screen_pos, canvas.worldCamera,
                 out anchorPos);
-
             return anchorPos;
-        } else {
+        }
+        else {
             //Canvas is in Overlay mode
             Vector2 anchorPos = screen_pos - new Vector2(rectTransform.position.x, rectTransform.position.y);
-            anchorPos = new Vector2(anchorPos.x / rectTransform.lossyScale.x,
-                anchorPos.y / rectTransform.lossyScale.y);
-
+            anchorPos = new Vector2(anchorPos.x / rectTransform.lossyScale.x, anchorPos.y / rectTransform.lossyScale.y);
             return anchorPos;
         }
     }
@@ -58,7 +54,7 @@ public static partial class Core
 
     public static DirectoryInfo CreateNewFolder(this string folderPath)
     {
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         if (folderPath == null) {
             folderPath = AssetDatabase.GetAssetPath(Selection.activeInstanceID);
         }
@@ -67,11 +63,11 @@ public static partial class Core
         if (folderPath.Contains(".")) {
             folderPath = folderPath.Remove(folderPath.LastIndexOf('/'));
         }
+
         var dir = Directory.CreateDirectory(folderPath + "/New Folder");
         AssetDatabase.Refresh();
-
         return dir;
-    #endif
+#endif
         return null;
     }
 
@@ -137,13 +133,12 @@ public static partial class Core
     public static GameObject PrefabRoot(this GameObject gameObject)
     {
         GameObject root = null;
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         var prefabStage = PrefabStageUtility.GetPrefabStage(gameObject);
-
         if (prefabStage != null) {
             root = prefabStage.prefabContentsRoot;
         }
-    #endif
+#endif
         return root;
     }
 
@@ -174,21 +169,20 @@ public static partial class Core
 
     public static ScriptableObject FindOrCreatePreloadAsset(Type type)
     {
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         // var ret = AssetDatabase.FindAssets($"t:{type.FullName}")
         //     .Select(guid => AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), type))
         //     .FirstOrDefault(t => t != null);
-
-        var ret = PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type) as ScriptableObject
-            ?? CheckLoadAsset(type) as ScriptableObject;
-    #else
+        var ret = PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type) as ScriptableObject ??
+            CheckLoadAsset(type) as ScriptableObject;
+#else
         var ret = DB.Table(ScriptableObject.CreateInstance(type)).FirstOrDefault() ;
-    #endif
-    #if UNITY_EDITOR
-        if (ret == null) {
+#endif
+#if UNITY_EDITOR
+        if (ret == null && (ret = ScriptableObject.CreateInstance(type)) != null) {
             var configAssetDir = "Assets/Settings";
-            ret = ScriptableObject.CreateInstance(type);
+            ;
             var path = $"{configAssetDir}/{type.Name}.asset".CreateDirFromFilePath();
             AssetDatabase.CreateAsset(ret, path);
             AssetDatabase.SaveAssets();
@@ -200,7 +194,6 @@ public static partial class Core
         if (ret != null) {
             // Add the config asset to the build
             var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-
             if (preloadedAssets.All(t => t?.GetType() != null && t.GetType() != type)) {
                 preloadedAssets.Add(ret);
                 PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
@@ -208,29 +201,31 @@ public static partial class Core
             }
         }
 
-    #endif
+#endif
         return ret;
     }
 
 #if UNITY_EDITOR
-    public static Object CheckLoadAsset(Type type) => AssetDatabase.FindAssets($"t:{type.FullName}")
-        .Select(guid => AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), type))
-        .FirstOrDefault(t => t != null);
+    public static Object CheckLoadAsset(Type type) =>
+        AssetDatabase.FindAssets($"t:{type.FullName}")
+            .Select(guid => AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), type))
+            .FirstOrDefault(t => t != null);
 
-    public static T CheckLoadAsset<T>() where T : Object => AssetDatabase.FindAssets($"t:{typeof(T).FullName}")
-        .Select(guid => AssetDatabase.LoadAssetAtPath<T>(AssetDatabase.GUIDToAssetPath(guid)))
-        .FirstOrDefault(t => t != null);
+    public static T CheckLoadAsset<T>() where T : Object =>
+        AssetDatabase.FindAssets($"t:{typeof(T).FullName}")
+            .Select(guid => AssetDatabase.LoadAssetAtPath<T>(AssetDatabase.GUIDToAssetPath(guid)))
+            .FirstOrDefault(t => t != null);
 #endif
 
     public static T FindOrCreatePreloadAsset<T>(T scriptableObject = default) where T : ScriptableObject
     {
-    #if UNITY_EDITOR
-        var ret = PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == typeof(T)) as T
-            ?? CheckLoadAsset<T>();
-    #else
+#if UNITY_EDITOR
+        var ret = PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == typeof(T)) as T ??
+            CheckLoadAsset<T>();
+#else
             var ret = DB.Table<T>().FirstOrDefault() ;
-    #endif
-    #if UNITY_EDITOR
+#endif
+#if UNITY_EDITOR
         if (ret == null) {
             var configAssetDir = "Assets/Settings";
             ret = DB.Table<T>().FirstOrDefault();
@@ -247,7 +242,6 @@ public static partial class Core
         if (ret != null) {
             // Add the config asset to the build
             var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-
             if (preloadedAssets.All(t => t?.GetType() != null && t.GetType() != typeof(T))) {
                 preloadedAssets.Add(ret);
                 PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
@@ -255,7 +249,7 @@ public static partial class Core
             }
         }
 
-    #endif
+#endif
         return ret;
     }
 
@@ -263,17 +257,15 @@ public static partial class Core
     {
         //var manager = Core.FindObjectOfTypeAll<T>();
         var m_Instance = FindObjectOfTypeAll<T>();
-
         if (m_Instance == null) {
-        #if UNITY_EDITOR
-            var found = AssetDatabase.FindAssets("t:GameObject", new[] { "Assets", "Packages" })
+#if UNITY_EDITOR
+            var found = AssetDatabase.FindAssets("t:GameObject", new[] {"Assets", "Packages"})
                 .Select(guid => AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guid)))
                 .FirstOrDefault(go => go.GetComponentInChildren<T>() != null);
-
             if (found != null) {
                 m_Instance = (PrefabUtility.InstantiatePrefab(found) as GameObject)?.GetComponentInChildren<T>();
             }
-        #endif
+#endif
         }
 
         return m_Instance;
@@ -281,12 +273,12 @@ public static partial class Core
 
     public static void ClearConsole() //you can copy/paste this code to the bottom of your script
     {
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         var assembly = Assembly.GetAssembly(typeof(Editor));
         var type = assembly.GetType("UnityEditor.LogEntries");
         var method = type.GetMethod("Clear");
         method?.Invoke(new object(), null);
-    #endif
+#endif
     }
 
     // layout 动态添加内容后需要强制刷新,否则无法自动布局
@@ -297,17 +289,13 @@ public static partial class Core
     public static IEnumerator UpdateLayout(this RectTransform rect)
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
-
         yield return new WaitForEndOfFrame();
-
         var vecScale = rect.localScale;
         var width = rect.rect.width;
         var height = rect.rect.height;
-
         while (rect.rect.width == 0) {
             Debug.Log(rect.rect.width);
             LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
-
             yield return new WaitForEndOfFrame();
         }
     }
@@ -315,10 +303,8 @@ public static partial class Core
     public static IEnumerable<GameObject> GetParents(this GameObject gameObject)
 
         // => gameObject?.GetComponentsInParent<Transform>().Select(t => t.gameObject);
-
     {
         var gos = new List<GameObject>();
-
         while (gameObject != null) {
             gos.Add(gameObject);
             gameObject = gameObject.transform.parent?.gameObject;
@@ -336,7 +322,6 @@ public static partial class Core
         }
 
         var attrs = field.GetCustomAttributes(typeof(PropertyAttribute), true);
-
         if (attrs.Any()) {
             return new List<PropertyAttribute>(attrs.Select(e => e as PropertyAttribute).OrderBy(e => -e.order));
         }
@@ -348,27 +333,24 @@ public static partial class Core
     {
         var result = Object.FindObjectOfType<T>();
         if (result != null && sceneName == SceneManager.GetActiveScene().name) return result;
-        
-        
         Assert.IsFalse(SceneManager.sceneCount == 0, "No opened Scene");
-        var scene = sceneName.IsNullOrEmpty() || sceneName == SceneManager.GetActiveScene().name ? SceneManager.GetActiveScene() : SceneManager.GetSceneByName(sceneName);
+        var scene = sceneName.IsNullOrEmpty() || sceneName == SceneManager.GetActiveScene().name
+            ? SceneManager.GetActiveScene()
+            : SceneManager.GetSceneByName(sceneName);
         if (!scene.IsValid()) {
             scene = SceneManager.GetActiveScene();
             sceneName = scene.name;
         }
-        
+
         Assert.IsTrue(scene.IsValid(), $"{scene.name} scene.IsValid()");
 
         //Assert.IsTrue(!scene.isLoaded);
         Debug.Log($"ScenenName: {scene.name}".ToBlue());
-
-        var root = scene.GetRootGameObjects().FirstOrDefault(t => t.name == sceneName)
-            ?? new GameObject(sceneName).Of(go => SceneManager.MoveGameObjectToScene(go, scene));
-
-        return root.GetComponentInChildren<T>(true)
-            ?? (root.transform.Find(typeof(T).Name)
-                ?? new GameObject(typeof(T).Name).Of(go => go.transform.SetParent(root.transform)).transform)
-            .RequireComponent<T>();
+        var root = scene.GetRootGameObjects().FirstOrDefault(t => t.name == sceneName) ??
+            new GameObject(sceneName).Of(go => SceneManager.MoveGameObjectToScene(go, scene));
+        return root.GetComponentInChildren<T>(true) ??
+            (root.transform.Find(typeof(T).Name) ?? new GameObject(typeof(T).Name)
+                .Of(go => go.transform.SetParent(root.transform)).transform).RequireComponent<T>();
     }
 
     public static GameObject CreateGameObjectByPath(this Component root, string path) =>
@@ -377,7 +359,6 @@ public static partial class Core
     public static GameObject CreateGameObjectByPath(this GameObject root, string path)
     {
         var current = root?.transform;
-
         foreach (var name in path.Trim('/').Split('/').Select(t => t.Trim()).Where(t => !t.IsNullOrWhitespace())) {
             current = current?.Find(name) ?? new GameObject(name).transform.Of(t1 => t1.SetParent(current));
         }

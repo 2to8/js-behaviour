@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameEngine.Extensions;
+using MoreTags;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Playables;
 
 namespace UnityRoyale
 {
@@ -62,6 +65,7 @@ namespace UnityRoyale
 
         private void Start()
         {
+            TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(false));
             //Insert castles into lists
             SetupPlaceable(playersCastle, castlePData, Placeable.Faction.Player);
             SetupPlaceable(opponentCastle, castlePData, Placeable.Faction.Opponent);
@@ -71,6 +75,21 @@ namespace UnityRoyale
             //audioManager.GoToDefaultSnapshot();
             if (autoStart)
                 StartMatch();
+        }
+
+        void OnEnable()
+        {
+            introTimeline.GetComponent<PlayableDirector>().stopped -= OnIntroStopped;
+            introTimeline.GetComponent<PlayableDirector>().stopped += OnIntroStopped;
+        }
+
+        void OnIntroStopped(PlayableDirector obj)
+        {
+            if (this.gameObject != null) {
+                Debug.Log("stopped".ToRed());
+                TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(true));
+
+            }
         }
 
         //called by the intro cutscene
@@ -134,7 +153,9 @@ namespace UnityRoyale
                         ThinkingPlaceable.States.Dead) //target might be dead already as this projectile is flying
                     {
                         float newHP = currProjectile.target.SufferDamage(currProjectile.damage);
-                        currProjectile.target.healthBar.SetHealth(newHP);
+                        if (currProjectile.target.healthBar != null) {
+                            currProjectile.target.healthBar.SetHealth(newHP);
+                        }
                     }
 
                     Destroy(currProjectile.gameObject);
