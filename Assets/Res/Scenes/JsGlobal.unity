@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
   _boundGraphSerialization: '{"type":"FlowCanvas.FlowScript","nodes":[{"tags":{},"_position":{"x":346.0,"y":235.0},"$type":"FlowCanvas.Nodes.StartEvent","$id":"0"},{"_action":{"actions":[{"log":{"_value":"Hello
-    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"tags":{},"_position":{"x":528.0,"y":374.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
+    World"},"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"module":{"_value":"Block"},"asset":{},"$type":"App.Actions.TsActionTest"}],"$type":"NodeCanvas.Framework.ActionList"},"tags":{},"_position":{"x":516.0,"y":362.0},"$type":"FlowCanvas.Nodes.TaskAction","$id":"1"}],"connections":[{"_sourcePortName":"Once","_targetPortName":"
     ","_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"FlowCanvas.BinderConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"myGameObject":{"_name":"myGameObject","_id":"e545f4a1-07cb-42a1-b207-e4d405abfb8a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
   _boundGraphObjectReferences: []

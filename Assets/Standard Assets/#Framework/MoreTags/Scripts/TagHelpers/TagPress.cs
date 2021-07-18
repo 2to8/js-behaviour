@@ -91,8 +91,9 @@ public class TagPress : DbTable<TagPress> {
         }
     }
 
-    void OnValidate()
+    protected override void OnValidate()
     {
+        base.OnValidate();
         _保存表();
         Debug.Log($"saved {Id} {JsonConvert.SerializeObject(this)}");
     }

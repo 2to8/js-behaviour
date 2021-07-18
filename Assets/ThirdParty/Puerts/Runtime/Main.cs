@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace App.Runtime
 {
-    [RequireComponent(typeof(JsEnvRuntime))]
+    [RequireComponent(typeof(JsEnvRuntime)),ExecuteAlways, DefaultExecutionOrder(-56000)]
     public class Main : Singleton<Main>
     {
         public static bool m_Inited;

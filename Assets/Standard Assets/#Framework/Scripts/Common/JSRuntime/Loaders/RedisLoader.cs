@@ -12,7 +12,7 @@ public class RedisLoader : DefaultLoader {
 
     public static string Path(string filepath)
     {
-        if (!filepath.EndsWith(".js")) {
+        if (!filepath.Contains(".js") && !filepath.Contains(".cjs")) {
             filepath += ".js";
         }
         filepath = Regex.Replace(filepath, "^[./]*(.*)$", "$1");

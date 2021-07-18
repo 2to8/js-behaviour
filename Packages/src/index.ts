@@ -1,4 +1,5 @@
 import { TestAction } from 'app/actions/TestAction';
+import { TTestFindNode } from 'app/actions/TTestFindNode';
 import { DebugText } from 'app/graph/DebugText';
 import { TConcurrentState } from 'app/graph/TConcurrentState';
 import { TNode } from 'app/graph/TNode';
@@ -89,6 +90,7 @@ $([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ])
 
 uses(   //
     TNode,//
+    TTestFindNode,//
     TConcurrentState,//
     TestBind,//
     TestAction,//

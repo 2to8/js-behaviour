@@ -85,7 +85,7 @@ namespace UnityRoyale
 
         void OnIntroStopped(PlayableDirector obj)
         {
-            if (this.gameObject != null) {
+            if (this != null && this.gameObject != null) {
                 Debug.Log("stopped".ToRed());
                 TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(true));
 

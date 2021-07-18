@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Base.Runtime
 {
+    [ExecuteAlways]
     public class JsEnvRuntime : Singleton<JsEnvRuntime>
     {
         public int debugPort = 9229;

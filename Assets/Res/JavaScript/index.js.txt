@@ -3250,6 +3250,13 @@
 	// //     pr[name] = TsActionTest.prototype[name];
 	// // }
 
+	var TestFindNode = csharp.App.Actions.TestFindNode;
+	class TTestFindNode extends TestFindNode {
+	    OnExecute() {
+	        console.log('TTestFindNode Execute');
+	    }
+	}
+
 	var DebugLogText = csharp.NodeCanvas.Tasks.Actions.DebugLogText;
 	var Debug$3 = csharp.UnityEngine.Debug;
 	class DebugText extends DebugLogText {
@@ -3885,6 +3892,7 @@
 	$([id.Pause], [st.game.GameOver, [st.game.Pause]]);
 	uses(//
 	TNode, //
+	TTestFindNode, //
 	TConcurrentState, //
 	TestBind, //
 	TestAction, //
