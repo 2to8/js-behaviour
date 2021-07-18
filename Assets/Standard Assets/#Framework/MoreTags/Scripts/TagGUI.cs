@@ -271,6 +271,11 @@ public class TagGUI {
             rect.xMax -= 8;
             m_NewItem = GUI.TextField(rect, m_NewItem);
             bgrect.xMin = bgrect.xMax;
+            if (Event.current.isKey && Event.current.keyCode == KeyCode.Return) {
+                Debug.Log("enter");
+                OnAddItem(m_NewItem);
+                m_NewItem = string.Empty;
+            }
         }
     }
 

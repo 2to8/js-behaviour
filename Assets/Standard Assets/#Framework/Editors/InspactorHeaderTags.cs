@@ -368,7 +368,7 @@ namespace MoreTags
                 }
                 else {
                     var menu = new GenericMenu();
-                    foreach (var tag in TagPreset.GetPresets().Union(TagSystem.Tags()).Except(Extensions.GetTags(go))) {
+                    foreach (var tag in TagPreset.GetPresets().Union(TagSystem.Tags()).Except(go.GetTags())) {
                         menu.AddItem(new GUIContent(tag.Replace(".", "/")), false, () => AddTag(go, tag));
                     }
 

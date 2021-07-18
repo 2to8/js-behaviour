@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace App.Runtime
 {
-    [RequireComponent(typeof(JsEnvRuntime)),ExecuteAlways, DefaultExecutionOrder(-56000)]
+    [RequireComponent(typeof(JsEnvRuntime)), ExecuteAlways, DefaultExecutionOrder(-56000)]
     public class Main : Singleton<Main>
     {
         public static bool m_Inited;
@@ -36,6 +36,9 @@ namespace App.Runtime
         {
             base.Awake();
             Init();
+            if (Application.isPlaying) {
+                DontDestroyOnLoad(gameObject);
+            }
         }
 
         void Init(bool force = false)
