@@ -6,8 +6,8 @@ using UnityEditor.AssetImporters;
 using UnityEditor.Experimental.AssetImporters;
 #endif
 using UnityEngine;
- 
-[ScriptedImporter(1, "cjs")]
+
+[ScriptedImporter(1, new []{"cjs","ts","tsx"})]
 public class CJSImporter : ScriptedImporter
 {
     public override void OnImportAsset(AssetImportContext ctx)
@@ -15,11 +15,26 @@ public class CJSImporter : ScriptedImporter
         TextAsset subAsset = new TextAsset(File.ReadAllText(ctx.assetPath));
         ctx.AddObjectToAsset("text", subAsset);
         ctx.SetMainObject(subAsset);
-
 #if ENABLE_CJS_AUTO_RELOAD
         Puerts.JsEnv.ClearAllModuleCaches();
 #endif
     }
 }
+
+//[ScriptedImporter(1, new[] {
+//    "ts", "tsx"
+//})]
+//public class TSImporter : ScriptedImporter
+//{
+//    public override void OnImportAsset(AssetImportContext ctx)
+//    {
+//        TextAsset subAsset = new TextAsset(File.ReadAllText(ctx.assetPath));
+//        ctx.AddObjectToAsset("text", subAsset);
+//        ctx.SetMainObject(subAsset);
+//#if ENABLE_CJS_AUTO_RELOAD
+//        Puerts.JsEnv.ClearAllModuleCaches();
+//#endif
+//    }
+//}
 
 #endif

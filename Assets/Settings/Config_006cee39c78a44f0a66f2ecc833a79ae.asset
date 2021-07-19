@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53acb55c07a186548864feb4680b9a1b, type: 3}
-  m_Name: Config
+  m_Script: {fileID: 11500000, guid: a5ef4d87a3979b14082d3f69b3ecac6b, type: 3}
+  m_Name: Config_006cee39c78a44f0a66f2ecc833a79ae
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -32,10 +32,10 @@ MonoBehaviour:
       Data: true
     - Name: Created
       Entry: 3
-      Data: 1626674620779
+      Data: 1626674735459
     - Name: Updated
       Entry: 3
-      Data: 1626674620779
+      Data: 1626674735459
     - Name: m_DefaultState
       Entry: 7
       Data: 0|System.RuntimeType, mscorlib
@@ -45,26 +45,22 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: tests
-      Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
+    - Name: LogSqliteQuery
+      Entry: 5
+      Data: false
+    - Name: AddressableIP
+      Entry: 1
+      Data: 192.168.1.4
+    - Name: Version
+      Entry: 6
       Data: 
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Prefabs:
-    keyData: []
-    valueData: []
+  Port: 11220
+  m_AddressableIP: 192.168.1.4
+  m_LogSqliteQuery: 0
+  m_Version: 
+  InitScene:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  Changed: 0

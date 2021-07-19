@@ -47,9 +47,9 @@ namespace GameEngine.Models.Contracts
 
         protected virtual void OnDisable()
         {
-            if (m_Instance == this) {
-                m_Instance = null;
-            }
+//            if (m_Instance == this) {
+//                m_Instance = null;
+//            }
         }
 
         public void SaveChange(bool force = false)

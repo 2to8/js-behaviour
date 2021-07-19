@@ -180,10 +180,11 @@ public static partial class Core
         var ret = DB.Table(ScriptableObject.CreateInstance(type)).FirstOrDefault() ;
 #endif
 #if UNITY_EDITOR
-        if (ret == null && (ret = ScriptableObject.CreateInstance(type)) != null) {
+        if (ret == null || AssetDatabase.GetAssetPath(ret).IsNullOrEmpty()) {
+            ret = ScriptableObject.CreateInstance(type);
             var configAssetDir = "Assets/Settings";
             ;
-            var path = $"{configAssetDir}/{type.Name}.asset".CreateDirFromFilePath();
+            var path = $"{configAssetDir}/{type.Name}_{Core.NewGuid()}.asset".CreateDirFromFilePath();
             AssetDatabase.CreateAsset(ret, path);
             AssetDatabase.SaveAssets();
             ret = AssetDatabase.LoadAssetAtPath(path.AssetPath(), type) as ScriptableObject;
@@ -194,10 +195,16 @@ public static partial class Core
         if (ret != null) {
             // Add the config asset to the build
             var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-            if (preloadedAssets.All(t => t?.GetType() != null && t.GetType() != type)) {
+            if (preloadedAssets.All(t => t?.GetType() != type)) {
+                Debug.Log($"add preset: {type.FullName}");
                 preloadedAssets.Add(ret);
                 PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
                 AssetDatabase.SaveAssets();
+            }
+            else {
+                Debug.Log(
+                    $"preset exists: {type.FullName} {AssetDatabase.GetAssetPath(PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type))}",
+                    ret);
             }
         }
 

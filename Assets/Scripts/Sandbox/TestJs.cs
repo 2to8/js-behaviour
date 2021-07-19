@@ -1,6 +1,7 @@
 ﻿using App.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Sandbox
 {
@@ -10,7 +11,7 @@ namespace Sandbox
         [Button]
         void Awake()
         {
-            Main.js.Eval("console.log('hello,js')");
+            Main.js.Eval("console.log('hello,js')");       
         }
     }
 }

@@ -212,7 +212,7 @@ MonoBehaviour:
     SerializationNodes: []
   debugPort: 9229
   useDebug: 1
-  inited: 0
+  inited: 1
 --- !u!1 &1195313382
 GameObject:
   m_ObjectHideFlags: 0
