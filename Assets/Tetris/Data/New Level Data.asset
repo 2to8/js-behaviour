@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ec12019e74c9448b2b21e69174d186, type: 3}
+  m_Name: New Level Data
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Id
+      Entry: 3
+      Data: 0
+    - Name: IsUser
+      Entry: 5
+      Data: false
+    - Name: Enabled
+      Entry: 5
+      Data: true
+    - Name: Created
+      Entry: 3
+      Data: 1624106742258
+    - Name: Updated
+      Entry: 3
+      Data: 1624106742258
+    - Name: m_DefaultState
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: GameEngine.Models.Contracts.Idle, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: data
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Data.CellData[], Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: actors
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.ValueTuple`2[[System.Int32,
+        mscorlib],[System.Int32, mscorlib]], mscorlib],[Battle.TheActor, Assembly-CSharp]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.GenericEqualityComparer`1[[System.ValueTuple`2[[System.Int32,
+        mscorlib],[System.Int32, mscorlib]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_ActorsBlob
+      Entry: 6
+      Data: 
+    - Name: isDisplayDebug
+      Entry: 5
+      Data: false
+    - Name: m_Actors
+      Entry: 9
+      Data: 2
+  m_Money: 0
+  m_Score: 0
+  m_Lines: 0
+  m_Rescue: 0
+  m_Mission: 0
+  m_Health: 0

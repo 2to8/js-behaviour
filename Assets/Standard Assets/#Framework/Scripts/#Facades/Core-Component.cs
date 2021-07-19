@@ -196,7 +196,7 @@ public static partial class Core
             // Add the config asset to the build
             var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
             if (preloadedAssets.All(t => t?.GetType() != type)) {
-                Debug.Log($"add preset: {type.FullName}");
+                Debug.Log($"add preset: {type.FullName}",ret);
                 preloadedAssets.Add(ret);
                 PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
                 AssetDatabase.SaveAssets();

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Content-FSM-24090
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_flowScript":{"_value":1},"_UID":"50e0b624-fc7d-480e-a9c0-4c4f4b0536b1","_position":{"x":525.0,"y":180.0},"$type":"NodeCanvas.StateMachines.FlowScriptState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ce3bc5941e8a0404ea434654e73df75c, type: 2}
+  _graphSource:
+    _version: 3.16
+    _category: 
+    _comments: 
+    _translation: {x: -41.999996, y: 49.000004}
+    _zoomFactor: 1
+  _haltSerialization: 0

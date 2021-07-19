@@ -1,16 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Tetris;
+using Tetris.Blocks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UnityRoyale
 {
     public class Card : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
     {
+        public static Card Current => BlockSpawner.instance.currentCard;
+
+        public RectTransform lockIcon;
+        [FormerlySerializedAs("Index")]
+        public TMP_Text IndexText;
+
+        //[FormerlySerializedAs("cardId")]
+        //[HideInInspector]
+        //public int slotId;
+        public int id { get; set; }
+        public Block nextBlock { get; set; }
+        public RawImage BlockFace;
+
         public UnityAction<int, Vector2> OnDragAction;
-        public UnityAction<int> OnTapDownAction, OnTapReleaseAction;
+        public UnityAction<int, Vector2> OnTapDownAction, OnTapReleaseAction;
 
         [HideInInspector]
         public int cardId;
@@ -25,6 +42,7 @@ namespace UnityRoyale
         private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
+            lockIcon?.gameObject.SetActive(false);
         }
 
         //called by CardManager, it feeds CardData so this card can display the placeable's portrait
@@ -32,24 +50,22 @@ namespace UnityRoyale
         {
             cardData = cData;
             portraitImage.sprite = cardData.cardImage;
+            cData.card = this;
         }
 
         public void OnPointerDown(PointerEventData pointerEvent)
         {
-            if (OnTapDownAction != null)
-                OnTapDownAction(cardId);
+            OnTapDownAction?.Invoke(cardId,  pointerEvent.delta);
         }
 
         public void OnDrag(PointerEventData pointerEvent)
         {
-            if (OnDragAction != null)
-                OnDragAction(cardId, pointerEvent.delta);
+            OnDragAction?.Invoke(cardId, pointerEvent.delta);
         }
 
         public void OnPointerUp(PointerEventData pointerEvent)
         {
-            if (OnTapReleaseAction != null)
-                OnTapReleaseAction(cardId);
+            OnTapReleaseAction?.Invoke(cardId, pointerEvent.delta);
         }
 
         public void ChangeActiveState(bool isActive)

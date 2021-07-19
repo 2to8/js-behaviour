@@ -43,13 +43,13 @@ namespace Admin
         }
 
 #if UNITY_EDITOR
-        [MenuItem("Debug/Bind DB Table")]
+        [MenuItem("Debug/Load DB Table Preloads")]
         static void AutoBindDBTable()
         {
             // if (PrefabStageUtility.GetCurrentPrefabStage() != null) return;
             // var scene = SceneManager.GetActiveScene();
             // if (!Enum.GetNames(typeof(SceneName)).Contains(scene.name)) return;
-            Debug.Log("checking AutoBindDBTable".ToRed());
+            Debug.Log("checking DBTable Preloads".ToRed());
             AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic && !string.IsNullOrEmpty(a.Location))
                 .SelectMany(a => a.GetExportedTypes()).Where(type =>
                     /*type.IsDefined<SceneBindAttribute>() &&*/

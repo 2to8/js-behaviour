@@ -10,7 +10,7 @@ using UnityEngine.Playables;
 
 namespace UnityRoyale
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : ViewManager<GameManager>
     {
         [Header("Settings")]
         public bool autoStart = false;
@@ -35,10 +35,16 @@ namespace UnityRoyale
         private List<Projectile> allProjectiles;
         private bool gameOver = false;
         private bool updateAllPlaceables = false; //used to force an update of all AIBrains in the Update loop
+        public bool IsPlaying;
+
+        [SerializeField]
+        public Canvas HudUI;
+
         private const float THINKING_DELAY = 2f;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             cardManager = GetComponent<CardManager>();
             CPUOpponent = GetComponent<CPUOpponent>();
             inputManager = GetComponent<InputManager>();
@@ -63,7 +69,7 @@ namespace UnityRoyale
             allProjectiles = new List<Projectile>();
         }
 
-        private void Start()
+        public void Start()
         {
             TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(false));
             //Insert castles into lists
@@ -88,7 +94,6 @@ namespace UnityRoyale
             if (this != null && this.gameObject != null) {
                 Debug.Log("stopped".ToRed());
                 TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(true));
-
             }
         }
 

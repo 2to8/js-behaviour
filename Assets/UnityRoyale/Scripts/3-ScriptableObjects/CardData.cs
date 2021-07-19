@@ -13,5 +13,6 @@ namespace UnityRoyale
         [Header("List of Placeables")]
         public PlaceableData[] placeablesData; //link to all the Placeables that this card spawns
         public Vector3[] relativeOffsets; //the relative offsets (from cursor) where the placeables will be dropped
+        public Card card;
     }
 }

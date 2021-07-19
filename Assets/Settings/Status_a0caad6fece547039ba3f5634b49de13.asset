@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a08379f68d85f44a5319b9d8a944ea, type: 3}
+  m_Name: Status_a0caad6fece547039ba3f5634b49de13
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Id
+      Entry: 3
+      Data: 0
+    - Name: IsUser
+      Entry: 5
+      Data: false
+    - Name: Enabled
+      Entry: 5
+      Data: true
+    - Name: Created
+      Entry: 3
+      Data: 1626700497850
+    - Name: Updated
+      Entry: 3
+      Data: 1626700497850
+    - Name: m_DefaultState
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: GameEngine.Models.Contracts.Idle, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 8
+      Data: 

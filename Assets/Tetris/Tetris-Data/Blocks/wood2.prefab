@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!65 &2845871369255446358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266502151118097692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8728030596558439454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266502151118097692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8c838d1c70321498ffc0dc488c1f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  id: 0
+  colorId: 3
+--- !u!114 &9057703117886231463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266502151118097692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ce3fef1d2cb0245a6686a95b80b1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_Labels
+      Entry: 7
+      Data: 0|UnityEngine.AddressableAssets.AssetLabelReference[], Unity.Addressables
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Injects
+      Entry: 7
+      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Prefabs
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.AddressableAssets.AssetReference,
+        Unity.Addressables]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 2
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_States
+      Entry: 7
+      Data: 4|System.Collections.Generic.Dictionary`2[[UnityEngine.AddressableAssets.AssetLabelReference,
+        Unity.Addressables],[System.Collections.Generic.Dictionary`2[[UnityEngine.AddressableAssets.AssetLabelReference,
+        Unity.Addressables],[System.Collections.Generic.List`1[[MoreTags.TagState,
+        Assembly-CSharp-firstpass]], mscorlib]], mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 5|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.AddressableAssets.AssetLabelReference,
+        Unity.Addressables]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Ids
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 119
+    - Name: 
+      Entry: 3
+      Data: 120
+    - Name: 
+      Entry: 3
+      Data: 122
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  asset:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  Description: 
+  BindScriptOnstart: 0
+  groupIndex: 0
+  ClearOnSave: 0
+  ClearChildrenOnSave: 0
+  E_OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDestory:
+    m_PersistentCalls:
+      m_Calls: []
+  currentTag:
+    m_LabelString: 
+  currentState:
+    m_LabelString: 
+  BindScriptOnAwake: 0
+  isAwaked: 1
+--- !u!1001 &4265972522405956092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1810284914148576, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_Name
+      value: wood2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810284914148576, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733385531148406, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d49773f0a4f110e4c82b6806208a0723, type: 3}
+--- !u!1 &4266502151118097692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1810284914148576, guid: d49773f0a4f110e4c82b6806208a0723,
+    type: 3}
+  m_PrefabInstance: {fileID: 4265972522405956092}
+  m_PrefabAsset: {fileID: 0}

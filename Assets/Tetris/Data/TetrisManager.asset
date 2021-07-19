@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b17b0357164cbc4787c6827a19d2d6b, type: 3}
+  m_Name: TetrisManager
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Id
+      Entry: 3
+      Data: 0
+    - Name: IsUser
+      Entry: 5
+      Data: false
+    - Name: Enabled
+      Entry: 5
+      Data: true
+    - Name: Created
+      Entry: 3
+      Data: 1616885670252
+    - Name: Updated
+      Entry: 3
+      Data: 1616885670252
+    - Name: m_DefaultState
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: GameEngine.Models.Contracts.Idle, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 8
+      Data: 
+  UpdateNextPost: 0
+  m_Height: 10
+  m_Width: 9
+  m_ExtraHeight: 0
+  DeltaNormal: 1
+  DeltaSoft: 0.03
+  level: 1
+  score: 0
+  line: 0
+  time: 0
+  holdedViewPosX: -2.4
+  holdedViewPosY: 16
+  holdedViewPosOffset: 0.3
+  k_HardDrop: 20000000
+  k_Down: 12010000
+  k_Left: 14010000
+  k_Right: 13010000
+  k_AntiClockwiseRotation: 7a000000
+  k_ClockwiseRotation: 11010000
+  k_Hold: 2f010000
+  sizeScale: 0.6

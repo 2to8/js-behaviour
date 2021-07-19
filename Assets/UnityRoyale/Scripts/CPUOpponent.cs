@@ -10,7 +10,11 @@ namespace UnityRoyale
         public DeckData aiDeck;
         public UnityAction<CardData, Vector3, Placeable.Faction> OnCardUsed;
 
-        private bool act = false;
+        //private bool act = false;
+        bool act {
+            get => GameManager.instance.IsPlaying;
+            set => GameManager.instance.IsPlaying = value;
+        }
         private Coroutine actingCoroutine;
 
 		public float opponentLoopTime = 5f;
@@ -24,7 +28,7 @@ namespace UnityRoyale
 
         //...
 
-		private void DeckLoaded()
+		private void DeckLoaded(DeckLoader deckLoader)
 		{
 			Debug.Log("AI deck loaded");
 
