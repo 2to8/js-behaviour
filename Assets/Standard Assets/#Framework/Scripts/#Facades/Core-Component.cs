@@ -341,7 +341,7 @@ public static partial class Core
     public static T FindOrCreateManager<T>(string sceneName = null) where T : Component
     {
         var result = Object.FindObjectOfType<T>();
-        if (result != null && sceneName == SceneManager.GetActiveScene().name) return result;
+        if (result != null /*&& sceneName == SceneManager.GetActiveScene().name*/) return result;
         Assert.IsFalse(SceneManager.sceneCount == 0, "No opened Scene");
         var scene = sceneName.IsNullOrEmpty() || sceneName == SceneManager.GetActiveScene().name
             ? SceneManager.GetActiveScene()
@@ -354,7 +354,7 @@ public static partial class Core
         Assert.IsTrue(scene.IsValid(), $"{scene.name} scene.IsValid()");
 
         //Assert.IsTrue(!scene.isLoaded);
-        Debug.Log($"ScenenName: {scene.name}".ToBlue());
+        Debug.Log($"Scene Name: {scene.name}".ToBlue());
         var root = scene.GetRootGameObjects().FirstOrDefault(t => t.name == sceneName) ??
             new GameObject(sceneName).Of(go => SceneManager.MoveGameObjectToScene(go, scene));
         return root.GetComponentInChildren<T>(true) ??

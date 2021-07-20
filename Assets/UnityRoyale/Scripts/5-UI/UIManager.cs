@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Consts;
+using Tetris;
 using UnityEngine;
 
 namespace UnityRoyale
 {
-	public class UIManager : MonoBehaviour
+    [SceneBind(SceneName.Main)]
+	public class UIManager : ViewManager<UIManager>
 	{
         public GameObject healthBarPrefab;
 		public GameObject gameOverUI;

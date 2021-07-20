@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using DG.Tweening;
 using System;
 using Admin;
+using Consts;
 using GameEngine.Extensions;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -12,6 +13,7 @@ using Tetris;
 
 namespace UnityRoyale
 {
+    [SceneBind(SceneName.Main)]
     public class CardManager : ViewManager<CardManager>
     {
         void OnEnable() { }

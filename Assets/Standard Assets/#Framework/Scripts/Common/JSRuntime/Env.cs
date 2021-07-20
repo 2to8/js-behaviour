@@ -69,7 +69,7 @@ namespace Common.JSRuntime
                 ? Instantiate(instance.RedisPrefab).GetComponent<RedisClient>()
                 : null);*/
 
-        static bool useRedis => true && (Debug.isDebugBuild || Application.isEditor);
+        static bool useRedis => false && (Debug.isDebugBuild || Application.isEditor);
 
         [Title("主模块", horizontalLine: false)]
         public TextAsset mainModule;
@@ -346,7 +346,7 @@ namespace Common.JSRuntime
             // 加载sourcemap
             Call("require('sourcemap')");
             Debug.Log($"bootstrap module size: {modules["bootstrap"].text.Length}");
-            Call("require('bootstrap').default || require('bootstrap')", new BindScript());
+            Call("require('index').default || require('index')"/*, new BindScript()*/);
             Inited = true;
         }
 

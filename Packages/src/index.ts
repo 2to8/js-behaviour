@@ -30,9 +30,14 @@ import GameObject = UnityEngine.GameObject;
 import TagSystem = MoreTags.TagSystem;
 import Node = NodeCanvas.Framework.Node;
 import Process = System.Diagnostics.Process;
+import Tags = MoreTags.Tags;
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
+}
+
+globalThis.OnTagStart = (tags: Tags) => {
+    
 }
 
 // TestCs2Ts.prototype.test = function() {
@@ -86,8 +91,6 @@ global.$testBind = (obj: TestBind) => {
     obj.num = 5;
     obj.test2();
 }
-
-
 
 $([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ])
 

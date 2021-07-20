@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Consts;
 using GameEngine.Extensions;
 using MoreTags;
+using Tetris;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.AddressableAssets;
@@ -10,6 +12,7 @@ using UnityEngine.Playables;
 
 namespace UnityRoyale
 {
+    [SceneBind(SceneName.Main), ExecuteAlways]
     public class GameManager : ViewManager<GameManager>
     {
         [Header("Settings")]
@@ -22,11 +25,11 @@ namespace UnityRoyale
         public GameObject introTimeline;
         public PlaceableData castlePData;
         public ParticlePool appearEffectPool;
-        private CardManager cardManager;
+        private CardManager cardManager => CardManager.instance;
         private CPUOpponent CPUOpponent;
         private InputManager inputManager;
         private AudioManager audioManager;
-        private UIManager UIManager;
+        private UIManager UIManager => UIManager.instance;
         private CinematicsManager cinematicsManager;
         private List<ThinkingPlaceable> playerUnits, opponentUnits;
         private List<ThinkingPlaceable> playerBuildings, opponentBuildings;
@@ -45,12 +48,12 @@ namespace UnityRoyale
         protected override void Awake()
         {
             base.Awake();
-            cardManager = GetComponent<CardManager>();
-            CPUOpponent = GetComponent<CPUOpponent>();
-            inputManager = GetComponent<InputManager>();
+            //cardManager = GetComponent<CardManager>();
+            CPUOpponent = GetComponentInChildren<CPUOpponent>();
+            inputManager = GetComponentInChildren<InputManager>();
             //audioManager = GetComponentInChildren<AudioManager>();
             cinematicsManager = GetComponentInChildren<CinematicsManager>();
-            UIManager = GetComponent<UIManager>();
+            //UIManager = GetComponentInChildren<UIManager>();
             if (autoStart)
                 introTimeline.SetActive(false);
 
@@ -71,7 +74,10 @@ namespace UnityRoyale
 
         public void Start()
         {
-            TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(false));
+            if (Application.isPlaying) {
+                TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(false));
+            }
+
             //Insert castles into lists
             SetupPlaceable(playersCastle, castlePData, Placeable.Faction.Player);
             SetupPlaceable(opponentCastle, castlePData, Placeable.Faction.Opponent);
@@ -79,14 +85,16 @@ namespace UnityRoyale
             CPUOpponent.LoadDeck();
 
             //audioManager.GoToDefaultSnapshot();
-            if (autoStart)
+            if (autoStart && Application.isPlaying)
                 StartMatch();
         }
 
         void OnEnable()
         {
-            introTimeline.GetComponent<PlayableDirector>().stopped -= OnIntroStopped;
-            introTimeline.GetComponent<PlayableDirector>().stopped += OnIntroStopped;
+            if (Application.isPlaying) {
+                introTimeline.GetComponent<PlayableDirector>().stopped -= OnIntroStopped;
+                introTimeline.GetComponent<PlayableDirector>().stopped += OnIntroStopped;
+            }
         }
 
         void OnIntroStopped(PlayableDirector obj)
@@ -106,7 +114,7 @@ namespace UnityRoyale
         //the Update loop pings all the ThinkingPlaceables in the scene, and makes them act
         private void Update()
         {
-            if (gameOver)
+            if (gameOver || !Application.isPlaying)
                 return;
             ThinkingPlaceable targetToPass; //ref
             ThinkingPlaceable p; //ref
@@ -361,7 +369,7 @@ namespace UnityRoyale
 
         private void AddPlaceableToList(ThinkingPlaceable p)
         {
-            allThinkingPlaceables.Add(p);
+            (allThinkingPlaceables ??= new List<ThinkingPlaceable>()).Add(p);
             if (p.faction == Placeable.Faction.Player) {
                 allPlayers.Add(p);
                 if (p.pType == Placeable.PlaceableType.Unit)

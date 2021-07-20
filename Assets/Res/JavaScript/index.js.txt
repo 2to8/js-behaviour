@@ -3848,6 +3848,8 @@
 	global.$hello = (s) => {
 	    Debug.Log(`hello, ${s}`);
 	};
+	globalThis.OnTagStart = (tags) => {
+	};
 	// TestCs2Ts.prototype.test = function() {
 	//     Debug.Log(this.num + ' = test')
 	//     this.num = 123;
