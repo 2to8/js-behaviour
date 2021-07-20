@@ -6,7 +6,7 @@ namespace Admin
 {
     public class StatusWindow : StateWindow<Status>
     {
-        [MenuItem("Debug/Status Editor")]
+        [MenuItem("Window/[Status] Window")]
         static void OpenWindow()
         {
             var window = GetWindow<StatusWindow>();
