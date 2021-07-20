@@ -6,53 +6,51 @@ using UnityEngine;
 
 namespace UnityRoyale
 {
-    [SceneBind(SceneName.Main)]
-	public class UIManager : ViewManager<UIManager>
-	{
+    [SceneBind(SceneName.Main), ExecuteAlways]
+    public class UIManager : ViewManager<UIManager>
+    {
         public GameObject healthBarPrefab;
-		public GameObject gameOverUI;
-
-		private List<HealthBar> healthBars;
+        public GameObject gameOverUI;
+        private List<HealthBar> healthBars;
         private Transform healthBarContainer;
 
-		private void Awake()
-		{
-			healthBars = new List<HealthBar>();
-            healthBarContainer = new GameObject("HealthBarContainer").transform;
-		}
-
-		public void AddHealthUI(ThinkingPlaceable p)
+        private void Awake()
         {
-            GameObject newUIObject = Instantiate<GameObject>(healthBarPrefab, p.transform.position, Quaternion.identity, healthBarContainer);
-            p.healthBar = newUIObject.GetComponent<HealthBar>(); //store the reference in the ThinkingPlaceable itself
-            p.healthBar.Initialise(p);
-			
-			healthBars.Add(p.healthBar);
+            healthBars = new List<HealthBar>();
+            healthBarContainer = new GameObject("HealthBarContainer").transform;
         }
 
-		public void RemoveHealthUI(ThinkingPlaceable p)
-		{
-			healthBars.Remove(p.healthBar);
-			
-			Destroy(p.healthBar.gameObject);
-		}
+        public void AddHealthUI(ThinkingPlaceable p)
+        {
+            GameObject newUIObject = Instantiate<GameObject>(healthBarPrefab, p.transform.position, Quaternion.identity,
+                healthBarContainer);
+            p.healthBar = newUIObject.GetComponent<HealthBar>(); //store the reference in the ThinkingPlaceable itself
+            p.healthBar.Initialise(p);
+            healthBars.Add(p.healthBar);
+        }
 
-		public void ShowGameOverUI()
-		{
-			gameOverUI.SetActive(true);
-		}
+        public void RemoveHealthUI(ThinkingPlaceable p)
+        {
+            healthBars.Remove(p.healthBar);
+            Destroy(p.healthBar.gameObject);
+        }
 
-		public void OnRetryButton()
-		{
-			UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-		}
+        public void ShowGameOverUI()
+        {
+            gameOverUI.SetActive(true);
+        }
 
-		private void LateUpdate()
-		{
-			for(int i=0; i<healthBars.Count; i++)
-			{
-				healthBars[i].Move();
-			}
-		}
-	}
+        public void OnRetryButton()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
+                .name);
+        }
+
+        private void LateUpdate()
+        {
+            for (int i = 0; i < healthBars.Count; i++) {
+                healthBars[i].Move();
+            }
+        }
+    }
 }
