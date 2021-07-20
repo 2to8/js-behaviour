@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using System.Linq;
+using UnityEngine;
 
 namespace ParadoxNotion.Design
 {
@@ -33,6 +34,7 @@ namespace ParadoxNotion.Design
             var assetGUIDS = AssetDatabase.FindAssets(string.Format("t:{0}", type.Name));
             foreach ( var guid in assetGUIDS ) {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
+                Debug.Log("load graph: "+path);
                 var asset = AssetDatabase.LoadAssetAtPath(path, type);
                 trackedAssets[path] = asset;
             }

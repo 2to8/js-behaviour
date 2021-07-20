@@ -178,17 +178,17 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   m_EnvReference:
-    m_AssetGUID: 
+    m_AssetGUID: b48e08d0f6ade234e94cc1bd4c58f663
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  m_Env: {fileID: 0}
+  m_Env: {fileID: 11400000, guid: b48e08d0f6ade234e94cc1bd4c58f663, type: 2}
   CurrentSceneAsset:
-    m_AssetGUID: 
+    m_AssetGUID: 893ddd00de503a041b43d34fc272eea3
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  ScenePath: 
+  ScenePath: Assets/Tetris/Scenes/Main.unity
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,13 +210,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Data:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  SqliteFile: {fileID: 4900000, guid: 8bba2f21f1fca0c4c83d7293b4dccb8d, type: 3}
+  Data: []
+  SqliteFile: {fileID: 4900000, guid: 71e5686463b4211478a7d03ecaeec2ac, type: 3}
   DbVersion: 
   OpenNextScene: 1
   nextSceneAddress:
