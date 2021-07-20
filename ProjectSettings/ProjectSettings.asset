@@ -127,52 +127,29 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.29.26
+  bundleVersion: 1.29.26-1-g53e83b6e
   preloadedAssets:
   - {fileID: 11400000, guid: 5a3deab0830d52e459665e50c7541088, type: 2}
   - {fileID: 11400000, guid: b48e08d0f6ade234e94cc1bd4c58f663, type: 2}
   - {fileID: 11400000, guid: 51262dea8170b5448ab4dcd8a12a2cab, type: 2}
   - {fileID: 11400000, guid: 9651d063263f1c1419f6c7929e736654, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
   - {fileID: 11400000, guid: d3dc9db523190374ea52eaf182ef819d, type: 2}
   - {fileID: 11400000, guid: c7472b0c01c181b4c8811619c08f712a, type: 2}
   - {fileID: 11400000, guid: 7cb361078485b4d45b83d7056d03a1a5, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
   - {fileID: 11400000, guid: b722b2223299c6742ba417ab45921aa5, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
   - {fileID: 11400000, guid: a93c8f650d017be44959747a3e53fd98, type: 2}
   - {fileID: 11400000, guid: 97798d74fb4681b47b1dc0594937c7a3, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
   - {fileID: 11400000, guid: e7ab82fd63109f6469eddb814da276cc, type: 2}
   - {fileID: 11400000, guid: 8e34f0dd22f78204cb6d2bf2c9fb35c6, type: 2}
   - {fileID: 11400000, guid: 71229317f2d419a4f988d16dc3d60f7a, type: 2}
   - {fileID: 11400000, guid: 631c23dc76e8fbb4bb4129f02f48cddc, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
   - {fileID: 11400000, guid: c352bbfe9bb27a44f81a31d33783ca0f, type: 2}
   - {fileID: 11400000, guid: df35e52503118a6458881c172e3beee0, type: 2}
   - {fileID: 11400000, guid: 8da49c0dddf7b9c469593576c41857b5, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
   - {fileID: 11400000, guid: c983a72d3705ad540896fccc03f9cb5d, type: 2}
   - {fileID: 11400000, guid: 9970865b0178db84989f1d30d6228efd, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
-  - {fileID: 11400000, guid: d7d8ca0e943a0a740940bc0c641a519b, type: 2}
+  - {fileID: 11400000, guid: 842977b8922ddff41b44d80a677ace29, type: 2}
+  - {fileID: 11400000, guid: 842977b8922ddff41b44d80a677ace29, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

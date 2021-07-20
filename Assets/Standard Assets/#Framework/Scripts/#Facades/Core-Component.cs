@@ -196,7 +196,7 @@ public static partial class Core
             // Add the config asset to the build
             var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
             if (preloadedAssets.All(t => t?.GetType() != type)) {
-                Debug.Log($"add preset: {type.FullName}",ret);
+                Debug.Log($"add preset: {type.FullName}", ret);
                 preloadedAssets.Add(ret);
                 PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
                 AssetDatabase.SaveAssets();
@@ -226,38 +226,40 @@ public static partial class Core
 
     public static T FindOrCreatePreloadAsset<T>(T scriptableObject = default) where T : ScriptableObject
     {
-#if UNITY_EDITOR
-        var ret = PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == typeof(T)) as T ??
-            CheckLoadAsset<T>();
-#else
-            var ret = DB.Table<T>().FirstOrDefault() ;
-#endif
-#if UNITY_EDITOR
-        if (ret == null) {
-            var configAssetDir = "Assets/Settings";
-            ret = DB.Table<T>().FirstOrDefault();
-            var path = $"{configAssetDir}/{typeof(T).Name}.asset".CreateDirFromFilePath();
-            AssetDatabase.CreateAsset(ret, path);
-            AssetDatabase.SaveAssets();
-            ret = AssetDatabase.LoadAssetAtPath<T>(path.AssetPath());
-            Assert.IsNotNull(ret, "ret != null");
-            Debug.Log($"{typeof(T).FullName} created");
-
-            //AssetDatabase.SaveAssets();
-        }
-
-        if (ret != null) {
-            // Add the config asset to the build
-            var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-            if (preloadedAssets.All(t => t?.GetType() != null && t.GetType() != typeof(T))) {
-                preloadedAssets.Add(ret);
-                PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
-                AssetDatabase.SaveAssets();
-            }
-        }
-
-#endif
-        return ret;
+        return FindOrCreatePreloadAsset(typeof(T)) as T;
+//
+//#if UNITY_EDITOR
+//        var ret = PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == typeof(T)) as T ??
+//            CheckLoadAsset<T>();
+//#else
+//            var ret = DB.Table<T>().FirstOrDefault() ;
+//#endif
+//#if UNITY_EDITOR
+//        if (ret == null) {
+//            var configAssetDir = "Assets/Settings";
+//            ret = DB.Table<T>().FirstOrDefault();
+//            var path = $"{configAssetDir}/{typeof(T).Name}-{Core.NewGuid()}.asset".CreateDirFromFilePath();
+//            AssetDatabase.CreateAsset(ret, path);
+//            AssetDatabase.SaveAssets();
+//            ret = AssetDatabase.LoadAssetAtPath<T>(path.AssetPath());
+//            Assert.IsNotNull(ret, "ret != null");
+//            Debug.Log($"{typeof(T).FullName} created", ret);
+//            AssetDatabase.Refresh();
+//        }
+//
+//        if (ret != null) {
+//            // Add the config asset to the build
+//            var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
+//            if (preloadedAssets.All(t => t?.GetType() != typeof(T))) {
+//                preloadedAssets.Add(ret);
+//                Debug.Log($"{typeof(T).FullName} added".ToRed(), ret);
+//                PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
+//                AssetDatabase.SaveAssets();
+//            }
+//        }
+//
+//#endif
+//        return ret;
     }
 
     public static T FindInPrefabOrScene<T>() where T : Component

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3fb838fca1addc4fb5de1c2db7c7538, type: 3}
-  m_Name: AssetLabels
+  m_Name: AssetLabels_6e8e95d577fb431fbe7e3a79603f7440
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -32,10 +32,10 @@ MonoBehaviour:
       Data: true
     - Name: Created
       Entry: 3
-      Data: 1625934802023
+      Data: 1626780389819
     - Name: Updated
       Entry: 3
-      Data: 1625934802023
+      Data: 1626780389819
     - Name: m_DefaultState
       Entry: 7
       Data: 0|System.RuntimeType, mscorlib

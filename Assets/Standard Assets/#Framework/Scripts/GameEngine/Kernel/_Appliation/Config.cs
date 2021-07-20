@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GameEngine.Kernel._Appliation {
 
-[CreateAssetMenu(fileName = "Artecs_Config", menuName = "Artecs/Models/Config", order = 0)]
+[CreateAssetMenu(fileName = "Artecs_Config", menuName = "Models/Config", order = 0)]
 public class Config : DbTable<Config> {
 
     public MyCustomDict<GameObject> Prefabs = new MyCustomDict<GameObject>();
