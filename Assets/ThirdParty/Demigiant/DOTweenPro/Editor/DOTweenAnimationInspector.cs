@@ -463,7 +463,7 @@ namespace DG.DOTweenEditor
                 _src.delay = EditorGUILayout.FloatField("Delay", _src.delay);
                 if (_src.delay < 0) _src.delay = 0;
                 _src.isIndependentUpdate = EditorGUILayout.Toggle("Ignore TimeScale", _src.isIndependentUpdate);
-                _src.easeType = EditorGUIUtils.FilteredEasePopup(_src.easeType);
+                _src.easeType = EditorGUIUtils.FilteredEasePopup("Ease", _src.easeType);
                 if (_src.easeType == Ease.INTERNAL_Custom) {
                     _src.easeCurve = EditorGUILayout.CurveField("   Ease Curve", _src.easeCurve);
                 }

@@ -62,7 +62,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e3db41d8780bafb4385a845308123b31, type: 2}
-  - {fileID: 2100000, guid: 9cc676613d5475c4bb3795f2f586be05, type: 2}
+  - {fileID: 2100000, guid: 442ab197fe5686844a84a18212c27da2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,3 +118,5 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  id: 0
+  colorId: 0
