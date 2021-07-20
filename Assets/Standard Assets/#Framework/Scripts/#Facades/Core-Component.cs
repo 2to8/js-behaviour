@@ -187,24 +187,24 @@ public static partial class Core
             var path = $"{configAssetDir}/{type.Name}_{Core.NewGuid()}.asset".CreateDirFromFilePath();
             AssetDatabase.CreateAsset(ret, path);
             AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
             ret = AssetDatabase.LoadAssetAtPath(path.AssetPath(), type) as ScriptableObject;
             Assert.IsNotNull(ret, $"{type.Name} != null");
-            Debug.Log($"{type.FullName} created");
+            Debug.Log($"{type.FullName} created".ToRed(),ret);
         }
 
         if (ret != null) {
             // Add the config asset to the build
             var preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-            if (preloadedAssets.All(t => t?.GetType() != type)) {
-                Debug.Log($"add preset: {type.FullName}", ret);
+            if (PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type) == null) {
+                Debug.Log($"add preset: {type.FullName}".ToRed(), ret);
                 preloadedAssets.Add(ret);
                 PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
                 AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
             }
             else {
-                Debug.Log(
-                    $"preset exists: {type.FullName} {AssetDatabase.GetAssetPath(PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type))}",
-                    ret);
+                Debug.Log($"preset exists: {type.FullName} {AssetDatabase.GetAssetPath(PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type))}", ret);
             }
         }
 

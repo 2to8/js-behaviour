@@ -54,7 +54,7 @@ namespace Admin
                 .SelectMany(a => a.GetExportedTypes()).Where(type =>
                     /*type.IsDefined<SceneBindAttribute>() &&*/
                     !(type.IsAbstract || type.IsGenericType) && typeof(TableBase).IsAssignableFrom(type) &&
-                    type.IsPublic).ForEach(type => {
+                    type.IsPublic && type != typeof(TableBase)).ForEach(type => {
                     Debug.Log($"[loadPreset] {type.FullName}".ToBlue());
                     Core.FindOrCreatePreloadAsset(type);
                     //
@@ -70,13 +70,13 @@ namespace Admin
                     // //
                     // Debug.Log($"{type.GetNiceFullName()} bind to {scene.name}");
                 });
-        }   
+        }
+
         [InitializeOnLoadMethod]
         static void OnReload()
         {
             EditorApplication.delayCall += AutoBindDBTable;
         }
 #endif
-
     }
 }

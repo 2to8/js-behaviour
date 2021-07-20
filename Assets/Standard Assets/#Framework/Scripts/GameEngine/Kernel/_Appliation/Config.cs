@@ -16,4 +16,4 @@ public class Config : DbTable<Config> {
 
 }
 
-}
+}                                                                                         
