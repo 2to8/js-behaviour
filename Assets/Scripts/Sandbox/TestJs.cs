@@ -11,7 +11,9 @@ namespace Sandbox
         [Button]
         void Awake()
         {
-            Main.js.Eval("console.log('hello,js')");       
+            Main.js.Eval("console.log('hello,js')");
         }
+
+        public static void TestArray(int[] arg) { }
     }
 }

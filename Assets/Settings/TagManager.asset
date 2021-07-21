@@ -268,3 +268,15 @@ MonoBehaviour:
     m_Type: 1
     m_Path: 
     gameObjects: []
+  - m_Id: 173
+    m_Name: Id.HealthBarContainer
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 174
+    m_Name: Id.GameOverUI
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []

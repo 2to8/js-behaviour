@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Consts;
+using MoreTags.Attributes;
 using Tetris;
 using UnityEngine;
 
@@ -10,15 +11,20 @@ namespace UnityRoyale
     public class UIManager : ViewManager<UIManager>
     {
         public GameObject healthBarPrefab;
+
+        [Tags(Id.GameOverUI)]
         public GameObject gameOverUI;
+
         private List<HealthBar> healthBars;
+
+        [SerializeField, Tags(Id.HealthBarContainer)]
         private Transform healthBarContainer;
 
         protected override void Awake()
         {
             base.Awake();
             healthBars = new List<HealthBar>();
-            healthBarContainer = (GameObject.Find("/HealthBarContainer") ?? new GameObject("HealthBarContainer"))
+            healthBarContainer ??= (GameObject.Find("/HealthBarContainer") ?? new GameObject("HealthBarContainer"))
                 .transform;
         }
 

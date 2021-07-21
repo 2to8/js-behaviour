@@ -11,7 +11,7 @@ let list = new Array<System.Type>();
 
 globalThis.instances = globalThis.instances || new Set();
 
-globalThis.I = globalThis.I || function <T>(c: { new(...args: any): T; }, ...args: any): T {
+globalThis.I = globalThis.I || function <T>(c: { new(...args: any[]): T; }, ...args: any[]): T {
     if (!globalThis.instances.has(c)) {
         globalThis.instances.set(c, args[0] instanceof c ? args[0] : new c(...args));
     }
@@ -113,7 +113,7 @@ export function BytesToUint8Array(data: System.Array$1<number>): Uint8Array {
     return result;
 }
 
-export function fixList<T extends System.Object>(Class: List$1<T>, c?: new(...args: any) => T): List$1<T> {
+export function fixList<T extends System.Object>(Class: List$1<T>, c?: new(...args: any[]) => T): List$1<T> {
     if (Class == null && c != null) {
         let List = $generic(List$1, c);
         Class = new List<T>() as any
@@ -164,7 +164,7 @@ export function fixList<T extends System.Object>(Class: List$1<T>, c?: new(...ar
     return Class;
 }
 
-export function fixDict<TKey, TValue>(Class: Dictionary$2<TKey, TValue>, TK?: new(...args: any) => TKey, TV?: new(...args: any) => TValue): Dictionary$2<TKey, TValue> {
+export function fixDict<TKey, TValue>(Class: Dictionary$2<TKey, TValue>, TK?: new(...args: any[]) => TKey, TV?: new(...args: any[]) => TValue): Dictionary$2<TKey, TValue> {
     if (Class == null && TK != null && TV != null) {
         while ($typeof(TK).IsGenericType) {
             TK = $generic(TK);

@@ -11,7 +11,9 @@
     OpponentCastle,
     IntroTimeline,
     NavMeshSurface,
-    HudUI
+    HudUI,
+    GameOverUI,
+    HealthBarContainer
 }
 
 public enum Cate
