@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using MoreTags;
 
 // using Unity.Entities;
 #if UNITY_EDITOR
@@ -190,7 +191,7 @@ public static partial class Core
             AssetDatabase.Refresh();
             ret = AssetDatabase.LoadAssetAtPath(path.AssetPath(), type) as ScriptableObject;
             Assert.IsNotNull(ret, $"{type.Name} != null");
-            Debug.Log($"{type.FullName} created".ToRed(),ret);
+            Debug.Log($"{type.FullName} created".ToRed(), ret);
         }
 
         if (ret != null) {
@@ -204,7 +205,9 @@ public static partial class Core
                 AssetDatabase.Refresh();
             }
             else {
-                Debug.Log($"preset exists: {type.FullName} {AssetDatabase.GetAssetPath(PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type))}", ret);
+                Debug.Log(
+                    $"preset exists: {type.FullName} {AssetDatabase.GetAssetPath(PlayerSettings.GetPreloadedAssets().FirstOrDefault(t => t?.GetType() == type))}",
+                    ret);
             }
         }
 
@@ -340,7 +343,7 @@ public static partial class Core
 
     public static T FindOrCreateManager<T>(string sceneName = null) where T : Component
     {
-        var result = Object.FindObjectOfType<T>();
+        var result = TagSystem.Find(typeof(T), null, Cate.Managers) as T ?? Object.FindObjectOfType<T>();
         if (result != null /*&& sceneName == SceneManager.GetActiveScene().name*/) return result;
         Assert.IsFalse(SceneManager.sceneCount == 0, "No opened Scene");
         var scene = sceneName.IsNullOrEmpty() || sceneName == SceneManager.GetActiveScene().name
