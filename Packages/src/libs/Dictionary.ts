@@ -110,6 +110,7 @@ export function BytesToUint8Array(data: System.Array$1<number>): Uint8Array {
     for (let i = 0; i < data.Length; i++) {
         result[i] = data.get_Item(i);
     }
+   
     return result;
 }
 

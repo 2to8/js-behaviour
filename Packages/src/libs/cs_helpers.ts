@@ -9,7 +9,7 @@ export function isDefined<T>(value: T | undefined | null): value is T {
     return <T> value !== undefined && <T> value !== null && (!(<T> value instanceof UnityEngine.Object) || !(<T> value as unknown as UnityEngine.Object)?.Equals(null));
 }
 
-export function Dictionary<TKey, TValue>(k: new() => TKey, v: new() => TValue): Dictionary$2<TKey, TValue> {
+export function Dictionary<TKey extends System.Object, TValue extends System.Object>(k: new(...args: any[]) => TKey, v: new(...args: any[]) => TValue): Dictionary$2<TKey, TValue> {
     return Helpers.MakeDictionary($typeof(k), $typeof(v));
 }
 
@@ -21,14 +21,18 @@ export function Dictionary<TKey, TValue>(k: new() => TKey, v: new() => TValue): 
 export function Singleton<T>() {
     class SingletonTemp {
         private static _instance: any;
-        protected constructor() {}
-        static getInstance() : T {
+        
+        protected constructor() {
+        }
+        
+        static getInstance(): T {
             if (!SingletonTemp._instance) {
                 SingletonTemp._instance = new this();
             }
             return SingletonTemp._instance as T;
         }
     }
+    
     return SingletonTemp;
 }
 
