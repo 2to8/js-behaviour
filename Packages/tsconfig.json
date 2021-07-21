@@ -18,6 +18,8 @@
         "typeRoots": [
             "node_modules/@types",
             "typings/puerts/index.d.ts",
+            "typings/global.d.ts",
+            "typings/NodeJS.d.ts",
             "typings"
         ],
         "allowJs": false,

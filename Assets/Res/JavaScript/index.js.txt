@@ -3329,6 +3329,7 @@
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.MoreTags.Extensions);
 	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.MoreTags.TagSystem);
+	    puerts.$extension(csharp.UnityEngine.GameObject, csharp.Tetris.TetrisUtil);
 	    puerts.$extension(csharp.UnityEngine.UI.ScrollRect, csharp.UnityEngine.UI.Extensions.ScrollRectExtensions);
 	    puerts.$extension(csharp.UnityEngine.UI.ScrollRect, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.RectTransform, csharp.UnityEngine.UI.Extensions.UIExtensionMethods);
@@ -3350,6 +3351,7 @@
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.MonoBehaviourExt);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.ReplaceComponent);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.GameEngine.Extensions.UnityComponentExtention);
+	    puerts.$extension(csharp.UnityEngine.Component, csharp.Tetris.TetrisUtil);
 	    puerts.$extension(csharp.UnityEngine.Component, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.System.Object, csharp.ParadoxNotion.StringUtils);
 	    puerts.$extension(csharp.System.Object, csharp.GameEngine.Extensions.Strings);
@@ -3363,12 +3365,14 @@
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.Transforms);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.GameObjectExt);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.GameEngine.Extensions.UnityComponentExtention);
+	    puerts.$extension(csharp.UnityEngine.Transform, csharp.Tetris.TetrisUtil);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.DG.Tweening.DOTweenProShortcuts);
 	    puerts.$extension(csharp.UnityEngine.Transform, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.Events.UnityEvent, csharp.GameEngine.Extensions.AddressablesExtesion);
 	    puerts.$extension(csharp.UnityEngine.MonoBehaviour, csharp.GameEngine.Extensions.GameObjectExt);
 	    puerts.$extension(csharp.UnityEngine.MonoBehaviour, csharp.GameEngine.Extensions.MonoBehaviourExt);
 	    puerts.$extension(csharp.UnityEngine.MonoBehaviour, csharp.GameEngine.Extensions.MonoBehaviourExtension);
+	    puerts.$extension(csharp.UnityEngine.MonoBehaviour, csharp.Tetris.TimerExtention);
 	    puerts.$extension(csharp.UnityEngine.ScriptableObject, csharp.GameEngine.Extensions.ScritableExt);
 	    puerts.$extension(csharp.System.IO.FileInfo, csharp.GameEngine.Extensions.Files);
 	    puerts.$extension(csharp.UnityEngine.UI.Image, csharp.GameEngine.Extensions.UIExtend);
@@ -3376,19 +3380,22 @@
 	    puerts.$extension(csharp.UnityEngine.AsyncOperation, csharp.GameEngine.Extensions.UnityAsyncOperationAwaiter);
 	    puerts.$extension(csharp.UnityEngine.AnimationCurve, csharp.GameEngine.Extensions.UnityComponentExtention);
 	    puerts.$extension(csharp.UnityEngine.Networking.UnityWebRequestAsyncOperation, csharp.GameEngine.Extensions.ExtensionMethods);
+	    puerts.$extension(csharp.UnityEngine.Networking.UnityWebRequestAsyncOperation, csharp.MainScene.BootScene.Utils.ExtensionMethods);
 	    puerts.$extension(csharp.UnityEngine.PolygonCollider2D, csharp.Common.PolygonCollider2DExt);
+	    puerts.$extension(csharp.Puerts.JsEnv, csharp.Tetris.TetrisUtil);
 	    puerts.$extension(csharp.Puerts.JsEnv, csharp.PuertsStaticWrap.AutoStaticUsing);
-	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenProShortcuts);
-	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenModulePhysics);
-	    puerts.$extension(csharp.UnityEngine.AndroidJavaObject, csharp.UnityEngine.Monetization.AndroidJavaObjectExtensions);
+	    puerts.$extension(csharp.GameEngine.Models.Contracts.TableBase, csharp.Tetris.TetrisUtil);
 	    puerts.$extension(csharp.UnityEngine.AudioSource, csharp.DG.Tweening.DOTweenModuleAudio);
 	    puerts.$extension(csharp.UnityEngine.Audio.AudioMixer, csharp.DG.Tweening.DOTweenModuleAudio);
+	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenModulePhysics);
+	    puerts.$extension(csharp.UnityEngine.Rigidbody, csharp.DG.Tweening.DOTweenProShortcuts);
 	    puerts.$extension(csharp.UnityEngine.Rigidbody2D, csharp.DG.Tweening.DOTweenModulePhysics2D);
 	    puerts.$extension(csharp.UnityEngine.CanvasGroup, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.UI.LayoutElement, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.UI.Outline, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.UI.Slider, csharp.DG.Tweening.DOTweenModuleUI);
 	    puerts.$extension(csharp.UnityEngine.UI.Text, csharp.DG.Tweening.DOTweenModuleUI);
+	    puerts.$extension(csharp.UnityEngine.AndroidJavaObject, csharp.UnityEngine.Monetization.AndroidJavaObjectExtensions);
 	    puerts.$extension(csharp.NUnit.Framework.Constraints.ConstraintExpression, csharp.UnityEngine.TestTools.Constraints.ConstraintExtensions);
 	    puerts.$extension(csharp.UnityEngine.Light, csharp.DG.Tweening.ShortcutExtensions);
 	    puerts.$extension(csharp.UnityEngine.LineRenderer, csharp.DG.Tweening.ShortcutExtensions);
@@ -3891,7 +3898,18 @@
 	    obj.num = 5;
 	    obj.test2();
 	};
+	// @ts-ignore
+	Array.prototype['toArray'] = function (type) {
+	    let ret = csharp.System.Array.CreateInstance(puerts.$typeof(type), this.length);
+	    for (let i = 0; i < this.length; i++) {
+	        ret.SetValue(this[i], i);
+	    }
+	    return ret;
+	};
 	$([id.Pause], [st.game.GameOver, [st.game.Pause]]);
+	// let t = [];
+	// TestJs.TestArray(t.toArray(System.Int32));
+	// TestJs.TestArray2(...t);
 	uses(//
 	TNode, //
 	TTestFindNode, //

@@ -105,6 +105,7 @@ Array.prototype['toArray'] = function <T1 extends System.Object>(type: new (...a
 $([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ]);
 
 
+
 // let t = [];
 // TestJs.TestArray(t.toArray(System.Int32));
 // TestJs.TestArray2(...t);

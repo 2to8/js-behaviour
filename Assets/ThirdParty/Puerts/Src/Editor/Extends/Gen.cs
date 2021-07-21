@@ -72,6 +72,7 @@ export default function() {{
                     File.ReadAllText($"{src}/index.d.ts"));
                 textWriter.Flush();
             }
+            File.Delete($"{saveTo}/csharp/index.d.ts");
 
             GenerateExtensions();
             //ExamplesCfg.TestUsingAction();
