@@ -17,6 +17,7 @@
         ],
         "typeRoots": [
             "node_modules/@types",
+            "typings/puerts/index.d.ts",
             "typings"
         ],
         "allowJs": false,

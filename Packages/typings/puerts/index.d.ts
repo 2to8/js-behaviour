@@ -9,22 +9,12 @@
 //    
 //     function $promise<T>(x: $Task<T>): Promise<T>;
 //    
-//     function $generic<T extends new (...args: any[]) => any>(genericType: T, ...genericArguments: (new (...args: any[]) => any)[]): T;
-//    
-//     function $typeof(x: new (...args: any[]) => any): System.Type;
-//    
-//     function $extension(c: Function, e: Function): void;
-//    
-//     function on(eventType: string, listener: Function, prepend?: boolean): void;
-//    
-//     function off(eventType: string, listener: Function): void;
-//    
-//     function emit(eventType: string, ...args: any[]): boolean;
-// }
-//
-// declare function require(name: string): any;
-//
-
+//     function $generic<T extends new (...args: any[]) => any>(genericType: T,
+// ...genericArguments: (new (...args: any[]) => any)[]): T;  function $typeof(x: new (...args:
+// any[]) => any): System.Type;  function $extension(c: Function, e: Function): void;  function
+// on(eventType: string, listener: Function, prepend?: boolean): void;  function off(eventType:
+// string, listener: Function): void;  function emit(eventType: string, ...args: any[]): boolean; }
+//  declare function require(name: string): any; 
 
 // ==========================================
 // 注意!注意!注意!
@@ -37,7 +27,7 @@ declare module 'puerts' {
     // const Component: React.Component;
     // type ReactNode = React.ReactNode;
     
-    function registerBuildinModule(name:string, module:any)
+    function registerBuildinModule(name: string, module: any)
     
     function $ref<T>(x?: T): $Ref<T>;
     
@@ -74,8 +64,8 @@ declare module 'puerts' {
 }
 
 // declare var require: {
-//     <T>(path: string): T; (paths: string[], callback: (...modules: any[]) => void): void; ensure: (paths: string[], callback: (require: <T>(path: string) => T) => void) => void;
-// };
+//     <T>(path: string): T; (paths: string[], callback: (...modules: any[]) => void): void;
+// ensure: (paths: string[], callback: (require: <T>(path: string) => T) => void) => void; };
 
 //declare function require(name: string): any;
 
@@ -90,9 +80,22 @@ declare interface Object {
     //tap: (intercept: any) => any;
 }
 
+//declare global {
+// import { System } from 'csharp';
+
+// declare interface Array {
+//     contains: (obj: any) => boolean;
+//    
+//     toArray<T1 extends System.Object>(type: new (...args: any[]) => T1): System.Array$1<T1>
+// }
+
 declare interface Array<T> {
     contains: (obj: any) => boolean;
+    
+    toArray<T1 extends csharp.System.Object>(type: new (...args: any[]) => T1): csharp.System.Array$1<T1>
 }
+
+//}
 
 //
 // declare namespace UnityEngine {

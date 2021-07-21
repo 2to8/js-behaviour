@@ -15,5 +15,7 @@ namespace Sandbox
         }
 
         public static void TestArray(int[] arg) { }
+        public static void TestArray2(params int[] arg) => TestArray(arg);
+
     }
 }

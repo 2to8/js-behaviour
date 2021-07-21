@@ -5,7 +5,7 @@ import { TConcurrentState } from 'app/graph/TConcurrentState';
 import { TNode } from 'app/graph/TNode';
 import extensions from 'extensions';
 import { dict_install } from 'libs/Dictionary';
-import { $extension } from 'puerts';
+import { $extension, $typeof } from 'puerts';
 import TestBind from 'sandbox/TestBind';
 import { GameEngine, MoreTags, NodeCanvas, Puerts, PuertsStaticWrap, Sandbox, System, UnityEditor, UnityEngine } from 'csharp';
 import { Component } from 'component/component-base';
@@ -31,6 +31,7 @@ import TagSystem = MoreTags.TagSystem;
 import Node = NodeCanvas.Framework.Node;
 import Process = System.Diagnostics.Process;
 import Tags = MoreTags.Tags;
+import TestJs = Sandbox.TestJs;
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -92,7 +93,21 @@ global.$testBind = (obj: TestBind) => {
     obj.test2();
 }
 
-$([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ])
+// @ts-ignore
+Array.prototype['toArray'] = function <T1 extends System.Object>(type: new (...args: any[]) => T1): System.Array$1<T1> {
+    let ret = System.Array.CreateInstance($typeof(type), this.length);
+    for (let i = 0; i < this.length; i++) {
+        ret.SetValue(this[i], i)
+    }
+    return ret as any;
+}
+
+$([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ]);
+
+
+// let t = [];
+// TestJs.TestArray(t.toArray(System.Int32));
+// TestJs.TestArray2(...t);
 
 uses(   //
     TNode,//
