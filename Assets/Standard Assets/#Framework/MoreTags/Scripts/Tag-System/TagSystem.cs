@@ -127,21 +127,38 @@ namespace MoreTags
         }
 
         public static TagQuery query => new TagQuery();
-        public static T Find<T>(params string[] tags) where T : Component => Find<T>(new GameObject[] { }, tags);
+        public static T Find<T>(params object[] tags) where T : Component => Find<T>(new GameObject[] { }, tags);
+
+//        public static Object Find(Type type, params object[] tags)
+//        {
+//
+//        }
 
         // query.tags(tags)
         // .withTypes(typeof(T))
         // .result.Select(go => go.GetComponent<T>())
         // .FirstOrDefault(t => t != null);
 
-        public static T Find<T>(this GameObject[] parent, params string[] tags) where T : Component =>
-            query.Parent(parent).tags(tags).withTypes(typeof(T)).result.Select(go => go.GetComponent<T>())
-                .FirstOrDefault(t => t != null);
+        public static T Find<T>(this GameObject[] parent, params object[] tags) where T : Component =>
+            Find(typeof(T), parent, tags) as T;
 
-        public static T Find<T>(this Component parent, params string[] tags) where T : Component =>
+        public static Object Find(Type type, GameObject[] parent, params object[] tags)
+        {
+            var list = tags.Select(t => t is Enum e ? e.GetFullName() : $"{t}").ToArray();
+            var ret = query.Parent(parent).tags(list).withTypes(type).result;
+            Debug.Log($"[find] {type.FullName} tags: {string.Join(", ", list)} Num: {ret.Count}");
+            if (typeof(Component).IsAssignableFrom(type)) {
+                return ret.Select(go => go.GetComponent(type)).FirstOrDefault(t => t != null);
+            }
+            else {
+                return ret.FirstOrDefault(t => t != null);
+            }
+        }
+
+        public static T Find<T>(this Component parent, params object[] tags) where T : Component =>
             Find<T>(new[] {parent?.gameObject}, tags);
 
-        public static T Find<T>(this GameObject parent, params string[] tags) where T : Component =>
+        public static T Find<T>(this GameObject parent, params object[] tags) where T : Component =>
             Find<T>(new[] {parent}, tags);
 
         public static IEnumerable<GameObject> Query(Transform[] parent = null,

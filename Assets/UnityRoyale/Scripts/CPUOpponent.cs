@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 namespace UnityRoyale
 {
-    public class CPUOpponent : MonoBehaviour
+    
+    public class CPUOpponent : ViewManager<CPUOpponent>
     {
         public DeckData aiDeck;
         public UnityAction<CardData, Vector3, Placeable.Faction> OnCardUsed;
@@ -15,9 +16,9 @@ namespace UnityRoyale
             get => GameManager.instance.IsPlaying;
             set => GameManager.instance.IsPlaying = value;
         }
-        private Coroutine actingCoroutine;
 
-		public float opponentLoopTime = 5f;
+        private Coroutine actingCoroutine;
+        public float opponentLoopTime = 5f;
 
         public void LoadDeck()
         {
@@ -28,22 +29,19 @@ namespace UnityRoyale
 
         //...
 
-		private void DeckLoaded(DeckLoader deckLoader)
-		{
-			Debug.Log("AI deck loaded");
-
-			//StartActing();
-        }
-
-		public void StartActing()
-		{
-			Invoke("Bridge", 0f);
-		}
-
-        void OnEnable()
+        private void DeckLoaded(DeckLoader deckLoader)
         {
+            Debug.Log("AI deck loaded");
 
+            //StartActing();
         }
+
+        public void StartActing()
+        {
+            Invoke("Bridge", 0f);
+        }
+
+        void OnEnable() { }
 
         private void Bridge()
         {
@@ -58,19 +56,15 @@ namespace UnityRoyale
         }
 
         //TODO: create a proper AI
-		private IEnumerator CreateRandomCards()
-		{
-            while(act)
-            {
-			    yield return new WaitForSeconds(opponentLoopTime);
-
-
-                if(OnCardUsed != null)
-				{
-					Vector3 newPos = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(3f, 8.5f));
+        private IEnumerator CreateRandomCards()
+        {
+            while (act) {
+                yield return new WaitForSeconds(opponentLoopTime);
+                if (OnCardUsed != null) {
+                    Vector3 newPos = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(3f, 8.5f));
                     OnCardUsed(aiDeck.GetNextCardFromDeck(), newPos, Placeable.Faction.Opponent);
-				}
+                }
             }
-		}
-	}
+        }
+    }
 }

@@ -10,6 +10,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace UnityRoyale
 {
+    [DisallowMultipleComponent]
     public class DeckLoader : MonoBehaviour
     {
         public int count = 0;

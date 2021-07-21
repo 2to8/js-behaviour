@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Consts;
 using GameEngine.Extensions;
 using MoreTags;
+using MoreTags.Attributes;
+using Sirenix.OdinInspector;
 using Tetris;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,17 +21,38 @@ namespace UnityRoyale
         public bool autoStart = false;
 
         [Header("Public References")]
+        [Tags(Id.NavMeshSurface)]
         public NavMeshSurface navMesh;
 
-        public GameObject playersCastle, opponentCastle;
+        [Tags(Id.PlayerCastle)]
+        public GameObject playersCastle;
+
+        [Tags(Id.OpponentCastle)]
+        public GameObject opponentCastle;
+
+        [Tags(Id.IntroTimeline)]
         public GameObject introTimeline;
+
         public PlaceableData castlePData;
+
+        [Tags(Id.EffectPool)]
         public ParticlePool appearEffectPool;
-        private CardManager cardManager => CardManager.instance;
+
+        [ShowInInspector,Tags(Cate.Managers)]
+        private CardManager cardManager;
+
+        [ShowInInspector,Tags(Cate.Managers)]
         private CPUOpponent CPUOpponent;
+
+        [ShowInInspector,Tags(Cate.Managers)]
         private InputManager inputManager;
+
+        [ShowInInspector, Tags(Cate.Managers)]
         private AudioManager audioManager;
-        private UIManager UIManager => UIManager.instance;
+
+        [ShowInInspector,Tags(Cate.Managers)]
+        private UIManager UIManager;
+
         private CinematicsManager cinematicsManager;
         private List<ThinkingPlaceable> playerUnits, opponentUnits;
         private List<ThinkingPlaceable> playerBuildings, opponentBuildings;
@@ -40,7 +63,7 @@ namespace UnityRoyale
         private bool updateAllPlaceables = false; //used to force an update of all AIBrains in the Update loop
         public bool IsPlaying;
 
-        [SerializeField]
+        [SerializeField,Tags(Id.HudUI)]
         public Canvas HudUI;
 
         private const float THINKING_DELAY = 2f;

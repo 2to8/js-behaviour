@@ -7,6 +7,7 @@ using System;
 using Admin;
 using Consts;
 using GameEngine.Extensions;
+using MoreTags.Attributes;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using Tetris;
@@ -17,7 +18,8 @@ namespace UnityRoyale
     public class CardManager : ViewManager<CardManager>
     {
         void OnEnable() { }
-        public Camera mainCamera; //public reference
+        
+        public Camera mainCamera => Camera.main; //public reference
         public LayerMask playingFieldMask;
         public GameObject cardPrefab;
         public DeckData playersDeck;

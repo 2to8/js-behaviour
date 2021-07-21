@@ -10,7 +10,6 @@ namespace MoreTags
     {
         List<string> m_Tags = new List<string>();
         List<Type> m_Types = new List<Type>();
-
         TagQuery m_Query;
 
         public TagQueryItem(TagQuery query)
@@ -35,29 +34,24 @@ namespace MoreTags
         {
             m_Tags.AddRange(tags);
             m_Tags = m_Tags.Distinct().ToList();
-
             return this;
         }
 
         public TagQueryItem with<T>() where T : Component
         {
             m_Types.AddOnce(typeof(T));
-
             return this;
         }
 
         public TagQueryItem withTypes(params Type[] types)
         {
-            m_Types.AddRange(types);
+            m_Types.AddRange(types.Where(t => t != null && typeof(Component).IsAssignableFrom(t)));
             m_Types = m_Types.Distinct().ToList();
-
             return this;
         }
 
         public TagQueryItem tags(params string[] tags) => m_Query.add.withTags(tags);
-
         public TagQueryItem types(params Type[] types) => m_Query.add.withTypes(types);
-
         public (string[] tags, Type[] types) ToQuery => (m_Tags.ToArray(), m_Types.ToArray());
     }
 }

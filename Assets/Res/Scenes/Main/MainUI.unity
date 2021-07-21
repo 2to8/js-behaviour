@@ -5688,6 +5688,90 @@ PrefabInstance:
       objectReference: {fileID: 8689811045670183169, guid: 0ecda375ae64d414d82fa59d86882119, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ecda375ae64d414d82fa59d86882119, type: 3}
+--- !u!1 &729965589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5719498764145786101, guid: dddaafad721ddd242b3655b26a16f82d, type: 3}
+  m_PrefabInstance: {fileID: 5719498763734849760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &729965590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729965589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ce3fef1d2cb0245a6686a95b80b1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_Labels
+      Entry: 6
+      Data: 
+    - Name: m_Injects
+      Entry: 6
+      Data: 
+    - Name: m_Prefabs
+      Entry: 6
+      Data: 
+    - Name: m_States
+      Entry: 6
+      Data: 
+    - Name: m_Ids
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 166
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  asset:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  Description: 
+  BindScriptOnstart: 0
+  groupIndex: 0
+  ClearOnSave: 0
+  ClearChildrenOnSave: 0
+  E_OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDestory:
+    m_PersistentCalls:
+      m_Calls: []
+  currentTag:
+    m_LabelString: 
+  currentState:
+    m_LabelString: 
+  BindScriptOnAwake: 0
+  isAwaked: 1
 --- !u!1001 &3194554431894039597
 PrefabInstance:
   m_ObjectHideFlags: 0

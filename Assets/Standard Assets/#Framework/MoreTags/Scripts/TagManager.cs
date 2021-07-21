@@ -205,6 +205,7 @@ namespace MoreTags
         {
             Data.Add(tagsData);
             SaveAsset();
+            instance.SaveTags();
         }
 
         [Button, ButtonGroup("SaveLoad")]
@@ -228,24 +229,26 @@ namespace MoreTags
         }
 
         [Button, ButtonGroup("SaveLoad")]
-        void SaveTags()
+        public void SaveTags()
         {
-            var data = TagData.FetchAll();
+            var table = TagData.FetchAll();
             var ids = new Dictionary<int, TagData>();
-            data.ForEach(t => ids[t.Id] = t);
+            table.ForEach(t => ids[t.Id] = t);
             var tids = new Dictionary<int, TagData>();
             this.data.ForEach(t => tids[t.Id] = t);
 
-            data.ForEach(t => {
+            table.ForEach(t => {
                 if (!tids.ContainsKey(t.Id)) {
                     TagData.Delete(n => n.Id == t.Id);
                 } else {
+                    Debug.Log($"update tag: {t.Id} {tids[t.Id]?.name}");
                     DB.Update(tids[t.Id]);
                 }
             });
             this.data.Where(t => t.Id > 0 && !string.IsNullOrWhiteSpace(t.name) && !ids.ContainsKey(t.Id))
                 .ForEach(t => {
                     t.name = t.name.Trim();
+                    Debug.Log($"insert tag: {t.Id} {t.name}");
                     DB.Insert(t);
                 });
         }

@@ -24,6 +24,7 @@ namespace Admin
             private set => m_Object = value;
         }
 
+        [InfoBox("当前场景为[Main]才会启用", InfoMessageType.None), ShowInInspector, HideIf(nameof(isMain))]
         bool isMain => SceneManager.GetActiveScene().name == $"{SceneName.Main}";
 
         protected override void OnEnable()

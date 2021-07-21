@@ -378,6 +378,11 @@ public static partial class Core
         return false;
     }
 
+    public static string GetFullName(this Enum myEnum)
+    {
+        return $"{myEnum.GetType().Name}.{myEnum.ToString()}";
+    }
+
     public static void ReloadScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()

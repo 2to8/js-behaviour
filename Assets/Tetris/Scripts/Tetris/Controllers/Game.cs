@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Consts;
+using MoreTags.Attributes;
 using Puerts.Attributes;
 using TeamDev.Redis;
 using Tetris.Blocks;
@@ -56,16 +57,17 @@ namespace Tetris
         [SerializeField]
         public Block[] blocks;
 
-        [SerializeField]
+        [SerializeField, Tags(Id.CurrentBlockRoot)]
         public Transform CurrentBlockRoot;
 
         [Title("Roots")]
-        [SerializeField]
+        [SerializeField, Tags(Id.PreviewRoot)]
         public Transform PreviewRoot;
 
-        [SerializeField]
+        [SerializeField, Tags(Id.MovableRoot)]
         public Transform MovableRoot;
 
+        [Tags(Id.ActorRoot)]
         public GameObject ActorRoot;
 
         [SerializeField]

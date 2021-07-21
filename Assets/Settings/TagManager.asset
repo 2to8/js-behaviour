@@ -46,134 +46,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
   data:
-  - m_Id: 74
-    m_Name: E.Start
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 87
-    m_Name: default
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 88
-    m_Name: asteroids
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 89
-    m_Name: preload
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 91
-    m_Name: spaceHazards
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
   - m_Id: 93
     m_Name: id.Game
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 95
-    m_Name: Unused
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 96
-    m_Name: demo
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 98
-    m_Name: MoneyNum
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 99
-    m_Name: Score
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 100
-    m_Name: Money
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 101
-    m_Name: Lines
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 102
-    m_Name: Rescue
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 103
-    m_Name: Pause
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 104
-    m_Name: Health
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 105
-    m_Name: Mission
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 106
-    m_Name: DontShow
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 107
-    m_Name: Craft_1
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 108
-    m_Name: Craft_0
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 109
-    m_Name: Craft_2
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 110
-    m_Name: Craft_3
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 111
-    m_Name: block
     m_Color: {r: 1, g: 1, b: 1, a: 1}
     m_Type: 1
     m_Path: 
@@ -184,110 +58,8 @@ MonoBehaviour:
     m_Type: 1
     m_Path: 
     gameObjects: []
-  - m_Id: 115
-    m_Name: MainCamera
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
   - m_Id: 116
     m_Name: id.CraftCamera
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 118
-    m_Name: Locked
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 119
-    m_Name: Cell
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 120
-    m_Name: Wood
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 121
-    m_Name: Wood1
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 122
-    m_Name: Wood2
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 123
-    m_Name: Stone
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 124
-    m_Name: Stone2
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 125
-    m_Name: Stone1
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 126
-    m_Name: Block.I
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 127
-    m_Name: Block.J
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 128
-    m_Name: Block.L
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 129
-    m_Name: Block.O
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 130
-    m_Name: Block.S
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 131
-    m_Name: Block.T
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 132
-    m_Name: Block.Z
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 133
-    m_Name: LevelLoad
     m_Color: {r: 1, g: 1, b: 1, a: 1}
     m_Type: 1
     m_Path: 
@@ -454,8 +226,44 @@ MonoBehaviour:
     m_Type: 1
     m_Path: 
     gameObjects: []
-  - m_Id: 15
-    m_Name: Love.Lily
+  - m_Id: 22
+    m_Name: Id.EffectPool
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 23
+    m_Name: Id.PlayerCastle
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 18
+    m_Name: Id.OpponentCastle
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 19
+    m_Name: Id.IntroTimeline
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 24
+    m_Name: Id.NavMeshSurface
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 25
+    m_Name: Cate.Managers
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 166
+    m_Name: Id.HudUI
     m_Color: {r: 1, g: 1, b: 1, a: 1}
     m_Type: 1
     m_Path: 

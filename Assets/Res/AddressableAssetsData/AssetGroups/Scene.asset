@@ -25,6 +25,18 @@ MonoBehaviour:
     m_Address: Assets/Tetris/Scenes/Main.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 0b7690794feb9064ea45145beb33f1fe
+    m_Address: Assets/Res/Scenes/Main/MainUI.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: be0537e22690241468e0481c527000ac
+    m_Address: Assets/Res/Scenes/Main/MainSystems.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b2077cffb78b06549b217dc0f0e278bb
+    m_Address: Assets/Res/Scenes/Main/MainSandbox.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e475f1f6e1893ed45ae68f2d91299e30, type: 2}
   m_SchemaSet:

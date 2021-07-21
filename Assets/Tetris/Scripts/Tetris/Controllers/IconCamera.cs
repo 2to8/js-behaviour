@@ -63,8 +63,8 @@ namespace Tetris.Main
             // that will be read by ReadPixels.
             var currentRT = RenderTexture.active;
             if (camera == null) {
-                camera = TagSystem.Find<Camera>("Id.CraftCamera");
-                Assert.IsNotNull(camera, $"Id.CraftCamera Not Found");
+                camera = TagSystem.Find<Camera>(Id.IconCamera);
+                Assert.IsNotNull(camera, $"{Id.IconCamera} Not Found");
             }
 
             RenderTexture.active = camera.targetTexture;

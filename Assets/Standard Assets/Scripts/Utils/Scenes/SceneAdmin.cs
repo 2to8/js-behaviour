@@ -3,6 +3,8 @@ using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Consts;
+using Sirenix.Serialization;
+using Sirenix.Utilities;
 using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -27,6 +29,7 @@ namespace Utils.Scenes
 //        //     }
 //        // }
         public static Dictionary<Scene, SceneAdmin> instances = new Dictionary<Scene, SceneAdmin>();
+        public List<AssetReference> OtherScenes = new List<AssetReference>();
 
         [SerializeField]
         AssetReference m_EnvReference;
@@ -75,6 +78,18 @@ namespace Utils.Scenes
         protected void Awake()
         {
             instances[gameObject.scene] = this;
+            LoadScenes();
+        }
+
+        [Button]
+        void LoadScenes()
+        {
+            foreach (var reference in OtherScenes) {
+#if UNITY_EDITOR
+                Debug.Log(AssetDatabase.GUIDToAssetPath(reference.AssetGUID));
+#endif
+                reference?.LoadSceneAsync(LoadSceneMode.Additive, true);
+            }
         }
     }
 }
