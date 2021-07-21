@@ -377,4 +377,10 @@ public static partial class Core
         Debug.Log(msg);
         return false;
     }
+
+    public static void ReloadScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
+            .name);
+    }
 }

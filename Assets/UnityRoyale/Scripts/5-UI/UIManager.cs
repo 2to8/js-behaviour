@@ -14,10 +14,12 @@ namespace UnityRoyale
         private List<HealthBar> healthBars;
         private Transform healthBarContainer;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             healthBars = new List<HealthBar>();
-            healthBarContainer = new GameObject("HealthBarContainer").transform;
+            healthBarContainer = (GameObject.Find("/HealthBarContainer") ?? new GameObject("HealthBarContainer"))
+                .transform;
         }
 
         public void AddHealthUI(ThinkingPlaceable p)
@@ -42,8 +44,9 @@ namespace UnityRoyale
 
         public void OnRetryButton()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
-                .name);
+            Core.ReloadScene();
+//            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
+//                .name);
         }
 
         private void LateUpdate()
