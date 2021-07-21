@@ -20,20 +20,20 @@ namespace UnityRoyale
         public void LoadDeck(DeckData deckToLoad)
         {
             targetDeck = deckToLoad;
-            Addressables.LoadAssetsAsync<CardData>(targetDeck.labelsToInclude[0].labelString, null).Completed += obj => {
-                targetDeck.CardsRetrieved((List<CardData>)obj.Result);
-                OnDeckLoaded?.Invoke(this);
-                this.DestroySelf();
+            var obj = Addressables.LoadAssetsAsync<CardData>(targetDeck.labelsToInclude[0].labelString, null);
+            obj.WaitForCompletion();
+            targetDeck.CardsRetrieved((List<CardData>) obj.Result);
+            OnDeckLoaded?.Invoke(this);
+            this.DestroySelf();
 
-                //Destroy(this);                
-            };
+            //Destroy(this);                
         }
 
         //...
 
-		// private void OnResourcesRetrieved(IAsyncOperation<IList<CardData>> obj)
-		// {
+        // private void OnResourcesRetrieved(IAsyncOperation<IList<CardData>> obj)
+        // {
 
-		// }
-	}
+        // }
+    }
 }

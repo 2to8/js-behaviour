@@ -27,6 +27,7 @@ using ParadoxNotion.Design;
 using TMPro;
 using UniRx.Async;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -53,14 +54,21 @@ namespace MoreTags
             get {
                 if (!m_References.Any()) {
                     m_References.FetchAll();
-                    if (!Application.isPlaying) {
-                        Debug.Log("init gameobjects for tags".ToBlue());
-                        Core.GetAllLoadedScenes().SelectMany(scene => scene.GetRootGameObjects()).ForEach(go => {
-                            go.GetComponentsInChildren<Tags>(true).Where(t => t != null && t.ids.Any()).ForEach(t => {
-                                t.gameObject.AddTag(t.ids.ToArray());
-                            });
-                        });
-                    }
+//                    if (!Application.isPlaying) {
+//#if UNITY_EDITOR
+//                        Debug.Log($"init gameobjects for tags, opened scenes: {EditorSceneManager.loadedSceneCount}"
+//                            .ToBlue());
+//#endif
+//                        var ts = new HashSet<string>();
+//                        Core.GetAllLoadedScenes().SelectMany(scene => scene.GetRootGameObjects()).ForEach(go => {
+//                            go.GetComponentsInChildren<Tags>(true).Where(t => t != null && t.ids.Any()).ForEach(t => {
+//                                t.gameObject.AddTag(t.ids.ToArray());
+//                                //Debug.Log(t.gameObject.name, t.gameObject);
+//                                //Tags(t.ids.ToArray()).ForEach(t1 => ts.Add(t1));
+//                            });
+//                        });
+//                        //Debug.Log("All Tags: "+ string.Join(", ",ts.ToArray()));
+//                    }
                 }
 
                 return m_References;

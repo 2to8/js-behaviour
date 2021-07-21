@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using GameEngine.Extensions;
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +24,7 @@ namespace UnityRoyale
 
         public void LoadDeck()
         {
+            gameObject.GetComponents<DeckLoader>().ForEach(t => t.DestroySelf());
             DeckLoader newDeckLoaderComp = gameObject.AddComponent<DeckLoader>();
             newDeckLoaderComp.OnDeckLoaded += DeckLoaded;
             newDeckLoaderComp.LoadDeck(aiDeck);
@@ -38,7 +41,7 @@ namespace UnityRoyale
 
         public void StartActing()
         {
-            Invoke("Bridge", 0f);
+            Invoke(nameof(Bridge), 0f);
         }
 
         void OnEnable() { }

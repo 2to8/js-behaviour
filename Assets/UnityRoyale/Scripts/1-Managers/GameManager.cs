@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 namespace UnityRoyale
 {
@@ -38,19 +39,19 @@ namespace UnityRoyale
         [Tags(Id.EffectPool)]
         public ParticlePool appearEffectPool;
 
-        [ShowInInspector,Tags(Cate.Managers)]
+        [ShowInInspector, Tags(Cate.Managers)]
         private CardManager cardManager;
 
-        [ShowInInspector,Tags(Cate.Managers)]
+        [ShowInInspector, Tags(Cate.Managers)]
         private CPUOpponent CPUOpponent;
 
-        [ShowInInspector,Tags(Cate.Managers)]
+        [ShowInInspector, Tags(Cate.Managers)]
         private InputManager inputManager;
 
         [ShowInInspector, Tags(Cate.Managers)]
         private AudioManager audioManager;
 
-        [ShowInInspector,Tags(Cate.Managers)]
+        [ShowInInspector, Tags(Cate.Managers)]
         private UIManager UIManager;
 
         private CinematicsManager cinematicsManager;
@@ -63,7 +64,7 @@ namespace UnityRoyale
         private bool updateAllPlaceables = false; //used to force an update of all AIBrains in the Update loop
         public bool IsPlaying;
 
-        [SerializeField,Tags(Id.HudUI)]
+        [SerializeField, Tags(Id.HudUI)]
         public Canvas HudUI;
 
         private const float THINKING_DELAY = 2f;

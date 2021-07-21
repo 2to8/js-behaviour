@@ -82,6 +82,7 @@ namespace UnityRoyale
 
         public void LoadDeck(bool allCards = true)
         {
+            gameObject.GetComponents<DeckLoader>().ForEach(t => t.DestroySelf());
             DeckLoader newDeckLoaderComp = gameObject.AddComponent<DeckLoader>();
             newDeckLoaderComp.count = allCards ? cards.Length : 1;
             newDeckLoaderComp.OnDeckLoaded += DeckLoaded;

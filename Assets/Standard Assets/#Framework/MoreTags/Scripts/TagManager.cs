@@ -18,6 +18,7 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.Experimental.SceneManagement;
+using UnityEditor.SceneManagement;
 
 //using UnityEditor.ShaderGraph.Internal;
 #endif
@@ -299,8 +300,18 @@ namespace MoreTags
         static void OnInitialize()
         {
             Core.FindOrCreatePreloadAsset<TagManager>();
+            EditorSceneManager.sceneOpening += (path, mode) => {
+                Debug.Log($"OpenScene: {path}".ToRed());
+            };
+            //Debug.Log("scene Loaded: " +string.Join(", ",SceneManager.GetAllScenes().Select(t => t.name)).ToRed() );
         }
     #endif
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        static void LoadTagsBeforeScene()
+        {
+
+        }
 
         // #endif
         protected override void OnEnable()

@@ -78,11 +78,11 @@ namespace Utils.Scenes
         protected void Awake()
         {
             instances[gameObject.scene] = this;
-            LoadScenes();
+            //LoadScenes();
         }
 
         [Button]
-        void LoadScenes()
+        public void LoadScenes()
         {
             foreach (var reference in OtherScenes) {
 #if UNITY_EDITOR
