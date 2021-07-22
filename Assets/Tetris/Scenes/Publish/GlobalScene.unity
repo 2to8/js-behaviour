@@ -177,6 +177,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  OtherScenes: []
   m_EnvReference:
     m_AssetGUID: b48e08d0f6ade234e94cc1bd4c58f663
     m_SubObjectName: 

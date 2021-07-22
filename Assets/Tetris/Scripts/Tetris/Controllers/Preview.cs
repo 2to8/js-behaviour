@@ -1,6 +1,7 @@
 using System.Linq;
 using Consts;
 using JetBrains.Annotations;
+using MoreTags.Attributes;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using Tetris.Blocks;
@@ -15,9 +16,12 @@ namespace Tetris.Managers
         [NotNull]
         Block currentBlock => TetrisManager.instance.currentBlock;
 
+        [Tags(Id.PreviewRoot)]
         public GameObject root;
 
         #region Block Preview
+
+        void OnEnable() { }
 
         [ButtonGroup("debug")]
         public void InitPreview()
