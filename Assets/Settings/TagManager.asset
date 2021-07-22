@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Id
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: IsUser
       Entry: 5
       Data: false
@@ -35,7 +35,7 @@ MonoBehaviour:
       Data: 1617330777294
     - Name: Updated
       Entry: 3
-      Data: 1617330777294
+      Data: 1626953207776
     - Name: m_DefaultState
       Entry: 7
       Data: 0|System.RuntimeType, mscorlib
@@ -300,6 +300,12 @@ MonoBehaviour:
     gameObjects: []
   - m_Id: 184
     m_Name: Id.CurrentBlockRoot
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 168
+    m_Name: Id.IconCamera
     m_Color: {r: 1, g: 1, b: 1, a: 1}
     m_Type: 1
     m_Path: 

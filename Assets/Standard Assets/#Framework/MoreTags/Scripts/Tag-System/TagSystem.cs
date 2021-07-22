@@ -391,10 +391,10 @@ namespace MoreTags
             }
         }
 
-        public static void AddTag(this GameObject gameObject, params string[] tags)
+        public static void AddTag(this GameObject gameObject, params string[] _tags)
         {
             if (gameObject == null) return;
-            tags.Select(t => t.Trim()).Where(t => !string.IsNullOrEmpty(t)).ForEach(tag => {
+            _tags.Select(t => t.Trim()).Where(t => !string.IsNullOrEmpty(t)).ForEach(tag => {
                 if (!refs.ContainsKey(tag)) {
                     refs.Add(tag, new TagRefs());
                     TagData.FirstOrInsert(t => t.name == tag, add => {

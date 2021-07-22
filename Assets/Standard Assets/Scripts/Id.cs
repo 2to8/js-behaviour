@@ -1,7 +1,6 @@
 ﻿public enum Id
 {
     Default = 0,
-    IconCamera,
     MovableRoot,
     ActorRoot,
     PreviewRoot,
@@ -13,7 +12,9 @@
     NavMeshSurface,
     HudUI,
     GameOverUI,
-    HealthBarContainer
+    HealthBarContainer,
+    BlockCamera,
+    CraftCamera
 }
 
 public enum Cate

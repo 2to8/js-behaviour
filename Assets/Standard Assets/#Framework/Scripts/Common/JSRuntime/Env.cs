@@ -345,8 +345,11 @@ namespace Common.JSRuntime
 
             // 加载sourcemap
             Call("require('sourcemap')");
-            Debug.Log($"bootstrap module size: {modules["bootstrap"].text.Length}");
-            Call("require('index').default || require('index')"/*, new BindScript()*/);
+            if (modules["bootstrap"] != null) {
+                Debug.Log($"bootstrap module size: {modules["bootstrap"].text.Length}");
+            }
+
+            Call("require('index').default || require('index')" /*, new BindScript()*/);
             Inited = true;
         }
 

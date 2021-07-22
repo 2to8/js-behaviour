@@ -1,6 +1,7 @@
 using System.Linq;
 using GameEngine.Extensions;
 using MoreTags;
+using MoreTags.Attributes;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -31,7 +32,7 @@ namespace Tetris.Main
             set => StartPoint = new Vector2(StartPoint.x, value);
         }
 
-        [SerializeField]
+        [SerializeField, Tags(Id.CraftCamera)]
         Camera camera;
 
         bool drawed;
@@ -48,7 +49,7 @@ namespace Tetris.Main
         [MenuItem("Tests/Tags/Find Tag", false, 100)]
         static void TestFindTag()
         {
-            var tagName = "id.blockCamera";
+            var tagName = Id.BlockCamera;// "id.blockCamera";
             Debug.Log(TagSystem.refs.Select(tk => tk.Key).Join());
             Debug.Log(TagSystem.query.tags(tagName).withTypes(typeof(Camera)).result.Select(go => go.name).Join());
             Debug.Log(TagSystem.Find<Camera>(tagName)?.gameObject.name);
@@ -63,8 +64,8 @@ namespace Tetris.Main
             // that will be read by ReadPixels.
             var currentRT = RenderTexture.active;
             if (camera == null) {
-                camera = TagSystem.Find<Camera>(Id.IconCamera);
-                Assert.IsNotNull(camera, $"{Id.IconCamera} Not Found");
+                camera = TagSystem.Find<Camera>(Id.CraftCamera);
+                Assert.IsNotNull(camera, $"{Id.CraftCamera} Not Found");
             }
 
             RenderTexture.active = camera.targetTexture;

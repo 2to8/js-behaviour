@@ -30,9 +30,9 @@ namespace MoreTags
             return result.Select(go => go.GetComponent(m_Types.FirstOrDefault())).FirstOrDefault(t => t != null);
         }
 
-        public TagQueryItem withTags(params string[] tags)
+        public TagQueryItem withTags(params object[] tags)
         {
-            m_Tags.AddRange(tags);
+            m_Tags.AddRange(tags.Select(t => t is Enum e ? e.GetFullName() : $"{t}"));
             m_Tags = m_Tags.Distinct().ToList();
             return this;
         }

@@ -204,6 +204,7 @@ namespace MoreTags
 
         public static void Add(TagData tagsData)
         {
+            Core.Connection.InsertOrReplace(tagsData);
             Data.Add(tagsData);
             SaveAsset();
             instance.SaveTags();

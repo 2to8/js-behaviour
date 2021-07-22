@@ -10,4 +10,8 @@ export class TNode extends Node {
         }
         
     }
+    
+    onTest(){
+        this.Validate.bind(this)
+    }
 }

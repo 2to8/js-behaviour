@@ -95,6 +95,7 @@ global.$testBind = (obj: TestBind) => {
     obj.test2();
 }
 
+
 Array.prototype['toArray'] = function <T1 extends System.Object | any>(type: new (...args: any[]) => T1): System.Array$1<T1> {
     let ret = System.Array.CreateInstance($typeof(type), this.length) as System.Array$1<T1>;
     for (let i = 0; i < this.length; i++) {
