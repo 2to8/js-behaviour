@@ -46,6 +46,48 @@ MonoBehaviour:
       Entry: 8
       Data: 
   data:
+  - m_Id: 17
+    m_Name: Do.HideOnStart
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 18
+    m_Name: Id.OpponentCastle
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 19
+    m_Name: Id.IntroTimeline
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 22
+    m_Name: Id.EffectPool
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 23
+    m_Name: Id.PlayerCastle
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 24
+    m_Name: Id.NavMeshSurface
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 25
+    m_Name: Cate.Managers
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
   - m_Id: 93
     m_Name: id.Game
     m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -202,68 +244,14 @@ MonoBehaviour:
     m_Type: 1
     m_Path: 
     gameObjects: []
-  - m_Id: 1
-    m_Name: m.Game
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 17
-    m_Name: Do.HideOnStart
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 18
-    m_Name: id.test
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 19
-    m_Name: Id.Lily
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 22
-    m_Name: Id.EffectPool
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 23
-    m_Name: Id.PlayerCastle
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 18
-    m_Name: Id.OpponentCastle
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 19
-    m_Name: Id.IntroTimeline
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 24
-    m_Name: Id.NavMeshSurface
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
-  - m_Id: 25
-    m_Name: Cate.Managers
-    m_Color: {r: 1, g: 1, b: 1, a: 1}
-    m_Type: 1
-    m_Path: 
-    gameObjects: []
   - m_Id: 166
     m_Name: Id.HudUI
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 168
+    m_Name: Id.IconCamera
     m_Color: {r: 1, g: 1, b: 1, a: 1}
     m_Type: 1
     m_Path: 
@@ -304,8 +292,8 @@ MonoBehaviour:
     m_Type: 1
     m_Path: 
     gameObjects: []
-  - m_Id: 168
-    m_Name: Id.IconCamera
+  - m_Id: 193
+    m_Name: Id.TestTag
     m_Color: {r: 1, g: 1, b: 1, a: 1}
     m_Type: 1
     m_Path: 
