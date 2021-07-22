@@ -32,6 +32,8 @@ import Node = NodeCanvas.Framework.Node;
 import Process = System.Diagnostics.Process;
 import Tags = MoreTags.Tags;
 import TestJs = Sandbox.TestJs;
+import Int32 = System.Int32;
+import Convert = System.Convert;
 
 global.$hello = (s: string) => {
     Debug.Log(`hello, ${ s }`)
@@ -93,22 +95,17 @@ global.$testBind = (obj: TestBind) => {
     obj.test2();
 }
 
-// @ts-ignore
-Array.prototype['toArray'] = function <T1 extends System.Object>(type: new (...args: any[]) => T1): System.Array$1<T1> {
-    let ret = System.Array.CreateInstance($typeof(type), this.length);
+Array.prototype['toArray'] = function <T1 extends System.Object | any>(type: new (...args: any[]) => T1): System.Array$1<T1> {
+    let ret = System.Array.CreateInstance($typeof(type), this.length) as System.Array$1<T1>;
     for (let i = 0; i < this.length; i++) {
-        ret.SetValue(this[i], i)
+        ret.set_Item(i, this[i]);
     }
-    return ret as any;
+    return ret;
 }
 
+TestJs.TestArray([ 1, 2, 3 ].toArray(Int32));
+
 $([ id.Pause ], [ st.game.GameOver, [ st.game.Pause ] ]);
-
-
-
-// let t = [];
-// TestJs.TestArray(t.toArray(System.Int32));
-// TestJs.TestArray2(...t);
 
 uses(   //
     TNode,//

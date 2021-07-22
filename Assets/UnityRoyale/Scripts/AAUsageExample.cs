@@ -14,7 +14,6 @@ namespace UnityRoyale
     [Name("AAUsageExample"), Category("✫ App"), Description("UnityRoyale.AAUsageExampleAction")]
     public partial class AAUsageExampleAction : ActionTask<Transform>
     {
-
         public GameObject target;
 
         [HideInInspector]
@@ -116,9 +115,9 @@ namespace UnityRoyale
 
         void Start()
         {
-            refObject.InstantiateAsync(Vector3.zero, Quaternion.identity, null).Completed += asyncOp => {
-                Debug.Log(asyncOp.Result.name + " loaded.");
-            };
+            var asyncOp = refObject.InstantiateAsync(Vector3.zero, Quaternion.identity, null);
+            asyncOp.WaitForCompletion();
+            Debug.Log(asyncOp.Result.name + " loaded.");
         }
 
         // private void OnAssetInstantiated(IAsyncOperation<GameObject> asyncOp)

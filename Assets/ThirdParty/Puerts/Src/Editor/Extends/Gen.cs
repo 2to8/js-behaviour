@@ -63,7 +63,7 @@ export default function() {{
             var src = Path.Combine(Configure.GetCodeOutputDirectory(), "Typing/csharp");
             var saveTo = string.Join("/", Application.dataPath, "../Packages/typings");
             //Directory.CreateDirectory(saveTo);
-            Directory.CreateDirectory(saveTo);
+            Directory.CreateDirectory(saveTo+"/csharp");
             Puerts.Editor.Generator.GenerateDTS();
             //File.Copy($"{src}/index.d.ts", $"{saveTo}/index.d.ts", true);
             using (StreamWriter textWriter = new StreamWriter($"{saveTo}/csharp/index.d.ts", false, Encoding.UTF8)) {
@@ -72,7 +72,7 @@ export default function() {{
                     File.ReadAllText($"{src}/index.d.ts"));
                 textWriter.Flush();
             }
-            File.Delete($"{saveTo}/csharp/index.d.ts");
+            File.Delete($"{src}/index.d.ts");
 
             GenerateExtensions();
             //ExamplesCfg.TestUsingAction();

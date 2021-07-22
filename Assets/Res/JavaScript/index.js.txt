@@ -3852,6 +3852,8 @@
 	var Debug = csharp.UnityEngine.Debug;
 	var TestCs2Ts = csharp.Sandbox.TestCs2Ts;
 	var Strings = csharp.GameEngine.Extensions.Strings;
+	var TestJs = csharp.Sandbox.TestJs;
+	var Int32 = csharp.System.Int32;
 	global.$hello = (s) => {
 	    Debug.Log(`hello, ${s}`);
 	};
@@ -3902,14 +3904,12 @@
 	Array.prototype['toArray'] = function (type) {
 	    let ret = csharp.System.Array.CreateInstance(puerts.$typeof(type), this.length);
 	    for (let i = 0; i < this.length; i++) {
-	        ret.SetValue(this[i], i);
+	        ret.set_Item(i, this[i]);
 	    }
 	    return ret;
 	};
 	$([id.Pause], [st.game.GameOver, [st.game.Pause]]);
-	// let t = [];
-	// TestJs.TestArray(t.toArray(System.Int32));
-	// TestJs.TestArray2(...t);
+	TestJs.TestArray([1, 2, 3].toArray(Int32));
 	uses(//
 	TNode, //
 	TTestFindNode, //
