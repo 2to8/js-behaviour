@@ -280,3 +280,27 @@ MonoBehaviour:
     m_Type: 1
     m_Path: 
     gameObjects: []
+  - m_Id: 181
+    m_Name: Id.MovableRoot
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 182
+    m_Name: Id.ActorRoot
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 183
+    m_Name: Id.PreviewRoot
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []
+  - m_Id: 184
+    m_Name: Id.CurrentBlockRoot
+    m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Type: 1
+    m_Path: 
+    gameObjects: []

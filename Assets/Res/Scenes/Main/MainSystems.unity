@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 728587}
   - component: {fileID: 728588}
-  - component: {fileID: 728599}
   - component: {fileID: 728604}
   m_Layer: 0
   m_Name: CardManager
@@ -188,7 +187,7 @@ MonoBehaviour:
       Data: 1|System.Delegate[], mscorlib
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 6
     - Name: 
       Entry: 7
       Data: 2|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
@@ -427,6 +426,47 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 17|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
+        UnityEngine.CoreModule],[UnityRoyale.Placeable+Faction, Assembly-CSharp]],
+        UnityEngine.CoreModule
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: UseCard
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 18|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 9
+      Data: 6
+    - Name: 
+      Entry: 9
+      Data: 7
+    - Name: 
+      Entry: 9
+      Data: 8
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -449,19 +489,6 @@ MonoBehaviour:
   backupCardTransform: {fileID: 0}
   cardsDashboard: {fileID: 0}
   cardsPanel: {fileID: 0}
---- !u!114 &728599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88360360e652a42d7b3cd3b092832def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 1
 --- !u!114 &728604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4988,7 +5015,7 @@ MonoBehaviour:
     SerializationNodes: []
   blockId: 416
   level: 3
-  LevelData: {fileID: 1998360240}
+  LevelData: {fileID: 1536838786}
 --- !u!1 &275310455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4999,8 +5026,6 @@ GameObject:
   m_Component:
   - component: {fileID: 275310456}
   - component: {fileID: 275310457}
-  - component: {fileID: 275310459}
-  - component: {fileID: 275310458}
   - component: {fileID: 275310460}
   m_Layer: 0
   m_Name: CPU Opponent
@@ -5050,12 +5075,23 @@ MonoBehaviour:
       Data: 0|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
         UnityEngine.CoreModule],[UnityRoyale.Placeable+Faction, Assembly-CSharp]],
         UnityEngine.CoreModule
+    - Name: invocationList
+      Entry: 7
+      Data: 1|System.Delegate[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 2|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
+        UnityEngine.CoreModule],[UnityRoyale.Placeable+Faction, Assembly-CSharp]],
+        UnityEngine.CoreModule
     - Name: target
       Entry: 10
       Data: 0
     - Name: declaringType
       Entry: 7
-      Data: 1|System.RuntimeType, mscorlib
+      Data: 3|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityRoyale.GameManager, Assembly-CSharp
@@ -5067,7 +5103,7 @@ MonoBehaviour:
       Data: UseCard
     - Name: delegateType
       Entry: 7
-      Data: 2|System.RuntimeType, mscorlib
+      Data: 4|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
@@ -5078,13 +5114,13 @@ MonoBehaviour:
       Data: 
     - Name: signature
       Entry: 7
-      Data: 3|System.Type[], mscorlib
+      Data: 5|System.Type[], mscorlib
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
       Entry: 7
-      Data: 4|System.RuntimeType, mscorlib
+      Data: 6|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityRoyale.CardData, Assembly-CSharp
@@ -5093,7 +5129,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|System.RuntimeType, mscorlib
+      Data: 7|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
@@ -5102,7 +5138,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|System.RuntimeType, mscorlib
+      Data: 8|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: UnityRoyale.Placeable+Faction, Assembly-CSharp
@@ -5118,34 +5154,58 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
+        UnityEngine.CoreModule],[UnityRoyale.Placeable+Faction, Assembly-CSharp]],
+        UnityEngine.CoreModule
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: UseCard
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 10|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 9
+      Data: 6
+    - Name: 
+      Entry: 9
+      Data: 7
+    - Name: 
+      Entry: 9
+      Data: 8
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   aiDeck: {fileID: 11400000, guid: 8a5c0422680584f748caecc799c2ca4a, type: 2}
   opponentLoopTime: 5
---- !u!114 &275310458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275310455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88360360e652a42d7b3cd3b092832def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 0
---- !u!114 &275310459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275310455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88360360e652a42d7b3cd3b092832def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 0
 --- !u!114 &275310460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5913,1382 +5973,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   camera: {fileID: 0}
---- !u!1 &1571773889
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1571773890}
-  - component: {fileID: 1571773891}
-  m_Layer: 0
-  m_Name: Preview
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1571773890
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571773889}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1571773891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571773889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b217e895c8dad540b45b2be9e9f55c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  root: {fileID: 0}
---- !u!1 &1649836747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1649836748}
-  - component: {fileID: 1649836749}
-  - component: {fileID: 1649836750}
-  m_Layer: 0
-  m_Name: UI Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1649836748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649836747}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2055193195}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1649836749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649836747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9dfff6afe9f473395e43cedfdc0242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  healthBarPrefab: {fileID: 2299034459240315198, guid: 9e92fec54b5d04c808690d208805e76c, type: 3}
-  gameOverUI: {fileID: 0}
-  healthBarContainer: {fileID: 0}
---- !u!114 &1649836750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649836747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ce3fef1d2cb0245a6686a95b80b1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: m_Labels
-      Entry: 6
-      Data: 
-    - Name: m_Injects
-      Entry: 6
-      Data: 
-    - Name: m_Prefabs
-      Entry: 6
-      Data: 
-    - Name: m_States
-      Entry: 6
-      Data: 
-    - Name: m_Ids
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  asset:
-    m_AssetGUID: 
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  Description: 
-  BindScriptOnstart: 0
-  groupIndex: 0
-  ClearOnSave: 0
-  ClearChildrenOnSave: 0
-  E_OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnAwake:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnEnable:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnDisable:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnDestory:
-    m_PersistentCalls:
-      m_Calls: []
-  currentTag:
-    m_LabelString: 
-  currentState:
-    m_LabelString: 
-  BindScriptOnAwake: 0
-  isAwaked: 1
---- !u!1 &1694616664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1694616665}
-  - component: {fileID: 1694616666}
-  m_Layer: 0
-  m_Name: Tetris
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1694616665
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694616664}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1869282120}
-  - {fileID: 1528580243}
-  - {fileID: 1175446949}
-  - {fileID: 232076553}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1694616666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694616664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89cdb8c0627eb8c4caae08cf8fc33147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  level: 3
-  blocks:
-  - {fileID: 8884422117842273872, guid: dc688b11061ed734ca32e8a3962590bf, type: 3}
-  - {fileID: 6871790077741125120, guid: 569f1740bbb5f7240a537993edff7b09, type: 3}
-  - {fileID: 4766945971592258467, guid: 8f7a6c2525c51174c9edfd1f2d362815, type: 3}
-  - {fileID: 6127767908934618292, guid: 52d6edf14648c274e96c76c9472b0e58, type: 3}
-  - {fileID: 4266390166317881271, guid: 1fb48aeb0aaafbe4ea23edd02bb451be, type: 3}
-  - {fileID: 2497201849960472371, guid: 9589b6d275ce04e4c89a33321a3ec143, type: 3}
-  - {fileID: 3911191374480825551, guid: 4c0149273d605a747ae87f7ad2070fc6, type: 3}
-  CurrentBlockRoot: {fileID: 0}
-  PreviewRoot: {fileID: 0}
-  MovableRoot: {fileID: 0}
-  ActorRoot: {fileID: 0}
-  previeField:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  OnPauseCallback:
-    m_PersistentCalls:
-      m_Calls: []
-  OnGammingCallback:
-    m_PersistentCalls:
-      m_Calls: []
-  m_tetris: {fileID: 11400000, guid: 71229317f2d419a4f988d16dc3d60f7a, type: 2}
-  m_Spawner: {fileID: 11400000, guid: 8e34f0dd22f78204cb6d2bf2c9fb35c6, type: 2}
-  m_VFX: {fileID: 0}
-  OnFirstBlock:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1694616666}
-        m_TargetAssemblyTypeName: Tetris.Game, Assembly-CSharp
-        m_MethodName: DoGameStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  IsDefaultGameStart: 1
---- !u!114 &1719739346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d02ecb0ffa94f16afb258b53d9d8c32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: Id
-      Entry: 3
-      Data: 0
-    - Name: IsUser
-      Entry: 5
-      Data: false
-    - Name: Enabled
-      Entry: 5
-      Data: true
-    - Name: Created
-      Entry: 3
-      Data: 1624961481320
-    - Name: Updated
-      Entry: 3
-      Data: 1624961481321
-    - Name: m_DefaultState
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: GameEngine.Models.Contracts.Idle, Assembly-CSharp-firstpass
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: data
-      Entry: 7
-      Data: 1|System.Int32[,], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 189
-    - Name: ranks
-      Entry: 1
-      Data: 9|21
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 7
-    - Name: 
-      Entry: 3
-      Data: 7
-    - Name: 
-      Entry: 3
-      Data: 12
-    - Name: 
-      Entry: 3
-      Data: 12
-    - Name: 
-      Entry: 3
-      Data: -22
-    - Name: 
-      Entry: 3
-      Data: -22
-    - Name: 
-      Entry: 3
-      Data: -23
-    - Name: 
-      Entry: 3
-      Data: -23
-    - Name: 
-      Entry: 3
-      Data: -23
-    - Name: 
-      Entry: 3
-      Data: 24
-    - Name: 
-      Entry: 3
-      Data: 24
-    - Name: 
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 3
-      Data: 35
-    - Name: 
-      Entry: 3
-      Data: -36
-    - Name: 
-      Entry: 3
-      Data: -36
-    - Name: 
-      Entry: 3
-      Data: -36
-    - Name: 
-      Entry: 3
-      Data: 48
-    - Name: 
-      Entry: 3
-      Data: 48
-    - Name: 
-      Entry: 3
-      Data: 47
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 7
-    - Name: 
-      Entry: 3
-      Data: 7
-    - Name: 
-      Entry: 3
-      Data: 12
-    - Name: 
-      Entry: 3
-      Data: 12
-    - Name: 
-      Entry: 3
-      Data: -22
-    - Name: 
-      Entry: 3
-      Data: -22
-    - Name: 
-      Entry: 3
-      Data: 21
-    - Name: 
-      Entry: 3
-      Data: 24
-    - Name: 
-      Entry: 3
-      Data: 24
-    - Name: 
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 3
-      Data: 34
-    - Name: 
-      Entry: 3
-      Data: 35
-    - Name: 
-      Entry: 3
-      Data: 35
-    - Name: 
-      Entry: 3
-      Data: 37
-    - Name: 
-      Entry: 3
-      Data: 48
-    - Name: 
-      Entry: 3
-      Data: 48
-    - Name: 
-      Entry: 3
-      Data: 47
-    - Name: 
-      Entry: 3
-      Data: 47
-    - Name: 
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
-      Entry: 3
-      Data: 13
-    - Name: 
-      Entry: 3
-      Data: 13
-    - Name: 
-      Entry: 3
-      Data: 13
-    - Name: 
-      Entry: 3
-      Data: 21
-    - Name: 
-      Entry: 3
-      Data: -26
-    - Name: 
-      Entry: 3
-      Data: -31
-    - Name: 
-      Entry: 3
-      Data: -31
-    - Name: 
-      Entry: 3
-      Data: -31
-    - Name: 
-      Entry: 3
-      Data: 34
-    - Name: 
-      Entry: 3
-      Data: 38
-    - Name: 
-      Entry: 3
-      Data: 35
-    - Name: 
-      Entry: 3
-      Data: 37
-    - Name: 
-      Entry: 3
-      Data: 49
-    - Name: 
-      Entry: 3
-      Data: 49
-    - Name: 
-      Entry: 3
-      Data: 47
-    - Name: 
-      Entry: 3
-      Data: 46
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: 9
-    - Name: 
-      Entry: 3
-      Data: 9
-    - Name: 
-      Entry: 3
-      Data: 8
-    - Name: 
-      Entry: 3
-      Data: 13
-    - Name: 
-      Entry: 3
-      Data: 14
-    - Name: 
-      Entry: 3
-      Data: 21
-    - Name: 
-      Entry: 3
-      Data: 21
-    - Name: 
-      Entry: 3
-      Data: -26
-    - Name: 
-      Entry: 3
-      Data: -26
-    - Name: 
-      Entry: 3
-      Data: -31
-    - Name: 
-      Entry: 3
-      Data: 32
-    - Name: 
-      Entry: 3
-      Data: 34
-    - Name: 
-      Entry: 3
-      Data: 38
-    - Name: 
-      Entry: 3
-      Data: 37
-    - Name: 
-      Entry: 3
-      Data: 37
-    - Name: 
-      Entry: 3
-      Data: 49
-    - Name: 
-      Entry: 3
-      Data: 49
-    - Name: 
-      Entry: 3
-      Data: 46
-    - Name: 
-      Entry: 3
-      Data: 46
-    - Name: 
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 3
-      Data: -3
-    - Name: 
-      Entry: 3
-      Data: 9
-    - Name: 
-      Entry: 3
-      Data: 9
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 14
-    - Name: 
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 3
-      Data: 27
-    - Name: 
-      Entry: 3
-      Data: -26
-    - Name: 
-      Entry: 3
-      Data: 32
-    - Name: 
-      Entry: 3
-      Data: 32
-    - Name: 
-      Entry: 3
-      Data: 34
-    - Name: 
-      Entry: 3
-      Data: 38
-    - Name: 
-      Entry: 3
-      Data: 38
-    - Name: 
-      Entry: 3
-      Data: 39
-    - Name: 
-      Entry: 3
-      Data: 39
-    - Name: 
-      Entry: 3
-      Data: 39
-    - Name: 
-      Entry: 3
-      Data: 46
-    - Name: 
-      Entry: 3
-      Data: -40
-    - Name: 
-      Entry: 3
-      Data: -3
-    - Name: 
-      Entry: 3
-      Data: -3
-    - Name: 
-      Entry: 3
-      Data: -3
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 10
-    - Name: 
-      Entry: 3
-      Data: 14
-    - Name: 
-      Entry: 3
-      Data: 14
-    - Name: 
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 3
-      Data: 27
-    - Name: 
-      Entry: 3
-      Data: 27
-    - Name: 
-      Entry: 3
-      Data: 27
-    - Name: 
-      Entry: 3
-      Data: 32
-    - Name: 
-      Entry: 3
-      Data: -33
-    - Name: 
-      Entry: 3
-      Data: -33
-    - Name: 
-      Entry: 3
-      Data: -33
-    - Name: 
-      Entry: 3
-      Data: -33
-    - Name: 
-      Entry: 3
-      Data: 39
-    - Name: 
-      Entry: 3
-      Data: -40
-    - Name: 
-      Entry: 3
-      Data: -40
-    - Name: 
-      Entry: 3
-      Data: -40
-    - Name: 
-      Entry: 3
-      Data: 4
-    - Name: 
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 3
-      Data: 15
-    - Name: 
-      Entry: 3
-      Data: 15
-    - Name: 
-      Entry: 3
-      Data: 15
-    - Name: 
-      Entry: 3
-      Data: 15
-    - Name: 
-      Entry: 3
-      Data: 19
-    - Name: 
-      Entry: 3
-      Data: 19
-    - Name: 
-      Entry: 3
-      Data: 28
-    - Name: 
-      Entry: 3
-      Data: 28
-    - Name: 
-      Entry: 3
-      Data: 28
-    - Name: 
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 3
-      Data: 45
-    - Name: 
-      Entry: 3
-      Data: 45
-    - Name: 
-      Entry: 3
-      Data: 45
-    - Name: 
-      Entry: 3
-      Data: 42
-    - Name: 
-      Entry: 3
-      Data: 41
-    - Name: 
-      Entry: 3
-      Data: 41
-    - Name: 
-      Entry: 3
-      Data: 4
-    - Name: 
-      Entry: 3
-      Data: 4
-    - Name: 
-      Entry: 3
-      Data: 4
-    - Name: 
-      Entry: 3
-      Data: -11
-    - Name: 
-      Entry: 3
-      Data: -11
-    - Name: 
-      Entry: 3
-      Data: -11
-    - Name: 
-      Entry: 3
-      Data: 17
-    - Name: 
-      Entry: 3
-      Data: 17
-    - Name: 
-      Entry: 3
-      Data: 19
-    - Name: 
-      Entry: 3
-      Data: 19
-    - Name: 
-      Entry: 3
-      Data: 18
-    - Name: 
-      Entry: 3
-      Data: 18
-    - Name: 
-      Entry: 3
-      Data: 28
-    - Name: 
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 3
-      Data: 45
-    - Name: 
-      Entry: 3
-      Data: 42
-    - Name: 
-      Entry: 3
-      Data: 42
-    - Name: 
-      Entry: 3
-      Data: 42
-    - Name: 
-      Entry: 3
-      Data: 41
-    - Name: 
-      Entry: 3
-      Data: 6
-    - Name: 
-      Entry: 3
-      Data: 6
-    - Name: 
-      Entry: 3
-      Data: 6
-    - Name: 
-      Entry: 3
-      Data: -11
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 16
-    - Name: 
-      Entry: 3
-      Data: 17
-    - Name: 
-      Entry: 3
-      Data: 17
-    - Name: 
-      Entry: 3
-      Data: 18
-    - Name: 
-      Entry: 3
-      Data: 18
-    - Name: 
-      Entry: 3
-      Data: 29
-    - Name: 
-      Entry: 3
-      Data: 29
-    - Name: 
-      Entry: 3
-      Data: 29
-    - Name: 
-      Entry: 3
-      Data: 44
-    - Name: 
-      Entry: 3
-      Data: 44
-    - Name: 
-      Entry: 3
-      Data: 44
-    - Name: 
-      Entry: 3
-      Data: 43
-    - Name: 
-      Entry: 3
-      Data: 43
-    - Name: 
-      Entry: 3
-      Data: 43
-    - Name: 
-      Entry: 3
-      Data: 41
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: colors
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[UnityEngine.Color, UnityEngine.CoreModule]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 7
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.9433962
-    - Name: 
-      Entry: 4
-      Data: 0.421858281
-    - Name: 
-      Entry: 4
-      Data: 0.421858281
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.5775721
-    - Name: 
-      Entry: 4
-      Data: 0.6754049
-    - Name: 
-      Entry: 4
-      Data: 0.9811321
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.9433962
-    - Name: 
-      Entry: 4
-      Data: 0.484158039
-    - Name: 
-      Entry: 4
-      Data: 0.7961616
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.218511909
-    - Name: 
-      Entry: 4
-      Data: 0.8495377
-    - Name: 
-      Entry: 4
-      Data: 0.8773585
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.451548576
-    - Name: 
-      Entry: 4
-      Data: 0.7924528
-    - Name: 
-      Entry: 4
-      Data: 0.507891655
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.7735849
-    - Name: 
-      Entry: 4
-      Data: 0.562472761
-    - Name: 
-      Entry: 4
-      Data: 0.00291913073
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Color, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.8397239
-    - Name: 
-      Entry: 4
-      Data: 0.9339623
-    - Name: 
-      Entry: 4
-      Data: 0.6731577
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  locked: 1
-  last: 49
-  current: 4
---- !u!1 &1869282119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1869282120}
-  - component: {fileID: 1869282121}
-  m_Layer: 0
-  m_Name: GenMapManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1869282120
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869282119}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1694616665}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1869282121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869282119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca2baeb404eff14ea47a99b22399c0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  map: {fileID: 1719739346}
-  originMapData: {fileID: 11400000, guid: fdf1e9a7a45d5c948a154efbbfe13688, type: 2}
-  targetView: {fileID: 0}
-  defaultWeight: 2
-  maxLineEmpty: 5
---- !u!1 &1907141286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1907141289}
-  - component: {fileID: 1907141288}
-  - component: {fileID: 1907141287}
-  - component: {fileID: 1907141290}
-  m_Layer: 0
-  m_Name: CinematicsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1907141287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907141286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ImpulseDefinition:
-    m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 11400000, guid: dd967102e8e6c4605aeccf33a49ac3f0, type: 2}
-    m_AmplitudeGain: 0.2
-    m_FrequencyGain: 1
-    m_RepeatMode: 0
-    m_Randomize: 1
-    m_TimeEnvelope:
-      m_AttackShape:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_DecayShape:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 0.005371928
-          inSlope: 0.089690186
-          outSlope: 0.089690186
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.059782624
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_AttackTime: 0.1
-      m_SustainTime: 1.2
-      m_DecayTime: 2
-      m_ScaleWithImpact: 0
-      m_HoldForever: 0
-    m_ImpactRadius: 100
-    m_DirectionMode: 0
-    m_DissipationMode: 0
-    m_DissipationDistance: 1000
-    m_PropagationSpeed: 343
---- !u!114 &1907141288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907141286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86cae0196cc894334a9845a52c984e47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  redCastleCollapse: {fileID: 0}
-  blueCastleCollapse: {fileID: 0}
---- !u!4 &1907141289
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907141286}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2055193195}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1907141290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907141286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ce3fef1d2cb0245a6686a95b80b1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: m_Labels
-      Entry: 7
-      Data: 0|UnityEngine.AddressableAssets.AssetLabelReference[], Unity.Addressables
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_Injects
-      Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_Prefabs
-      Entry: 7
-      Data: 3|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.AddressableAssets.AssetReference,
-        Unity.Addressables]], mscorlib
-    - Name: comparer
-      Entry: 9
-      Data: 2
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_States
-      Entry: 7
-      Data: 4|System.Collections.Generic.Dictionary`2[[UnityEngine.AddressableAssets.AssetLabelReference,
-        Unity.Addressables],[System.Collections.Generic.Dictionary`2[[UnityEngine.AddressableAssets.AssetLabelReference,
-        Unity.Addressables],[System.Collections.Generic.List`1[[MoreTags.TagState,
-        Assembly-CSharp-firstpass]], mscorlib]], mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 5|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.AddressableAssets.AssetLabelReference,
-        Unity.Addressables]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_Ids
-      Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 3
-      Data: 25
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  asset:
-    m_AssetGUID: 
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  Description: 
-  BindScriptOnstart: 0
-  groupIndex: 0
-  ClearOnSave: 0
-  ClearChildrenOnSave: 0
-  E_OnStart:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnAwake:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnEnable:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnDisable:
-    m_PersistentCalls:
-      m_Calls: []
-  E_OnDestory:
-    m_PersistentCalls:
-      m_Calls: []
-  currentTag:
-    m_LabelString: 
-  currentState:
-    m_LabelString: 
-  BindScriptOnAwake: 0
-  isAwaked: 1
---- !u!114 &1998360240
+--- !u!114 &1536838786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11102,6 +9787,1376 @@ MonoBehaviour:
   m_Rescue: 0
   m_Mission: 0
   m_Health: 0
+--- !u!1 &1571773889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1571773890}
+  - component: {fileID: 1571773891}
+  m_Layer: 0
+  m_Name: Preview
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1571773890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571773889}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571773891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571773889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b217e895c8dad540b45b2be9e9f55c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  root: {fileID: 0}
+--- !u!1 &1649836747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649836748}
+  - component: {fileID: 1649836749}
+  - component: {fileID: 1649836750}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649836748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649836747}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2055193195}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1649836749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649836747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9dfff6afe9f473395e43cedfdc0242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  healthBarPrefab: {fileID: 2299034459240315198, guid: 9e92fec54b5d04c808690d208805e76c, type: 3}
+  gameOverUI: {fileID: 0}
+  healthBarContainer: {fileID: 0}
+--- !u!114 &1649836750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649836747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ce3fef1d2cb0245a6686a95b80b1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_Labels
+      Entry: 6
+      Data: 
+    - Name: m_Injects
+      Entry: 6
+      Data: 
+    - Name: m_Prefabs
+      Entry: 6
+      Data: 
+    - Name: m_States
+      Entry: 6
+      Data: 
+    - Name: m_Ids
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  asset:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  Description: 
+  BindScriptOnstart: 0
+  groupIndex: 0
+  ClearOnSave: 0
+  ClearChildrenOnSave: 0
+  E_OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDestory:
+    m_PersistentCalls:
+      m_Calls: []
+  currentTag:
+    m_LabelString: 
+  currentState:
+    m_LabelString: 
+  BindScriptOnAwake: 0
+  isAwaked: 1
+--- !u!1 &1694616664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694616665}
+  - component: {fileID: 1694616666}
+  m_Layer: 0
+  m_Name: Tetris
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1694616665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694616664}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1869282120}
+  - {fileID: 1528580243}
+  - {fileID: 1175446949}
+  - {fileID: 232076553}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1694616666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694616664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cdb8c0627eb8c4caae08cf8fc33147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  level: 3
+  blocks:
+  - {fileID: 8884422117842273872, guid: dc688b11061ed734ca32e8a3962590bf, type: 3}
+  - {fileID: 6871790077741125120, guid: 569f1740bbb5f7240a537993edff7b09, type: 3}
+  - {fileID: 4766945971592258467, guid: 8f7a6c2525c51174c9edfd1f2d362815, type: 3}
+  - {fileID: 6127767908934618292, guid: 52d6edf14648c274e96c76c9472b0e58, type: 3}
+  - {fileID: 4266390166317881271, guid: 1fb48aeb0aaafbe4ea23edd02bb451be, type: 3}
+  - {fileID: 2497201849960472371, guid: 9589b6d275ce04e4c89a33321a3ec143, type: 3}
+  - {fileID: 3911191374480825551, guid: 4c0149273d605a747ae87f7ad2070fc6, type: 3}
+  CurrentBlockRoot: {fileID: 0}
+  PreviewRoot: {fileID: 0}
+  MovableRoot: {fileID: 0}
+  ActorRoot: {fileID: 0}
+  OnPauseCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGammingCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  m_tetris: {fileID: 11400000, guid: 71229317f2d419a4f988d16dc3d60f7a, type: 2}
+  m_Spawner: {fileID: 11400000, guid: 8e34f0dd22f78204cb6d2bf2c9fb35c6, type: 2}
+  m_VFX: {fileID: 0}
+  OnFirstBlock:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1694616666}
+        m_TargetAssemblyTypeName: Tetris.Game, Assembly-CSharp
+        m_MethodName: DoGameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IsDefaultGameStart: 1
+--- !u!114 &1719739346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02ecb0ffa94f16afb258b53d9d8c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Id
+      Entry: 3
+      Data: 0
+    - Name: IsUser
+      Entry: 5
+      Data: false
+    - Name: Enabled
+      Entry: 5
+      Data: true
+    - Name: Created
+      Entry: 3
+      Data: 1624961481320
+    - Name: Updated
+      Entry: 3
+      Data: 1624961481321
+    - Name: m_DefaultState
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: GameEngine.Models.Contracts.Idle, Assembly-CSharp-firstpass
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: data
+      Entry: 7
+      Data: 1|System.Int32[,], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 189
+    - Name: ranks
+      Entry: 1
+      Data: 9|21
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 3
+      Data: -22
+    - Name: 
+      Entry: 3
+      Data: -22
+    - Name: 
+      Entry: 3
+      Data: -23
+    - Name: 
+      Entry: 3
+      Data: -23
+    - Name: 
+      Entry: 3
+      Data: -23
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 3
+      Data: 35
+    - Name: 
+      Entry: 3
+      Data: -36
+    - Name: 
+      Entry: 3
+      Data: -36
+    - Name: 
+      Entry: 3
+      Data: -36
+    - Name: 
+      Entry: 3
+      Data: 48
+    - Name: 
+      Entry: 3
+      Data: 48
+    - Name: 
+      Entry: 3
+      Data: 47
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 3
+      Data: -22
+    - Name: 
+      Entry: 3
+      Data: -22
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 3
+      Data: 34
+    - Name: 
+      Entry: 3
+      Data: 35
+    - Name: 
+      Entry: 3
+      Data: 35
+    - Name: 
+      Entry: 3
+      Data: 37
+    - Name: 
+      Entry: 3
+      Data: 48
+    - Name: 
+      Entry: 3
+      Data: 48
+    - Name: 
+      Entry: 3
+      Data: 47
+    - Name: 
+      Entry: 3
+      Data: 47
+    - Name: 
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: -26
+    - Name: 
+      Entry: 3
+      Data: -31
+    - Name: 
+      Entry: 3
+      Data: -31
+    - Name: 
+      Entry: 3
+      Data: -31
+    - Name: 
+      Entry: 3
+      Data: 34
+    - Name: 
+      Entry: 3
+      Data: 38
+    - Name: 
+      Entry: 3
+      Data: 35
+    - Name: 
+      Entry: 3
+      Data: 37
+    - Name: 
+      Entry: 3
+      Data: 49
+    - Name: 
+      Entry: 3
+      Data: 49
+    - Name: 
+      Entry: 3
+      Data: 47
+    - Name: 
+      Entry: 3
+      Data: 46
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: 21
+    - Name: 
+      Entry: 3
+      Data: -26
+    - Name: 
+      Entry: 3
+      Data: -26
+    - Name: 
+      Entry: 3
+      Data: -31
+    - Name: 
+      Entry: 3
+      Data: 32
+    - Name: 
+      Entry: 3
+      Data: 34
+    - Name: 
+      Entry: 3
+      Data: 38
+    - Name: 
+      Entry: 3
+      Data: 37
+    - Name: 
+      Entry: 3
+      Data: 37
+    - Name: 
+      Entry: 3
+      Data: 49
+    - Name: 
+      Entry: 3
+      Data: 49
+    - Name: 
+      Entry: 3
+      Data: 46
+    - Name: 
+      Entry: 3
+      Data: 46
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: -3
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 3
+      Data: 27
+    - Name: 
+      Entry: 3
+      Data: -26
+    - Name: 
+      Entry: 3
+      Data: 32
+    - Name: 
+      Entry: 3
+      Data: 32
+    - Name: 
+      Entry: 3
+      Data: 34
+    - Name: 
+      Entry: 3
+      Data: 38
+    - Name: 
+      Entry: 3
+      Data: 38
+    - Name: 
+      Entry: 3
+      Data: 39
+    - Name: 
+      Entry: 3
+      Data: 39
+    - Name: 
+      Entry: 3
+      Data: 39
+    - Name: 
+      Entry: 3
+      Data: 46
+    - Name: 
+      Entry: 3
+      Data: -40
+    - Name: 
+      Entry: 3
+      Data: -3
+    - Name: 
+      Entry: 3
+      Data: -3
+    - Name: 
+      Entry: 3
+      Data: -3
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 3
+      Data: 14
+    - Name: 
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 3
+      Data: 27
+    - Name: 
+      Entry: 3
+      Data: 27
+    - Name: 
+      Entry: 3
+      Data: 27
+    - Name: 
+      Entry: 3
+      Data: 32
+    - Name: 
+      Entry: 3
+      Data: -33
+    - Name: 
+      Entry: 3
+      Data: -33
+    - Name: 
+      Entry: 3
+      Data: -33
+    - Name: 
+      Entry: 3
+      Data: -33
+    - Name: 
+      Entry: 3
+      Data: 39
+    - Name: 
+      Entry: 3
+      Data: -40
+    - Name: 
+      Entry: 3
+      Data: -40
+    - Name: 
+      Entry: 3
+      Data: -40
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 3
+      Data: 19
+    - Name: 
+      Entry: 3
+      Data: 19
+    - Name: 
+      Entry: 3
+      Data: 28
+    - Name: 
+      Entry: 3
+      Data: 28
+    - Name: 
+      Entry: 3
+      Data: 28
+    - Name: 
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 3
+      Data: 45
+    - Name: 
+      Entry: 3
+      Data: 45
+    - Name: 
+      Entry: 3
+      Data: 45
+    - Name: 
+      Entry: 3
+      Data: 42
+    - Name: 
+      Entry: 3
+      Data: 41
+    - Name: 
+      Entry: 3
+      Data: 41
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: -11
+    - Name: 
+      Entry: 3
+      Data: -11
+    - Name: 
+      Entry: 3
+      Data: -11
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 3
+      Data: 19
+    - Name: 
+      Entry: 3
+      Data: 19
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 3
+      Data: 28
+    - Name: 
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 3
+      Data: 45
+    - Name: 
+      Entry: 3
+      Data: 42
+    - Name: 
+      Entry: 3
+      Data: 42
+    - Name: 
+      Entry: 3
+      Data: 42
+    - Name: 
+      Entry: 3
+      Data: 41
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 3
+      Data: -11
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 3
+      Data: 17
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 3
+      Data: 18
+    - Name: 
+      Entry: 3
+      Data: 29
+    - Name: 
+      Entry: 3
+      Data: 29
+    - Name: 
+      Entry: 3
+      Data: 29
+    - Name: 
+      Entry: 3
+      Data: 44
+    - Name: 
+      Entry: 3
+      Data: 44
+    - Name: 
+      Entry: 3
+      Data: 44
+    - Name: 
+      Entry: 3
+      Data: 43
+    - Name: 
+      Entry: 3
+      Data: 43
+    - Name: 
+      Entry: 3
+      Data: 43
+    - Name: 
+      Entry: 3
+      Data: 41
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: colors
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[UnityEngine.Color, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.9433962
+    - Name: 
+      Entry: 4
+      Data: 0.421858281
+    - Name: 
+      Entry: 4
+      Data: 0.421858281
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.5775721
+    - Name: 
+      Entry: 4
+      Data: 0.6754049
+    - Name: 
+      Entry: 4
+      Data: 0.9811321
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.9433962
+    - Name: 
+      Entry: 4
+      Data: 0.484158039
+    - Name: 
+      Entry: 4
+      Data: 0.7961616
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.218511909
+    - Name: 
+      Entry: 4
+      Data: 0.8495377
+    - Name: 
+      Entry: 4
+      Data: 0.8773585
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.451548576
+    - Name: 
+      Entry: 4
+      Data: 0.7924528
+    - Name: 
+      Entry: 4
+      Data: 0.507891655
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.7735849
+    - Name: 
+      Entry: 4
+      Data: 0.562472761
+    - Name: 
+      Entry: 4
+      Data: 0.00291913073
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.8397239
+    - Name: 
+      Entry: 4
+      Data: 0.9339623
+    - Name: 
+      Entry: 4
+      Data: 0.6731577
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  locked: 1
+  last: 49
+  current: 4
+--- !u!1 &1869282119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869282120}
+  - component: {fileID: 1869282121}
+  m_Layer: 0
+  m_Name: GenMapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1869282120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869282119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1694616665}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1869282121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869282119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca2baeb404eff14ea47a99b22399c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  map: {fileID: 1719739346}
+  originMapData: {fileID: 11400000, guid: fdf1e9a7a45d5c948a154efbbfe13688, type: 2}
+  targetView: {fileID: 0}
+  defaultWeight: 2
+  maxLineEmpty: 5
+--- !u!1 &1907141286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907141289}
+  - component: {fileID: 1907141288}
+  - component: {fileID: 1907141287}
+  - component: {fileID: 1907141290}
+  m_Layer: 0
+  m_Name: CinematicsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1907141287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907141286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: dd967102e8e6c4605aeccf33a49ac3f0, type: 2}
+    m_AmplitudeGain: 0.2
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.005371928
+          inSlope: 0.089690186
+          outSlope: 0.089690186
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.059782624
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0.1
+      m_SustainTime: 1.2
+      m_DecayTime: 2
+      m_ScaleWithImpact: 0
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 0
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
+--- !u!114 &1907141288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907141286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cae0196cc894334a9845a52c984e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redCastleCollapse: {fileID: 0}
+  blueCastleCollapse: {fileID: 0}
+--- !u!4 &1907141289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907141286}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2055193195}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907141290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907141286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ce3fef1d2cb0245a6686a95b80b1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_Labels
+      Entry: 7
+      Data: 0|UnityEngine.AddressableAssets.AssetLabelReference[], Unity.Addressables
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Injects
+      Entry: 7
+      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Prefabs
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.AddressableAssets.AssetReference,
+        Unity.Addressables]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 2
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_States
+      Entry: 7
+      Data: 4|System.Collections.Generic.Dictionary`2[[UnityEngine.AddressableAssets.AssetLabelReference,
+        Unity.Addressables],[System.Collections.Generic.Dictionary`2[[UnityEngine.AddressableAssets.AssetLabelReference,
+        Unity.Addressables],[System.Collections.Generic.List`1[[MoreTags.TagState,
+        Assembly-CSharp-firstpass]], mscorlib]], mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 5|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.AddressableAssets.AssetLabelReference,
+        Unity.Addressables]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Ids
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  asset:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  Description: 
+  BindScriptOnstart: 0
+  groupIndex: 0
+  ClearOnSave: 0
+  ClearChildrenOnSave: 0
+  E_OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnAwake:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  E_OnDestory:
+    m_PersistentCalls:
+      m_Calls: []
+  currentTag:
+    m_LabelString: 
+  currentState:
+    m_LabelString: 
+  BindScriptOnAwake: 0
+  isAwaked: 1
 --- !u!1 &2055193194
 GameObject:
   m_ObjectHideFlags: 0

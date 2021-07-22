@@ -70,8 +70,7 @@ namespace Tetris
         [Tags(Id.ActorRoot)]
         public GameObject ActorRoot;
 
-        [SerializeField]
-        Transform[] previeField = new Transform[4];
+        Transform[] previeField => PreviewRoot.Childs().ToArray();
 
         // [OdinSerialize,DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.Foldout)]
         // public Dictionary<CellType, Transform> previewField = new Dictionary<CellType, Transform>() {
