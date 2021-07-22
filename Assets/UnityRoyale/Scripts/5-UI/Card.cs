@@ -39,7 +39,7 @@ namespace UnityRoyale
         private CanvasGroup canvasGroup;
         void OnEnable() { }
 
-        private void Awake()
+        private void Start()
         {
             canvasGroup = GetComponent<CanvasGroup>();
             lockIcon?.gameObject.SetActive(false);

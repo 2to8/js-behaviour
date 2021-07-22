@@ -15,12 +15,11 @@ using UnityEngine.UI;
 
 namespace MainScene.Menu
 {
-    public class LevelCard : SerializedMonoBehaviour
+    public class LevelCard : ViewManager<LevelCard>
     {
         [SerializeField]
         public bool isAvatar;
 
-        static LevelCard instance;
         bool m_Inited;
         public RectTransform parent => transform.parent.GetComponent<RectTransform>();
 
@@ -41,10 +40,9 @@ namespace MainScene.Menu
             if (loadHandle.IsValid() && progress != null) progress.value = loadHandle.PercentComplete;
         }
 
-        void Awake()
+        void Start()
         {
             //button.onClick.AddListener(OnClick);
-            if (instance == null) instance = this;
             if (!inited) {
                 parent.anchoredPosition = new Vector2(-15f, 164.5f);
                 instance.m_Inited = true;

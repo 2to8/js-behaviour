@@ -54,7 +54,7 @@ namespace MainScene.BootScene.Unused
         public bool AutoLoadMainScene = false;
 
         [NonSerialized]
-        public GenericDelegate JsAwake;
+        public GenericDelegate JsStart;
 
         [NonSerialized]
         public GenericDelegate JsEnable;
@@ -99,13 +99,13 @@ namespace MainScene.BootScene.Unused
         //     await config.mainMenuScene.LoadSceneAsync(LoadSceneMode.Additive);
         // }
 
-        void Awake()
+        void Start()
         {
             versionText.text = Application.version;
             if (useJs && string.IsNullOrEmpty(JsCode))
                 useJs = false;
             else if (useJs) js.Call(JsCode, this);
-            JsAwake?.Action(this);
+            JsStart?.Action(this);
             if (!Application.isEditor && !Debug.isDebugBuild) {
                 FindObjectOfType<DebugLogManager>()?.gameObject.SetActive(false);
                 GameObject.FindGameObjectsWithTag("EditorOnly").ForEach(go => { go?.DestroySelf(); });

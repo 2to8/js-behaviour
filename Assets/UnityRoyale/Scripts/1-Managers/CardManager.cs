@@ -73,9 +73,8 @@ namespace UnityRoyale
         GameObject previewHolder =>
             m_PreviewHolder ??= GameObject.Find("/PreviewHolder") ?? new GameObject("PreviewHolder");
 
-        protected override void Awake()
+        protected  void Start()
         {
-            base.Awake();
             m_PreviewHolder ??= new GameObject("PreviewHolder");
             cards ??= new Card[3]; //3 is the length of the dashboard
         }

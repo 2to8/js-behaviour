@@ -14,7 +14,7 @@ namespace Tetris
             // goBtn = GetComponent<Button>();
             var transition = new SquaresTransition();
             if (goBtn)
-                goBtn.onClick.AddListener(() => { SceneTransitionMgr.Instance.StartTransition(transition, 1); });
+                goBtn.onClick.AddListener(() => { SceneTransitionMgr.instance.StartTransition(transition, 1); });
         }
 
         void TestLineRenderer() { }

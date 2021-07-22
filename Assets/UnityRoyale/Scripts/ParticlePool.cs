@@ -12,7 +12,7 @@ namespace UnityRoyale
         private int currentSystem = 0;
         void OnEnable() { }
 
-        private void Awake()
+        private void Start()
         {
             pool = new ParticleSystem[amount];
             for (int i = 0; i < amount; i++) {

@@ -30,7 +30,7 @@ await www.SendWebRequest();
 Debug.Log(req.downloadHandler.text);
 */
 
-    public class BootLoader : SerializedMonoBehaviour
+    public class BootLoader : ViewManager<BootLoader>
     {
         //
         static Scene scene => SceneManager.GetActiveScene();
@@ -52,7 +52,7 @@ Debug.Log(req.downloadHandler.text);
 
         // [FormerlySerializedAs("Canvas"), SerializeField]
         // Canvas m_Canvas;
-        public static BootLoader instance => m_instance ??= FindObjectOfType<BootLoader>();
+        //public static BootLoader instance => m_instance ??= FindObjectOfType<BootLoader>();
         public static string resUrl;
 
         public enum id
@@ -68,16 +68,12 @@ Debug.Log(req.downloadHandler.text);
         // static readonly string[] preloads = {
         //     /* $"{id.IngameDebugConsole}",*/ $"{id.BootUI}"
         // };
-        static BootLoader m_instance;
         public static bool isInternet;
 
         [SerializeField]
         AssetLabelReference[] SettingLabel;
 
-        void Awake()
-        {
-            m_instance = this;
-        }
+     
 
         IEnumerator GetRequest(string url, Action<UnityWebRequest> callback)
         {

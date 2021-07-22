@@ -17,7 +17,7 @@ namespace Tetris
         [SerializeField]
         Animator m_Animator;
 
-        void Awake()
+        void Start()
         {
             m_Animator ??= GetComponent<Animator>();
         }

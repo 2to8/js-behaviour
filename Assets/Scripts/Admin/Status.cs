@@ -37,7 +37,9 @@ namespace Admin
 
         [ShowInInspector]
         Vector3Int pos {
-            get => Game.instance ? Vector3Int.RoundToInt(Game.instance.MovableRoot.localPosition) : Vector3Int.zero;
+            get => Game.instance?.MovableRoot != null
+                    ? Vector3Int.RoundToInt(Game.instance.MovableRoot.localPosition)
+                    : Vector3Int.zero;
             set => Game.instance.MovableRoot.localPosition = value;
         }
 

@@ -75,13 +75,12 @@ namespace UnityRoyale
 
         private const float THINKING_DELAY = 2f;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            SceneManager.sceneLoaded += OnLevelFinishedLoading;
-        }
+//        protected override void Awake()
+//        {
+//            SceneManager.sceneLoaded += OnLevelFinishedLoading;
+//        }
 
-        void OnLevelFinishedLoading(Scene arg0, LoadSceneMode arg1)
+        void OnLevelFinishedLoading( /*Scene arg0, LoadSceneMode arg1*/)
         {
             //cardManager = GetComponent<CardManager>();
             CPUOpponent ??= GetComponentInChildren<CPUOpponent>();
@@ -113,23 +112,24 @@ namespace UnityRoyale
                 TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(false));
             }
 
-            //Insert castles into lists
-            SetupPlaceable(playersCastle, castlePData, Placeable.Faction.Player);
-            SetupPlaceable(opponentCastle, castlePData, Placeable.Faction.Opponent);
+            InitBinding();
+
+            OnLevelFinishedLoading();
+            if (Application.isPlaying) {
+                introTimeline.GetComponent<PlayableDirector>().stopped -= OnIntroStopped;
+                introTimeline.GetComponent<PlayableDirector>().stopped += OnIntroStopped;
+
+                //Insert castles into lists
+                SetupPlaceable(playersCastle, castlePData, Placeable.Faction.Player);
+                SetupPlaceable(opponentCastle, castlePData, Placeable.Faction.Opponent);
+            }
+
             cardManager.LoadDeck();
             CPUOpponent.LoadDeck();
 
             //audioManager.GoToDefaultSnapshot();
             if (autoStart && Application.isPlaying)
                 StartMatch();
-        }
-
-        void OnEnable()
-        {
-            if (Application.isPlaying) {
-                introTimeline.GetComponent<PlayableDirector>().stopped -= OnIntroStopped;
-                introTimeline.GetComponent<PlayableDirector>().stopped += OnIntroStopped;
-            }
         }
 
         void OnIntroStopped(PlayableDirector obj)

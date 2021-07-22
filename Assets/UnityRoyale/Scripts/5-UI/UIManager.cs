@@ -20,9 +20,8 @@ namespace UnityRoyale
         [SerializeField, Tags(Id.HealthBarContainer)]
         private Transform healthBarContainer;
 
-        protected override void Awake()
+        protected  void Start()
         {
-            base.Awake();
             healthBars = new List<HealthBar>();
             healthBarContainer ??= (GameObject.Find("/HealthBarContainer") ?? new GameObject("HealthBarContainer"))
                 .transform;

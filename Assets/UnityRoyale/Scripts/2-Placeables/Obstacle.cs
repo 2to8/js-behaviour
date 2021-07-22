@@ -11,7 +11,7 @@ namespace UnityRoyale
 		
 		private AudioSource audioSource;
 
-        private void Awake()
+        private void Start()
         {
             pType = Placeable.PlaceableType.Obstacle;
             faction = Placeable.Faction.None; //faction is always none for Obstacles

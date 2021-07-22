@@ -14,7 +14,7 @@ namespace UnityRoyale
 		public PlayableDirector constructionTimeline;
 		public PlayableDirector destructionTimeline;
 
-		private void Awake()
+		private void Start()
 		{
 			audioSource = GetComponent<AudioSource>();
 		}

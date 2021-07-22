@@ -7,6 +7,7 @@ using GameEngine.Extensions;
 using Org.BouncyCastle.Utilities.Collections;
 using Sirenix.Utilities;
 using TMPro;
+using UniRx.Async;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -26,14 +27,18 @@ namespace MoreTags.Attributes
         }
 
         static HashSet<string> checkedScenes = new HashSet<string>();
+        static HashSet<MemberInfo> caches = new HashSet<MemberInfo>();
 
 //        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 //        static void CheckTags() { }
+
+
 
         public void Invoke(MemberInfo memberInfo, Object target)
         {
             SceneManager.GetAllScenes().Where(scene => !checkedScenes.Contains(scene.path)).ForEach(scene => {
                 if (!scene.isLoaded) {
+                    //SceneManager.LoadScene(scene.name);
                     return;
                 }
 
@@ -47,7 +52,9 @@ namespace MoreTags.Attributes
                         //Tags(t.ids.ToArray()).ForEach(t1 => ts.Add(t1));
                     });
                 });
-                Debug.Log($"check scene tags: {scene.name} tags: {tags.ToList().Join()}".ToBlue());
+                Debug.Log(
+                    $"check scene[{scene.name}] loaded: {scene.isLoaded} root: {scene.GetRootGameObjects().Length} tags: {tags.ToList().Join()}"
+                        .ToBlue());
             });
 
 //            var ts = new HashSet<string>();
@@ -59,6 +66,20 @@ namespace MoreTags.Attributes
 //                });
 //            });
 //            //Debug.Log("All Tags: "+ string.Join(", ",ts.ToArray()));
+
+//            if (memberInfo is PropertyInfo pi) {
+//                if (pi.GetValue(target) != null) {
+//                    Debug.Log(pi.Name + " not null");
+//                    return;
+//                }
+//            }
+//            else if (memberInfo is FieldInfo fi) {
+//                if (fi.GetValue(target) != null){
+//                    Debug.Log(fi.Name + " not null");
+//                   return; 
+//                }
+//            }
+            if (caches.Contains(memberInfo) && Application.isPlaying) return;
             var type = memberInfo is PropertyInfo propertyInfo
                 ? propertyInfo.PropertyType
                 : (memberInfo is FieldInfo fieldInfo ? fieldInfo.FieldType : null);
@@ -69,14 +90,15 @@ namespace MoreTags.Attributes
 
             var value = TagSystem.Find(type, null, tags.ToArray());
             if (value == null) {
-#if UNITY_EDITOR
-                Debug.Log(
-                    $"loaded Scene: {string.Join(", ", SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name))} , current: {SceneManager.GetActiveScene().name}"
-                        .ToRed());
-#endif
-                Debug.LogError(
-                    $"[{memberInfo.DeclaringType?.FullName}] cannot find {string.Join(",", tags)}: {type} => {memberInfo.DeclaringType?.FullName}.{memberInfo.Name}"
-                        .ToRed(), target);
+//#if UNITY_EDITOR
+//                Debug.Log(
+//                    $"loaded Scene: {string.Join(", ", SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name))} , current: {SceneManager.GetActiveScene().name}"
+//                        .ToRed());
+//#endif
+//                Debug.Log(
+//                    $"[{memberInfo.DeclaringType?.FullName}] cannot find {string.Join(",", tags)}: {type} => {memberInfo.DeclaringType?.FullName}.{memberInfo.Name}"
+//                        .ToRed(), target);
+                return;
             }
 
             if (memberInfo is FieldInfo field) {
@@ -85,6 +107,8 @@ namespace MoreTags.Attributes
             else if (memberInfo is PropertyInfo property) {
                 property.SetValue(target, value);
             }
+
+            caches.Add(memberInfo);
         }
     }
 }

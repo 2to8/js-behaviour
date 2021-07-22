@@ -150,8 +150,31 @@ namespace Tetris
             Debug.Log("[StartGame]".ToYellow());
         }
 
+        static void LoadScenes()
+        {
+            Debug.Log("333 load scenes");
+            for (int i = 0; i < SceneManager.sceneCount; i++) {
+                var scene = SceneManager.GetSceneAt(i);
+                var path = scene.name;
+                if (!scene.isLoaded) {
+                    //var h = SceneManager.UnloadScene(scene);
+                    //
+                    SceneManager.LoadScene(path, LoadSceneMode.Additive);
+                }
+            }
+
+            Debug.Log("333 " + SceneManager.GetAllScenes().Where(t => t.isLoaded)
+                .Select(t => $"{t.name}({t.GetRootGameObjects().Length})").Join());
+            //yield break;
+        }
+
         void Start()
         {
+            Debug.Log("[check-open]" +
+                SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name).Join().ToRed());
+            LoadScenes();
+            Debug.Log("[check-open]" +
+                SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name).Join().ToRed());
             // if (IsDefaultGameStart) {
             //     OnFirstBlock.AddListener(DoGameStart);
             // }
@@ -208,6 +231,7 @@ namespace Tetris
             if (!Application.isPlaying) {
                 return;
             }
+
             if (!GameManager.instance.HudUI.enabled || !Application.isPlaying) return;
             if (m_State == GameState.Gamming) Debug.Log($"Gaming {currentBlock != null}");
             if (m_State == GameState.Gamming && currentBlock != null) {

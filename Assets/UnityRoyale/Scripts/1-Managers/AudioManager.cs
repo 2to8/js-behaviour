@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : ViewManager<AudioManager>
 {
 	public AudioMixer audioMixer;
 	public AudioMixerSnapshot gameplaySnapshot, endMatchSnapshot;
@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
 	private AudioSource audioSource;
 
-	private void Awake()
+	private void Start()
 	{
 		audioSource = GetComponent<AudioSource>();
 	}

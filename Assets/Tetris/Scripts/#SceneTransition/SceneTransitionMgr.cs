@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Tetris
 {
-    public class SceneTransitionMgr : Singleton<SceneTransitionMgr>
+    public class SceneTransitionMgr : ViewManager<SceneTransitionMgr>
     {
 
         public static event Action OnTransitionStarted;
@@ -47,7 +47,7 @@ namespace Tetris
 
             OnTransitionStarted?.Invoke();
 
-            StartCoroutine(this.transition.OnScreenObscured(Instance));
+            StartCoroutine(this.transition.OnScreenObscured(instance));
         }
 
         public IEnumerator WaitForLevelToLoad()
@@ -84,9 +84,9 @@ namespace Tetris
             if (reverse) ClearUp();
         }
 
-        protected override void Awake()
+        protected  void Start()
         {
-            base.Awake();
+           // base.Awake();
 
             Init();
 
@@ -147,7 +147,7 @@ namespace Tetris
 
         private void ClearUp()
         {
-            if (Instance == null) return;
+            if (instance == null) return;
 
             OnTransitionCompleted?.Invoke();
 

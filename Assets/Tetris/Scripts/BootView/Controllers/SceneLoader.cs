@@ -26,18 +26,18 @@ using Utils.Settings;
 namespace MainScene.BootScene.Utils
 {
     [Serializable]
-    public class SceneLoader : SerializedMonoBehaviour
+    public class SceneLoader : ViewManager<SceneLoader>
     {
         public static Env js;
         static bool isDownloading;
         static bool isStarted;
-        static SceneLoader m_Instance;
+       // static SceneLoader m_Instance;
         string k_loading = "正在更新";
 
-        public static SceneLoader instance {
-            get => m_Instance ??= FindObjectOfType<SceneLoader>();
-            set => m_Instance = value;
-        }
+//        public static SceneLoader instance {
+//            get => m_Instance ??= FindObjectOfType<SceneLoader>();
+//            set => m_Instance = value;
+//        }
 
         [OdinSerialize]
         public HashSet<ScriptableObject> preloadData = new HashSet<ScriptableObject>();
@@ -124,9 +124,8 @@ namespace MainScene.BootScene.Utils
         public long currentSize { get; set; }
         public bool FirstRun { get; set; }
 
-        async void Awake()
+        async void Start()
         {
-            m_Instance = this;
             if (!Application.isEditor && !Debug.isDebugBuild && PlayerPrefs.GetInt($"{Consts.k_Debug}", 0) != 1)
                 DebugLogManager.Instance?.gameObject.SetActive(false);
 
@@ -155,7 +154,7 @@ namespace MainScene.BootScene.Utils
             //     js = m_Env;
             // }
             FirstRun = PlayerPrefs.GetInt($"{Consts.k_FirstRun}") == 1;
-            Debug.Log($"BootUI awake, First Run {FirstRun}".ToYellow());
+            Debug.Log($"BootUI Starting, First Run {FirstRun}".ToYellow());
             if (FirstRun) {
                 // Debug.Log(targets.Keys.Select(t => $"{t}").Join()+$" count: {targets.Count()}");
                 m_PrivacyPage.SetAsLastSibling();
