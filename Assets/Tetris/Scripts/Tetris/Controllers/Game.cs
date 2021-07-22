@@ -26,7 +26,7 @@ using Object = UnityEngine.Object;
 namespace Tetris
 {
     //[ExecuteAlways]
-    [SceneBind(SceneName.Main)]
+    [SceneBind(SceneName.Main),ExecuteAlways]
     [SuppressMessage("ReSharper", "Unity.NoNullPropagation")]
     public class Game : ViewManager<Game>
     {
@@ -208,7 +208,7 @@ namespace Tetris
             // if (!Application.isPlaying) {
             //     return;
             // }
-            if (!GameManager.instance.HudUI.enabled) return;
+            if (!GameManager.instance.HudUI.enabled || !Application.isPlaying) return;
             if (m_State == GameState.Gamming) Debug.Log($"Gaming {currentBlock != null}");
             if (m_State == GameState.Gamming && currentBlock != null) {
                 if (!GameStarted) {
