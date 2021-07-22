@@ -32,18 +32,23 @@ namespace MoreTags.Attributes
 
         public void Invoke(MemberInfo memberInfo, Object target)
         {
-            SceneManager.GetAllScenes().Where(scene => scene.isLoaded && !checkedScenes.Contains(scene.path)).ForEach(
-                scene => {
-                    checkedScenes.Add(scene.path);
-                    Debug.Log($"check scene tags: {scene.name}".ToBlue());
-                    scene.GetRootGameObjects().ForEach(go => {
-                        go.GetComponentsInChildren<Tags>(true).Where(t => t != null && t.ids.Any()).ForEach(t => {
-                            t.gameObject.AddTag(t.ids.ToArray());
-                            //Debug.Log(t.gameObject.name, t.gameObject);
-                            //Tags(t.ids.ToArray()).ForEach(t1 => ts.Add(t1));
-                        });
+            SceneManager.GetAllScenes().Where(scene => !checkedScenes.Contains(scene.path)).ForEach(scene => {
+                if (!scene.isLoaded) {
+                    return;
+                }
+
+                checkedScenes.Add(scene.path);
+                var tags = new HashSet<string>();
+                scene.GetRootGameObjects().ForEach(go => {
+                    go.GetComponentsInChildren<Tags>(true).Where(t => t != null && t.ids.Any()).ForEach(t => {
+                        t.gameObject.AddTag();
+                        t.tags.ForEach(i => tags.Add(i));
+                        //Debug.Log(t.gameObject.name, t.gameObject);
+                        //Tags(t.ids.ToArray()).ForEach(t1 => ts.Add(t1));
                     });
                 });
+                Debug.Log($"check scene tags: {scene.name} tags: {tags.ToList().Join()}".ToBlue());
+            });
 
 //            var ts = new HashSet<string>();
 //            Core.GetAllLoadedScenes().SelectMany(scene => scene.GetRootGameObjects()).ForEach(go => {
@@ -66,11 +71,11 @@ namespace MoreTags.Attributes
             if (value == null) {
 #if UNITY_EDITOR
                 Debug.Log(
-                    $"loaded Scene: {string.Join(", ", EditorSceneManager.GetAllScenes().Select(t => t.name))} , {EditorSceneManager.GetActiveScene().name}"
+                    $"loaded Scene: {string.Join(", ", SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name))} , current: {SceneManager.GetActiveScene().name}"
                         .ToRed());
 #endif
                 Debug.LogError(
-                    $"cannot find {string.Join(",", tags)}: {type} => {memberInfo.DeclaringType?.FullName}.{memberInfo.Name}"
+                    $"[{memberInfo.DeclaringType?.FullName}] cannot find {string.Join(",", tags)}: {type} => {memberInfo.DeclaringType?.FullName}.{memberInfo.Name}"
                         .ToRed(), target);
             }
 

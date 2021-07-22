@@ -1,0 +1,9 @@
+{
+    "name": "UseCaseTests",
+    "includePlatforms": [
+        "Editor"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}

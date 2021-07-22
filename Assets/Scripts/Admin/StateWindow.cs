@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using System.Linq;
 using Consts;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
@@ -25,7 +26,7 @@ namespace Admin
         }
 
         [InfoBox("当前场景为[Main]才会启用", InfoMessageType.None), ShowInInspector, HideIf(nameof(isMain))]
-        bool isMain => SceneManager.GetActiveScene().name == $"{SceneName.Main}";
+        bool isMain => SceneManager.GetAllScenes().FirstOrDefault(scene => scene.name == $"{SceneName.Main}").isLoaded;
 
         protected override void OnEnable()
         {

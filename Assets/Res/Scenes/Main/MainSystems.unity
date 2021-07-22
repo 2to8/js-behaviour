@@ -187,7 +187,7 @@ MonoBehaviour:
       Data: 1|System.Delegate[], mscorlib
     - Name: 
       Entry: 12
-      Data: 12
+      Data: 13
     - Name: 
       Entry: 7
       Data: 2|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
@@ -691,6 +691,47 @@ MonoBehaviour:
     - Name: signature
       Entry: 7
       Data: 30|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 9
+      Data: 6
+    - Name: 
+      Entry: 9
+      Data: 7
+    - Name: 
+      Entry: 9
+      Data: 8
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 31|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
+        UnityEngine.CoreModule],[UnityRoyale.Placeable+Faction, Assembly-CSharp]],
+        UnityEngine.CoreModule
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: UseCard
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 32|System.Type[], mscorlib
     - Name: 
       Entry: 12
       Data: 3
@@ -5326,7 +5367,7 @@ MonoBehaviour:
       Data: 1|System.Delegate[], mscorlib
     - Name: 
       Entry: 12
-      Data: 8
+      Data: 9
     - Name: 
       Entry: 7
       Data: 2|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
@@ -5666,6 +5707,47 @@ MonoBehaviour:
     - Name: signature
       Entry: 7
       Data: 22|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 9
+      Data: 6
+    - Name: 
+      Entry: 9
+      Data: 7
+    - Name: 
+      Entry: 9
+      Data: 8
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 23|UnityEngine.Events.UnityAction`3[[UnityRoyale.CardData, Assembly-CSharp],[UnityEngine.Vector3,
+        UnityEngine.CoreModule],[UnityRoyale.Placeable+Faction, Assembly-CSharp]],
+        UnityEngine.CoreModule
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 9
+      Data: 3
+    - Name: methodName
+      Entry: 1
+      Data: UseCard
+    - Name: delegateType
+      Entry: 9
+      Data: 4
+    - Name: signature
+      Entry: 7
+      Data: 24|System.Type[], mscorlib
     - Name: 
       Entry: 12
       Data: 3

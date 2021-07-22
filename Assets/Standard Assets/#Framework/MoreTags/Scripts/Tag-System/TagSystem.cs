@@ -416,6 +416,13 @@ namespace MoreTags
             AddTag(gameObject, Tags(id));
         }
 
+        public static void AddTag(this GameObject gameObject)
+        {
+            if (gameObject.GetComponent<Tags>() is { } tags) {
+                AddTag(gameObject, Tags(tags.ids.ToArray()));
+            }
+        }
+
         /// <summary>
         /// 不带GameObject 参数的直接从系统中移除
         /// </summary>

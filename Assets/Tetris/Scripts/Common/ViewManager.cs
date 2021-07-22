@@ -14,22 +14,40 @@ public abstract class ViewManager<T> : Component<T> where T : ViewManager<T>
 {
     //
     static T m_Instance;
+    bool BindingInited;
 
     // [SerializeField]
     // protected bool m_AllowMulti;
 
-    public static T instance =>
-        m_Instance ??= Core.FindOrCreateManager<T>(typeof(T).GetCustomAttribute<SceneBindAttribute>().SceneName
-            /*?? typeof(T).Namespace?.Split('.').Last()*/);
+    public static T instance {
+        get {
+            if (m_Instance == null) {
+                m_Instance = Core.FindOrCreateManager<T>(typeof(T).GetCustomAttribute<SceneBindAttribute>()?.SceneName
+                    /*?? typeof(T).Namespace?.Split('.').Last()*/);
+                m_Instance?.InitBinding();
+            }
+
+            return m_Instance;
+        }
+    }
+
+    public void InitBinding()
+    {
+        if (!BindingInited) {
+            BindingInited = true;
+            GetType()
+                .GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
+                .Where(t => t.IsDefined(typeof(TagsAttribute))).ToList().ForEach(mi => {
+                    mi.GetCustomAttribute<TagsAttribute>().Invoke(mi, this);
+                });
+        }
+    }
 
     [Button]
     protected virtual void Awake()
     {
         m_Instance ??= this as T;
-        GetType().GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
-            .Where(t => t.IsDefined(typeof(TagsAttribute))).ToList().ForEach(mi => {
-                mi.GetCustomAttribute<TagsAttribute>().Invoke(mi, this);
-            });
+        InitBinding();
     }
 
     void OnDestroy()

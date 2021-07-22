@@ -15,7 +15,7 @@ using UnityEngine.SceneManagement;
 
 namespace UnityRoyale
 {
-    [SceneBind(SceneName.Main), ExecuteAlways]
+    [SceneBind(SceneName.Main)]
     public class GameManager : ViewManager<GameManager>
     {
         [Header("Settings")]
@@ -55,11 +55,17 @@ namespace UnityRoyale
         private UIManager UIManager;
 
         private CinematicsManager cinematicsManager;
-        private List<ThinkingPlaceable> playerUnits, opponentUnits;
-        private List<ThinkingPlaceable> playerBuildings, opponentBuildings;
-        private List<ThinkingPlaceable> allPlayers, allOpponents; //contains both Buildings and Units
-        private List<ThinkingPlaceable> allThinkingPlaceables;
-        private List<Projectile> allProjectiles;
+        private List<ThinkingPlaceable> playerUnits = new List<ThinkingPlaceable>();
+        List<ThinkingPlaceable> opponentUnits = new List<ThinkingPlaceable>();
+        private List<ThinkingPlaceable> playerBuildings = new List<ThinkingPlaceable>();
+        private List<ThinkingPlaceable> opponentBuildings = new List<ThinkingPlaceable>();
+        private List<ThinkingPlaceable> allPlayers = new List<ThinkingPlaceable>(); //contains both Buildings and Units
+
+        private List<ThinkingPlaceable>
+            allOpponents = new List<ThinkingPlaceable>(); //contains both Buildings and Units
+
+        private List<ThinkingPlaceable> allThinkingPlaceables = new List<ThinkingPlaceable>();
+        private List<Projectile> allProjectiles = new List<Projectile>();
         private bool gameOver = false;
         private bool updateAllPlaceables = false; //used to force an update of all AIBrains in the Update loop
         public bool IsPlaying;
@@ -72,11 +78,16 @@ namespace UnityRoyale
         protected override void Awake()
         {
             base.Awake();
+            SceneManager.sceneLoaded += OnLevelFinishedLoading;
+        }
+
+        void OnLevelFinishedLoading(Scene arg0, LoadSceneMode arg1)
+        {
             //cardManager = GetComponent<CardManager>();
-            CPUOpponent = GetComponentInChildren<CPUOpponent>();
-            inputManager = GetComponentInChildren<InputManager>();
+            CPUOpponent ??= GetComponentInChildren<CPUOpponent>();
+            inputManager ??= GetComponentInChildren<InputManager>();
             //audioManager = GetComponentInChildren<AudioManager>();
-            cinematicsManager = GetComponentInChildren<CinematicsManager>();
+            cinematicsManager ??= GetComponentInChildren<CinematicsManager>();
             //UIManager = GetComponentInChildren<UIManager>();
             if (autoStart)
                 introTimeline.SetActive(false);
@@ -86,14 +97,14 @@ namespace UnityRoyale
             CPUOpponent.OnCardUsed += UseCard;
 
             //initialise Placeable lists, for the AIs to pick up and find a target
-            playerUnits = new List<ThinkingPlaceable>();
-            playerBuildings = new List<ThinkingPlaceable>();
-            opponentUnits = new List<ThinkingPlaceable>();
-            opponentBuildings = new List<ThinkingPlaceable>();
-            allPlayers = new List<ThinkingPlaceable>();
-            allOpponents = new List<ThinkingPlaceable>();
-            allThinkingPlaceables = new List<ThinkingPlaceable>();
-            allProjectiles = new List<Projectile>();
+//            playerUnits = new List<ThinkingPlaceable>();
+//            playerBuildings = new List<ThinkingPlaceable>();
+//            opponentUnits = new List<ThinkingPlaceable>();
+//            opponentBuildings = new List<ThinkingPlaceable>();
+//            allPlayers = new List<ThinkingPlaceable>();
+//            allOpponents = new List<ThinkingPlaceable>();
+//            allThinkingPlaceables = new List<ThinkingPlaceable>();
+//            allProjectiles = new List<Projectile>();
         }
 
         public void Start()

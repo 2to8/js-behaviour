@@ -12,6 +12,7 @@ using MainScene.BootScene.Utils;
 using Org.BouncyCastle.Asn1.Cmp;
 using Presets;
 using Sirenix.Utilities;
+using Tetris.Blocks;
 using Tetris.Managers;
 using UnityEditor;
 using UnityEngine;
@@ -143,8 +144,8 @@ namespace Tetris
         {
             //var data = TetrisPreset.instance.Create();
             // if (!this.Any()) {
-
-            Game.instance.MovableRoot.ClearChildTransforms(t => t.gameObject.activeInHierarchy);
+            Game.instance.MovableRoot.ClearChildTransforms(t =>
+                t.gameObject.activeInHierarchy && t.GetComponent<Block>() != null);
             Game.instance.MovableRoot.localPosition = new Vector3(0, 0, -13);
             CardManager.instance.id = 100;
             if (Game.instance.ActorRoot == null) {

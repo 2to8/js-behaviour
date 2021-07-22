@@ -14,7 +14,7 @@ namespace MoreTags {
 public class TagManagerEditor : OdinEditor {
 
     TagGUI m_AllTag;
-    static bool s_Abbreviation = true;
+    static bool s_Abbreviation = false;
     static bool s_PresetFoldout = false;
     static bool s_ManagerFoldout = true;
     static bool s_AllTagFoldout = false;
