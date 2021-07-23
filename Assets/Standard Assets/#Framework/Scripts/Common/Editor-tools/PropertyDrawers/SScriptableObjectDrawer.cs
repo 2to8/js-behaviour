@@ -2,6 +2,7 @@
 using Puerts.Attributes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -68,7 +69,13 @@ namespace Common.PropertyDrawers
                         // Debug.Log("test");
                         //property.propertyType.
                         //Core.Dialog(fieldInfo.FieldType.FullName);
-                        property.objectReferenceValue = ScriptableObject.CreateInstance(GetFieldType());
+                        var obj = ScriptableObject.CreateInstance(GetFieldType());
+                        var filename = Core.TempFilename();
+                            //Path.ChangeExtension(Path.GetRandomFileName(), "asset");
+                        var path = $"Assets/Settings/{GetFieldType().Name}-{filename}";
+                        AssetDatabase.CreateAsset(obj, path);
+                        AssetDatabase.SaveAssets();
+                        property.objectReferenceValue = AssetDatabase.LoadAssetAtPath(path, GetFieldType());
                         property.isExpanded = EditorGUI.Foldout(position, property.isExpanded, GUIContent.none);
                     }
                 }

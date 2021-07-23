@@ -22,7 +22,7 @@ using Random = System.Random;
 public static partial class Core
 {
     static BindingFlags fullBinding = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance |
-                                      BindingFlags.Static | BindingFlags.FlattenHierarchy;
+        BindingFlags.Static | BindingFlags.FlattenHierarchy;
 
     static readonly StringComparison ignoreCase = StringComparison.CurrentCultureIgnoreCase;
     public static Random random => Rnd;
@@ -206,7 +206,7 @@ public static partial class Core
 
         // path = AssetDatabase.GetAssetPath(PrefabUtility.FindPrefabRoot(gameObject))
         return PrefabUtility.GetNearestPrefabInstanceRoot(gameObject) ??
-               PrefabUtility.GetCorrespondingObjectFromSource(gameObject) ?? gameObject;
+            PrefabUtility.GetCorrespondingObjectFromSource(gameObject) ?? gameObject;
 #endif
         return gameObject;
     }
@@ -215,7 +215,7 @@ public static partial class Core
     {
 #if UNITY_EDITOR
         return go != null && (PrefabUtility.IsPartOfPrefabAsset(go) || PrefabStageUtility.GetPrefabStage(go) != null ||
-                              PrefabUtility.IsPartOfPrefabInstance(go));
+            PrefabUtility.IsPartOfPrefabInstance(go));
 #endif
         return false;
     }
@@ -387,5 +387,10 @@ public static partial class Core
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()
             .name);
+    }
+
+    public static string TempFilename(string ext = "asset")
+    {
+        return System.IO.Path.ChangeExtension(System.IO.Path.GetRandomFileName(), ext);
     }
 }
