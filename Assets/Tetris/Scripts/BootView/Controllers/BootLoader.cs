@@ -30,7 +30,7 @@ await www.SendWebRequest();
 Debug.Log(req.downloadHandler.text);
 */
 
-    public class BootLoader : ViewManager<BootLoader>
+    public class BootLoader : Manager<BootLoader>
     {
         //
         static Scene scene => SceneManager.GetActiveScene();

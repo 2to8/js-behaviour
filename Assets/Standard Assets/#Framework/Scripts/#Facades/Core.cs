@@ -82,7 +82,7 @@ public static partial class Core
     }
 
     static readonly Dictionary<string, ScriptableObject> models = new Dictionary<string, ScriptableObject>(); //名字---模型
-    static readonly Dictionary<string, View> views = new Dictionary<string, View>(); //名字---视图
+    static readonly Dictionary<string, BaseView> views = new Dictionary<string, BaseView>(); //名字---视图
     static readonly Dictionary<string, Type> commandMap = new Dictionary<string, Type>(); //事件名字--控制器类型
 
     //static IEnumerable<Type> m_ControllerTypes;
@@ -353,7 +353,7 @@ public static partial class Core
     }
 
     //注册视图
-    public static void RegisterView(View view)
+    public static void RegisterView(BaseView baseView)
     {
         // if(views.ContainsKey(view.getName())) {
         //     return;
@@ -465,7 +465,7 @@ public static partial class Core
     }
 
     //获取视图
-    public static T GetView<T>() where T : View
+    public static T GetView<T>() where T : BaseView
     {
         foreach (var v in views.Values) {
             if (v is T view) {

@@ -15,12 +15,12 @@ using UnityEngine.UI;
 
 namespace GameEngine.Kernel {
 
-public class View<T> : ApplicationBase<T>, IView where T : View<T> {
+public class BaseView<T> : ApplicationBase<T>, IView where T : BaseView<T> {
 
     [FoldoutGroup("Core"), ShowInInspector]
     public List<IController> controllers { get; set; } = new List<IController>();
 
-    protected override async UniTask Awake()
+    protected override async Task Awake()
     {
         await base.Awake();
         await RegisterControllers();
@@ -167,42 +167,42 @@ public class View<T> : ApplicationBase<T>, IView where T : View<T> {
 
 }
 
-#if false
-    /// <summary>
-    /// 视图层
-    /// </summary>
-    public  abstract class View : ApplicationBase<View> {
-
-        // 视图标识
-        [HideInInspector]
-        public abstract string Name { get; }
-
-        // 视图层关心的事件列表
-        [HideInInspector]
-        public List<string> attentionEvents = new List<string>();
-
-        // 注册视图关心的事件
-        public virtual void RegisterViewEvents()
-        {
-
-        }
-
-        //获取模型
-        protected IModel GetModel<T>() where T:IModel
-        {
-            return Core.GetModel<T>();
-        }
-
-        //发送消息
-        protected void SendEvent(string eventName,object data = null)
-        {
-            Core.SendEvent(eventName, data);
-        }
-
-        // 视图层事件处理
-        public abstract void HandleEvent(string eventName,object data);
-        public abstract void Handle(string eventName, object sender, object data);
-    }
-#endif
+//#if false
+//    /// <summary>
+//    /// 视图层
+//    /// </summary>
+//    public  abstract class View : ApplicationBase<View> {
+//
+//        // 视图标识
+//        [HideInInspector]
+//        public abstract string Name { get; }
+//
+//        // 视图层关心的事件列表
+//        [HideInInspector]
+//        public List<string> attentionEvents = new List<string>();
+//
+//        // 注册视图关心的事件
+//        public virtual void RegisterViewEvents()
+//        {
+//
+//        }
+//
+//        //获取模型
+//        protected IModel GetModel<T>() where T:IModel
+//        {
+//            return Core.GetModel<T>();
+//        }
+//
+//        //发送消息
+//        protected void SendEvent(string eventName,object data = null)
+//        {
+//            Core.SendEvent(eventName, data);
+//        }
+//
+//        // 视图层事件处理
+//        public abstract void HandleEvent(string eventName,object data);
+//        public abstract void Handle(string eventName, object sender, object data);
+//    }
+//#endif
 
 }

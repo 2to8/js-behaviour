@@ -11,7 +11,7 @@ using Utils.Scenes;
 namespace UnityRoyale
 {
     [SceneBind(SceneName.Main)]
-    public class CraftManager : ViewManager<CraftManager>
+    public class CraftManager : Manager<CraftManager>
     {
         public CraftData data;
 

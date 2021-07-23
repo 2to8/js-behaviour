@@ -3,6 +3,7 @@ using GameEngine.Kernel._Appliation.Views.RaidView.Controllers;
 using GameEngine.Kernel._Appliation.Views.RaidView.Types;
 using Sirenix.Utilities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
 using UnityEngine.UI;
@@ -102,7 +103,7 @@ public class RaidManager : Provider<RaidManager> {
         return RaidType.None;
     }
 
-    protected override async UniTask Awake()
+    protected override async Task Awake()
     {
         // todo: 需要放在 base.awake() 前面
         await base.Awake();

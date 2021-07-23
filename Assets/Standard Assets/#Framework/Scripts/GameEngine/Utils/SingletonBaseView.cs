@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameEngine.Utils {
 
-public abstract class SingletonView<T> : TView<T> where T : SingletonView<T> {
+public abstract class SingletonBaseView<T> : Views.Contracts.BaseView<T> where T : SingletonBaseView<T> {
 
     protected static T m_Instance;
     static GameObject m_Root;

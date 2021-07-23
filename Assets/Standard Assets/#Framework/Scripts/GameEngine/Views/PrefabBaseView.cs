@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GameEngine.Views {
 
-public class PrefabView : TView<PrefabView> {
+public class PrefabBaseView : BaseView<PrefabBaseView> {
 
     public enum Type {
 

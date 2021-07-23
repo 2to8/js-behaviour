@@ -44,7 +44,7 @@ namespace GameEngine.Kernel._Appliation
             SceneManager.LoadScene(level, LoadSceneMode.Single);
         }
 
-        void OnLevelWasLoaded_Removed(int level)
+        void OnLevelWasLoaded/*_Removed*/(int level)
         {
             var e = new SceneArgs { sceneIndex = level };
             Debug.Log("On LevelWasLoaded");
@@ -61,9 +61,9 @@ namespace GameEngine.Kernel._Appliation
         static void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
         {
             if (m_Instance != null) {
-                m_Instance.OnLevelWasLoaded_Removed(scene.buildIndex);
+                m_Instance.OnLevelWasLoaded/*_Removed*/(scene.buildIndex);
             }
-            Debug.Log(string.Format("Scene{0} has been loaded ({1})", scene.name, loadSceneMode.ToString()));
+            Debug.Log($"Scene{scene.name} has been loaded ({loadSceneMode.ToString()})");
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Presets
 {
-    public class GenMapButton : Component<GenMapButton>
+    public class GenMapButton : View<GenMapButton>
     {
         Button btn;
         GenMapManager manager;

@@ -3,5 +3,5 @@ using Sirenix.OdinInspector;
 
 namespace MainScene.Menu
 {
-    public class ShopManager : ViewManager<ShopManager> { }
+    public class ShopManager : Manager<ShopManager> { }
 }

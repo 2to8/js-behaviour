@@ -1,6 +1,6 @@
 ﻿namespace GameEngine.Kernel._Appliation.Views {
 
-public class CellTypeNode : View<CellTypeNode> {
+public class CellTypeNode : BaseView<CellTypeNode> {
 
     public bool isActive;
     public Nodetype nodetype;

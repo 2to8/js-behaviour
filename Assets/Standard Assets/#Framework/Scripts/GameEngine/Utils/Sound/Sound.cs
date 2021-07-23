@@ -2,7 +2,7 @@
 
 namespace GameEngine.Utils.Sound {
 
-public class Sound : SingletonView<Sound> {
+public class Sound : SingletonBaseView<Sound> {
 
     AudioSource m_bgSound;
     AudioSource m_effectSound;

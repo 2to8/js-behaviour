@@ -8,7 +8,7 @@ using UnityEngine.Events;
 namespace UnityRoyale
 {
     
-    public class CPUOpponent : ViewManager<CPUOpponent>
+    public class CPUOpponent : Manager<CPUOpponent>
     {
         public DeckData aiDeck;
         public UnityAction<CardData, Vector3, Placeable.Faction> OnCardUsed;
@@ -24,8 +24,8 @@ namespace UnityRoyale
 
         public void LoadDeck()
         {
-            gameObject.GetComponents<DeckLoader>().ForEach(t => t.DestroySelf());
-            DeckLoader newDeckLoaderComp = gameObject.AddComponent<DeckLoader>();
+            //gameObject.GetComponents<DeckLoader>().ForEach(t => t.DestroySelf());
+            DeckLoader newDeckLoaderComp = gameObject.RequireComponent<DeckLoader>();
             newDeckLoaderComp.OnDeckLoaded += DeckLoaded;
             newDeckLoaderComp.LoadDeck(aiDeck);
         }

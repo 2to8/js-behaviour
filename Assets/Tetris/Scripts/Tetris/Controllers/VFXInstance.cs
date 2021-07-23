@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tetris
 {
-    public class VFXInstance : Component<VFXInstance>, IPoolable<VFXInstance>
+    public class VFXInstance : View<VFXInstance>, IPoolable<VFXInstance>
     {
         public bool InPooled { get; set; }
         public Pool<VFXInstance> Pool { get; set; }

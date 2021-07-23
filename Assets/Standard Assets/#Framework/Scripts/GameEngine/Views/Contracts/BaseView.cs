@@ -22,7 +22,7 @@ namespace GameEngine.Views.Contracts {
 /// <summary>
 ///     视图层
 /// </summary>
-public abstract class View : ViewBase {
+public abstract class BaseView : ViewBase {
 
 #if UNITY_EDITOR
     [FoldoutGroup("Controller"), PuertsIgnore]

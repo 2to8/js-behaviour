@@ -1,4 +1,5 @@
-﻿using UniRx.Async;
+﻿using System.Threading.Tasks;
+using UniRx.Async;
 using UnityEngine;
 
 namespace GameEngine.Kernel.Sound {
@@ -15,7 +16,7 @@ public class Sound : ApplicationBase<Sound> {
     //音效大小
     public float EffectVolume { get => m_effectSound.volume; set => m_effectSound.volume = value; }
 
-    protected override async UniTask Awake()
+    protected override async Task Awake()
     {
         await base.Awake();
         m_bgSound = gameObject.AddComponent<AudioSource>();

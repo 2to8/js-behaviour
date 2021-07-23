@@ -9,7 +9,7 @@ namespace Tetris.Main.Cameras
     /// https://docs.unity3d.com/ScriptReference/Camera.Render.html
     /// </summary>
     [SceneBind(SceneName.Main)]
-    public class BlockCamera : ViewManager<BlockCamera>
+    public class BlockCamera : Manager<BlockCamera>
     {
         [SerializeField]
         Camera camera;

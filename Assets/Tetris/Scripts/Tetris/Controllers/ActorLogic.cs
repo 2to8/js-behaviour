@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Battle
 {
     [SceneBind(SceneName.Main)]
-    public class ActorLogic : ViewManager<ActorLogic>
+    public class ActorLogic : Manager<ActorLogic>
     {
         public ActorData ActorData;
         public List<GameObject> WarriorPrefab = new List<GameObject>();

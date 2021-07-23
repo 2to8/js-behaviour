@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Tetris
 {
-    public class StartPanel : Component<StartPanel>
+    public class StartPanel : View<StartPanel>
     {
         [SerializeField]
         Button goBtn;

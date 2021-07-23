@@ -2,6 +2,7 @@
 using GameEngine.Kernel._Appliation;
 using GameEngine.Utils;
 using System;
+using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
 using Core_1 = Core;
@@ -67,7 +68,7 @@ namespace GameEngine.Kernel
         //         return m_Instance;
         //     }
         // }
-        protected virtual async UniTask Awake()
+        protected virtual async Task Awake()
         {
             await AppLoaderHander;
 

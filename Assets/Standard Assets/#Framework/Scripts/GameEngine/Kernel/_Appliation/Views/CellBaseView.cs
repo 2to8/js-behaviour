@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameEngine.Kernel._Appliation.Views {
 
-public class CellView : View<CellView> {
+public class CellBaseView : BaseView<CellBaseView> {
 
     public MeshRenderer bgTile;
 

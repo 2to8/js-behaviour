@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Tetris.Main
 {
-    public class IconCamera : ViewManager<IconCamera>
+    public class IconCamera : Manager<IconCamera>
     {
         [SerializeField]
         RawImage image;

@@ -2,7 +2,7 @@ using System.IO;
 using System.Linq;
 using Common;
 using GameEngine.Extensions;
-using GameUtils;
+
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.X509.Qualified;
 using Sirenix.Utilities;
@@ -12,7 +12,7 @@ using UnityEngine;
 namespace Tetris
 {
     [ExecuteAlways]
-    public class AnimeHelper : Component<AnimeHelper>
+    public class AnimeHelper : View<AnimeHelper>
     {
         [SerializeField]
         Animator m_Animator;

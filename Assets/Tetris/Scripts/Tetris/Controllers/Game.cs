@@ -28,7 +28,7 @@ namespace Tetris
     //[ExecuteAlways]
     [SceneBind(SceneName.Main)]
     [SuppressMessage("ReSharper", "Unity.NoNullPropagation")]
-    public class Game : ViewManager<Game>
+    public class Game : Manager<Game>
     {
         //static Game m_Instance;
 
@@ -164,17 +164,15 @@ namespace Tetris
             }
 
             Debug.Log("333 " + SceneManager.GetAllScenes().Where(t => t.isLoaded)
-                .Select(t => $"{t.name}({t.GetRootGameObjects().Length})").Join());
+                .Select(t => $"{t.name}({t.GetRootGameObjects().Length})").Join().ToRed());
             //yield break;
         }
 
         void Start()
         {
-            Debug.Log("[check-open]" +
-                SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name).Join().ToRed());
+            Debug.Log("[START]".ToRed());
             LoadScenes();
-            Debug.Log("[check-open]" +
-                SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name).Join().ToRed());
+            //Debug.Log("[check-open]" + SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name).Join().ToRed());
             // if (IsDefaultGameStart) {
             //     OnFirstBlock.AddListener(DoGameStart);
             // }

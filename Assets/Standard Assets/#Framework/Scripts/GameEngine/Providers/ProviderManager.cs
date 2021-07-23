@@ -14,11 +14,11 @@ using UnityEngine;
 
 namespace GameEngine.Providers {
 
-public abstract class Manager<T, S> : Manager, IList<Manager<T, S>> where T : Manager<T, S> where S : Controller<T, S> {
+public abstract class ProviderManager<T, S> : ProviderManager, IList<ProviderManager<T, S>> where T : ProviderManager<T, S> where S : Controller<T, S> {
 
     protected static T m_instance;
     public static S m_System;
-    readonly IList<Manager<T, S>> m_List = new List<Manager<T, S>>();
+    readonly IList<ProviderManager<T, S>> m_List = new List<ProviderManager<T, S>>();
     bool m_Awaked = false;
     public S system => m_System;
 
@@ -43,12 +43,12 @@ public abstract class Manager<T, S> : Manager, IList<Manager<T, S>> where T : Ma
         }
     }
 
-    public IEnumerator<Manager<T, S>> GetEnumerator() => m_List.GetEnumerator();
+    public IEnumerator<ProviderManager<T, S>> GetEnumerator() => m_List.GetEnumerator();
 
     //yield break;
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-    public void Add(Manager<T, S> item)
+    public void Add(ProviderManager<T, S> item)
     {
         m_List.Add(item);
     }
@@ -58,21 +58,21 @@ public abstract class Manager<T, S> : Manager, IList<Manager<T, S>> where T : Ma
         m_List.Clear();
     }
 
-    public bool Contains(Manager<T, S> item) => m_List.Contains(item);
+    public bool Contains(ProviderManager<T, S> item) => m_List.Contains(item);
 
-    public void CopyTo(Manager<T, S>[] array, int arrayIndex)
+    public void CopyTo(ProviderManager<T, S>[] array, int arrayIndex)
     {
         m_List.CopyTo(array, arrayIndex);
     }
 
-    public bool Remove(Manager<T, S> item) => m_List.Remove(item);
+    public bool Remove(ProviderManager<T, S> item) => m_List.Remove(item);
 
     public int Count => m_List.Count;
     public bool IsReadOnly => m_List.IsReadOnly;
 
-    public int IndexOf(Manager<T, S> item) => m_List.IndexOf(item);
+    public int IndexOf(ProviderManager<T, S> item) => m_List.IndexOf(item);
 
-    public void Insert(int index, Manager<T, S> item)
+    public void Insert(int index, ProviderManager<T, S> item)
     {
         m_List.Insert(index, item);
     }
@@ -82,7 +82,7 @@ public abstract class Manager<T, S> : Manager, IList<Manager<T, S>> where T : Ma
         m_List.RemoveAt(index);
     }
 
-    public Manager<T, S> this[int index] { get => m_List[index]; set => m_List[index] = value; }
+    public ProviderManager<T, S> this[int index] { get => m_List[index]; set => m_List[index] = value; }
 
     protected virtual void Awake()
     {
@@ -163,13 +163,13 @@ public abstract class Manager<T, S> : Manager, IList<Manager<T, S>> where T : Ma
         system.mb = t;
     }
 
-    public IEnumerable<Manager<T, S>> Enabled()
+    public IEnumerable<ProviderManager<T, S>> Enabled()
     {
         return this.Where(t => t != null && t.transform != null);
     }
 
 }
 
-public abstract class Manager : SerializedMonoBehaviour { }
+public abstract class ProviderManager : SerializedMonoBehaviour { }
 
 }

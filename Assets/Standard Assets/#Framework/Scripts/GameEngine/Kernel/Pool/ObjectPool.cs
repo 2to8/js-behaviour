@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameEngine.Kernel.Pool {
 
-public class ObjectPool : SingletonView<ObjectPool> {
+public class ObjectPool : SingletonBaseView<ObjectPool> {
 
     readonly Dictionary<string, SubPool> m_pools = new Dictionary<string, SubPool>();
     public string ResourceDir = "";

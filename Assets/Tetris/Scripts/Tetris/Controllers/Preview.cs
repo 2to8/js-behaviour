@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Tetris.Managers
 {
     [SceneBind(SceneName.Main)]
-    public class Preview : ViewManager<Preview>
+    public class Preview : Manager<Preview>
     {
         [NotNull]
         Block currentBlock => TetrisManager.instance.currentBlock;

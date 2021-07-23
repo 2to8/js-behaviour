@@ -27,7 +27,7 @@ public enum BlockType
 
 namespace Tetris.Blocks
 {
-    public class Block : Component<Block> /*,Saro.IPoolable<Block>*/
+    public class Block : View<Block> /*,Saro.IPoolable<Block>*/
     {
         public BlockType blockType = BlockType.I;
         public int rotateType;

@@ -1,6 +1,7 @@
 ﻿using GameEngine.Kernel._Appliation.Views.RaidView.States;
 using GameEngine.Kernel.Attributes;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ public class RaidNode : Provider<RaidNode> {
     public int Stars;
     public RaidType type = RaidType.None;
 
-    protected override async UniTask Awake()
+    protected override async Task Awake()
     {
         await base.Awake();
 

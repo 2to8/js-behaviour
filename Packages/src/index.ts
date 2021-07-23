@@ -67,6 +67,23 @@ extensions();
 
 dict_install();
 
+export function Singleton<E>() {
+    class SingletonE {
+        protected constructor() {
+        }
+        
+        private static _inst: SingletonE = null;
+        public static get inst(): E {
+            if (SingletonE._inst == null) {
+                SingletonE._inst = new this();
+            }
+            return SingletonE._inst as E;
+        }
+    }
+    
+    return SingletonE;
+}
+
 global.$InitEnv = (env: JsEnv) => {
     PuertsStaticWrap.AutoStaticUsing.AutoUsing(env);
     //PuertsHelper.UsingActions(env);
@@ -94,7 +111,6 @@ global.$testBind = (obj: TestBind) => {
     obj.num = 5;
     obj.test2();
 }
-
 
 Array.prototype['toArray'] = function <T1 extends System.Object | any>(type: new (...args: any[]) => T1): System.Array$1<T1> {
     let ret = System.Array.CreateInstance($typeof(type), this.length) as System.Array$1<T1>;

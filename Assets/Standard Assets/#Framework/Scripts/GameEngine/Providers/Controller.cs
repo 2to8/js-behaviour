@@ -11,12 +11,12 @@ using UnityEngine.SceneManagement;
 
 namespace GameEngine.Providers {
 
-public abstract class Controller<M, T> : Controller where T : Controller<M, T> where M : Manager<M, T> {
+public abstract class Controller<M, T> : Controller where T : Controller<M, T> where M : ProviderManager<M, T> {
 
     static readonly List<Action> m_RunOnceActions = new List<Action>();
     M m_Mb;
 
-    public M mb { get => m_Mb ?? (m_Mb = Manager<M, T>.Instance); set => m_Mb = value; }
+    public M mb { get => m_Mb ?? (m_Mb = ProviderManager<M, T>.Instance); set => m_Mb = value; }
 
     public static void RunOnce(Action action)
     {

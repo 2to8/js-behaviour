@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Tetris
 {
-    public class SceneTransitionMgr : ViewManager<SceneTransitionMgr>
+    public class SceneTransitionMgr : Manager<SceneTransitionMgr>
     {
 
         public static event Action OnTransitionStarted;

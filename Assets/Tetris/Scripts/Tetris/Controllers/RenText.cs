@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tetris
 {
-    public class RenText : Component<RenText>
+    public class RenText : View<RenText>
     {
         Saro.Tween tween;
         TMP_Text text;

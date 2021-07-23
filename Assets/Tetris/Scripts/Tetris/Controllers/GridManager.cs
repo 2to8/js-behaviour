@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 namespace Tetris.Managers
 {
     [SceneBind(SceneName.Main)]
-    public class GridManager : ViewManager<GridManager>
+    public class GridManager : Manager<GridManager>
     {
         [ShowInInspector]
         [ListDrawerSettings(ShowIndexLabels = true, Expanded = true)]

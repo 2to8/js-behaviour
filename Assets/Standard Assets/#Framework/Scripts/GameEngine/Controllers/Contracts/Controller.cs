@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace GameEngine.Controllers.Contracts {
 
-public abstract class Controller<T, M> : Controller<T> where T : Controller<T, M> where M : TView<M> {
+public abstract class Controller<T, M> : Controller<T> where T : Controller<T, M> where M : Views.Contracts.BaseView<M> {
 
     [OdinSerialize, ValueDropdown(nameof(StateTypes))]
     public override Type CurrentState { get; set; } = typeof(M).GetCustomAttribute<DefaultStateAttribute>()?.type ??

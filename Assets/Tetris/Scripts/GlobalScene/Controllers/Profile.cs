@@ -8,7 +8,7 @@ using UnityEngine.AddressableAssets;
 namespace GlobalScene
 {
     [DisallowMultipleComponent]
-    public class Profile : ViewManager<Profile>
+    public class Profile : Manager<Profile>
     {
         public List<ScriptableObject> Data;
         public TextAsset SqliteFile;

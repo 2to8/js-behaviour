@@ -8,7 +8,7 @@ using UnityEngine;
 namespace UnityRoyale
 {
     [SceneBind(SceneName.Main)]
-    public class UIManager : ViewManager<UIManager>
+    public class UIManager : Manager<UIManager>
     {
         public GameObject healthBarPrefab;
 

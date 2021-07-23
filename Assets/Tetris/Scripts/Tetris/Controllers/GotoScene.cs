@@ -5,7 +5,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Tetris.Main
 {
-    public class GotoScene : ViewManager<GotoScene>
+    public class GotoScene : Manager<GotoScene>
     {
         [SerializeField]
         AssetReference sceneRef;

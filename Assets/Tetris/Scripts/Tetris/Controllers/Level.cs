@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 namespace Tetris
 {
     [SceneBind(SceneName.Main)]
-    public class Level : ViewManager<Level>
+    public class Level : Manager<Level>
     {
         public int blockId = 100;
 

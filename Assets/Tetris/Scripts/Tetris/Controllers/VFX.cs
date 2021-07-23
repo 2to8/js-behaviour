@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tetris
 {
-    public class VFX : Component<VFX>
+    public class VFX : View<VFX>
     {
         [SerializeField]
         AudioSource clipAudioSource;

@@ -4,12 +4,13 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
 
 namespace GameEngine.Kernel {
 
-public class Provider<T> : View<T>, IProvider where T : Provider<T> {
+public class Provider<T> : BaseView<T>, IProvider where T : Provider<T> {
 
     IState currentState;
 
@@ -79,7 +80,7 @@ public class Provider<T> : View<T>, IProvider where T : Provider<T> {
         SetState(typeof(TA));
     }
 
-    protected override async UniTask Awake()
+    protected override async Task Awake()
     {
         await base.Awake();
         DefaultState.Dispatch(this);

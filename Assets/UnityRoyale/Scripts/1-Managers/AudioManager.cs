@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : ViewManager<AudioManager>
+public class AudioManager : Manager<AudioManager>
 {
 	public AudioMixer audioMixer;
 	public AudioMixerSnapshot gameplaySnapshot, endMatchSnapshot;

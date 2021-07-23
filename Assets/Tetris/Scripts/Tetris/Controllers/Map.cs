@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Tetris.Managers
 {
     [SceneBind(SceneName.Main)]
-    public class Map : ViewManager<Map>
+    public class Map : Manager<Map>
     {
         //[OdinSerialize]
         //public Dictionary<string, List<Vector2Int>> list = new Dictionary<string, List<Vector2Int>>();

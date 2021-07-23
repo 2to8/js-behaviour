@@ -17,7 +17,7 @@ using UnityRoyale;
 namespace Arena
 {
     [SceneBind(SceneName.Main)]
-    public class TetrisPreset : ViewManager<TetrisPreset>
+    public class TetrisPreset : Manager<TetrisPreset>
     {
         public List<GameObject> blockPrefabs = new List<GameObject>();
 

@@ -26,7 +26,7 @@ using Utils.Settings;
 namespace MainScene.BootScene.Utils
 {
     [Serializable]
-    public class SceneLoader : ViewManager<SceneLoader>
+    public class SceneLoader : Manager<SceneLoader>
     {
         public static Env js;
         static bool isDownloading;

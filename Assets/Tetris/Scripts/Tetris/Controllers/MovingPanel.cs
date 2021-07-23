@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Tetris
 {
-    public class MovingPanel : ViewManager<MovingPanel>, IBeginDragHandler, IDragHandler, IPointerUpHandler,
+    public class MovingPanel : Manager<MovingPanel>, IBeginDragHandler, IDragHandler, IPointerUpHandler,
         IEndDragHandler, IPointerDownHandler /*,IPointerUpHandler*/
     {
         [SerializeField]

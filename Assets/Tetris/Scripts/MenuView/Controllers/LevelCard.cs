@@ -15,7 +15,7 @@ using UnityEngine.UI;
 
 namespace MainScene.Menu
 {
-    public class LevelCard : ViewManager<LevelCard>
+    public class LevelCard : Manager<LevelCard>
     {
         [SerializeField]
         public bool isAvatar;

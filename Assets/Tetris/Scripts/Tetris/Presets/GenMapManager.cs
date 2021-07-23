@@ -20,7 +20,7 @@ namespace Presets
     /// https://meatfighter.com/tetrisprinteralgorithm/
     /// </summary>
     [SceneBind(SceneName.Main)]
-    public class GenMapManager : ViewManager<GenMapManager>
+    public class GenMapManager : Manager<GenMapManager>
     {
         public MapGenData map;
 

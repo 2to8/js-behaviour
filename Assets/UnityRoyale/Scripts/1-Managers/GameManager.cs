@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
 namespace UnityRoyale
 {
     [SceneBind(SceneName.Main)]
-    public class GameManager : ViewManager<GameManager>
+    public class GameManager : Manager<GameManager>
     {
         [Header("Settings")]
         public bool autoStart = false;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Tetris
 {
-    public class InGameStatus : Component<InGameStatus>
+    public class InGameStatus : View<InGameStatus>
     {
         public TMP_Text score;
         public TMP_Text level;

@@ -17,7 +17,7 @@ namespace GameEngine.Providers {
 
 public interface IEvent { }
 
-public class DefaultBootstrap : SingletonView<DefaultBootstrap> {
+public class DefaultBootstrap : SingletonBaseView<DefaultBootstrap> {
 
     //static App m_instance;
     public static bool Booted;
@@ -133,7 +133,7 @@ public class DefaultBootstrap : SingletonView<DefaultBootstrap> {
         CheckRequiredComponentTool.CheckRequired();
     #endif
 
-        Core.GetTypes<Manager>()
+        Core.GetTypes<ProviderManager>()
             .Where(t => !t.IsAbstract &&
                 !t.IsGenericType &&
                 !Instance.GetComponentInChildren(t, true) &&

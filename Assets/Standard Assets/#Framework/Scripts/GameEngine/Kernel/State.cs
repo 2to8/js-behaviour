@@ -1,6 +1,7 @@
 ﻿using GameEngine.Contacts;
 using Sirenix.OdinInspector;
 using System;
+using System.Threading.Tasks;
 using UniRx.Async;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace GameEngine.Kernel {
 //     }
 // }
 
-public abstract class State<T, TV> : View<T>, IState where T : State<T, TV> where TV : IProvider {
+public abstract class State<T, TV> : BaseView<T>, IState where T : State<T, TV> where TV : IProvider {
 
     [SerializeField]
     TV m_Provider;
@@ -34,7 +35,7 @@ public abstract class State<T, TV> : View<T>, IState where T : State<T, TV> wher
     [ShowInInspector]
     public virtual IProvider Provider { get => m_Provider; set => m_Provider = (TV)value; }
 
-    protected override async UniTask Awake()
+    protected override async Task Awake()
     {
         await base.Awake();
 

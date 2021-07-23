@@ -15,10 +15,9 @@ using Tetris;
 namespace UnityRoyale
 {
     [SceneBind(SceneName.Main)]
-    public class CardManager : ViewManager<CardManager>
+    public class CardManager : Manager<CardManager>
     {
         void OnEnable() { }
-        
         public Camera mainCamera => Camera.main; //public reference
         public LayerMask playingFieldMask;
         public GameObject cardPrefab;
@@ -73,7 +72,7 @@ namespace UnityRoyale
         GameObject previewHolder =>
             m_PreviewHolder ??= GameObject.Find("/PreviewHolder") ?? new GameObject("PreviewHolder");
 
-        protected  void Start()
+        protected void Start()
         {
             m_PreviewHolder ??= new GameObject("PreviewHolder");
             cards ??= new Card[3]; //3 is the length of the dashboard
@@ -81,8 +80,8 @@ namespace UnityRoyale
 
         public void LoadDeck(bool allCards = true)
         {
-            gameObject.GetComponents<DeckLoader>().ForEach(t => t.DestroySelf());
-            DeckLoader newDeckLoaderComp = gameObject.AddComponent<DeckLoader>();
+            //gameObject.GetComponents<DeckLoader>().ForEach(t => t.DestroySelf());
+            DeckLoader newDeckLoaderComp = gameObject.RequireComponent<DeckLoader>();
             newDeckLoaderComp.count = allCards ? cards.Length : 1;
             newDeckLoaderComp.OnDeckLoaded += DeckLoaded;
             newDeckLoaderComp.LoadDeck(playersDeck);
@@ -309,16 +308,15 @@ namespace UnityRoyale
 
             //raycasting to check if the card is on the play field
             RaycastHit hit;
-            Ray ray = mainCamera.ScreenPointToRay(/*Input.mousePosition*/pos == default ? Input.mousePosition : new Vector3(pos.x,pos.y) );
+            Ray ray = mainCamera.ScreenPointToRay( /*Input.mousePosition*/
+                pos == default ? Input.mousePosition : new Vector3(pos.x, pos.y));
             // 270,258
             Debug.Log(Input.mousePosition.ToString().ToYellow());
-
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, playingFieldMask)) {
                 if (OnCardUsed != null)
                     OnCardUsed(cards[cardId].cardData, hit.point + inputCreationOffset,
                         Placeable.Faction.Player); //GameManager picks this up to spawn the actual Placeable
                 ClearPreviewObjects();
-
                 if (prevCard != null && prevCard != cards[cardId].gameObject) {
                     Debug.Log($"destroy prevCard {prevCard}".ToBlue());
                     //if (Application.isPlaying) {
@@ -330,7 +328,6 @@ namespace UnityRoyale
                 //Destroy(cards[cardId].gameObject); //remove the card itself
                 prevCard = cards[cardId].gameObject;
                 prevCard.SetActive(false);
-
                 StartCoroutine(PromoteCardFromDeck(cardId, .2f));
                 StartCoroutine(AddCardToDeck(.6f, card => {
                     // 新生成卡牌即下一回合, 清除锁定标志

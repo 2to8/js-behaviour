@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils.Scenes;
 
-public abstract class ViewManager<T> : Component<T> where T : ViewManager<T>
+public abstract class Manager<T> : View<T> where T : Manager<T>
 {
     //
     static T m_Instance;

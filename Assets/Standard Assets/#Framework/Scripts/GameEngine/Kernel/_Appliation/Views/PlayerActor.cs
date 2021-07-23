@@ -1,5 +1,5 @@
 ﻿namespace GameEngine.Kernel._Appliation.Views {
 
-public class PlayerActor : View<PlayerActor> { }
+public class PlayerActor : BaseView<PlayerActor> { }
 
 }

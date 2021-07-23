@@ -9,7 +9,7 @@ using UnityEngine.Video;
 
 namespace Tetris
 {
-    public class Cell : Component<Cell>
+    public class Cell : View<Cell>
     {
         // 该方块的唯一id
         [ReadOnly]

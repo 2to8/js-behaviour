@@ -21,9 +21,9 @@ public abstract class ControllerBase : SerializedStateMachineBehaviour {
     }
 
     //注册视图
-    protected void RegisterView(View view)
+    protected void RegisterView(BaseView baseView)
     {
-        Core.RegisterView(view);
+        Core.RegisterView(baseView);
     }
 
     //注册控制器
@@ -49,7 +49,7 @@ public abstract class ControllerBase : SerializedStateMachineBehaviour {
     protected T GetModel<T>() where T : DbTable<T>, new() => Core.GetModel<T>();
 
     //获取视图
-    protected T GetView<T>() where T : View => Core.GetView<T>();
+    protected T GetView<T>() where T : BaseView => Core.GetView<T>();
 
 }
 
