@@ -10,7 +10,6 @@ namespace UnityRoyale
         public int amount = 10;
         private ParticleSystem[] pool;
         private int currentSystem = 0;
-        void OnEnable() { }
 
         public override void Start()
         {

@@ -13,8 +13,9 @@ namespace Tetris
         public TMP_Text time;
         public GameObject gameOverPanel;
 
-        void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             TetrisManager.OnScoreChanged += UpdateScore;
             TetrisManager.OnLevelChanged += UpdateLevel;
             TetrisManager.OnGoalChanged += UpdateGoal;

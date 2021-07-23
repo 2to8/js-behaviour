@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace UnityRoyale
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager : Manager<InputManager>
     {
-        void OnEnable() { }
     }
 }

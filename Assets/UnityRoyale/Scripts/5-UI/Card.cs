@@ -38,7 +38,6 @@ namespace UnityRoyale
 
         public Image portraitImage; //Inspector-set reference
         private CanvasGroup canvasGroup;
-        void OnEnable() { }
 
         public override void Start()
         {

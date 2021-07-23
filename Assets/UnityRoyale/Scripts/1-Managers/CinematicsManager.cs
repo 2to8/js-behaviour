@@ -6,10 +6,10 @@ using UnityEngine.Playables;
 
 namespace UnityRoyale
 {
-    public class CinematicsManager : MonoBehaviour
+    public class CinematicsManager : Manager<CinematicsManager>
     {
         public PlayableDirector redCastleCollapse, blueCastleCollapse;
-        void OnEnable() { }
+        
 
         public void PlayCollapseCutscene(Placeable.Faction f)
         {

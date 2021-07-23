@@ -1,13 +1,13 @@
 ﻿using System;
+using Common;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Playables;
 
 namespace UnityRoyale
 {
-	public class CardPlayerBridge : MonoBehaviour, INotificationReceiver
+	public class CardPlayerBridge : View<CardPlayerBridge>, INotificationReceiver
 	{
-        void OnEnable() { }
         public GameManager gameManager  => GameManager.instance; //public reference
 
 		//will ask the manager to play a Card

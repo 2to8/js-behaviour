@@ -8,7 +8,6 @@ namespace UnityRoyale
     public class Building : ThinkingPlaceable
     {
 		//Inspector references
-        void OnEnable() { }
 
         [Header("Timelines")]
 		public PlayableDirector constructionTimeline;

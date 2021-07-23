@@ -17,7 +17,7 @@ public class AudioManager : Manager<AudioManager>
 		audioSource = GetComponent<AudioSource>();
 	}
 
-    void OnEnable() { }
+   
 
     public void GoToDefaultSnapshot()
 	{

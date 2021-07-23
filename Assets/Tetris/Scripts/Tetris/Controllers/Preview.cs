@@ -21,7 +21,6 @@ namespace Tetris.Managers
 
         #region Block Preview
 
-        void OnEnable() { }
 
         [ButtonGroup("debug")]
         public void InitPreview()

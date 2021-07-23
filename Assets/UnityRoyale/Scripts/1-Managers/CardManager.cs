@@ -17,7 +17,7 @@ namespace UnityRoyale
     [SceneBind(SceneName.Main)]
     public class CardManager : Manager<CardManager>
     {
-        void OnEnable() { }
+        
         public Camera mainCamera => Camera.main; //public reference
         public LayerMask playingFieldMask;
         public GameObject cardPrefab;

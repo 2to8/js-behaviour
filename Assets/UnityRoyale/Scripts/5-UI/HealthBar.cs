@@ -15,7 +15,7 @@ namespace UnityRoyale
         private Transform transformToFollow;
         private Color red = new Color32(252, 35, 13, 255);
         private Color blue = new Color32(31, 132, 255, 255);
-        void OnEnable() { }
+        
 
         public void Initialise(ThinkingPlaceable p)
         {

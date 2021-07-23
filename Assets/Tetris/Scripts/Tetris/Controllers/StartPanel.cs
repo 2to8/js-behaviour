@@ -9,8 +9,9 @@ namespace Tetris
         [SerializeField]
         Button goBtn;
 
-        void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             // goBtn = GetComponent<Button>();
             var transition = new SquaresTransition();
             if (goBtn)

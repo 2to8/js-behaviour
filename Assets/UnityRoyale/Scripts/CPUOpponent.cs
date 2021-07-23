@@ -44,7 +44,7 @@ namespace UnityRoyale
             Invoke(nameof(Bridge), 0f);
         }
 
-        void OnEnable() { }
+        
 
         private void Bridge()
         {

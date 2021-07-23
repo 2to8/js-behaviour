@@ -1,3 +1,4 @@
+using Common;
 using DG.Tweening;
 using FlowCanvas.Nodes;
 using GameEngine.Extensions;
@@ -6,7 +7,7 @@ using Sirenix.OdinInspector;
 
 namespace MainScene.Menu
 {
-    public class FadeButton : SerializedMonoBehaviour
+    public class FadeButton : View<FadeButton>
     {
         [SerializeField]
         CanvasGroup cg;
@@ -22,8 +23,9 @@ namespace MainScene.Menu
         [SerializeField]
         float Min = 0.5f;
 
-        void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             cg ??= gameObject.RequireComponent<CanvasGroup>();
             if (cg != null) ToLittle();
         }

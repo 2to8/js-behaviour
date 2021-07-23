@@ -9,7 +9,8 @@ namespace Common
 {
     public partial class View : SerializedMonoBehaviour
     {
-        bool BindingInited;
+        protected bool BindingInited;
+        protected virtual void OnEnable() { }
 
         [Button]
         public void InitBinding()
@@ -18,8 +19,8 @@ namespace Common
                 //BindingInited = true;
                 Debug.Log($"binding tags: {GetType().FullName}".ToRed());
                 GetType()
-                    .GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
-                    .Where(t => t.IsDefined(typeof(TagsAttribute))).ToList().ForEach(mi => {
+                    .GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic |
+                        BindingFlags.Static).Where(t => t.IsDefined(typeof(TagsAttribute))).ToList().ForEach(mi => {
                         mi.GetCustomAttribute<TagsAttribute>().Invoke(mi, this);
                     });
             }

@@ -113,8 +113,10 @@ namespace MainScene.BootScene.Unused
             }
         }
 
-        async void OnEnable()
+        protected override async void OnEnable()
         {
+            base.OnEnable();
+
             m_Slider.value = 0;
 
             // await Addressables.InitializeAsync().Task;
