@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UnityRoyale
 {
-    public class ParticlePool : MonoBehaviour
+    public class ParticlePool : Manager<ParticlePool>
     {
         public GameObject effectPrefab;
         public int amount = 10;
@@ -12,8 +12,9 @@ namespace UnityRoyale
         private int currentSystem = 0;
         void OnEnable() { }
 
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             pool = new ParticleSystem[amount];
             for (int i = 0; i < amount; i++) {
                 pool[i] = GameObject.Instantiate<GameObject>(effectPrefab, this.transform)

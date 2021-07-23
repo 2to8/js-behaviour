@@ -150,8 +150,35 @@ namespace MoreTags
         public static T Find<T>(this GameObject[] parent, params object[] tags) where T : Component =>
             Find(typeof(T), parent, tags) as T;
 
+        static HashSet<int> checkedScenes = new HashSet<int>();
+
+        static void InitScenes()
+        {
+            SceneManager.GetAllScenes().Where(scene => !checkedScenes.Contains(scene.GetHashCode())).ForEach(scene => {
+                if (!scene.isLoaded) {
+                    //SceneManager.LoadScene(scene.name);
+                    return;
+                }
+
+                checkedScenes.Add(scene.GetHashCode());
+                var tags = new HashSet<string>();
+                scene.GetRootGameObjects().ForEach(go => {
+                    go.GetComponentsInChildren<Tags>(true).Where(t => t != null && t.ids.Any()).ForEach(t => {
+                        t.gameObject.AddTag();
+                        t.tags.ForEach(i => tags.Add(i));
+                        //Debug.Log(t.gameObject.name, t.gameObject);
+                        //Tags(t.ids.ToArray()).ForEach(t1 => ts.Add(t1));
+                    });
+                });
+                Debug.Log(
+                    $"check scene[{scene.name}] loaded: {scene.isLoaded} root: {scene.GetRootGameObjects().Length} tags: {tags.ToList().Join()}"
+                        .ToBlue());
+            });
+        }
+
         public static Object Find(Type type, GameObject[] parent, params object[] tags)
         {
+            InitScenes();
             var list = tags.Select(t => t is Enum e ? e.GetFullName() : $"{t}").ToArray();
             var ret = query.Parent(parent).tags(list).withTypes(type).result;
             Debug.Log($"[find] {type.FullName} tags: {string.Join(", ", list)} Num: {ret.Count}");

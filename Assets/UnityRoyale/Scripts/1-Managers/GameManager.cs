@@ -80,13 +80,19 @@ namespace UnityRoyale
 //            SceneManager.sceneLoaded += OnLevelFinishedLoading;
 //        }
 
+//        [RuntimeInitializeOnLoadMethod]
+//        static void CheckBinding()
+//        {
+//            binding?.Invoke();
+//        }
+
         void OnLevelFinishedLoading( /*Scene arg0, LoadSceneMode arg1*/)
         {
-            //cardManager = GetComponent<CardManager>();
-            CPUOpponent ??= GetComponentInChildren<CPUOpponent>();
-            inputManager ??= GetComponentInChildren<InputManager>();
+            // cardManager ??= GetComponentInChildren<CardManager>();
+            // CPUOpponent ??= GetComponentInChildren<CPUOpponent>();
+            // inputManager ??= GetComponentInChildren<InputManager>();
             //audioManager = GetComponentInChildren<AudioManager>();
-            cinematicsManager ??= GetComponentInChildren<CinematicsManager>();
+            // cinematicsManager ??= GetComponentInChildren<CinematicsManager>();
             //UIManager = GetComponentInChildren<UIManager>();
             if (autoStart)
                 introTimeline.SetActive(false);
@@ -106,15 +112,16 @@ namespace UnityRoyale
 //            allProjectiles = new List<Projectile>();
         }
 
-        public void Start()
+        public override void Start()
         {
+            base.Start();
             if (Application.isPlaying) {
                 TagSystem.query.tags("Do.HideOnStart").result.ForEach(go => go.SetActive(false));
             }
 
-            InitBinding();
-
+            //if (!Application.isPlaying) InitBinding();
             OnLevelFinishedLoading();
+
             if (Application.isPlaying) {
                 introTimeline.GetComponent<PlayableDirector>().stopped -= OnIntroStopped;
                 introTimeline.GetComponent<PlayableDirector>().stopped += OnIntroStopped;

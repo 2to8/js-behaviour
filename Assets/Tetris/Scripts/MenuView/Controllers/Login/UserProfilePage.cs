@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace MainScene.ChatScene.LoginPage
 {
-    public class UserProfilePage : SerializedMonoBehaviour
+    public class UserProfilePage : Manager<UserProfilePage>
     {
         public enum DataType
         {
@@ -41,8 +41,9 @@ namespace MainScene.ChatScene.LoginPage
         [DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.Foldout)]
         public Dictionary<DataType, Button> buttons = new Dictionary<DataType, Button>();
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             buttons[DataType.RegBtn].onClick.AddListener(OnRegister);
             buttons[DataType.LoginBtn].onClick.AddListener(OnLogin);
             buttons[DataType.LostPasswordBtn].onClick.AddListener(OnLostPassword);

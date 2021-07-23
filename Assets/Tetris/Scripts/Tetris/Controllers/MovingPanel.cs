@@ -24,8 +24,9 @@ namespace Tetris
         public ScrollRect panel => m_Panel ??= GetComponentInParent<ScrollRect>();
         public RectTransform rect => GetComponent<RectTransform>();
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             btn.onClick.AddListener(() => {
                 if (isClick) Debug.Log($"clicked right: {Input.mousePosition.x > Screen.width / 2}");
             });

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UnityRoyale
 {
-	public class Projectile : MonoBehaviour
+	public class Projectile : Manager<Projectile>
 	{
 		[HideInInspector] public ThinkingPlaceable target;
 		[HideInInspector] public float damage;
@@ -13,8 +13,9 @@ namespace UnityRoyale
 		private Vector3 offset = new Vector3(0f, 1.2f, 0f);
 		private Vector3 initialPosition;
 
-		private void Start()
+        public override void Start()
 		{
+            base.Start();
 			initialPosition = transform.position;
 		}
 

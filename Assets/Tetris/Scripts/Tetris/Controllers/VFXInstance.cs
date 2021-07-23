@@ -11,8 +11,9 @@ namespace Tetris
         new ParticleSystem particleSystem;
         Timer timer;
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             particleSystem = GetComponent<ParticleSystem>();
         }
 

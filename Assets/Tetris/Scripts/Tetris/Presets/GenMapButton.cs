@@ -16,8 +16,9 @@ namespace Presets
                 LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
         }
 
-        public void Start()
+        public override void Start()
         {
+            base.Start();
             btn = GetComponent<Button>();
             if (btn == null) {
                 Debug.Log("not contain button", gameObject);

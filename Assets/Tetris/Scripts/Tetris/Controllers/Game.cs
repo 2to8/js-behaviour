@@ -168,8 +168,9 @@ namespace Tetris
             //yield break;
         }
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             Debug.Log("[START]".ToRed());
             LoadScenes();
             //Debug.Log("[check-open]" + SceneManager.GetAllScenes().Where(t => t.isLoaded).Select(t => t.name).Join().ToRed());
@@ -230,6 +231,10 @@ namespace Tetris
                 return;
             }
 
+            if (GameManager.instance.HudUI == null) {
+                Debug.LogError("HudUI not found",GameManager.instance.gameObject);
+            }
+            
             if (!GameManager.instance.HudUI.enabled || !Application.isPlaying) return;
             if (m_State == GameState.Gamming) Debug.Log($"Gaming {currentBlock != null}");
             if (m_State == GameState.Gamming && currentBlock != null) {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Common;
 using Tetris;
 using Tetris.Blocks;
 using TMPro;
@@ -11,7 +12,7 @@ using UnityEngine.UI;
 
 namespace UnityRoyale
 {
-    public class Card : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
+    public class Card : View<Card>, IDragHandler, IPointerUpHandler, IPointerDownHandler
     {
         public static Card Current => BlockSpawner.instance.currentCard;
 
@@ -39,8 +40,9 @@ namespace UnityRoyale
         private CanvasGroup canvasGroup;
         void OnEnable() { }
 
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             canvasGroup = GetComponent<CanvasGroup>();
             lockIcon?.gameObject.SetActive(false);
         }

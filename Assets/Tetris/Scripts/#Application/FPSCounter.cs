@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace Tetris
 {
     [RequireComponent(typeof(Text))]
-    public class FPSCounter : MonoBehaviour {
+    public class FPSCounter : Manager<FPSCounter> {
         public bool showFps = true;
         const float fpsMeasurePeriod = 0.5f; //FPS测量间隔
         private int m_FpsAccumulator = 0;    //帧数累计的数量
@@ -15,8 +15,10 @@ namespace Tetris
         [SerializeField]
         private Text m_Text; //UGUI中Text组件
 
-        private void Start()
+        public override void Start()
         {
+            base.Start();
+            
             m_FpsNextPeriod =
                 Time.realtimeSinceStartup
                 + fpsMeasurePeriod; //Time.realtimeSinceStartup获取游戏开始到当前的时间，增加一个测量间隔，计算出下一次帧率计算是要在什么时候

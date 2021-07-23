@@ -11,8 +11,9 @@ namespace UnityRoyale
 		
 		private AudioSource audioSource;
 
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             pType = Placeable.PlaceableType.Obstacle;
             faction = Placeable.Faction.None; //faction is always none for Obstacles
 			audioSource = GetComponent<AudioSource>();

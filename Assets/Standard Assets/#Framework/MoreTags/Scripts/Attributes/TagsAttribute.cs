@@ -26,36 +26,14 @@ namespace MoreTags.Attributes
             tags.ForEach(t => this.tags.Add((t is Enum @enum ? @enum.GetFullName() : $"{t}")._TagKey()));
         }
 
-        static HashSet<string> checkedScenes = new HashSet<string>();
         static HashSet<MemberInfo> caches = new HashSet<MemberInfo>();
 
 //        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 //        static void CheckTags() { }
 
-
-
-        public void Invoke(MemberInfo memberInfo, Object target)
+        public void Invoke(MemberInfo memberInfo, Component target)
         {
-            SceneManager.GetAllScenes().Where(scene => !checkedScenes.Contains(scene.path)).ForEach(scene => {
-                if (!scene.isLoaded) {
-                    //SceneManager.LoadScene(scene.name);
-                    return;
-                }
 
-                checkedScenes.Add(scene.path);
-                var tags = new HashSet<string>();
-                scene.GetRootGameObjects().ForEach(go => {
-                    go.GetComponentsInChildren<Tags>(true).Where(t => t != null && t.ids.Any()).ForEach(t => {
-                        t.gameObject.AddTag();
-                        t.tags.ForEach(i => tags.Add(i));
-                        //Debug.Log(t.gameObject.name, t.gameObject);
-                        //Tags(t.ids.ToArray()).ForEach(t1 => ts.Add(t1));
-                    });
-                });
-                Debug.Log(
-                    $"check scene[{scene.name}] loaded: {scene.isLoaded} root: {scene.GetRootGameObjects().Length} tags: {tags.ToList().Join()}"
-                        .ToBlue());
-            });
 
 //            var ts = new HashSet<string>();
 //            Core.GetAllLoadedScenes().SelectMany(scene => scene.GetRootGameObjects()).ForEach(go => {
@@ -108,6 +86,8 @@ namespace MoreTags.Attributes
                 property.SetValue(target, value);
             }
 
+            Debug.Log($"[Binding] {tags.Join()} => {memberInfo.DeclaringType?.FullName}.{memberInfo.Name}".ToBlue(),
+                target.gameObject);
             caches.Add(memberInfo);
         }
     }

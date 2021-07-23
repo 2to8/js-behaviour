@@ -108,13 +108,14 @@ namespace UnityRoyale
         }
     }
 
-    public partial class AAUsageExample : MonoBehaviour
+    public partial class AAUsageExample : Manager<AAUsageExample>
     {
         public AssetReferenceGameObject refObject;
         public AssetReference scene;
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             var asyncOp = refObject.InstantiateAsync(Vector3.zero, Quaternion.identity, null);
             asyncOp.WaitForCompletion();
             Debug.Log(asyncOp.Result.name + " loaded.");

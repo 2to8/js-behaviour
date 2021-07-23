@@ -17,8 +17,9 @@ namespace GlobalScene
         public AssetReference nextSceneAddress;
         public List<AssetReference> testPrefabs;
 
-        public async void Start()
+        public override async void Start()
         {
+            base.Start();
             DontDestroyOnLoad(gameObject);
             for (var i = 0; i < testPrefabs.Count; i++) await testPrefabs[i].InstantiateAsync();
         }

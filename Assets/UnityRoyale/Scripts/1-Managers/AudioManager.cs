@@ -11,8 +11,9 @@ public class AudioManager : Manager<AudioManager>
 
 	private AudioSource audioSource;
 
-	private void Start()
+    public override void Start()
 	{
+        base.Start();
 		audioSource = GetComponent<AudioSource>();
 	}
 

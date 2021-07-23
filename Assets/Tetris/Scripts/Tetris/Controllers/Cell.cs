@@ -128,6 +128,6 @@ namespace Tetris
         // }
         //
         // public static bool operator !=(Cell left, Cell right) => !(left == right);
-        void Start() { }
+        //void Start() { }
     }
 }

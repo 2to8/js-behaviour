@@ -14,9 +14,10 @@ namespace UnityRoyale
 		public PlayableDirector constructionTimeline;
 		public PlayableDirector destructionTimeline;
 
-		private void Start()
+        public override void Start() 
 		{
-			audioSource = GetComponent<AudioSource>();
+            base.Start();
+            audioSource = GetComponent<AudioSource>();
 		}
 
         public void Activate(Faction pFaction, PlaceableData pData)

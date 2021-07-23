@@ -124,8 +124,9 @@ namespace MainScene.BootScene.Utils
         public long currentSize { get; set; }
         public bool FirstRun { get; set; }
 
-        async void Start()
+        public override async void Start()
         {
+            base.Start();
             if (!Application.isEditor && !Debug.isDebugBuild && PlayerPrefs.GetInt($"{Consts.k_Debug}", 0) != 1)
                 DebugLogManager.Instance?.gameObject.SetActive(false);
 

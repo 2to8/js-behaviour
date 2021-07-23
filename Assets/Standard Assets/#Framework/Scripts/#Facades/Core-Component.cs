@@ -343,7 +343,10 @@ public static partial class Core
 
     public static T FindOrCreateManager<T>(string sceneName = null) where T : Component
     {
+        // Editor 模式需要 FindObjectOfType
         var result = TagSystem.Find(typeof(T), null, Cate.Managers) as T ?? Object.FindObjectOfType<T>();
+        return result;
+
         if (result != null /*&& sceneName == SceneManager.GetActiveScene().name*/) return result;
         Assert.IsFalse(SceneManager.sceneCount == 0, "No opened Scene");
         var scene = sceneName.IsNullOrEmpty() || sceneName == SceneManager.GetActiveScene().name

@@ -117,8 +117,9 @@ Debug.Log(req.downloadHandler.text);
 
         // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         //[RuntimeInitializeOnLoadMethod]
-        async void Start()
+        public override async void Start()
         {
+            base.Start();
             {
                 // if (Application.isEditor && SceneManager.GetActiveScene().name != "BootScene") return;
                 if (Application.internetReachability == NetworkReachability.NotReachable) {

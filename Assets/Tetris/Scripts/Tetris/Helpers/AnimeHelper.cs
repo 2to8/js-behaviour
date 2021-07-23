@@ -17,8 +17,9 @@ namespace Tetris
         [SerializeField]
         Animator m_Animator;
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             m_Animator ??= GetComponent<Animator>();
         }
         //#if UNITY_EDITOR

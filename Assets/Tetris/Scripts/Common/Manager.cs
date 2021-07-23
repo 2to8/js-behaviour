@@ -1,3 +1,4 @@
+using System;
 using GameEngine.Attributes;
 using GameEngine.Extensions;
 using Sirenix.OdinInspector;
@@ -14,7 +15,6 @@ public abstract class Manager<T> : View<T> where T : Manager<T>
 {
     //
     static T m_Instance;
-    bool BindingInited;
     public static bool instanceExists => m_Instance != null;
 
     // [SerializeField]
@@ -37,29 +37,17 @@ public abstract class Manager<T> : View<T> where T : Manager<T>
         protected set => m_Instance = value;
     }
 
-    [Button]
-    public void InitBinding()
-    {
-        if (!BindingInited) {
-            //BindingInited = true;
-            Debug.Log($"binding tags: {GetType().FullName}");
-            GetType()
-                .GetMembers(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
-                .Where(t => t.IsDefined(typeof(TagsAttribute))).ToList().ForEach(mi => {
-                    mi.GetCustomAttribute<TagsAttribute>().Invoke(mi, this);
-                });
-        }
-    }
+ 
 
     protected virtual void Awake()
     {
         m_Instance ??= (T) this;
-        SceneManager.sceneLoaded += (arg0, mode) => { InitBinding(); };
+
+        //SceneManager.sceneLoaded += (arg0, mode) => { InitBinding(); };
         //InitBinding();
     }
 
-  
-    void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (m_Instance == this) {
             m_Instance = null;

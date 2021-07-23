@@ -17,7 +17,7 @@ using UnityEngine.UI;
 
 namespace MainScene.BootScene.Unused
 {
-    public class LoadStartScene : SerializedMonoBehaviour
+    public class LoadStartScene : Manager<LoadStartScene>
     {
         [SerializeField]
         public Slider m_Slider;
@@ -99,8 +99,9 @@ namespace MainScene.BootScene.Unused
         //     await config.mainMenuScene.LoadSceneAsync(LoadSceneMode.Additive);
         // }
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             versionText.text = Application.version;
             if (useJs && string.IsNullOrEmpty(JsCode))
                 useJs = false;

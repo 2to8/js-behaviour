@@ -15,8 +15,9 @@ namespace UnityRoyale
         static readonly int m_MoveSpeed = Animator.StringToHash("MoveSpeed");
         bool IsStarted;
 
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             pType = Placeable.PlaceableType.Unit;
 
             //find references to components

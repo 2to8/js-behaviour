@@ -68,8 +68,9 @@ namespace Tetris
         Pool<VFXInstance> m_vfx_LineClearPool;
         Dictionary<string, AudioClip> m_soundsLookup = new Dictionary<string, AudioClip>();
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             m_soundsLookup.Clear();
             for (var i = 0; i < sounds.Length; i++) m_soundsLookup.Add(sounds[i].key, sounds[i].clip);
             for (var i = 0; i < bg.Length; i++) m_soundsLookup.Add(bg[i].key, bg[i].clip);

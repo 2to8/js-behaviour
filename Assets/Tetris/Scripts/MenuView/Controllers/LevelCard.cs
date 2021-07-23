@@ -40,8 +40,9 @@ namespace MainScene.Menu
             if (loadHandle.IsValid() && progress != null) progress.value = loadHandle.PercentComplete;
         }
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             //button.onClick.AddListener(OnClick);
             if (!inited) {
                 parent.anchoredPosition = new Vector2(-15f, 164.5f);
